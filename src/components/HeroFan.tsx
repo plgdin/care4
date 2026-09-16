@@ -20,11 +20,11 @@ export const HeroFan: React.FC<HeroFanProps> = ({ onGetStarted, onWatchDemo }) =
   ];
 
   return (
-    <section style={{ paddingTop: '56px', paddingBottom: '72px', textAlign: 'center' }}>
+    <section style={{ paddingTop: '56px', paddingBottom: '72px', textAlign: 'center', backgroundColor: 'var(--bg-hero)' }}>
       <div className="container">
         {/* Top Tag */}
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
-          <span className="pill-badge">CARE4 ASSOCIATES</span>
+          <span className="pill-badge-red">CARE4 ASSOCIATES</span>
         </div>
 
         {/* Hero Title */}
@@ -35,10 +35,11 @@ export const HeroFan: React.FC<HeroFanProps> = ({ onGetStarted, onWatchDemo }) =
             margin: '0 auto 20px',
             lineHeight: 1.08,
             letterSpacing: '-0.03em',
+            color: 'var(--text-heading)',
           }}
         >
           Streamline your team, <br />
-          supercharge your workflow<span style={{ color: 'var(--text-muted)' }}>.</span>
+          supercharge your workflow<span style={{ color: 'var(--accent-red)' }}>.</span>
         </h1>
 
         {/* Subheading */}
@@ -64,7 +65,7 @@ export const HeroFan: React.FC<HeroFanProps> = ({ onGetStarted, onWatchDemo }) =
             marginBottom: '64px',
           }}
         >
-          <button onClick={onGetStarted} className="btn-primary">
+          <button onClick={onGetStarted} className="btn-accent">
             Get started for free <ArrowRight size={16} />
           </button>
           <button onClick={onWatchDemo} className="btn-outline">
@@ -96,19 +97,19 @@ export const HeroFan: React.FC<HeroFanProps> = ({ onGetStarted, onWatchDemo }) =
                 style={{
                   width: '124px',
                   height: '228px',
-                  backgroundColor: '#EDE9E1',
+                  backgroundColor: isHovered ? 'var(--bg-white)' : 'var(--bg-card)',
                   borderRadius: '26px',
-                  border: '1px solid rgba(0,0,0,0.06)',
+                  border: isHovered ? '1.5px solid var(--primary-blue)' : '1px solid var(--border-medium)',
                   boxShadow: isHovered
-                    ? '0 20px 32px rgba(0, 0, 0, 0.12)'
-                    : '0 8px 20px rgba(0, 0, 0, 0.04)',
+                    ? '0 20px 32px rgba(10, 31, 78, 0.16)'
+                    : '0 8px 20px rgba(10, 31, 78, 0.05)',
                   position: 'relative',
                   margin: '0 -10px',
                   transform: isHovered
                     ? `translateY(${card.translateY - 24}px) rotate(${card.rotate * 0.4}deg) scale(1.08)`
                     : `translateY(${card.translateY}px) rotate(${card.rotate}deg)`,
                   zIndex: isHovered ? 20 : idx + 1,
-                  transition: 'transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease',
+                  transition: 'transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease, border-color 0.2s ease',
                   cursor: 'pointer',
                   display: 'flex',
                   flexDirection: 'column',
@@ -126,7 +127,7 @@ export const HeroFan: React.FC<HeroFanProps> = ({ onGetStarted, onWatchDemo }) =
                       fontSize: '9px',
                       fontWeight: 800,
                       letterSpacing: '0.12em',
-                      color: 'var(--text-muted)',
+                      color: 'var(--primary-blue)',
                       textTransform: 'uppercase',
                     }}
                   >
@@ -139,11 +140,11 @@ export const HeroFan: React.FC<HeroFanProps> = ({ onGetStarted, onWatchDemo }) =
                     width: '42px',
                     height: '42px',
                     borderRadius: '12px',
-                    backgroundColor: 'rgba(255, 255, 255, 0.45)',
+                    backgroundColor: 'var(--accent-blue-light)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: '#9C958A',
+                    color: 'var(--primary-blue)',
                   }}
                 >
                   <ImageIcon size={22} strokeWidth={1.5} />

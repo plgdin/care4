@@ -20,7 +20,7 @@ export const PricingTable: React.FC = () => {
   ];
 
   return (
-    <section style={{ padding: '40px 0 80px' }}>
+    <section style={{ padding: '40px 0 80px', backgroundColor: 'var(--bg-main)' }}>
       <div className="container">
         <div style={{ textAlign: 'center', marginBottom: '40px' }}>
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '14px' }}>
@@ -32,6 +32,7 @@ export const PricingTable: React.FC = () => {
               fontSize: 'clamp(28px, 4vw, 40px)',
               fontWeight: 800,
               letterSpacing: '-0.025em',
+              color: 'var(--text-heading)',
             }}
           >
             Transparent comparison
@@ -41,9 +42,9 @@ export const PricingTable: React.FC = () => {
         {/* Table Container */}
         <div
           style={{
-            backgroundColor: '#EDE9E1',
+            backgroundColor: 'var(--bg-card)',
             borderRadius: '24px',
-            border: '1px solid rgba(0, 0, 0, 0.06)',
+            border: '1px solid var(--border-medium)',
             overflowX: 'auto',
             boxShadow: 'var(--shadow-sm)',
           }}
@@ -57,7 +58,7 @@ export const PricingTable: React.FC = () => {
             }}
           >
             <thead>
-              <tr style={{ borderBottom: '1px solid rgba(0, 0, 0, 0.08)' }}>
+              <tr style={{ borderBottom: '1px solid var(--border-medium)', backgroundColor: 'var(--bg-white)' }}>
                 <th
                   style={{
                     padding: '24px 28px',
@@ -76,7 +77,7 @@ export const PricingTable: React.FC = () => {
                     padding: '24px 20px',
                     fontSize: '15px',
                     fontWeight: 800,
-                    color: 'var(--text-primary)',
+                    color: 'var(--text-heading)',
                     textAlign: 'center',
                   }}
                 >
@@ -87,7 +88,7 @@ export const PricingTable: React.FC = () => {
                     padding: '24px 20px',
                     fontSize: '15px',
                     fontWeight: 800,
-                    color: 'var(--text-primary)',
+                    color: 'var(--primary-blue)',
                     textAlign: 'center',
                   }}
                 >
@@ -98,7 +99,7 @@ export const PricingTable: React.FC = () => {
                     padding: '24px 20px',
                     fontSize: '15px',
                     fontWeight: 800,
-                    color: 'var(--text-primary)',
+                    color: 'var(--text-heading)',
                     textAlign: 'center',
                   }}
                 >
@@ -112,8 +113,8 @@ export const PricingTable: React.FC = () => {
                   key={idx}
                   style={{
                     borderBottom:
-                      idx < features.length - 1 ? '1px solid rgba(0, 0, 0, 0.06)' : 'none',
-                    backgroundColor: idx % 2 === 0 ? 'rgba(255, 255, 255, 0.25)' : 'transparent',
+                      idx < features.length - 1 ? '1px solid var(--border-light)' : 'none',
+                    backgroundColor: idx % 2 === 0 ? 'var(--bg-white)' : 'transparent',
                   }}
                 >
                   <td
@@ -136,7 +137,7 @@ export const PricingTable: React.FC = () => {
                             width: '24px',
                             height: '24px',
                             borderRadius: '50%',
-                            backgroundColor: 'var(--text-primary)',
+                            backgroundColor: 'var(--primary-blue)',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
@@ -151,11 +152,11 @@ export const PricingTable: React.FC = () => {
                             width: '24px',
                             height: '24px',
                             borderRadius: '50%',
-                            backgroundColor: '#D1CBC0',
+                            backgroundColor: 'rgba(16, 24, 40, 0.08)',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            color: '#8E887E',
+                            color: 'var(--text-muted)',
                           }}
                         >
                           <Minus size={14} />
@@ -173,7 +174,7 @@ export const PricingTable: React.FC = () => {
                             width: '24px',
                             height: '24px',
                             borderRadius: '50%',
-                            backgroundColor: 'var(--text-primary)',
+                            backgroundColor: 'var(--primary-blue)',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
@@ -188,11 +189,11 @@ export const PricingTable: React.FC = () => {
                             width: '24px',
                             height: '24px',
                             borderRadius: '50%',
-                            backgroundColor: '#D1CBC0',
+                            backgroundColor: 'rgba(16, 24, 40, 0.08)',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            color: '#8E887E',
+                            color: 'var(--text-muted)',
                           }}
                         >
                           <Minus size={14} />
@@ -210,7 +211,7 @@ export const PricingTable: React.FC = () => {
                             width: '24px',
                             height: '24px',
                             borderRadius: '50%',
-                            backgroundColor: 'var(--text-primary)',
+                            backgroundColor: 'var(--primary-blue)',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
@@ -225,11 +226,11 @@ export const PricingTable: React.FC = () => {
                             width: '24px',
                             height: '24px',
                             borderRadius: '50%',
-                            backgroundColor: '#D1CBC0',
+                            backgroundColor: 'rgba(16, 24, 40, 0.08)',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            color: '#8E887E',
+                            color: 'var(--text-muted)',
                           }}
                         >
                           <Minus size={14} />

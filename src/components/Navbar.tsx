@@ -32,10 +32,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, onOpenC
         top: 0,
         zIndex: 50,
         padding: '16px 24px',
-        backgroundColor: isScrolled ? 'rgba(246, 243, 238, 0.85)' : 'var(--bg-main)',
+        backgroundColor: isScrolled ? 'rgba(245, 245, 243, 0.92)' : 'var(--bg-hero)',
         backdropFilter: isScrolled ? 'blur(12px)' : 'none',
         transition: 'all 0.25s ease',
-        borderBottom: isScrolled ? '1px solid rgba(0,0,0,0.05)' : '1px solid transparent',
+        borderBottom: isScrolled ? '1px solid var(--border-light)' : '1px solid transparent',
       }}
     >
       <div
@@ -58,13 +58,14 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, onOpenC
             userSelect: 'none',
           }}
         >
-          <span
+          <img
+            src="/care4-logo.png"
+            alt="Care4 Logo"
             style={{
-              width: '18px',
-              height: '18px',
-              borderRadius: '50%',
-              backgroundColor: 'var(--text-primary)',
-              display: 'inline-block',
+              height: '32px',
+              width: 'auto',
+              objectFit: 'contain',
+              display: 'block',
             }}
           />
           <span
@@ -72,7 +73,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, onOpenC
               fontSize: '17px',
               fontWeight: 800,
               letterSpacing: '-0.02em',
-              color: 'var(--text-primary)',
+              color: 'var(--text-heading)',
             }}
           >
             Care4 Associates
@@ -84,11 +85,12 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, onOpenC
           style={{
             display: 'none',
             alignItems: 'center',
-            backgroundColor: '#EAE6DE',
+            backgroundColor: 'var(--bg-white)',
             padding: '4px',
             borderRadius: '9999px',
             gap: '4px',
-            boxShadow: 'inset 0 1px 2px rgba(0,0,0,0.04)',
+            border: '1px solid var(--border-medium)',
+            boxShadow: 'var(--shadow-sm)',
           }}
           className="desktop-nav"
         >
@@ -99,9 +101,9 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, onOpenC
               borderRadius: '9999px',
               fontSize: '13px',
               fontWeight: activeTab === 'home' ? 700 : 500,
-              color: activeTab === 'home' ? 'var(--text-primary)' : 'var(--text-secondary)',
-              backgroundColor: activeTab === 'home' ? '#FFFFFF' : 'transparent',
-              boxShadow: activeTab === 'home' ? '0 2px 6px rgba(0,0,0,0.06)' : 'none',
+              color: activeTab === 'home' ? '#FFFFFF' : 'var(--text-secondary)',
+              backgroundColor: activeTab === 'home' ? 'var(--primary-blue)' : 'transparent',
+              boxShadow: activeTab === 'home' ? '0 2px 8px rgba(26, 75, 160, 0.3)' : 'none',
               transition: 'all 0.15s ease',
             }}
           >
@@ -114,9 +116,9 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, onOpenC
               borderRadius: '9999px',
               fontSize: '13px',
               fontWeight: activeTab === 'products' ? 700 : 500,
-              color: activeTab === 'products' ? 'var(--text-primary)' : 'var(--text-secondary)',
-              backgroundColor: activeTab === 'products' ? '#FFFFFF' : 'transparent',
-              boxShadow: activeTab === 'products' ? '0 2px 6px rgba(0,0,0,0.06)' : 'none',
+              color: activeTab === 'products' ? '#FFFFFF' : 'var(--text-secondary)',
+              backgroundColor: activeTab === 'products' ? 'var(--primary-blue)' : 'transparent',
+              boxShadow: activeTab === 'products' ? '0 2px 8px rgba(26, 75, 160, 0.3)' : 'none',
               transition: 'all 0.15s ease',
             }}
           >
@@ -129,9 +131,9 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, onOpenC
               borderRadius: '9999px',
               fontSize: '13px',
               fontWeight: activeTab === 'about' ? 700 : 500,
-              color: activeTab === 'about' ? 'var(--text-primary)' : 'var(--text-secondary)',
-              backgroundColor: activeTab === 'about' ? '#FFFFFF' : 'transparent',
-              boxShadow: activeTab === 'about' ? '0 2px 6px rgba(0,0,0,0.06)' : 'none',
+              color: activeTab === 'about' ? '#FFFFFF' : 'var(--text-secondary)',
+              backgroundColor: activeTab === 'about' ? 'var(--primary-blue)' : 'transparent',
+              boxShadow: activeTab === 'about' ? '0 2px 8px rgba(26, 75, 160, 0.3)' : 'none',
               transition: 'all 0.15s ease',
             }}
           >
@@ -143,7 +145,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, onOpenC
         <div style={{ display: 'none', alignItems: 'center', gap: '12px' }} className="desktop-cta">
           <button
             onClick={onOpenContact}
-            className="btn-primary"
+            className="btn-accent"
             style={{ padding: '9px 20px', fontSize: '13px' }}
           >
             Get started
@@ -155,7 +157,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, onOpenC
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           style={{
             padding: '8px',
-            color: 'var(--text-primary)',
+            color: 'var(--text-heading)',
             borderRadius: '8px',
             display: 'flex',
             alignItems: 'center',
@@ -173,10 +175,11 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, onOpenC
         <div
           style={{
             marginTop: '16px',
-            backgroundColor: '#FFFFFF',
+            backgroundColor: 'var(--bg-white)',
             borderRadius: '20px',
             padding: '20px',
             boxShadow: 'var(--shadow-lg)',
+            border: '1px solid var(--border-medium)',
             display: 'flex',
             flexDirection: 'column',
             gap: '12px',
@@ -189,8 +192,8 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, onOpenC
               padding: '12px 16px',
               borderRadius: '12px',
               fontWeight: activeTab === 'home' ? 800 : 600,
-              backgroundColor: activeTab === 'home' ? 'var(--bg-main)' : 'transparent',
-              color: 'var(--text-primary)',
+              backgroundColor: activeTab === 'home' ? 'var(--accent-blue-light)' : 'transparent',
+              color: activeTab === 'home' ? 'var(--primary-blue)' : 'var(--text-secondary)',
             }}
           >
             Home
@@ -202,8 +205,8 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, onOpenC
               padding: '12px 16px',
               borderRadius: '12px',
               fontWeight: activeTab === 'products' ? 800 : 600,
-              backgroundColor: activeTab === 'products' ? 'var(--bg-main)' : 'transparent',
-              color: 'var(--text-primary)',
+              backgroundColor: activeTab === 'products' ? 'var(--accent-blue-light)' : 'transparent',
+              color: activeTab === 'products' ? 'var(--primary-blue)' : 'var(--text-secondary)',
             }}
           >
             Products
@@ -215,8 +218,8 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, onOpenC
               padding: '12px 16px',
               borderRadius: '12px',
               fontWeight: activeTab === 'about' ? 800 : 600,
-              backgroundColor: activeTab === 'about' ? 'var(--bg-main)' : 'transparent',
-              color: 'var(--text-primary)',
+              backgroundColor: activeTab === 'about' ? 'var(--accent-blue-light)' : 'transparent',
+              color: activeTab === 'about' ? 'var(--primary-blue)' : 'var(--text-secondary)',
             }}
           >
             About
@@ -226,7 +229,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, onOpenC
               setMobileMenuOpen(false);
               if (onOpenContact) onOpenContact();
             }}
-            className="btn-primary"
+            className="btn-accent"
             style={{ marginTop: '8px', width: '100%' }}
           >
             Get started <ArrowRight size={16} />

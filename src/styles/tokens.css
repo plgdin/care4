@@ -1,24 +1,37 @@
 :root {
-  /* Color Palette directly extracted from Figma care4 */
-  --bg-main: #F6F3EE;
-  --bg-card: #EDE9E1;
-  --bg-card-light: #FBF9F5;
-  --bg-card-subtle: #ECE8E0;
-  --bg-dark: #1E1D1B;
-  --bg-dark-input: #2D2B28;
-  --bg-dark-input-hover: #363430;
-  --bg-dark-button: #F6F3EE;
-  
-  --text-primary: #1E1D1B;
-  --text-secondary: #736E65;
-  --text-muted: #8E887E;
-  --text-inverse: #F6F3EE;
-  --text-inverse-muted: #9E988E;
+  /* Exact Figma Brand Colors */
+  --primary-blue: #1a4ba0;
+  --accent-red: #d91b2a;
+  --deep-navy: #0a1f4e;
 
-  --border-light: rgba(30, 29, 27, 0.08);
-  --border-medium: #CBC5BA;
-  --border-dark: rgba(255, 255, 255, 0.12);
-  --border-focus: #1E1D1B;
+  /* Backgrounds */
+  --bg-main: #f5f5f3;
+  --bg-hero: #f5f5f3;
+  --bg-sections: #f4f5f7;
+  --bg-card: #f9fafb;
+  --bg-white: #ffffff;
+  --bg-dark: #0a1f4e;
+  --bg-dark-input: rgba(255, 255, 255, 0.08);
+  --bg-dark-input-hover: rgba(255, 255, 255, 0.14);
+
+  /* Text & Tints */
+  --text-primary: #101828;
+  --text-heading: #101828;
+  --text-secondary: #4a5565;
+  --text-muted: #6a7282;
+  --text-muted-light: #99a1af;
+  --text-inverse: #ffffff;
+  --text-inverse-muted: #bedbff;
+
+  /* Accent Tints */
+  --accent-blue-light: #bedbff;
+  --accent-blue-mid: #8ec5ff;
+  --accent-red-light: #ffc9c9;
+
+  /* Borders & Shadows */
+  --border-light: rgba(16, 24, 40, 0.08);
+  --border-medium: #d0d5dd;
+  --border-dark: rgba(255, 255, 255, 0.16);
 
   --radius-sm: 8px;
   --radius-md: 16px;
@@ -28,9 +41,9 @@
 
   --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.09);
+  --shadow-sm: 0 2px 8px rgba(10, 31, 78, 0.04);
+  --shadow-md: 0 8px 24px rgba(10, 31, 78, 0.06);
+  --shadow-lg: 0 16px 40px rgba(10, 31, 78, 0.1);
 
   --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-smooth: 0.25s cubic-bezier(0.16, 1, 0.3, 1);

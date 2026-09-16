@@ -20,7 +20,7 @@ export const BentoGrid: React.FC = () => {
       title: 'Built-in team chat',
       desc: 'Message instantly within every project — no more fragmented app-switching.',
       icon: <MessageSquare size={20} />,
-      gradient: 'linear-gradient(145deg, #CCC6BA 0%, #888277 100%)',
+      gradient: 'linear-gradient(135deg, #0a1f4e 0%, #1a4ba0 100%)',
       gridSpan: 'span 7',
       height: '320px',
     },
@@ -30,7 +30,7 @@ export const BentoGrid: React.FC = () => {
       title: 'Task assignment',
       desc: 'Keep everyone aligned, accountable, and aware of next actions.',
       icon: <CheckSquare size={20} />,
-      gradient: 'linear-gradient(145deg, #DDD8CC 0%, #9B958A 100%)',
+      gradient: 'linear-gradient(135deg, #143b80 0%, #0a1f4e 100%)',
       gridSpan: 'span 5',
       height: '320px',
     },
@@ -40,8 +40,8 @@ export const BentoGrid: React.FC = () => {
       title: 'Real-time scheduling',
       desc: 'Plan meetings and deadlines on a frictionless shared calendar.',
       icon: <Calendar size={20} />,
-      gradient: 'linear-gradient(145deg, #C2BCAE 0%, #7E776C 100%)',
-      gridSpan: 'span 4',
+      gradient: 'linear-gradient(135deg, #1a4ba0 0%, #2b67d1 100%)',
+      gridSpan: 'span 5',
       height: '280px',
     },
     {
@@ -50,14 +50,14 @@ export const BentoGrid: React.FC = () => {
       title: 'Progress tracking',
       desc: 'Live dashboards that highlight what is done, in flight, and coming next.',
       icon: <BarChart3 size={20} />,
-      gradient: 'linear-gradient(145deg, #D4CEBF 0%, #8D867B 100%)',
-      gridSpan: 'span 8',
+      gradient: 'linear-gradient(135deg, #0a1f4e 0%, #1a4ba0 60%, #2b67d1 100%)',
+      gridSpan: 'span 7',
       height: '280px',
     },
   ];
 
   return (
-    <section style={{ padding: '60px 0 80px' }}>
+    <section style={{ padding: '60px 0 80px', backgroundColor: 'var(--bg-sections)' }}>
       <div className="container">
         {/* Section Header */}
         <div style={{ textAlign: 'center', marginBottom: '48px' }}>
@@ -69,6 +69,7 @@ export const BentoGrid: React.FC = () => {
               fontSize: 'clamp(28px, 4vw, 42px)',
               fontWeight: 800,
               letterSpacing: '-0.025em',
+              color: 'var(--text-heading)',
             }}
           >
             Everything your team <br />
@@ -92,12 +93,12 @@ export const BentoGrid: React.FC = () => {
                 position: 'relative',
                 overflow: 'hidden',
                 color: '#FFFFFF',
-                boxShadow: '0 8px 24px rgba(0,0,0,0.06)',
-                border: '1px solid rgba(255,255,255,0.2)',
+                boxShadow: '0 12px 30px rgba(10, 31, 78, 0.18)',
+                border: '1px solid rgba(255,255,255,0.15)',
                 minHeight: item.height,
               }}
             >
-              {/* Subtle visual texture/graphic */}
+              {/* Box Icon Graphic */}
               <div
                 style={{
                   position: 'absolute',
@@ -125,7 +126,7 @@ export const BentoGrid: React.FC = () => {
                     fontWeight: 700,
                     textTransform: 'uppercase',
                     letterSpacing: '0.1em',
-                    color: 'rgba(255,255,255,0.75)',
+                    color: 'var(--accent-blue-light)',
                     marginBottom: '8px',
                     display: 'inline-block',
                   }}

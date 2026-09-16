@@ -76,12 +76,12 @@ export const ProductGrid: React.FC = () => {
     : products.filter(p => p.category === activeCategory);
 
   return (
-    <section style={{ padding: '40px 0 80px' }}>
+    <section style={{ padding: '40px 0 80px', backgroundColor: 'var(--bg-main)' }}>
       <div className="container">
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: '40px' }}>
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px' }}>
-            <span className="pill-badge">PRODUCTS</span>
+            <span className="pill-badge-red">PRODUCTS</span>
           </div>
 
           <h1
@@ -90,9 +90,10 @@ export const ProductGrid: React.FC = () => {
               fontWeight: 800,
               letterSpacing: '-0.03em',
               marginBottom: '16px',
+              color: 'var(--text-heading)',
             }}
           >
-            Powerful tools for modern teams<span style={{ color: 'var(--text-muted)' }}>.</span>
+            Powerful tools for modern teams<span style={{ color: 'var(--accent-red)' }}>.</span>
           </h1>
 
           <p
@@ -111,10 +112,12 @@ export const ProductGrid: React.FC = () => {
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              backgroundColor: '#EDE9E1',
+              backgroundColor: 'var(--bg-white)',
               padding: '4px',
               borderRadius: '9999px',
               gap: '4px',
+              border: '1px solid var(--border-medium)',
+              boxShadow: 'var(--shadow-sm)',
             }}
           >
             {categories.map((cat) => {
@@ -128,9 +131,9 @@ export const ProductGrid: React.FC = () => {
                     borderRadius: '9999px',
                     fontSize: '13px',
                     fontWeight: isActive ? 700 : 500,
-                    color: isActive ? 'var(--text-primary)' : 'var(--text-secondary)',
-                    backgroundColor: isActive ? '#FFFFFF' : 'transparent',
-                    boxShadow: isActive ? '0 2px 6px rgba(0,0,0,0.06)' : 'none',
+                    color: isActive ? '#FFFFFF' : 'var(--text-secondary)',
+                    backgroundColor: isActive ? 'var(--primary-blue)' : 'transparent',
+                    boxShadow: isActive ? '0 2px 8px rgba(26, 75, 160, 0.3)' : 'none',
                     transition: 'all 0.15s ease',
                   }}
                 >
@@ -153,12 +156,13 @@ export const ProductGrid: React.FC = () => {
             <div
               key={product.id}
               style={{
-                backgroundColor: '#EDE9E1',
+                backgroundColor: 'var(--bg-card)',
                 borderRadius: '24px',
                 padding: '24px',
                 display: 'flex',
                 flexDirection: 'column',
-                border: '1px solid rgba(0, 0, 0, 0.05)',
+                border: '1px solid var(--border-medium)',
+                boxShadow: 'var(--shadow-sm)',
                 transition: 'all 0.25s ease',
                 cursor: 'pointer',
               }}
@@ -170,15 +174,15 @@ export const ProductGrid: React.FC = () => {
                   width: '100%',
                   height: '180px',
                   borderRadius: '16px',
-                  backgroundColor: 'rgba(255, 255, 255, 0.4)',
+                  backgroundColor: 'var(--accent-blue-light)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: '#9C958A',
+                  color: 'var(--primary-blue)',
                   marginBottom: '20px',
                 }}
               >
-                <ImageIcon size={36} strokeWidth={1.25} />
+                <ImageIcon size={36} strokeWidth={1.5} />
               </div>
 
               {/* Title & Free Tag */}
@@ -195,7 +199,7 @@ export const ProductGrid: React.FC = () => {
                     fontSize: '18px',
                     fontWeight: 800,
                     letterSpacing: '-0.02em',
-                    color: 'var(--text-primary)',
+                    color: 'var(--text-heading)',
                   }}
                 >
                   {product.title}
@@ -204,7 +208,10 @@ export const ProductGrid: React.FC = () => {
                   style={{
                     fontSize: '12px',
                     fontWeight: 600,
-                    color: 'var(--text-secondary)',
+                    color: 'var(--primary-blue)',
+                    backgroundColor: 'var(--accent-blue-light)',
+                    padding: '2px 8px',
+                    borderRadius: '6px',
                   }}
                 >
                   {product.badge}
@@ -231,7 +238,7 @@ export const ProductGrid: React.FC = () => {
                   alignItems: 'center',
                   justifyContent: 'space-between',
                   paddingTop: '16px',
-                  borderTop: '1px solid rgba(0, 0, 0, 0.06)',
+                  borderTop: '1px solid var(--border-light)',
                 }}
               >
                 <span
@@ -239,7 +246,10 @@ export const ProductGrid: React.FC = () => {
                     fontSize: '10px',
                     fontWeight: 800,
                     letterSpacing: '0.1em',
-                    color: 'var(--text-muted)',
+                    color: 'var(--accent-red)',
+                    backgroundColor: 'var(--accent-red-light)',
+                    padding: '3px 8px',
+                    borderRadius: '9999px',
                     textTransform: 'uppercase',
                   }}
                 >
@@ -253,7 +263,7 @@ export const ProductGrid: React.FC = () => {
                     gap: '4px',
                     fontSize: '13px',
                     fontWeight: 700,
-                    color: 'var(--text-primary)',
+                    color: 'var(--primary-blue)',
                   }}
                 >
                   <span>Learn more</span>

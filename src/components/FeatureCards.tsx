@@ -37,7 +37,7 @@ export const FeatureCards: React.FC = () => {
   };
 
   return (
-    <section style={{ padding: '36px 0 64px' }}>
+    <section style={{ padding: '36px 0 64px', backgroundColor: 'var(--bg-sections)' }}>
       <div className="container">
         <div
           style={{
@@ -52,13 +52,14 @@ export const FeatureCards: React.FC = () => {
               <div
                 key={item.id}
                 style={{
-                  backgroundColor: '#EDE9E1',
+                  backgroundColor: 'var(--bg-card)',
                   borderRadius: '24px',
                   padding: '32px 28px',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
-                  border: '1px solid rgba(0, 0, 0, 0.05)',
+                  border: isExpanded ? '1.5px solid var(--primary-blue)' : '1px solid var(--border-medium)',
+                  boxShadow: 'var(--shadow-sm)',
                   transition: 'all 0.25s ease',
                   cursor: 'pointer',
                   position: 'relative',
@@ -73,14 +74,17 @@ export const FeatureCards: React.FC = () => {
                       width: '36px',
                       height: '36px',
                       borderRadius: '50%',
-                      backgroundColor: 'var(--text-primary)',
+                      backgroundColor: isExpanded ? 'var(--accent-red)' : 'var(--primary-blue)',
                       color: '#FFFFFF',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       marginBottom: '28px',
-                      transition: 'transform 0.2s ease',
+                      transition: 'transform 0.2s ease, background-color 0.2s ease',
                       transform: isExpanded ? 'rotate(90deg)' : 'none',
+                      boxShadow: isExpanded
+                        ? '0 4px 10px rgba(217, 27, 42, 0.3)'
+                        : '0 4px 10px rgba(26, 75, 160, 0.3)',
                     }}
                   >
                     {isExpanded ? <Minus size={18} /> : <Plus size={18} />}
@@ -92,7 +96,7 @@ export const FeatureCards: React.FC = () => {
                       fontWeight: 800,
                       letterSpacing: '-0.02em',
                       marginBottom: '10px',
-                      color: 'var(--text-primary)',
+                      color: 'var(--text-heading)',
                     }}
                   >
                     {item.title}
@@ -114,7 +118,7 @@ export const FeatureCards: React.FC = () => {
                     style={{
                       marginTop: '16px',
                       paddingTop: '16px',
-                      borderTop: '1px solid rgba(0,0,0,0.08)',
+                      borderTop: '1px solid var(--border-light)',
                       fontSize: '13px',
                       color: 'var(--text-primary)',
                       lineHeight: 1.5,

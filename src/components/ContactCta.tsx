@@ -17,11 +17,11 @@ export const ContactCta: React.FC = () => {
   };
 
   return (
-    <section id="contact-section" style={{ padding: '40px 0 80px' }}>
+    <section id="contact-section" style={{ padding: '40px 0 80px', backgroundColor: 'var(--bg-main)' }}>
       <div className="container">
         <div
           style={{
-            backgroundColor: '#1E1D1B',
+            backgroundColor: 'var(--deep-navy)',
             color: '#FFFFFF',
             borderRadius: '32px',
             padding: 'clamp(36px, 6vw, 64px) clamp(24px, 5vw, 60px)',
@@ -29,7 +29,8 @@ export const ContactCta: React.FC = () => {
             gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
             gap: '48px',
             alignItems: 'center',
-            boxShadow: '0 24px 48px rgba(0,0,0,0.18)',
+            boxShadow: '0 24px 48px rgba(10, 31, 78, 0.25)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
           }}
         >
           {/* Left Column: Copy */}
@@ -41,13 +42,13 @@ export const ContactCta: React.FC = () => {
                   alignItems: 'center',
                   padding: '6px 14px',
                   borderRadius: '9999px',
-                  backgroundColor: '#2E2C28',
-                  color: '#C7C1B5',
+                  backgroundColor: 'rgba(255, 255, 255, 0.12)',
+                  color: 'var(--accent-blue-light)',
                   fontSize: '11px',
                   fontWeight: 700,
                   letterSpacing: '0.1em',
                   textTransform: 'uppercase',
-                  border: '1px solid rgba(255,255,255,0.08)',
+                  border: '1px solid rgba(190, 219, 255, 0.3)',
                 }}
               >
                 GET IN TOUCH
@@ -69,10 +70,11 @@ export const ContactCta: React.FC = () => {
 
             <p
               style={{
-                color: '#9E988E',
+                color: 'var(--accent-blue-light)',
                 fontSize: '15px',
                 lineHeight: 1.6,
                 maxWidth: '420px',
+                opacity: 0.9,
               }}
             >
               Tell us about your team and we’ll get you set up with full access. No credit card required.
@@ -84,18 +86,18 @@ export const ContactCta: React.FC = () => {
             {submitted ? (
               <div
                 style={{
-                  backgroundColor: '#2A2825',
+                  backgroundColor: 'rgba(255, 255, 255, 0.08)',
                   padding: '36px',
                   borderRadius: '20px',
                   textAlign: 'center',
-                  border: '1px solid rgba(255,255,255,0.1)',
+                  border: '1px solid rgba(255,255,255,0.15)',
                 }}
               >
-                <CheckCircle2 size={42} color="#A7E8BD" style={{ margin: '0 auto 16px' }} />
+                <CheckCircle2 size={42} color="#8ec5ff" style={{ margin: '0 auto 16px' }} />
                 <h3 style={{ color: '#FFFFFF', fontSize: '20px', marginBottom: '8px' }}>
                   Request Received!
                 </h3>
-                <p style={{ color: '#9E988E', fontSize: '14px', marginBottom: '20px' }}>
+                <p style={{ color: 'var(--accent-blue-light)', fontSize: '14px', marginBottom: '20px' }}>
                   Thanks {formData.name || 'there'}! Our team will reach out to {formData.email} shortly.
                 </p>
                 <button
@@ -104,7 +106,7 @@ export const ContactCta: React.FC = () => {
                     setFormData({ name: '', email: '', message: '' });
                   }}
                   className="btn-outline"
-                  style={{ color: '#FFFFFF', borderColor: 'rgba(255,255,255,0.3)' }}
+                  style={{ color: '#FFFFFF', borderColor: 'rgba(255,255,255,0.4)', backgroundColor: 'transparent' }}
                 >
                   Send another message
                 </button>
@@ -124,16 +126,16 @@ export const ContactCta: React.FC = () => {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   style={{
-                    backgroundColor: '#2E2C28',
+                    backgroundColor: 'rgba(255, 255, 255, 0.08)',
                     color: '#FFFFFF',
                     padding: '14px 20px',
                     borderRadius: '14px',
                     fontSize: '14px',
-                    border: '1px solid rgba(255,255,255,0.06)',
+                    border: '1px solid rgba(255,255,255,0.14)',
                     transition: 'border-color 0.2s',
                   }}
-                  onFocus={(e) => (e.target.style.borderColor = 'rgba(255,255,255,0.25)')}
-                  onBlur={(e) => (e.target.style.borderColor = 'rgba(255,255,255,0.06)')}
+                  onFocus={(e) => (e.target.style.borderColor = 'var(--accent-blue-mid)')}
+                  onBlur={(e) => (e.target.style.borderColor = 'rgba(255,255,255,0.14)')}
                 />
 
                 <input
@@ -143,16 +145,16 @@ export const ContactCta: React.FC = () => {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   style={{
-                    backgroundColor: '#2E2C28',
+                    backgroundColor: 'rgba(255, 255, 255, 0.08)',
                     color: '#FFFFFF',
                     padding: '14px 20px',
                     borderRadius: '14px',
                     fontSize: '14px',
-                    border: '1px solid rgba(255,255,255,0.06)',
+                    border: '1px solid rgba(255,255,255,0.14)',
                     transition: 'border-color 0.2s',
                   }}
-                  onFocus={(e) => (e.target.style.borderColor = 'rgba(255,255,255,0.25)')}
-                  onBlur={(e) => (e.target.style.borderColor = 'rgba(255,255,255,0.06)')}
+                  onFocus={(e) => (e.target.style.borderColor = 'var(--accent-blue-mid)')}
+                  onBlur={(e) => (e.target.style.borderColor = 'rgba(255,255,255,0.14)')}
                 />
 
                 <textarea
@@ -161,25 +163,25 @@ export const ContactCta: React.FC = () => {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   style={{
-                    backgroundColor: '#2E2C28',
+                    backgroundColor: 'rgba(255, 255, 255, 0.08)',
                     color: '#FFFFFF',
                     padding: '14px 20px',
                     borderRadius: '14px',
                     fontSize: '14px',
-                    border: '1px solid rgba(255,255,255,0.06)',
+                    border: '1px solid rgba(255,255,255,0.14)',
                     resize: 'none',
                     transition: 'border-color 0.2s',
                   }}
-                  onFocus={(e) => (e.target.style.borderColor = 'rgba(255,255,255,0.25)')}
-                  onBlur={(e) => (e.target.style.borderColor = 'rgba(255,255,255,0.06)')}
+                  onFocus={(e) => (e.target.style.borderColor = 'var(--accent-blue-mid)')}
+                  onBlur={(e) => (e.target.style.borderColor = 'rgba(255,255,255,0.14)')}
                 />
 
                 <button
                   type="submit"
                   disabled={loading}
                   style={{
-                    backgroundColor: '#FFFFFF',
-                    color: '#1E1D1B',
+                    backgroundColor: 'var(--accent-red)',
+                    color: '#FFFFFF',
                     padding: '14px 24px',
                     borderRadius: '9999px',
                     fontSize: '14px',
@@ -190,10 +192,11 @@ export const ContactCta: React.FC = () => {
                     gap: '8px',
                     cursor: 'pointer',
                     marginTop: '4px',
+                    boxShadow: '0 4px 14px rgba(217, 27, 42, 0.35)',
                     transition: 'all 0.2s ease',
                   }}
-                  onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#F0ECE4')}
-                  onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#FFFFFF')}
+                  onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#b51522')}
+                  onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'var(--accent-red)')}
                 >
                   {loading ? 'Sending...' : 'Send request'} <ArrowRight size={16} />
                 </button>

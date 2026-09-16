@@ -3,21 +3,21 @@ import { Star } from 'lucide-react';
 
 export const Testimonial: React.FC = () => {
   return (
-    <section style={{ padding: '40px 0 80px' }}>
+    <section style={{ padding: '40px 0 80px', backgroundColor: 'var(--bg-main)' }}>
       <div className="container">
         <div
           style={{
-            backgroundColor: '#EDE9E1',
+            backgroundColor: 'var(--bg-card)',
             borderRadius: '32px',
-            padding: ' clamp(40px, 6vw, 72px) clamp(24px, 5vw, 60px)',
+            padding: 'clamp(40px, 6vw, 72px) clamp(24px, 5vw, 60px)',
             textAlign: 'center',
-            border: '1px solid rgba(0, 0, 0, 0.05)',
+            border: '1px solid var(--border-medium)',
             boxShadow: 'var(--shadow-sm)',
           }}
         >
           {/* Badge */}
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '24px' }}>
-            <span className="pill-badge" style={{ backgroundColor: '#E4DFD5' }}>
+            <span className="pill-badge-red">
               LOVED BY TEAMS
             </span>
           </div>
@@ -31,7 +31,7 @@ export const Testimonial: React.FC = () => {
               lineHeight: 1.25,
               maxWidth: '820px',
               margin: '0 auto 36px',
-              color: 'var(--text-primary)',
+              color: 'var(--text-heading)',
             }}
           >
             “Since switching to Care4, our team ships twice as fast and nothing slips through the cracks. It’s the calm center of how we work.”
@@ -49,22 +49,23 @@ export const Testimonial: React.FC = () => {
           >
             <div
               style={{
-                width: '40px',
-                height: '40px',
+                width: '42px',
+                height: '42px',
                 borderRadius: '50%',
-                backgroundColor: '#CBC5BA',
+                backgroundColor: 'var(--accent-blue-light)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 fontSize: '14px',
                 fontWeight: 700,
-                color: 'var(--text-primary)',
+                color: 'var(--primary-blue)',
+                border: '1px solid rgba(26, 75, 160, 0.2)',
               }}
             >
               JE
             </div>
             <div style={{ textAlign: 'left' }}>
-              <div style={{ fontSize: '14px', fontWeight: 800, color: 'var(--text-primary)' }}>
+              <div style={{ fontSize: '14px', fontWeight: 800, color: 'var(--text-heading)' }}>
                 Jordan Ellis
               </div>
               <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>
@@ -80,7 +81,7 @@ export const Testimonial: React.FC = () => {
               alignItems: 'center',
               justifyContent: 'center',
               gap: 'clamp(32px, 8vw, 80px)',
-              borderTop: '1px solid rgba(0, 0, 0, 0.08)',
+              borderTop: '1px solid var(--border-light)',
               paddingTop: '36px',
               maxWidth: '480px',
               margin: '0 auto',
@@ -91,7 +92,7 @@ export const Testimonial: React.FC = () => {
                 style={{
                   fontSize: 'clamp(28px, 4vw, 36px)',
                   fontWeight: 800,
-                  color: 'var(--text-primary)',
+                  color: 'var(--primary-blue)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -107,7 +108,7 @@ export const Testimonial: React.FC = () => {
                   justifyContent: 'center',
                   gap: '2px',
                   margin: '4px 0',
-                  color: '#211F1C',
+                  color: 'var(--accent-red)',
                 }}
               >
                 {[...Array(5)].map((_, i) => (
@@ -123,7 +124,7 @@ export const Testimonial: React.FC = () => {
               style={{
                 width: '1px',
                 height: '48px',
-                backgroundColor: 'rgba(0, 0, 0, 0.08)',
+                backgroundColor: 'var(--border-medium)',
               }}
             />
 
@@ -132,7 +133,7 @@ export const Testimonial: React.FC = () => {
                 style={{
                   fontSize: 'clamp(28px, 4vw, 36px)',
                   fontWeight: 800,
-                  color: 'var(--text-primary)',
+                  color: 'var(--primary-blue)',
                 }}
               >
                 1,200+

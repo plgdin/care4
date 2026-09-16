@@ -27,7 +27,7 @@ export const AboutPage: React.FC = () => {
   ];
 
   return (
-    <main style={{ padding: '40px 0 80px' }}>
+    <main style={{ padding: '40px 0 80px', backgroundColor: 'var(--bg-main)' }}>
       <div className="container">
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: '60px' }}>
@@ -43,9 +43,10 @@ export const AboutPage: React.FC = () => {
               marginBottom: '20px',
               maxWidth: '800px',
               margin: '0 auto 20px',
+              color: 'var(--text-heading)',
             }}
           >
-            Empowering teams with clarity, focus, and velocity<span style={{ color: 'var(--text-muted)' }}>.</span>
+            Empowering teams with clarity, focus, and velocity<span style={{ color: 'var(--accent-red)' }}>.</span>
           </h1>
 
           <p
@@ -61,15 +62,16 @@ export const AboutPage: React.FC = () => {
           </p>
         </div>
 
-        {/* Mission Card */}
+        {/* Mission Card: Deep Navy Banner */}
         <div
           style={{
-            backgroundColor: '#EDE9E1',
+            backgroundColor: 'var(--deep-navy)',
+            color: '#FFFFFF',
             borderRadius: '28px',
             padding: 'clamp(32px, 5vw, 56px)',
             marginBottom: '48px',
-            border: '1px solid rgba(0,0,0,0.05)',
-            boxShadow: 'var(--shadow-sm)',
+            border: '1px solid rgba(255,255,255,0.1)',
+            boxShadow: 'var(--shadow-md)',
           }}
         >
           <div style={{ maxWidth: '780px' }}>
@@ -79,12 +81,12 @@ export const AboutPage: React.FC = () => {
                 fontWeight: 800,
                 textTransform: 'uppercase',
                 letterSpacing: '0.1em',
-                color: 'var(--text-muted)',
+                color: 'var(--accent-blue-light)',
                 marginBottom: '12px',
                 display: 'block',
               }}
             >
-              Our Mission
+              Why Care4
             </span>
             <h2
               style={{
@@ -92,11 +94,12 @@ export const AboutPage: React.FC = () => {
                 fontWeight: 800,
                 marginBottom: '16px',
                 letterSpacing: '-0.02em',
+                color: '#FFFFFF',
               }}
             >
               Bringing order and momentum to high-performing organizations.
             </h2>
-            <p style={{ fontSize: '15px', color: 'var(--text-secondary)', lineHeight: 1.7 }}>
+            <p style={{ fontSize: '15px', color: 'var(--accent-blue-light)', lineHeight: 1.7, opacity: 0.95 }}>
               Today’s teams juggle dozens of disconnected apps, fragmented updates, and endless notifications. Care4 unifies your work streams into a coherent workspace, giving teams the breathing room they need to innovate.
             </p>
           </div>
@@ -106,7 +109,7 @@ export const AboutPage: React.FC = () => {
         <div style={{ marginBottom: '60px' }}>
           <div style={{ textAlign: 'center', marginBottom: '36px' }}>
             <span className="pill-badge">PRINCIPLES</span>
-            <h3 style={{ fontSize: '28px', fontWeight: 800, marginTop: '12px' }}>
+            <h3 style={{ fontSize: '28px', fontWeight: 800, marginTop: '12px', color: 'var(--text-heading)' }}>
               What guides how we build
             </h3>
           </div>
@@ -122,10 +125,11 @@ export const AboutPage: React.FC = () => {
               <div
                 key={i}
                 style={{
-                  backgroundColor: '#EDE9E1',
+                  backgroundColor: 'var(--bg-card)',
                   borderRadius: '24px',
                   padding: '32px 24px',
-                  border: '1px solid rgba(0,0,0,0.04)',
+                  border: '1px solid var(--border-medium)',
+                  boxShadow: 'var(--shadow-sm)',
                 }}
                 className="hover-lift"
               >
@@ -134,17 +138,18 @@ export const AboutPage: React.FC = () => {
                     width: '40px',
                     height: '40px',
                     borderRadius: '12px',
-                    backgroundColor: 'var(--text-primary)',
+                    backgroundColor: 'var(--primary-blue)',
                     color: '#FFFFFF',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     marginBottom: '20px',
+                    boxShadow: '0 4px 10px rgba(26, 75, 160, 0.25)',
                   }}
                 >
                   {v.icon}
                 </div>
-                <h4 style={{ fontSize: '18px', fontWeight: 800, marginBottom: '8px' }}>
+                <h4 style={{ fontSize: '18px', fontWeight: 800, marginBottom: '8px', color: 'var(--text-heading)' }}>
                   {v.title}
                 </h4>
                 <p style={{ fontSize: '14px', color: 'var(--text-secondary)', lineHeight: 1.55 }}>

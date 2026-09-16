@@ -16,7 +16,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick, onOpenContact }) => 
   return (
     <footer
       style={{
-        borderTop: '1px solid rgba(0, 0, 0, 0.08)',
+        borderTop: '1px solid var(--border-light)',
         padding: '64px 0 40px',
         backgroundColor: 'var(--bg-main)',
       }}
@@ -43,16 +43,17 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick, onOpenContact }) => 
               }}
               onClick={() => onNavClick && onNavClick('home')}
             >
-              <span
+              <img
+                src="/care4-logo.png"
+                alt="Care4 Logo"
                 style={{
-                  width: '18px',
-                  height: '18px',
-                  borderRadius: '50%',
-                  backgroundColor: 'var(--text-primary)',
-                  display: 'inline-block',
+                  height: '30px',
+                  width: 'auto',
+                  objectFit: 'contain',
+                  display: 'block',
                 }}
               />
-              <span style={{ fontSize: '17px', fontWeight: 800, color: 'var(--text-primary)' }}>
+              <span style={{ fontSize: '17px', fontWeight: 800, color: 'var(--text-heading)' }}>
                 Care4 Associates
               </span>
             </div>
@@ -80,24 +81,26 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick, onOpenContact }) => 
                     width: '32px',
                     height: '32px',
                     borderRadius: '50%',
-                    backgroundColor: '#EDE9E1',
+                    backgroundColor: 'var(--bg-card)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     fontSize: '11px',
                     fontWeight: 700,
-                    color: 'var(--text-primary)',
+                    color: 'var(--primary-blue)',
                     textTransform: 'lowercase',
                     transition: 'all 0.15s ease',
-                    border: '1px solid rgba(0,0,0,0.04)',
+                    border: '1px solid var(--border-medium)',
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = 'var(--text-primary)';
+                    e.currentTarget.style.backgroundColor = 'var(--primary-blue)';
                     e.currentTarget.style.color = '#FFFFFF';
+                    e.currentTarget.style.borderColor = 'var(--primary-blue)';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = '#EDE9E1';
-                    e.currentTarget.style.color = 'var(--text-primary)';
+                    e.currentTarget.style.backgroundColor = 'var(--bg-card)';
+                    e.currentTarget.style.color = 'var(--primary-blue)';
+                    e.currentTarget.style.borderColor = 'var(--border-medium)';
                   }}
                 >
                   {s.label}
@@ -114,7 +117,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick, onOpenContact }) => 
                 fontWeight: 800,
                 textTransform: 'uppercase',
                 letterSpacing: '0.1em',
-                color: 'var(--text-primary)',
+                color: 'var(--text-heading)',
                 marginBottom: '16px',
               }}
             >
@@ -125,6 +128,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick, onOpenContact }) => 
                 <button
                   onClick={() => onNavClick && onNavClick('home')}
                   style={{ fontSize: '13px', color: 'var(--text-secondary)' }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--primary-blue)')}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-secondary)')}
                 >
                   Overview
                 </button>
@@ -133,6 +138,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick, onOpenContact }) => 
                 <button
                   onClick={() => onNavClick && onNavClick('home')}
                   style={{ fontSize: '13px', color: 'var(--text-secondary)' }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--primary-blue)')}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-secondary)')}
                 >
                   Features
                 </button>
@@ -141,6 +148,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick, onOpenContact }) => 
                 <button
                   onClick={() => onNavClick && onNavClick('products')}
                   style={{ fontSize: '13px', color: 'var(--text-secondary)' }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--primary-blue)')}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-secondary)')}
                 >
                   Pricing & Plans
                 </button>
@@ -159,7 +168,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick, onOpenContact }) => 
                 fontWeight: 800,
                 textTransform: 'uppercase',
                 letterSpacing: '0.1em',
-                color: 'var(--text-primary)',
+                color: 'var(--text-heading)',
                 marginBottom: '16px',
               }}
             >
@@ -170,6 +179,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick, onOpenContact }) => 
                 <button
                   onClick={() => onNavClick && onNavClick('about')}
                   style={{ fontSize: '13px', color: 'var(--text-secondary)' }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--primary-blue)')}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-secondary)')}
                 >
                   About Us
                 </button>
@@ -184,6 +195,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick, onOpenContact }) => 
                 <button
                   onClick={onOpenContact}
                   style={{ fontSize: '13px', color: 'var(--text-secondary)' }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--primary-blue)')}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-secondary)')}
                 >
                   Contact
                 </button>
@@ -199,7 +212,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick, onOpenContact }) => 
                 fontWeight: 800,
                 textTransform: 'uppercase',
                 letterSpacing: '0.1em',
-                color: 'var(--text-primary)',
+                color: 'var(--text-heading)',
                 marginBottom: '16px',
               }}
             >
@@ -217,7 +230,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick, onOpenContact }) => 
         {/* Bottom Subfooter */}
         <div
           style={{
-            borderTop: '1px solid rgba(0, 0, 0, 0.06)',
+            borderTop: '1px solid var(--border-light)',
             paddingTop: '24px',
             display: 'flex',
             alignItems: 'center',
