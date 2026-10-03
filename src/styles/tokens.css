@@ -1,0 +1,49 @@
+:root {
+  /* Colors extracted from Figma */
+  --color-primary: #02348d;
+  --color-accent-red: #d91b2a;
+  --color-accent-red-hover: #b81522;
+  --color-red-alt: #cc2229;
+  --color-navy-dark: #102843;
+  --color-navy-deep: #0f1c2d;
+  --color-text-main: #102843;
+  --color-text-body: #6b7280;
+  --color-text-secondary: #667385;
+  --color-text-muted: #9ca3af;
+  --color-bg-page: #fafaf8;
+  --color-bg-alt: #f4f4f4;
+  --color-bg-white: #ffffff;
+  --color-border: #e0e0e0;
+  --color-border-light: #f3f4f6;
+  --color-border-dark: #d1d1d1;
+  --color-red-badge-bg: #fee2e2;
+
+  /* Typography */
+  --font-display: 'Platypi', Georgia, serif;
+  --font-heading: 'Lexend Deca', sans-serif;
+  --font-body: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-doodle: 'Rubik Doodle Triangles', cursive;
+
+  /* Spacing & Layout */
+  --container-max-width: 1440px;
+  --content-max-width: 1280px;
+  --nav-height: 80px;
+
+  /* Radii */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.06);
+  --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.12);
+  --shadow-dropdown: 0 10px 38px rgba(0, 0, 0, 0.15);
+
+  /* Transitions */
+  --transition-fast: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
