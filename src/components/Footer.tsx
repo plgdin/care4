@@ -102,12 +102,14 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
           <div className="footer-col">
             <h4 className="footer-col-title">Products</h4>
             <ul className="footer-links-list">
-              <li><button onClick={() => onNavigate('products')}>Tableware & Crockery</button></li>
-              <li><button onClick={() => onNavigate('products')}>Buffet & Banquet</button></li>
-              <li><button onClick={() => onNavigate('products')}>Cleaning & Janitorial</button></li>
-              <li><button onClick={() => onNavigate('products')}>Guest Amenities</button></li>
-              <li><button onClick={() => onNavigate('products')}>Paper & Disposables</button></li>
-              <li><button onClick={() => onNavigate('products')}>Housekeeping</button></li>
+              <li><button onClick={() => onNavigate('products', 'crockery')}>Crockery</button></li>
+              <li><button onClick={() => onNavigate('products', 'cutlery')}>Cutlery</button></li>
+              <li><button onClick={() => onNavigate('products', 'linen')}>Linen</button></li>
+              <li><button onClick={() => onNavigate('products', 'guest-amenities')}>Guest Amenities</button></li>
+              <li><button onClick={() => onNavigate('products', 'kitchen-utensils')}>Kitchen Utensils</button></li>
+              <li><button onClick={() => onNavigate('products', 'house-keeping')}>House Keeping</button></li>
+              <li><button onClick={() => onNavigate('products', 'cleaning-chemicals')}>Cleaning Chemicals</button></li>
+              <li><button onClick={() => onNavigate('products', 'engineering-equipments')}>Engineering Equipments</button></li>
             </ul>
           </div>
 

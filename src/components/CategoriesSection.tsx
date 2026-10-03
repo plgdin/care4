@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
-import { CATEGORIES_DATA } from '../data/siteData';
+import { CLIENT_CATEGORIES } from '../data/siteData';
 
 interface CategoriesSectionProps {
   onViewAll: () => void;
@@ -33,20 +33,20 @@ export const CategoriesSection: React.FC<CategoriesSectionProps> = ({ onViewAll,
           </div>
         </div>
 
-        {/* Categories Grid */}
+        {/* Categories Grid (8 Official Client Categories) */}
         <div className="categories-grid">
-          {CATEGORIES_DATA.map((cat) => (
+          {CLIENT_CATEGORIES.map((cat) => (
             <div 
               key={cat.id} 
               className="category-card"
               onClick={() => onSelectCategory(cat.id)}
             >
               <div className="card-image-box">
-                <img src={cat.image} alt={cat.title} className="card-img" />
+                <img src={cat.image} alt={cat.name} className="card-img" />
               </div>
               <div className="card-meta">
-                <h3 className="card-title">{cat.title}</h3>
-                <p className="card-subtitle">{cat.subtitle}</p>
+                <h3 className="card-title">{cat.name}</h3>
+                <p className="card-subtitle">{cat.description}</p>
                 <div className="card-footer-row">
                   <div className="arrow-btn">
                     <ArrowRight size={18} />

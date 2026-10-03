@@ -1,12 +1,19 @@
-import React, { useState } from 'react';
-import { X, CheckCircle, Send } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { X, CheckCircle, Send, Tag } from 'lucide-react';
+
+export interface EnquiryContext {
+  category?: string;
+  itemOrBrand?: string;
+  subgroup?: string;
+}
 
 interface QuoteModalProps {
   isOpen: boolean;
   onClose: () => void;
+  initialContext?: EnquiryContext | null;
 }
 
-export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
+export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose, initialContext }) => {
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -16,6 +23,16 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
     industry: 'Hotels',
     message: ''
   });
+
+  useEffect(() => {
+    if (initialContext?.itemOrBrand) {
+      const contextMsg = `Inquiry regarding ${initialContext.category ? `${initialContext.category} — ` : ''}${initialContext.itemOrBrand}${initialContext.subgroup ? ` (${initialContext.subgroup})` : ''}. Please provide product catalogue, wholesale pricing, and availability.`;
+      setFormData(prev => ({
+        ...prev,
+        message: prev.message ? prev.message : contextMsg
+      }));
+    }
+  }, [initialContext]);
 
   if (!isOpen) return null;
 
@@ -50,10 +67,20 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
         ) : (
           <form className="modal-form" onSubmit={handleSubmit}>
             <div className="modal-header">
-              <span className="modal-badge">Direct Inquiry</span>
+              <div className="modal-badge-row">
+                <span className="modal-badge">Direct Inquiry</span>
+                {initialContext?.itemOrBrand && (
+                  <span className="modal-context-badge">
+                    <Tag size={12} />
+                    {initialContext.category ? `${initialContext.category}: ` : ''}{initialContext.itemOrBrand}
+                  </span>
+                )}
+              </div>
               <h3 className="modal-title">Request a Hospitality Quote</h3>
               <p className="modal-sub">
-                Tell us your requirements and we will build a custom product quote for your establishment.
+                {initialContext?.itemOrBrand 
+                  ? `Requesting specifications & quotation for ${initialContext.itemOrBrand}.`
+                  : 'Tell us your requirements and we will build a custom product quote for your establishment.'}
               </p>
             </div>
 
@@ -152,7 +179,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
           border-radius: var(--radius-md);
           width: 100%;
           max-width: 580px;
-          padding: 40px;
+          padding: 36px;
           position: relative;
           box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
           animation: modalAppear 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -178,6 +205,13 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
         .modal-close-btn:hover {
           background: var(--color-border);
         }
+        .modal-badge-row {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          flex-wrap: wrap;
+          margin-bottom: 12px;
+        }
         .modal-badge {
           display: inline-block;
           font-family: var(--font-body);
@@ -189,19 +223,31 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
           background: var(--color-red-badge-bg);
           padding: 4px 10px;
           border-radius: 9999px;
-          margin-bottom: 12px;
+        }
+        .modal-context-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          font-family: var(--font-body);
+          font-size: 12px;
+          font-weight: 600;
+          color: var(--color-navy-dark);
+          background: #f1f5f9;
+          border: 1px solid #cbd5e1;
+          padding: 4px 12px;
+          border-radius: 9999px;
         }
         .modal-title {
           font-family: var(--font-heading);
           font-size: 26px;
           color: var(--color-navy-dark);
-          margin-bottom: 8px;
+          margin-bottom: 6px;
         }
         .modal-sub {
           font-family: var(--font-body);
           font-size: 14px;
           color: var(--color-text-body);
-          margin-bottom: 24px;
+          margin-bottom: 20px;
         }
         .form-grid {
           display: grid;
@@ -245,15 +291,15 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
           color: #ffffff;
           font-family: var(--font-body);
           font-weight: 600;
-          font-size: 16px;
-          padding: 14px;
+          font-size: 15px;
+          padding: 13px;
           border-radius: var(--radius-xs);
           display: flex;
           align-items: center;
           justify-content: center;
           gap: 10px;
           transition: background var(--transition-fast);
-          margin-top: 8px;
+          margin-top: 4px;
         }
         .btn-modal-submit:hover {
           background: var(--color-accent-red-hover);

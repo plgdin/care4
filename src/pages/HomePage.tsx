@@ -23,7 +23,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenQuote }) =
       />
       <CategoriesSection 
         onViewAll={() => onNavigate('products')}
-        onSelectCategory={() => onNavigate('products')}
+        onSelectCategory={(catId) => onNavigate('products', catId)}
       />
       <BrandsSection 
         onViewAllBrands={() => onNavigate('products')}
