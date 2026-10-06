@@ -175,7 +175,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
         }
         .cta-headline {
           font-family: var(--font-heading);
-          font-size: 34px;
+          font-size: 42px;
           font-weight: 700;
           color: var(--color-navy-dark);
           line-height: 1.15;
@@ -184,7 +184,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
         }
         .cta-subhead {
           font-family: var(--font-body);
-          font-size: 14.5px;
+          font-size: 17px;
           color: var(--color-text-body);
           line-height: 1.5;
         }
@@ -199,8 +199,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
           color: #ffffff;
           font-family: var(--font-body);
           font-weight: 600;
-          font-size: 14px;
-          padding: 10px 24px;
+          font-size: 16px;
+          padding: 12px 28px;
           border-radius: var(--radius-full);
           display: inline-flex;
           align-items: center;
@@ -217,8 +217,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
           border: 1.5px solid var(--color-navy-dark);
           font-family: var(--font-body);
           font-weight: 600;
-          font-size: 14px;
-          padding: 9.5px 24px;
+          font-size: 16px;
+          padding: 12px 28px;
           border-radius: var(--radius-full);
           transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
         }
@@ -247,7 +247,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
         }
         .footer-tagline {
           font-family: var(--font-body);
-          font-size: 13.5px;
+          font-size: 15px;
           line-height: 1.5;
           color: var(--color-text-body);
           margin-bottom: 14px;
@@ -275,7 +275,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
         }
         .footer-col-title {
           font-family: var(--font-body);
-          font-size: 14px;
+          font-size: 16.5px;
           font-weight: 700;
           color: var(--color-navy-dark);
           margin-bottom: 12px;
@@ -288,7 +288,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
         }
         .footer-links-list button {
           font-family: var(--font-body);
-          font-size: 13.5px;
+          font-size: 15px;
           color: #64748b;
           text-align: left;
           transition: color var(--transition-fast);
@@ -322,7 +322,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
           padding-top: 16px;
           padding-bottom: 6px;
           font-family: var(--font-body);
-          font-size: 13px;
+          font-size: 14px;
           color: #94a3b8;
         }
         .legal-links {

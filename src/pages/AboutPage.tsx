@@ -218,7 +218,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
         }
         .about-hero-desc {
           font-family: var(--font-inter);
-          font-size: 16px;
+          font-size: 18px;
           line-height: 1.6;
           color: rgba(255, 255, 255, 0.8);
           max-width: 600px;
@@ -241,7 +241,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
           border-radius: var(--radius-full);
           font-family: var(--font-inter);
           font-weight: 600;
-          font-size: 14px;
+          font-size: 15.5px;
           color: #ffffff;
         }
         .badge-icon {
@@ -283,7 +283,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
         }
         .story-title {
           font-family: var(--font-inter);
-          font-size: 38px;
+          font-size: 46px;
           font-weight: 900;
           color: var(--color-navy-deep);
           line-height: 1.2;
@@ -291,7 +291,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
         }
         .story-body {
           font-family: var(--font-inter);
-          font-size: 15px;
+          font-size: 18px;
           line-height: 1.7;
           color: var(--color-text-body);
           margin-bottom: 32px;
@@ -374,7 +374,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
         }
         .serve-title {
           font-family: var(--font-inter);
-          font-size: 38px;
+          font-size: 46px;
           font-weight: 900;
           color: var(--color-navy-deep);
           line-height: 1.2;
@@ -382,7 +382,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
         }
         .serve-desc {
           font-family: var(--font-inter);
-          font-size: 15px;
+          font-size: 18px;
           color: var(--color-text-body);
         }
         .serve-cards-grid {
@@ -440,7 +440,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
         }
         .serve-card-desc {
           font-family: var(--font-inter);
-          font-size: 14px;
+          font-size: 16px;
           line-height: 1.6;
           color: var(--color-text-body);
         }
@@ -471,7 +471,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
         }
         .offer-title {
           font-family: var(--font-inter);
-          font-size: 36px;
+          font-size: 46px;
           font-weight: 900;
           color: var(--color-navy-deep);
           line-height: 1.2;
@@ -479,7 +479,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
         }
         .offer-desc {
           font-family: var(--font-inter);
-          font-size: 15px;
+          font-size: 18px;
           color: var(--color-text-body);
         }
         .offer-cards-grid {
@@ -516,13 +516,13 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
         }
         .offer-card-title {
           font-family: var(--font-inter);
-          font-size: 15px;
+          font-size: 18px;
           font-weight: 700;
           color: var(--color-navy-deep);
         }
         .offer-card-desc {
           font-family: var(--font-inter);
-          font-size: 13px;
+          font-size: 15px;
           line-height: 1.55;
           color: var(--color-text-body);
         }

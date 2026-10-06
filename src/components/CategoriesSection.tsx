@@ -81,13 +81,14 @@ export const CategoriesSection: React.FC<CategoriesSectionProps> = ({ onViewAll,
         }
         .categories-title {
           font-family: var(--font-heading);
-          font-size: 46px;
+          font-size: 50px;
           font-weight: 700;
           color: var(--color-navy-dark);
           line-height: 1.15;
+          letter-spacing: -0.015em;
         }
         .header-right {
-          max-width: 420px;
+          max-width: 440px;
           display: flex;
           flex-direction: column;
           align-items: flex-start;
@@ -95,7 +96,7 @@ export const CategoriesSection: React.FC<CategoriesSectionProps> = ({ onViewAll,
         }
         .categories-desc {
           font-family: var(--font-body);
-          font-size: 17px;
+          font-size: 18.5px;
           line-height: 1.6;
           color: var(--color-text-secondary);
         }
@@ -104,7 +105,7 @@ export const CategoriesSection: React.FC<CategoriesSectionProps> = ({ onViewAll,
           align-items: center;
           gap: 8px;
           font-family: var(--font-body);
-          font-size: 16px;
+          font-size: 17px;
           font-weight: 600;
           color: var(--color-navy-dark);
           transition: color var(--transition-fast), transform var(--transition-fast);
@@ -155,14 +156,14 @@ export const CategoriesSection: React.FC<CategoriesSectionProps> = ({ onViewAll,
         }
         .card-title {
           font-family: var(--font-heading);
-          font-size: 22px;
+          font-size: 24px;
           font-weight: 700;
           color: var(--color-navy-dark);
           margin-bottom: 8px;
         }
         .card-subtitle {
           font-family: var(--font-body);
-          font-size: 15px;
+          font-size: 16px;
           color: var(--color-text-secondary);
           line-height: 1.5;
           margin-bottom: 20px;

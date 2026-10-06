@@ -4,9 +4,10 @@ import { X, CheckCircle, Send } from 'lucide-react';
 interface QuoteModalProps {
   isOpen: boolean;
   onClose: () => void;
+  initialProduct?: string;
 }
 
-export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
+export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose, initialProduct }) => {
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -16,6 +17,15 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose }) => {
     industry: 'Hotels',
     message: ''
   });
+
+  React.useEffect(() => {
+    if (initialProduct && isOpen) {
+      setFormData(prev => ({
+        ...prev,
+        message: `I would like to request bulk pricing and product specifications for: ${initialProduct}`
+      }));
+    }
+  }, [initialProduct, isOpen]);
 
   if (!isOpen) return null;
 

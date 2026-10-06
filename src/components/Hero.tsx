@@ -56,15 +56,15 @@ export const Hero: React.FC<HeroProps> = ({ onExplore, onTalkToTeam }) => {
           {/* Industry Icons */}
           <div className="hero-industries-row">
             <div className="industry-item">
-              <img src="/images/hotelicon_4660cf2a.png" alt="Hotels" className="industry-icon-img" />
+              <img src="/images/icon_hotel_lg.png" alt="Hotels" className="industry-icon-img" />
               <span className="industry-label">Hotels</span>
             </div>
             <div className="industry-item">
-              <img src="/images/restauranticon_043fa265.png" alt="Restaurants" className="industry-icon-img" />
+              <img src="/images/icon_restaurant_lg.png" alt="Restaurants" className="industry-icon-img" />
               <span className="industry-label">Restaurants</span>
             </div>
             <div className="industry-item">
-              <img src="/images/cateringicon_ca3a5745.png" alt="Catering" className="industry-icon-img" />
+              <img src="/images/icon_catering_lg.png" alt="Catering" className="industry-icon-img" />
               <span className="industry-label">Catering</span>
             </div>
           </div>
@@ -160,17 +160,17 @@ export const Hero: React.FC<HeroProps> = ({ onExplore, onTalkToTeam }) => {
         }
         .hero-subhead {
           font-family: var(--font-body);
-          font-size: 24px;
+          font-size: 26px;
           font-weight: 700;
           color: var(--color-navy-dark);
           margin-bottom: 16px;
         }
         .hero-body {
           font-family: var(--font-body);
-          font-size: 18px;
-          line-height: 1.6;
+          font-size: 19.5px;
+          line-height: 1.65;
           color: var(--color-text-body);
-          max-width: 530px;
+          max-width: 560px;
         }
         .hero-cta-buttons {
           display: flex;
@@ -233,14 +233,14 @@ export const Hero: React.FC<HeroProps> = ({ onExplore, onTalkToTeam }) => {
           gap: 12px;
         }
         .industry-icon-img {
-          width: 48px;
-          height: 48px;
+          width: 52px;
+          height: 52px;
           object-fit: contain;
         }
         .industry-label {
           font-family: var(--font-body);
-          font-size: 17px;
-          font-weight: 500;
+          font-size: 19px;
+          font-weight: 600;
           color: var(--color-navy-dark);
         }
         .hero-tagline-wrapper {
@@ -257,7 +257,7 @@ export const Hero: React.FC<HeroProps> = ({ onExplore, onTalkToTeam }) => {
         }
         .tagline-text {
           font-family: var(--font-body);
-          font-size: 14px;
+          font-size: 15px;
           font-weight: 600;
           letter-spacing: 0.05em;
           color: var(--color-text-muted);

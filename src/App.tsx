@@ -9,6 +9,12 @@ import { AboutPage } from './pages/AboutPage';
 export const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'home' | 'products' | 'about'>('home');
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
+  const [selectedQuoteProduct, setSelectedQuoteProduct] = useState<string | undefined>(undefined);
+
+  const handleOpenQuote = (productName?: string) => {
+    setSelectedQuoteProduct(productName);
+    setQuoteModalOpen(true);
+  };
 
   // Sync with browser URL hash if present
   useEffect(() => {
@@ -45,37 +51,38 @@ export const App: React.FC = () => {
       <Navbar 
         activeTab={activeTab} 
         onNavigate={handleNavigate} 
-        onOpenQuote={() => setQuoteModalOpen(true)} 
+        onOpenQuote={() => handleOpenQuote()} 
       />
 
       {activeTab === 'home' && (
         <HomePage 
-          onNavigate={handleNavigate} 
-          onOpenQuote={() => setQuoteModalOpen(true)} 
-        />
+        onNavigate={handleNavigate} 
+        onOpenQuote={() => handleOpenQuote()} 
+      />
       )}
 
       {activeTab === 'products' && (
         <ProductPage 
-          onOpenQuote={() => setQuoteModalOpen(true)} 
+          onOpenQuote={(prod) => handleOpenQuote(prod)} 
         />
       )}
 
       {activeTab === 'about' && (
         <AboutPage 
-          onOpenQuote={() => setQuoteModalOpen(true)} 
+          onOpenQuote={() => handleOpenQuote()} 
           onNavigateHome={() => handleNavigate('home')} 
         />
       )}
 
       <Footer 
         onNavigate={handleNavigate} 
-        onOpenQuote={() => setQuoteModalOpen(true)} 
+        onOpenQuote={() => handleOpenQuote()} 
       />
 
       <QuoteModal 
         isOpen={quoteModalOpen} 
         onClose={() => setQuoteModalOpen(false)} 
+        initialProduct={selectedQuoteProduct}
       />
     </div>
   );

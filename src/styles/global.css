@@ -7,17 +7,35 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: 17px;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scrollbar-width: thin;
+  scrollbar-color: #d1d5db #f9fafb;
+}
+
+/* Modern sleek scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #f9fafb;
+}
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
 }
 
 body {
   font-family: var(--font-body);
   background-color: var(--color-bg-page);
   color: var(--color-text-main);
-  line-height: 1.5;
+  line-height: 1.6;
   overflow-x: hidden;
   min-height: 100vh;
 }
@@ -52,8 +70,8 @@ h1, h2, h3, h4, h5, h6 {
   max-width: var(--content-max-width);
   margin-left: auto;
   margin-right: auto;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: 28px;
+  padding-right: 28px;
 }
 
 .container-wide {
@@ -67,18 +85,18 @@ h1, h2, h3, h4, h5, h6 {
 .section-eyebrow {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: 13px;
-  letter-spacing: 0.08em;
+  font-size: 14px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-text-body);
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .section-eyebrow-line {
-  width: 18px;
+  width: 22px;
   height: 3px;
   background-color: var(--color-accent-red);
   border-radius: 2px;
@@ -86,14 +104,15 @@ h1, h2, h3, h4, h5, h6 {
 
 .section-title {
   font-family: var(--font-heading);
-  font-size: 40px;
+  font-size: 48px;
   font-weight: 700;
   color: var(--color-navy-dark);
-  line-height: 1.2;
+  line-height: 1.18;
+  letter-spacing: -0.015em;
 }
 
 @media (max-width: 768px) {
   .section-title {
-    font-size: 28px;
+    font-size: 32px;
   }
 }

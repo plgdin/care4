@@ -83,27 +83,42 @@ export const BrandsSection: React.FC<BrandsSectionProps> = ({ onViewAllBrands })
           margin-bottom: 48px;
         }
         .header-left {
-          max-width: 680px;
+          max-width: 720px;
         }
         .brands-title {
           font-family: var(--font-heading);
-          font-size: 38px;
+          font-size: 50px;
           font-weight: 700;
           color: var(--color-navy-dark);
-          line-height: 1.2;
+          line-height: 1.15;
+          letter-spacing: -0.015em;
         }
         .header-right {
-          max-width: 480px;
+          max-width: 520px;
           display: flex;
           flex-direction: column;
           align-items: flex-start;
-          gap: 14px;
+          gap: 16px;
         }
         .brands-desc {
           font-family: var(--font-body);
-          font-size: 16px;
-          line-height: 1.6;
+          font-size: 18.5px;
+          line-height: 1.65;
           color: var(--color-text-body);
+        }
+        .action-link {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          font-family: var(--font-body);
+          font-size: 17px;
+          font-weight: 600;
+          color: var(--color-navy-dark);
+          transition: color var(--transition-fast), transform var(--transition-fast);
+        }
+        .action-link:hover {
+          color: var(--color-accent-red);
+          transform: translateX(4px);
         }
         .brands-grid-wrapper {
           border: 1px solid var(--color-border);

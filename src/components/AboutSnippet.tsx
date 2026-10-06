@@ -11,7 +11,7 @@ export const AboutSnippet: React.FC<AboutSnippetProps> = ({ onLearnMore }) => {
       <div className="about-snippet-container">
         {/* Left Column Content */}
         <div className="about-snippet-left">
-          <div className="section-eyebrow">
+          <div className="section-eyebrow about-snippet-eyebrow">
             <span className="section-eyebrow-line" />
             <span>ABOUT CARE4</span>
           </div>
@@ -53,7 +53,7 @@ export const AboutSnippet: React.FC<AboutSnippetProps> = ({ onLearnMore }) => {
       <style>{`
         .about-snippet-section {
           background-color: #ffffff;
-          padding: 80px 0;
+          padding: 96px 0;
           border-top: 1px solid rgba(0, 0, 0, 0.04);
         }
         .about-snippet-container {
@@ -62,52 +62,64 @@ export const AboutSnippet: React.FC<AboutSnippetProps> = ({ onLearnMore }) => {
           margin: 0 auto;
           padding: 0 48px;
           display: grid;
-          grid-template-columns: 1.1fr 1fr;
-          gap: 56px;
+          grid-template-columns: 1.25fr 1fr;
+          gap: 64px;
           align-items: center;
         }
         .about-snippet-left {
-          max-width: 620px;
+          width: 100%;
+          max-width: 720px;
+        }
+        .about-snippet-eyebrow {
+          font-size: 14px;
+          letter-spacing: 0.1em;
+          margin-bottom: 16px;
         }
         .about-snippet-title {
           font-family: var(--font-heading);
-          font-size: 42px;
+          font-size: 52px;
           font-weight: 700;
           color: var(--color-navy-dark);
-          line-height: 1.2;
-          margin-bottom: 24px;
+          line-height: 1.18;
+          letter-spacing: -0.02em;
+          margin-bottom: 28px;
         }
         .about-snippet-body {
           display: flex;
           flex-direction: column;
-          gap: 16px;
+          gap: 20px;
           font-family: var(--font-body);
-          font-size: 16px;
-          line-height: 1.65;
+          font-size: 18px;
+          line-height: 1.75;
           color: var(--color-text-secondary);
-          margin-bottom: 32px;
+          margin-bottom: 36px;
+        }
+        .about-snippet-body p {
+          margin: 0;
         }
         .btn-about-cta {
           display: inline-flex;
           align-items: center;
-          gap: 10px;
+          gap: 12px;
           background-color: var(--color-accent-red);
           color: #ffffff;
           font-family: var(--font-body);
           font-weight: 600;
-          font-size: 16px;
-          padding: 14px 28px;
+          font-size: 17px;
+          padding: 16px 32px;
           border-radius: var(--radius-full);
-          transition: background-color var(--transition-fast), transform var(--transition-fast);
-          box-shadow: 0 4px 14px rgba(217, 27, 42, 0.2);
+          transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+          box-shadow: 0 4px 16px rgba(217, 27, 42, 0.24);
         }
         .btn-about-cta:hover {
           background-color: var(--color-accent-red-hover);
           transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(217, 27, 42, 0.32);
         }
         .about-snippet-right {
           display: flex;
           justify-content: flex-end;
+          width: 100%;
         }
         .about-image-card {
           width: 100%;
@@ -119,14 +131,45 @@ export const AboutSnippet: React.FC<AboutSnippetProps> = ({ onLearnMore }) => {
           width: 100%;
           height: auto;
           object-fit: cover;
+          display: block;
+        }
+        @media (max-width: 1200px) {
+          .about-snippet-container {
+            gap: 48px;
+          }
+          .about-snippet-title {
+            font-size: 44px;
+          }
+          .about-snippet-body {
+            font-size: 17px;
+          }
         }
         @media (max-width: 992px) {
           .about-snippet-container {
             grid-template-columns: 1fr;
             padding: 0 24px;
+            gap: 40px;
+          }
+          .about-snippet-left {
+            max-width: 100%;
           }
           .about-snippet-title {
-            font-size: 32px;
+            font-size: 36px;
+          }
+          .about-snippet-body {
+            font-size: 16px;
+          }
+        }
+        @media (max-width: 600px) {
+          .about-snippet-section {
+            padding: 60px 0;
+          }
+          .about-snippet-title {
+            font-size: 30px;
+          }
+          .btn-about-cta {
+            width: 100%;
+            justify-content: center;
           }
         }
       `}</style>

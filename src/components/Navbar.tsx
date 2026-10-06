@@ -156,22 +156,22 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, onNavigate, onOpenQuo
           background: transparent;
         }
         .navbar-logo-img {
-          height: 44px;
+          height: 48px;
           width: auto;
           object-fit: contain;
         }
         .navbar-nav-desktop {
           display: flex;
           align-items: center;
-          gap: 32px;
+          gap: 36px;
         }
         .nav-link {
           font-family: var(--font-body);
           font-weight: 600;
-          font-size: 14px;
+          font-size: 16px;
           color: var(--color-navy-dark);
           transition: color var(--transition-fast);
-          padding: 6px 0;
+          padding: 8px 0;
           position: relative;
         }
         .nav-link:hover, .nav-link.active {
@@ -182,8 +182,8 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, onNavigate, onOpenQuo
           color: #ffffff;
           font-family: var(--font-body);
           font-weight: 700;
-          font-size: 14px;
-          padding: 10px 22px;
+          font-size: 15.5px;
+          padding: 12px 26px;
           border-radius: var(--radius-xs);
           transition: background-color var(--transition-fast), transform var(--transition-fast);
         }
