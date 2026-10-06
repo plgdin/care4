@@ -133,7 +133,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, onNavigate, onOpenQuo
           top: 0;
           left: 0;
           right: 0;
-          height: 80px;
+          height: 98px;
           background: #ffffff;
           border-bottom: 1px solid rgba(0, 0, 0, 0.06);
           z-index: 1000;
@@ -156,19 +156,24 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, onNavigate, onOpenQuo
           background: transparent;
         }
         .navbar-logo-img {
-          height: 48px;
+          height: 76px;
           width: auto;
           object-fit: contain;
+          transition: transform var(--transition-fast);
+        }
+        .navbar-brand:hover .navbar-logo-img {
+          transform: scale(1.02);
         }
         .navbar-nav-desktop {
           display: flex;
           align-items: center;
-          gap: 36px;
+          gap: 38px;
         }
         .nav-link {
           font-family: var(--font-body);
           font-weight: 600;
-          font-size: 16px;
+          font-size: 18px;
+          letter-spacing: -0.01em;
           color: var(--color-navy-dark);
           transition: color var(--transition-fast);
           padding: 8px 0;
@@ -182,14 +187,16 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, onNavigate, onOpenQuo
           color: #ffffff;
           font-family: var(--font-body);
           font-weight: 700;
-          font-size: 15.5px;
-          padding: 12px 26px;
-          border-radius: var(--radius-xs);
-          transition: background-color var(--transition-fast), transform var(--transition-fast);
+          font-size: 17px;
+          padding: 13px 30px;
+          border-radius: 8px;
+          transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+          box-shadow: 0 2px 10px rgba(201, 42, 42, 0.2);
         }
         .btn-quote:hover {
           background-color: var(--color-accent-red-hover);
           transform: translateY(-1px);
+          box-shadow: 0 4px 14px rgba(201, 42, 42, 0.3);
         }
         .mobile-menu-btn {
           display: none;
@@ -197,20 +204,20 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, onNavigate, onOpenQuo
         }
         .mobile-drawer {
           position: absolute;
-          top: 80px;
+          top: 98px;
           left: 0;
           right: 0;
           background: #ffffff;
           padding: 24px;
           display: flex;
           flex-direction: column;
-          gap: 16px;
+          gap: 18px;
           box-shadow: var(--shadow-dropdown);
           border-bottom: 1px solid var(--color-border);
         }
         .mobile-nav-link {
           text-align: left;
-          font-size: 16px;
+          font-size: 18px;
           font-weight: 600;
           color: var(--color-navy-dark);
           padding: 8px 0;
