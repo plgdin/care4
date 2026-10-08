@@ -19,15 +19,18 @@ import { ProductDetailModal } from '../components/ProductDetailModal';
 // Concise popular brands list for clean tag pills
 const POPULAR_BRANDS = [
   'Dinewell',
-  'MILTON',
-  'Betco',
-  'Rubbermaid',
-  'Kimberly-Clark',
-  '3M',
-  'TORK',
-  'H&H',
-  'CONTA',
-  'Bharath Potteries'
+  'Borosil',
+  'Milton',
+  'Prestige',
+  'Ocean',
+  'Ariane',
+  'FNS',
+  'Cambro Nilkamal',
+  'Diversey',
+  'Gala',
+  'Godrej - Cartini',
+  'SAC',
+  'Conta'
 ];
 
 const SECTORS = ['Hotels', 'Restaurants', 'Catering'];
@@ -113,10 +116,10 @@ export const ProductPage: React.FC<ProductPageProps> = ({ onOpenQuote }) => {
     (selectedSector !== 'All' ? 1 : 0);
 
   // Active spotlight category
-  const activeSpotlightKey = selectedCategory !== 'All' ? selectedCategory : 'Tableware & Crockery';
-  const spotlightData = CATEGORY_SPOTLIGHT_MAP[activeSpotlightKey] || {
-    eyebrow: 'BONE CHINA & MELAMINE DINING',
-    title: 'Tableware & Crockery',
+  const activeSpotlightKey = selectedCategory !== 'All' ? selectedCategory : 'Crockery';
+  const spotlightData = CATEGORY_SPOTLIGHT_MAP[activeSpotlightKey] || CATEGORY_SPOTLIGHT_MAP['Crockery'] || {
+    eyebrow: 'FINE DINING & BUFFET TABLEWARE',
+    title: 'Crockery',
     image: '/images/image__tableware___crockery__c6601dfa.png',
     badges: ['Hotels', 'Restaurants', 'Catering'],
     items: TABLEWARE_DETAIL_ITEMS,

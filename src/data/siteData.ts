@@ -107,18 +107,55 @@ export const BRANDS_ROW_2: BrandItem[] = [
 ];
 
 export const ALL_FILTER_BRANDS: string[] = [
+  'Arcoroc',
+  'Ariane',
+  'Bharat - Crockery',
+  'Borosil',
+  'Cello',
+  'Clay Craft',
   'Dinewell',
-  'Bharath Potteries',
-  'MILTON',
-  'H&H',
-  'FRESH N FINE',
-  'SAC Chemicals',
-  'CONTA',
-  'Betco',
-  'Kimberly-Clark',
-  '3M',
-  'TORK',
-  'Rubbermaid'
+  'JCPL',
+  'Ocean',
+  'Servewell',
+  'Superware',
+  'Union',
+  'V 4',
+  'Shapes',
+  'Supreme',
+  'Venus',
+  'FNS',
+  'Cintra Cottons',
+  'Victol Gold',
+  'Anchor Utensils',
+  'Bakers',
+  'Cambro Nilkamal',
+  'Godrej - Cartini',
+  'Hem',
+  'Indigo',
+  'Kenford',
+  'KMW',
+  'Milton',
+  'Mosaic',
+  'Polygaurd',
+  'Pradeep',
+  'Prestige',
+  'Rena',
+  'Rudra',
+  'Sujatha',
+  'Zanuff Corvus',
+  'Conta',
+  'Dabur',
+  'Family Plastic',
+  'Fresh N Fine',
+  'Gala',
+  'Hit',
+  'Kimberly',
+  'Premier',
+  'Roots',
+  'Diversey',
+  'SAC',
+  'Kitchen Equipments',
+  'Serman'
 ];
 
 export const INDUSTRY_FACTORS: string[] = [
@@ -136,305 +173,583 @@ export const OTHER_FACTORS: string[] = [
 ];
 
 export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
+  // --- 1. CROCKERY ---
   {
-    id: 'p1',
-    title: 'Tableware & Crockery',
-    subtitle: 'Bone china & bespoke dining',
-    details: '24 products · Dinewell, Bharath Potteries',
-    image: '/images/image__tableware___crockery__a8a959b7.png',
-    category: 'Tableware & Crockery',
-    brands: ['Dinewell', 'Bharath Potteries'],
+    id: 'crockery-dinewell',
+    title: 'Dinewell Melamine Dinnerware',
+    subtitle: 'Chip-resistant buffet plates, bowls & platters',
+    details: '100% Melamine · Dinewell',
+    image: '/images/cardimage_b6bc00f1.png',
+    category: 'Crockery',
+    brands: ['Dinewell'],
     industries: ['Hotels', 'Restaurants', 'Catering'],
     factors: ['Bulk Wholesale', 'Custom Branding', 'ISO Certified']
   },
   {
-    id: 'p2',
-    title: 'Stainless Steel Silverware',
-    subtitle: 'Hand-finished & multi-finish serving',
-    details: '18 products · MILTON, H&H, Dinewell',
-    image: '/images/image__stainless_steel_brassware__69672dfd.png',
-    category: 'Stainless Steel Silverware',
-    brands: ['MILTON', 'H&H', 'Dinewell'],
+    id: 'crockery-borosil',
+    title: 'Borosil Glassware & Opalware',
+    subtitle: 'Toughened glass dining & beverage collections',
+    details: 'Opalware & Glass · Borosil',
+    image: '/images/image__tableware___crockery__a8a959b7.png',
+    category: 'Crockery',
+    brands: ['Borosil'],
     industries: ['Hotels', 'Restaurants', 'Catering'],
-    factors: ['Bulk Wholesale', 'Custom Branding']
+    factors: ['Bulk Wholesale', 'Heat Resistant']
   },
   {
-    id: 'p3',
-    title: 'Buffet & Beverage Equipment',
-    subtitle: 'Dispensers, chafers & kitchen machines',
-    details: '32 products · CONTA, MILTON, H&H',
-    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.png',
-    category: 'Buffet & Beverage Equipment',
-    brands: ['CONTA', 'MILTON', 'H&H'],
-    industries: ['Hotels', 'Catering', 'Restaurants'],
+    id: 'crockery-ariane-arcoroc',
+    title: 'Ariane & Arcoroc Fine Porcelain',
+    subtitle: 'European vitrified tableware & banquet plates',
+    details: 'Fine Porcelain & Opal · Ariane, Arcoroc',
+    image: '/images/image__tableware___crockery__c6601dfa.png',
+    category: 'Crockery',
+    brands: ['Ariane', 'Arcoroc'],
+    industries: ['Hotels', 'Restaurants'],
+    factors: ['Super Vitrified', 'Dishwasher Safe']
+  },
+  {
+    id: 'crockery-bharat-claycraft',
+    title: 'Bharat Crockery & Clay Craft',
+    subtitle: 'High-alumina ceramic & bone china dinner suites',
+    details: 'Ceramic & Bone China · Bharat - Crockery, Clay Craft',
+    image: '/images/cardimage_b6bc00f1.png',
+    category: 'Crockery',
+    brands: ['Bharat - Crockery', 'Clay Craft'],
+    industries: ['Hotels', 'Restaurants', 'Catering'],
+    factors: ['Lead & Cadmium Safe', 'Custom Branding']
+  },
+  {
+    id: 'crockery-ocean-union',
+    title: 'Ocean & Union Commercial Glassware',
+    subtitle: 'Clear soda-lime tumblers, goblets & beer glasses',
+    details: 'Commercial Glassware · Ocean, Union',
+    image: '/images/image__hospitality_tableware__eab14684.png',
+    category: 'Crockery',
+    brands: ['Ocean', 'Union'],
+    industries: ['Hotels', 'Restaurants', 'Catering'],
+    factors: ['Crystal Clarity', 'Bulk Wholesale']
+  },
+  {
+    id: 'crockery-servewell-superware',
+    title: 'Servewell & Superware Melamine Dining',
+    subtitle: 'Food-grade melamine serving trays, bowls & plates',
+    details: 'Melamine Dining · Servewell, Superware',
+    image: '/images/image__fine_dining__2ac60065.png',
+    category: 'Crockery',
+    brands: ['Servewell', 'Superware'],
+    industries: ['Restaurants', 'Catering', 'Hotels'],
+    factors: ['Break Resistant', 'BPA Free']
+  },
+  {
+    id: 'crockery-cello-jcpl-v4',
+    title: 'Cello, JCPL & V 4 Tableware',
+    subtitle: 'Modern tabletop essentials & banquet collections',
+    details: 'Tabletop Sets · Cello, JCPL, V 4',
+    image: '/images/image__restaurant_setting__c005091f.png',
+    category: 'Crockery',
+    brands: ['Cello', 'JCPL', 'V 4'],
+    industries: ['Hotels', 'Restaurants', 'Catering'],
     factors: ['Bulk Wholesale', 'ISO Certified']
   },
+
+  // --- 2. CUTLERY ---
   {
-    id: 'p4',
-    title: 'Cleaning Chemicals',
-    subtitle: 'Concentrates & surface cleaners · ISO-certified',
-    details: '45 products · Betco, SAC Chemicals, FRESH N FINE',
-    image: '/images/image__cleaning_chemicals__b85bdd2d.png',
-    category: 'Cleaning Chemicals',
-    brands: ['Betco', 'SAC Chemicals', 'FRESH N FINE'],
-    industries: ['Hotels', 'Restaurants', 'Catering', 'Facilities & Janitorial'],
-    factors: ['ISO Certified', 'Eco-Friendly / Green', 'Bulk Wholesale']
+    id: 'cutlery-fns',
+    title: 'FNS Luxury Cutlery Collection',
+    subtitle: 'Handcrafted premium 18/10 stainless steel suites',
+    details: '18/10 Stainless Steel · FNS',
+    image: '/images/image__stainless_steel_brassware__69672dfd.png',
+    category: 'Cutlery',
+    brands: ['FNS'],
+    industries: ['Hotels', 'Restaurants'],
+    factors: ['Mirror Polish', 'Heavy Gauge', 'Rust Proof']
   },
   {
-    id: 'p5',
-    title: 'Cleaning Equipment & Janitorial',
-    subtitle: 'Mops, brooms, trolleys & commercial bins',
-    details: '38 products · Rubbermaid, 3M, CONTA',
-    image: '/images/image__cleaning_equipment___janitorial__b009223f.png',
-    category: 'Cleaning Equipment & Janitorial',
-    brands: ['Rubbermaid', '3M', 'CONTA'],
-    industries: ['Hotels', 'Restaurants', 'Facilities & Janitorial'],
-    factors: ['Bulk Wholesale', 'ISO Certified']
+    id: 'cutlery-shapes',
+    title: 'Shapes Commercial Flatware',
+    subtitle: 'Contemporary dining spoons, forks, knives & steak suites',
+    details: 'Heavy Gauge Flatware · Shapes',
+    image: '/images/image__stainless_steel_brassware__69672dfd.png',
+    category: 'Cutlery',
+    brands: ['Shapes'],
+    industries: ['Hotels', 'Restaurants', 'Catering'],
+    factors: ['Dishwasher Safe', 'Bulk Wholesale']
   },
   {
-    id: 'p6',
-    title: 'Paper Products & Dispensary',
-    subtitle: 'Toilet rolls, napkins, towels & tissue',
-    details: '26 products · Kimberly-Clark, TORK, FRESH N FINE',
-    image: '/images/image__paper_products___dispensers__1a5dc51e.png',
-    category: 'Paper Products & Dispensary',
-    brands: ['Kimberly-Clark', 'TORK', 'FRESH N FINE'],
-    industries: ['Hotels', 'Restaurants', 'Catering', 'Facilities & Janitorial'],
-    factors: ['Eco-Friendly / Green', 'Bulk Wholesale']
+    id: 'cutlery-venus',
+    title: 'Venus Hospitality Cutlery',
+    subtitle: 'Heavy-gauge mirror & satin banquet silverware',
+    details: 'High-Grade Cutlery · Venus',
+    image: '/images/cardimage_ac51211f.png',
+    category: 'Cutlery',
+    brands: ['Venus'],
+    industries: ['Hotels', 'Restaurants', 'Catering'],
+    factors: ['Custom Crest Embossing', 'ISO Certified']
   },
   {
-    id: 'p7',
-    title: 'Guest Amenities',
-    subtitle: 'In-room comfort & luxury bathroom sets',
-    details: '21 products · H&H, FRESH N FINE, Kimberly-Clark',
+    id: 'cutlery-supreme',
+    title: 'Supreme Foodservice Cutlery',
+    subtitle: 'High-turnover durable cutlery for banquets & cafes',
+    details: 'Foodservice Grade · Supreme',
+    image: '/images/image__fine_dining__2ac60065.png',
+    category: 'Cutlery',
+    brands: ['Supreme'],
+    industries: ['Restaurants', 'Catering', 'Hotels'],
+    factors: ['Economic Bulk', 'Corrosion Resistant']
+  },
+
+  // --- 3. LINEN ---
+  {
+    id: 'linen-towels-bathmats',
+    title: 'Bath Towels, Hand Towels & Bath Mats',
+    subtitle: '100% Combed terry cotton luxury plush towels',
+    details: '550-650 GSM Cotton · Cintra Cottons',
+    image: '/images/image__hotels__8af4967c.png',
+    category: 'Linen',
+    brands: ['Cintra Cottons'],
+    industries: ['Hotels', 'Resorts'],
+    factors: ['100% Combed Cotton', 'High Absorbency', 'Bulk Wholesale']
+  },
+  {
+    id: 'linen-pool-face-towels',
+    title: 'Pool Towels & Face Towels',
+    subtitle: 'Vat-dyed chlorine-resistant poolside & face linens',
+    details: 'Vat-Dyed Cotton · Cintra Cottons',
+    image: '/images/heroimage_3f45b21f.png',
+    category: 'Linen',
+    brands: ['Cintra Cottons'],
+    industries: ['Hotels', 'Resorts'],
+    factors: ['Chlorine Resistant', 'Quick Dry']
+  },
+  {
+    id: 'linen-bedsheets-duvets',
+    title: 'Bed Sheets, Bed Covers & Duvets',
+    subtitle: '300-400 TC pure cotton & sateen stripe bed linen',
+    details: '300-400 TC Sateen · Cintra Cottons',
+    image: '/images/centerimage_f8709305.png',
+    category: 'Linen',
+    brands: ['Cintra Cottons'],
+    industries: ['Hotels'],
+    factors: ['Hypoallergenic', 'Commercial Wash Proof']
+  },
+  {
+    id: 'linen-pillows-protectors',
+    title: 'Pillows, Pillow Covers & Mattress Protectors',
+    subtitle: 'Microfiber down-feel pillows & waterproof protectors',
+    details: 'Microfiber & Quilted · Cintra Cottons',
+    image: '/images/image__hotels__8af4967c.png',
+    category: 'Linen',
+    brands: ['Cintra Cottons'],
+    industries: ['Hotels'],
+    factors: ['Waterproof Barrier', 'Anti-Bacterial']
+  },
+  {
+    id: 'linen-curtains-carpets-rugs',
+    title: 'Curtains, Carpets, Rugs & Cushions',
+    subtitle: 'Flame-retardant blackout drapery, throws & floor coverings',
+    details: 'Flame-Retardant Fabric · Cintra Cottons',
+    image: '/images/centerimage_f8709305.png',
+    category: 'Linen',
+    brands: ['Cintra Cottons'],
+    industries: ['Hotels', 'Restaurants'],
+    factors: ['Blackout FR', 'Custom Dimensions']
+  },
+
+  // --- 4. GUEST AMENITIES ---
+  {
+    id: 'amenities-liquids-soaps',
+    title: 'Liquid Amenities & Soaps',
+    subtitle: 'Bath gel, shampoo, body lotion, moisturizer & soaps',
+    details: 'Botanical Formulations · Victol Gold',
     image: '/images/image__guest_amenities_equipment__f4f6ec37.png',
     category: 'Guest Amenities',
-    brands: ['H&H', 'FRESH N FINE', 'Kimberly-Clark'],
+    brands: ['Victol Gold'],
     industries: ['Hotels'],
-    factors: ['Custom Branding', 'Bulk Wholesale']
+    factors: ['Paraben Free', 'Custom Hotel Branding']
   },
   {
-    id: 'p8',
-    title: 'Waste Management',
-    subtitle: 'Plastic & stainless steel segregation bins',
-    details: '15 products · Rubbermaid, CONTA, 3M',
-    image: '/images/image_3_c35c9821.png',
-    category: 'Waste Management',
-    brands: ['Rubbermaid', 'CONTA', '3M'],
-    industries: ['Hotels', 'Restaurants', 'Catering', 'Facilities & Janitorial'],
-    factors: ['Bulk Wholesale', 'Eco-Friendly / Green']
+    id: 'amenities-room-kits',
+    title: 'Customised Guest & Room Kits',
+    subtitle: 'Dental kit, shaving kit, sewing kit & medical kits',
+    details: 'Eco-Packaging · Victol Gold',
+    image: '/images/cardimage_1dbd1171.png',
+    category: 'Guest Amenities',
+    brands: ['Victol Gold'],
+    industries: ['Hotels'],
+    factors: ['Biodegradable', 'Custom Hotel Logo']
   },
   {
-    id: 'p9',
-    title: 'Melamine & Buffet Dinnerware',
-    subtitle: 'Chip-resistant serving plates & bowls',
-    details: '28 products · Dinewell, Bharath Potteries',
-    image: '/images/cardimage_b6bc00f1.png',
-    category: 'Tableware & Crockery',
-    brands: ['Dinewell', 'Bharath Potteries'],
-    industries: ['Restaurants', 'Catering', 'Hotels'],
-    factors: ['Bulk Wholesale', 'Custom Branding']
+    id: 'amenities-room-accessories',
+    title: 'Room Amenities & Bath Slippers',
+    subtitle: 'Bath slippers, hangers, laundry paper bags, shoe mitts',
+    details: 'In-Room Essentials · Victol Gold',
+    image: '/images/image__guest_amenities_equipment__f4f6ec37.png',
+    category: 'Guest Amenities',
+    brands: ['Victol Gold'],
+    industries: ['Hotels'],
+    factors: ['Eco-Friendly', 'Bulk Wholesale']
   },
   {
-    id: 'p10',
-    title: 'Commercial Cookware & Holloware',
-    subtitle: 'Heavy-gauge stainless steel kitchen sets',
-    details: '22 products · MILTON, H&H',
+    id: 'amenities-bath-tissue',
+    title: 'Bath Amenities, Toilet Rolls & WC Bands',
+    subtitle: 'Virgin pulp toilet rolls, sanitized WC bands & glass covers',
+    details: 'Sanitary Paper Goods · Victol Gold',
+    image: '/images/image__paper_products___dispensers__1a5dc51e.png',
+    category: 'Guest Amenities',
+    brands: ['Victol Gold'],
+    industries: ['Hotels'],
+    factors: ['100% Virgin Pulp', 'Hygienic Wrapping']
+  },
+  {
+    id: 'amenities-housekeeping-stationery',
+    title: 'Folders, Cards & Disposables',
+    subtitle: 'Bill folders, menu folders, DND cards, luggage tags, stirrers & straws',
+    details: 'Front Office & Dining · Victol Gold',
+    image: '/images/cardimage_4fdce090.png',
+    category: 'Guest Amenities',
+    brands: ['Victol Gold'],
+    industries: ['Hotels', 'Restaurants'],
+    factors: ['Custom Embossing', 'Food Grade Disposables']
+  },
+
+  // --- 5. KITCHEN UTENSILS ---
+  {
+    id: 'utensils-prestige-milton',
+    title: 'Prestige & Milton Commercial Cookware',
+    subtitle: 'Heavy-gauge stock pots, frying pans & pressure cookers',
+    details: 'Commercial Cookware · Prestige, Milton',
     image: '/images/cardimage_ac51211f.png',
-    category: 'Stainless Steel Silverware',
-    brands: ['MILTON', 'H&H'],
-    industries: ['Hotels', 'Restaurants', 'Catering'],
-    factors: ['Bulk Wholesale', 'ISO Certified']
+    category: 'Kitchen Utensils',
+    brands: ['Prestige', 'Milton'],
+    industries: ['Restaurants', 'Hotels', 'Catering'],
+    factors: ['Heavy Gauge SS', 'Induction & Gas Compatible']
   },
   {
-    id: 'p11',
-    title: 'Industrial Floor Care & Degreasers',
-    subtitle: 'Heavy-duty kitchen & hygiene chemical solutions',
-    details: '34 products · Betco, SAC Chemicals',
+    id: 'utensils-godrej-cartini-bakers',
+    title: 'Godrej - Cartini & Bakers Professional Knives',
+    subtitle: 'Chef knives, carving tools, cleavers & prep accessories',
+    details: 'Culinary Cutlery · Godrej - Cartini, Bakers',
+    image: '/images/image__stainless_steel_brassware__69672dfd.png',
+    category: 'Kitchen Utensils',
+    brands: ['Godrej - Cartini', 'Bakers'],
+    industries: ['Hotels', 'Restaurants', 'Catering'],
+    factors: ['High-Carbon Steel', 'Ergonomic Grip']
+  },
+  {
+    id: 'utensils-cambro-polyguard',
+    title: 'Cambro Nilkamal & Polygaurd Food Storage',
+    subtitle: 'GN food pans, airtight ingredient bins & measuring jugs',
+    details: 'NSF Certified · Cambro Nilkamal, Polygaurd',
+    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.png',
+    category: 'Kitchen Utensils',
+    brands: ['Cambro Nilkamal', 'Polygaurd'],
+    industries: ['Hotels', 'Restaurants', 'Catering'],
+    factors: ['NSF Certified', 'Stackable']
+  },
+  {
+    id: 'utensils-pradeep-anchor',
+    title: 'Pradeep & Anchor Utensils',
+    subtitle: 'Stainless steel catering degchis, topes, handis & colanders',
+    details: 'Catering Vessels · Pradeep, Anchor Utensils',
+    image: '/images/cardimage_ac51211f.png',
+    category: 'Kitchen Utensils',
+    brands: ['Pradeep', 'Anchor Utensils'],
+    industries: ['Catering', 'Restaurants', 'Hotels'],
+    factors: ['Commercial Tri-Ply', 'High Volume']
+  },
+  {
+    id: 'utensils-hem-indigo-kenford',
+    title: 'Hem, Indigo & Kenford Kitchenware',
+    subtitle: 'Commercial ladles, skimmers, whisks & buffet serving tongs',
+    details: 'Kitchen Prep Tools · Hem, Indigo, Kenford',
+    image: '/images/image__fine_dining__2ac60065.png',
+    category: 'Kitchen Utensils',
+    brands: ['Hem', 'Indigo', 'Kenford'],
+    industries: ['Hotels', 'Restaurants', 'Catering'],
+    factors: ['Seamless Stainless', 'Dishwasher Safe']
+  },
+  {
+    id: 'utensils-mosaic-rena-rudra-venus',
+    title: 'Mosaic, Rena, Rudra & Venus Kitchen Vessels',
+    subtitle: 'Gastronorm containers, serving dishes & kitchen holloware',
+    details: 'Commercial Vessels · Mosaic, Rena, Rudra, Venus',
+    image: '/images/image__restaurant_setting__c005091f.png',
+    category: 'Kitchen Utensils',
+    brands: ['Mosaic', 'Rena', 'Rudra', 'Venus'],
+    industries: ['Hotels', 'Restaurants', 'Catering'],
+    factors: ['Commercial Gauge', 'ISO Certified']
+  },
+  {
+    id: 'utensils-kmw-sujatha-zanuff',
+    title: 'KMW, Sujatha & Zanuff Corvus Equipment',
+    subtitle: 'Heavy commercial kitchen prep appliances & utility accessories',
+    details: 'Prep & Utility · KMW, Sujatha, Zanuff Corvus',
+    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.png',
+    category: 'Kitchen Utensils',
+    brands: ['KMW', 'Sujatha', 'Zanuff Corvus'],
+    industries: ['Restaurants', 'Catering', 'Hotels'],
+    factors: ['Heavy Duty Motor', 'Commercial Grade']
+  },
+
+  // --- 6. HOUSE KEEPING ---
+  {
+    id: 'housekeeping-gala-roots',
+    title: 'Gala & Roots Commercial Cleaning Tools',
+    subtitle: 'Heavy-duty microfiber mops, floor squeegees & lobby dustpans',
+    details: 'Janitorial Tools · Gala, Roots',
+    image: '/images/image__cleaning_equipment___janitorial__b009223f.png',
+    category: 'House Keeping',
+    brands: ['Gala', 'Roots'],
+    industries: ['Hotels', 'Facilities & Janitorial', 'Restaurants'],
+    factors: ['Heavy Duty Durability', 'Ergonomic Handles']
+  },
+  {
+    id: 'housekeeping-cambro-conta',
+    title: 'Cambro Nilkamal & Conta Utility Trolleys & Bins',
+    subtitle: 'Room service carts, linen hampers & waste segregation bins',
+    details: 'Trolleys & Bins · Cambro Nilkamal, Conta',
+    image: '/images/image_3_c35c9821.png',
+    category: 'House Keeping',
+    brands: ['Cambro Nilkamal', 'Conta'],
+    industries: ['Hotels', 'Facilities & Janitorial', 'Restaurants'],
+    factors: ['Non-Marking Wheels', 'High Load Capacity']
+  },
+  {
+    id: 'housekeeping-kimberly-premier',
+    title: 'Kimberly & Premier Paper & Dispensers',
+    subtitle: 'Commercial hand roll towels, jumbo rolls & facial tissues',
+    details: 'Washroom Solutions · Kimberly, Premier',
+    image: '/images/image__paper_products___dispensers__1a5dc51e.png',
+    category: 'House Keeping',
+    brands: ['Kimberly', 'Premier'],
+    industries: ['Hotels', 'Facilities & Janitorial', 'Restaurants'],
+    factors: ['High Absorbency', 'Touchless Dispensing']
+  },
+  {
+    id: 'housekeeping-freshnfine-familyplastic',
+    title: 'Fresh N Fine & Family Plastic Supplies',
+    subtitle: 'Guestroom liners, dustbins, laundry baskets & plastics',
+    details: 'Room Plastics · Fresh N Fine, Family Plastic',
+    image: '/images/cardimage_4fdce090.png',
+    category: 'House Keeping',
+    brands: ['Fresh N Fine', 'Family Plastic'],
+    industries: ['Hotels', 'Facilities & Janitorial'],
+    factors: ['Recyclable Polymers', 'Commercial Grade']
+  },
+  {
+    id: 'housekeeping-dabur-hit',
+    title: 'Dabur & Hit Room Care & Pest Solutions',
+    subtitle: 'Commercial odor neutralizers, fresheners & insect control',
+    details: 'Facility Hygiene · Dabur, Hit',
+    image: '/images/cardimage_1dbd1171.png',
+    category: 'House Keeping',
+    brands: ['Dabur', 'Hit'],
+    industries: ['Hotels', 'Restaurants', 'Facilities & Janitorial'],
+    factors: ['Institutional Formulation', 'Fast Acting']
+  },
+
+  // --- 7. CLEANING CHEMICALS ---
+  {
+    id: 'chemicals-diversey',
+    title: 'Diversey Professional Cleaning Concentrates',
+    subtitle: 'Taski floor care, kitchen degreasers, sanitizers & dishwash',
+    details: 'Concentrated Chemicals · Diversey',
+    image: '/images/image__cleaning_chemicals__b85bdd2d.png',
+    category: 'Cleaning Chemicals',
+    brands: ['Diversey'],
+    industries: ['Hotels', 'Restaurants', 'Facilities & Janitorial', 'Catering'],
+    factors: ['ISO Certified', 'Automated Dilution Safe', 'Eco-Friendly']
+  },
+  {
+    id: 'chemicals-sac',
+    title: 'SAC Commercial Hygiene Chemicals',
+    subtitle: 'Surface cleaners, glass cleaners, descalers & multi-purpose liquids',
+    details: 'Surface & Multi-Clean · SAC',
     image: '/images/cardimage_4fdce090.png',
     category: 'Cleaning Chemicals',
-    brands: ['Betco', 'SAC Chemicals'],
-    industries: ['Hotels', 'Facilities & Janitorial', 'Restaurants'],
-    factors: ['ISO Certified', 'Eco-Friendly / Green']
+    brands: ['SAC'],
+    industries: ['Hotels', 'Restaurants', 'Facilities & Janitorial'],
+    factors: ['High Potency', 'Bulk 5L / 20L Packs']
+  },
+
+  // --- 8. ENGINEERING EQUIPMENTS ---
+  {
+    id: 'engineering-kitchen-equipments',
+    title: 'Commercial Kitchen Equipments',
+    subtitle: 'High-power burners, ovens, fryers, griddles & hot bain-maries',
+    details: 'Commercial Kitchen Units · Kitchen Equipments',
+    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.png',
+    category: 'Engineering Equipments',
+    brands: ['Kitchen Equipments'],
+    industries: ['Hotels', 'Restaurants', 'Catering'],
+    factors: ['Heavy Commercial Power', 'ISI / CE Certified']
   },
   {
-    id: 'p12',
-    title: 'Commercial Washroom Dispensers',
-    subtitle: 'Touch-free sensor paper & soap units',
-    details: '19 products · Kimberly-Clark, TORK',
-    image: '/images/cardimage_1dbd1171.png',
-    category: 'Paper Products & Dispensary',
-    brands: ['Kimberly-Clark', 'TORK'],
-    industries: ['Hotels', 'Facilities & Janitorial'],
-    factors: ['Eco-Friendly / Green', 'Custom Branding']
+    id: 'engineering-serman',
+    title: 'Serman Engineering & Commercial Machinery',
+    subtitle: 'Commercial refrigeration, dishwashers & facility machines',
+    details: 'Heavy Machinery & Systems · Serman',
+    image: '/images/image__fine_dining__2ac60065.png',
+    category: 'Engineering Equipments',
+    brands: ['Serman'],
+    industries: ['Hotels', 'Restaurants', 'Facilities & Janitorial'],
+    factors: ['Energy Efficient', 'Heavy Duty Performance']
   }
 ];
 
 export const CATEGORY_FILTERS = [
-  'Tableware & Crockery',
-  'Stainless Steel Silverware',
-  'Buffet & Beverage Equipment',
-  'Cleaning Chemicals',
-  'Cleaning Equipment & Janitorial',
-  'Paper Products & Dispensary',
+  'Crockery',
+  'Cutlery',
+  'Linen',
   'Guest Amenities',
-  'Waste Management'
+  'Kitchen Utensils',
+  'House Keeping',
+  'Cleaning Chemicals',
+  'Engineering Equipments'
 ];
 
 export const CATEGORY_SPOTLIGHT_MAP: Record<string, CategorySpotlightInfo> = {
-  'Tableware & Crockery': {
-    eyebrow: 'BONE CHINA & MELAMINE DINING',
-    title: 'Tableware & Crockery',
+  'Crockery': {
+    eyebrow: 'FINE DINING & BUFFET TABLEWARE',
+    title: 'Crockery',
     image: '/images/image__tableware___crockery__c6601dfa.png',
     badges: ['Hotels', 'Restaurants', 'Catering'],
     items: [
-      'Round Dinner Plate',
-      'Soup Bowl',
-      'Tea Cup & Saucer',
-      'Coffee Mug / Bowl - China',
-      'Half Plate Square',
-      'Buffet Plate',
-      'Rim Soup Plate 10"',
-      'Oval Serving Platter',
-      'Noodle Bowl',
-      'Melamine Tumbler',
-      'Tea Pot',
-      'Salt & Pepper Set'
+      'Dinewell Melamine Plates & Bowls',
+      'Borosil Commercial Glassware',
+      'Ariane Fine Porcelain Dinner Sets',
+      'Arcoroc Vitrified Glass Tableware',
+      'Bharat Crockery Ceramic Suites',
+      'Clay Craft Bone China Crockery',
+      'Ocean Glass Drinkware & Goblets',
+      'Servewell & Superware Trays & Plates',
+      'Union Glass Tumblers & Beer Mugs',
+      'Cello & JCPL Tabletop Collections',
+      'V 4 Fine Dining Accessories'
     ],
-    footnote: 'Available in bulk and minimum quantities. Customer-specific sizes and branding arranged on request — contact us for a quote.'
+    footnote: 'Authorized distributors for Arcoroc, Ariane, Bharat, Borosil, Cello, Clay Craft, Dinewell, JCPL, Ocean, Servewell, Superware, Union, and V 4.'
   },
-  'Stainless Steel Silverware': {
-    eyebrow: 'MIRROR & MATTE CUTLERY SUITES',
-    title: 'Stainless Steel Silverware',
+  'Cutlery': {
+    eyebrow: 'MIRROR & SATIN CUTLERY SUITES',
+    title: 'Cutlery',
     image: '/images/image__stainless_steel_brassware__69672dfd.png',
     badges: ['Hotels', 'Restaurants', 'Catering'],
     items: [
-      'Dinner Fork & Knife Set',
-      'Dessert Spoon Heavy Gauge',
-      'Soup Spoon Oval',
-      'Steak Knife Serrated',
-      'Butter Knife & Spreader',
-      'Serving Tongs & Ladles',
-      'Ice Bucket & Tongs SS',
-      'Gravy Boat Stainless 12oz',
-      'Finger Bowl Set',
-      'Wine Cooler Stand'
+      'FNS Luxury 18/10 Cutlery Sets',
+      'Shapes Heavy Gauge Dinner Spoons & Forks',
+      'Venus Mirror Finish Cutlery Suites',
+      'Supreme Commercial Cafe & Banquet Silverware',
+      'Steak Knives & Butter Spreaders',
+      'Dessert, Soup & Teaspoons',
+      'Buffet Serving Tongs & Ladles'
     ],
-    footnote: 'High-grade 18/10 and 18/0 stainless steel cutlery with laser etching or embossed crest for bespoke hotel identity.'
+    footnote: 'Featuring leading cutlery brands Shapes, Supreme, Venus, and FNS. Custom crest embossing and bulk packing available.'
   },
-  'Buffet & Beverage Equipment': {
-    eyebrow: 'BANQUET PRESENTATION & WARMING',
-    title: 'Buffet & Beverage Equipment',
-    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.png',
-    badges: ['Hotels', 'Catering', 'Restaurants'],
+  'Linen': {
+    eyebrow: 'LUXURY COTTON BED & BATH LINENS',
+    title: 'Linen',
+    image: '/images/cardimage_ac51211f.png',
+    badges: ['Hotels', 'Resorts'],
     items: [
-      'Roll-Top Chafing Dish 9L',
-      'Hydraulic Induction Chafer',
-      'Juice Dispenser Double 8L+8L',
-      'Commercial Cereal Dispenser',
-      'Electric Soup Kettle Warmer',
-      'Coffee Urn / Boiler 15L',
-      'GN Food Pans 1/1, 1/2, 1/3',
-      'Multi-Tier Acrylic Riser Set',
-      'Bread Display Basket Display',
-      'Carving Station Heat Lamp'
+      'Bath Towels (550 - 650 GSM Combed Cotton)',
+      'Face Towels & Hand Towels',
+      'Pool Towels & Heavy Bath Mats',
+      'Bed Sheets (300-400 TC Sateen / Percale)',
+      'Bed Covers, Duvets & Quilt Inserts',
+      'Mattress Protectors & Waterproof Pads',
+      'Pillows & Sateen Pillow Covers',
+      'Flame-Retardant Curtains & Drapes',
+      'Carpets, Rugs, Cushions & Throws'
     ],
-    footnote: 'Heavy duty commercial buffet fixtures engineered for high turnover banquets and hotel breakfast service.'
-  },
-  'Cleaning Chemicals': {
-    eyebrow: 'COMMERCIAL HYGIENE & DISINFECTION',
-    title: 'Cleaning Chemicals',
-    image: '/images/image__cleaning_chemicals__b85bdd2d.png',
-    badges: ['Hotels', 'Restaurants', 'Facilities & Janitorial'],
-    items: [
-      'Floor Cleaner Concentrate (Neutral)',
-      'Glass & Multi-Surface Cleaner',
-      'Heavy Duty Kitchen Degreaser',
-      'Automatic Dishwash Detergent',
-      'Rinse Aid Machine Liquid',
-      'Hand Soap Foam Anti-Bacterial',
-      'Toilet Bowl Descaler 5L',
-      'Air Freshener Aromatherapy 5L',
-      'Kitchen Sanitizer QAC Based',
-      'Stainless Steel Polish & Cleaner'
-    ],
-    footnote: 'ISO & Green-certified concentrated chemicals with automated dispenser dilution systems to reduce waste.'
-  },
-  'Cleaning Equipment & Janitorial': {
-    eyebrow: 'FACILITY MAINTENANCE HARDWARE',
-    title: 'Cleaning Equipment & Janitorial',
-    image: '/images/image__cleaning_equipment___janitorial__b009223f.png',
-    badges: ['Hotels', 'Restaurants', 'Facilities & Janitorial'],
-    items: [
-      'Double Bucket Wringer Trolley',
-      'Kentucky Mop Cotton & Microfiber',
-      'Housekeeping Service Trolley',
-      'Wet Floor Caution Safety Sign',
-      'Lobby Dustpan with Broom',
-      'Window Squeegee Telescopic Pole',
-      'Microfiber Color-Coded Towels',
-      'Floor Squeegee Heavy Duty 60cm',
-      'Scrubbing Brushes Deck & Wall',
-      'Utility Carts 3-Shelf Polypropylene'
-    ],
-    footnote: 'Durable Rubbermaid and Filmop commercial equipment built to withstand rigorous daily hotel and kitchen operation.'
-  },
-  'Paper Products & Dispensary': {
-    eyebrow: 'DISPOSABLE HYGIENE & DISPENSERS',
-    title: 'Paper Products & Dispensary',
-    image: '/images/image__paper_products___dispensers__1a5dc51e.png',
-    badges: ['Hotels', 'Restaurants', 'Catering', 'Facilities & Janitorial'],
-    items: [
-      'M-Fold Interfold Hand Towels',
-      'Jumbo Roll Tissue (JRT) 2-Ply',
-      'Dinner Paper Napkins 40x40cm',
-      'Cocktail Napkins 24x24cm',
-      'Automatic Sensor Hand Towel Dispenser',
-      'Center-Pull Kitchen Paper Rolls',
-      'Facial Tissue Cube & Flat Box',
-      'Foam Soap Wall Dispensers',
-      'Toilet Seat Cover Papers',
-      'Custom Printed Napkins & Coasters'
-    ],
-    footnote: 'Sustainably sourced virgin and recycled paper fibers from Kimberly-Clark, TORK and leading hygiene manufacturers.'
+    footnote: 'High-thread count luxury hospitality linens crafted with premium cottons. Base reference: www.cintracottons.com.'
   },
   'Guest Amenities': {
-    eyebrow: 'IN-ROOM HOSPITALITY COMFORTS',
+    eyebrow: 'IN-ROOM LUXURY & GUEST COMFORTS',
     title: 'Guest Amenities',
     image: '/images/image__guest_amenities_equipment__f4f6ec37.png',
     badges: ['Hotels', 'Resorts'],
     items: [
-      'Dental Kit with Biodegradable Brush',
-      'Shaving Kit with Cream Tube',
-      'Hotel Slippers Open / Closed Toe',
-      'Shampoo & Body Wash Tubes 30ml',
-      'Conditioner & Body Lotion 30ml',
-      'Glycerin Hand Soap 25g/30g',
-      'Sewing Kit & Vanity Pack',
-      'Shoe Shine Sponge / Mitt',
-      'Shower Cap Compostable Pouch',
-      'Laundry Bags Cloth & Eco-PE'
+      'Bath Gel, Body Lotion, Foam Bath & Moisturizer',
+      'Shampoo, Shower Gel & Botanical Soaps',
+      'Dental Kit, Shaving Kit, Medical & Sewing Kits',
+      'Customised Hotel Room & Guest Kits',
+      'Bath Slippers & Hotel Wooden Hangers',
+      'Laundry Paper Bags & Hygiene / Disposable Bags',
+      'Toilet Rolls, Sanitized WC Bands & Glass Covers',
+      'Bill Folders, DND Cards, Menu Folders & Luggage Tags',
+      'Room Fresheners, Shoe Shine, Stirrers & Straws'
     ],
-    footnote: 'Eco-conscious packaging with botanical formulations and custom hotel logo hot-stamping or box printing.'
+    footnote: 'Full range of curated guestroom and bathroom amenities. Base reference: www.victolgold.com.'
   },
-  'Waste Management': {
-    eyebrow: 'ENVIRONMENTAL & REFUSE CONTROL',
-    title: 'Waste Management',
-    image: '/images/image_3_c35c9821.png',
+  'Kitchen Utensils': {
+    eyebrow: 'COMMERCIAL COOKWARE & PREP HARDWARE',
+    title: 'Kitchen Utensils',
+    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.png',
+    badges: ['Restaurants', 'Hotels', 'Catering'],
+    items: [
+      'Prestige Commercial Cookware & Pressure Pans',
+      'Milton Insulated Vessels & Food Containers',
+      'Godrej - Cartini Professional Culinary Knives',
+      'Bakers Chef Knives & Kitchen Prep Slicers',
+      'Cambro Nilkamal Food Pans & Ingredient Storage',
+      'Polygaurd Food Grade Kitchen Storage',
+      'Pradeep & Anchor Heavy Stainless Steel Topes & Degchis',
+      'Hem, Indigo & Kenford Commercial Ladles & Whisks',
+      'Mosaic, Rena, Rudra & Venus Cooking Vessels',
+      'KMW, Sujatha & Zanuff Corvus Commercial Kitchen Tools'
+    ],
+    footnote: 'Engineered for high-volume commercial kitchens, banquets and catering operations from trusted national brands.'
+  },
+  'House Keeping': {
+    eyebrow: 'FACILITY CLEANING & JANITORIAL SYSTEMS',
+    title: 'House Keeping',
+    image: '/images/image__cleaning_equipment___janitorial__b009223f.png',
+    badges: ['Hotels', 'Facilities & Janitorial', 'Restaurants'],
+    items: [
+      'Gala & Roots Commercial Microfiber Mops & Squeegees',
+      'Cambro Nilkamal Housekeeping Carts & Trolleys',
+      'Conta Commercial Bins & Linen Hampers',
+      'Kimberly & Premier Hand Towels & Tissue Systems',
+      'Fresh N Fine Room Supplies & Disposables',
+      'Family Plastic Commercial Buckets & Containers',
+      'Dabur & Hit Room Fresheners & Pest Control',
+      'Double Bucket Wringer Trolleys & Caution Signs'
+    ],
+    footnote: 'Complete housekeeping solutions from Gala, Roots, Cambro Nilkamal, Conta, Kimberly, Premier, Dabur, and Hit.'
+  },
+  'Cleaning Chemicals': {
+    eyebrow: 'INSTITUTIONAL HYGIENE & SANITATION',
+    title: 'Cleaning Chemicals',
+    image: '/images/image__cleaning_chemicals__b85bdd2d.png',
     badges: ['Hotels', 'Restaurants', 'Facilities & Janitorial'],
     items: [
-      'Hands-Free Foot Pedal Bins 20L/45L',
-      'Slim Space-Saver Recycling Bins',
-      'Color-Coded Segregation Bins Set',
-      'Outdoor Stainless Ash / Trash Bin',
-      'Heavy Duty Wheeled Waste Bin 120L/240L',
-      'Stainless Steel Open Top Room Bins',
-      'Leatherette Guestroom Double Layer Bin',
-      'Heavy Duty Garbage Bags 50 Micron',
-      'Sanitary Bin Pedal Operated',
-      'Recycling Station Bins with Lid Inserts'
+      'Diversey Taski Floor Cleaners (R1 - R9 Series)',
+      'Diversey Suma Kitchen Degreasers & Oven Cleaners',
+      'Diversey Automatic Machine Dishwash & Rinse Aid',
+      'SAC Surface Disinfectants & Multipurpose Cleaners',
+      'SAC Toilet Bowl Descalers & Scale Removers',
+      'SAC Glass & Mirror Cleaners Streak-Free',
+      'Food-Grade Kitchen Surface Sanitizers',
+      'Antibacterial Foaming Hand Wash Concentrates'
     ],
-    footnote: 'Compliant with commercial municipal sanitation standards. Heavy-gauge stainless steel and virgin polymers.'
+    footnote: 'ISO-certified concentrated chemical solutions by Diversey and SAC Chemicals for industrial and hospitality hygiene.'
+  },
+  'Engineering Equipments': {
+    eyebrow: 'COMMERCIAL HEAVY-DUTY MACHINERY',
+    title: 'Engineering Equipments',
+    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.png',
+    badges: ['Hotels', 'Restaurants', 'Catering'],
+    items: [
+      'Commercial High-Pressure Cooking Ranges & Burners',
+      'Serman Heavy-Duty Commercial Refrigeration & Freezers',
+      'Serman Industrial Dishwashers & Glasswashers',
+      'Stainless Steel Bain-Maries & Hot Food Warmers',
+      'Deep Fat Fryers, Griddles & Salamanders',
+      'Commercial Exhaust Hoods & Ventilation Units',
+      'Kitchen Stainless Steel Prep Tables & Sinks',
+      'Maintenance Engineering Machinery & Spares'
+    ],
+    footnote: 'Heavy-duty commercial food service engineering equipment and maintenance solutions by Serman and Kitchen Equipments.'
   }
 };
 
@@ -931,6 +1246,164 @@ export const PRODUCT_SPECS_MAP: Record<string, ProductDetailInfo> = {
       dishwasherSafe: 'Splashproof IPX4 Rated Housing',
       usage: 'Commercial Restrooms, Kitchen Entry, Hotel Lobbies',
       packing: '12 pcs per master carton with mounting hardware & keys'
+    }
+  },
+
+  // --- Mappings for CSV Products ---
+  'crockery-dinewell': {
+    skuPrefix: 'CR-DW / Dinewell Melamine',
+    tagline: '100% pure food-grade melamine banquet & buffet dinnerware.',
+    material: '100% Food-Grade Melamine Resin',
+    finish: 'Glazed Porcelain-Like Scratch-Resistant Finish',
+    galleryImages: [
+      '/images/cardimage_b6bc00f1.png',
+      '/images/image__tableware___crockery__c6601dfa.png',
+      '/images/image__fine_dining__2ac60065.png'
+    ],
+    badges: [
+      { title: '100% Melamine', sub: 'BPA Free & Food Contact Safe', icon: 'food' },
+      { title: 'Dishwasher Safe', sub: 'Commercial Pan Wash Safe', icon: 'wash' },
+      { title: 'Break Resistant', sub: 'High Durability for Buffets', icon: 'finish' }
+    ],
+    parGuideline: { fineDining: '2.5x', banquet: '3.5x', roomService: '2.0x', barLounge: '2.5x' },
+    keySpecs: {
+      material: '100% Pure Food-Grade Melamine',
+      dimensions: 'Buffet Plates: 260–310 mm · Bowls: 120–180 mm · Platters: 350 mm',
+      weight: '0.28 kg – 0.65 kg / pc',
+      finish: 'Glazed High-Gloss Scratch Resistant',
+      dishwasherSafe: 'Yes (Top rack & commercial dishwasher safe up to 120°C)',
+      usage: 'Hotel Buffets, Banquets, Restaurants, Outdoor Catering',
+      packing: '12 / 24 pcs per export corrugated carton'
+    }
+  },
+  'crockery-borosil': {
+    skuPrefix: 'CR-BR / Borosil Glassware',
+    tagline: '100% borosilicate & toughened opal dining glassware.',
+    material: 'Toughened Borosilicate & Opal Glass',
+    finish: 'Crystal Clear & Non-Porous Ultra-Smooth Glaze',
+    galleryImages: [
+      '/images/image__tableware___crockery__a8a959b7.png',
+      '/images/image__hospitality_tableware__eab14684.png',
+      '/images/image__restaurant_setting__c005091f.png'
+    ],
+    badges: [
+      { title: '100% Borosilicate', sub: 'Thermal Shock Resistant', icon: 'food' },
+      { title: 'Dishwasher Safe', sub: '1,000+ Cycles', icon: 'wash' },
+      { title: 'Non-Porous', sub: 'Zero Odor or Stain Absorption', icon: 'finish' }
+    ],
+    parGuideline: { fineDining: '3.0x', banquet: '2.5x', roomService: '2.0x', barLounge: '3.5x' },
+    keySpecs: {
+      material: '100% Borosilicate & Opal Glass',
+      dimensions: 'Tumblers: 250–350 ml · Bowls: 200–500 ml · Casseroles: 1.0–2.5 L',
+      weight: '0.18 kg – 0.85 kg / pc',
+      finish: 'Flame-Polished Crystal Clear & Opal White',
+      dishwasherSafe: 'Yes (Microwave, Oven & Dishwasher Safe)',
+      usage: 'Hotels, Fine Dining, Room Service, Cafes',
+      packing: '6 pcs inner box · 24 / 48 pcs master carton'
+    }
+  },
+  'cutlery-fns': {
+    skuPrefix: 'CT-FNS / FNS Luxury Cutlery',
+    tagline: 'Hand-crafted premium 18/10 stainless steel flatware suites.',
+    material: 'AISI 304 (18/10) Food-Grade Stainless Steel',
+    finish: 'Mirror Polished Bowls with Ergonomic Forged Stems',
+    galleryImages: [
+      '/images/image__stainless_steel_brassware__69672dfd.png',
+      '/images/cardimage_ac51211f.png',
+      '/images/image__fine_dining__2ac60065.png'
+    ],
+    badges: [
+      { title: '18/10 Stainless Steel', sub: 'Maximum Rust & Corrosion Resistance', icon: 'food' },
+      { title: 'Dishwasher Safe', sub: 'Industrial 1,000+ Cycles', icon: 'wash' },
+      { title: 'Mirror Finish', sub: 'Hand-Polished Luxury Shine', icon: 'finish' }
+    ],
+    parGuideline: { fineDining: '3.5x', banquet: '4.0x', roomService: '2.0x', barLounge: '2.5x' },
+    keySpecs: {
+      material: '18/10 Surgical Grade Stainless Steel',
+      dimensions: 'Table Knife: 232 mm · Table Fork: 208 mm · Dessert Spoon: 185 mm',
+      weight: '75g – 110g per piece (Substantial Heavy Weight)',
+      finish: 'Mirror Polish with Satin Brushed Handle Accents',
+      dishwasherSafe: 'Yes (High-Temp Commercial Sanitizer Safe)',
+      usage: 'Luxury Hotels, Fine Dining, Premium Banquets, VIP Lounges',
+      packing: '12 pcs per branded box · 120 pcs per master shipping carton'
+    }
+  },
+  'linen-towels-bathmats': {
+    skuPrefix: 'LN-CC / Cintra Cottons Luxury',
+    tagline: '550–650 GSM 100% combed cotton luxury hospitality towels.',
+    material: '100% Ring-Spun Long-Staple Combed Cotton',
+    finish: 'Double-Stitched Reinforced Hems & Terry Loop Weave',
+    galleryImages: [
+      '/images/cardimage_ac51211f.png',
+      '/images/heroimage_3f45b21f.png',
+      '/images/image__hotels__8af4967c.png'
+    ],
+    badges: [
+      { title: '100% Combed Cotton', sub: 'High GSM Ultra-Plush Feel', icon: 'food' },
+      { title: 'Commercial Laundry', sub: 'Withstands 150+ Heavy Washes', icon: 'wash' },
+      { title: 'High Absorbency', sub: 'Fast Drying Terry Loops', icon: 'finish' }
+    ],
+    parGuideline: { fineDining: '1.0x', banquet: '1.0x', roomService: '3.0x', barLounge: '1.0x' },
+    keySpecs: {
+      material: '100% Combed Cotton (Long Staple)',
+      dimensions: 'Bath Towel: 70 × 140 cm (600 GSM) · Hand Towel: 40 × 60 cm (550 GSM) · Bath Mat: 50 × 80 cm (900 GSM)',
+      weight: 'Bath Towel: ~580g · Hand Towel: ~140g · Bath Mat: ~360g',
+      finish: 'Bright Optical White / Reactive Vat-Dyed Colors',
+      dishwasherSafe: 'High-Temperature Commercial Wash (up to 90°C Safe)',
+      usage: 'Luxury Hotel Bathrooms, Spa, Resorts, Wellness Centers',
+      packing: '10 pcs compressed polybag · 40 / 60 pcs export bale/carton'
+    }
+  },
+  'amenities-liquids-soaps': {
+    skuPrefix: 'AM-VG / Victol Gold Botanical',
+    tagline: 'Eco-conscious botanical room formulations with customizable hotel branding.',
+    material: 'Natural Extracts, Paraben-Free, Biodegradable Surfactants',
+    finish: 'Silkscreen Printed / Hot-Stamped Bottle & Soft Tubes',
+    galleryImages: [
+      '/images/image__guest_amenities_equipment__f4f6ec37.png',
+      '/images/cardimage_1dbd1171.png',
+      '/images/cardimage_4fdce090.png'
+    ],
+    badges: [
+      { title: 'Dermatologically Tested', sub: 'Paraben & Cruelty Free', icon: 'food' },
+      { title: 'Custom Branding', sub: 'Hot Stamp & Full-Color Logos', icon: 'wash' },
+      { title: 'Eco Packaging', sub: 'Biodegradable Wheat Straw Tubes', icon: 'finish' }
+    ],
+    parGuideline: { fineDining: '1.0x', banquet: '1.0x', roomService: '3.5x', barLounge: '1.0x' },
+    keySpecs: {
+      material: 'Botanical Formulations (Green Tea, Aloe Vera, Sandalwood)',
+      dimensions: 'Tubes/Bottles: 30ml, 40ml, 50ml · Bar Soaps: 20g, 25g, 35g pleat wrapped',
+      weight: '30g – 55g per unit',
+      finish: 'Matte Soft-Touch Tubes / Recycled Kraft Paper Packaging',
+      dishwasherSafe: 'Single-Use Sealed Guest Dispense',
+      usage: 'Hotel Guestrooms, VIP Suites, Boutique Resorts, Spas',
+      packing: '100 pcs inner tray · 400 pcs master shipping carton'
+    }
+  },
+  'chemicals-diversey': {
+    skuPrefix: 'CH-DIV / Diversey Professional',
+    tagline: 'Global standard concentrated kitchen degreasers, floor care & room disinfectants.',
+    material: 'ISO 9001 / ISO 14001 Professional Chemical Concentrates',
+    finish: 'Color-Coded Sealed HDPE Canisters for Dispenser Dosing',
+    galleryImages: [
+      '/images/image__cleaning_chemicals__b85bdd2d.png',
+      '/images/cardimage_4fdce090.png',
+      '/images/centerimage_f8709305.png'
+    ],
+    badges: [
+      { title: 'Food-Grade Certified', sub: 'Safe for Commercial Kitchen Contact', icon: 'food' },
+      { title: 'Ultra Concentrate', sub: 'Dilution Ratios up to 1:200', icon: 'wash' },
+      { title: 'Global Standard', sub: 'Diversey Taski & Suma Formulation', icon: 'finish' }
+    ],
+    parGuideline: { fineDining: '1.0x', banquet: '2.0x', roomService: '1.0x', barLounge: '1.0x' },
+    keySpecs: {
+      material: 'Concentrated Active Surfactants, QAC Disinfectants & Enzymes',
+      dimensions: '5 Litre Canisters · 20 Litre Commercial Barrels',
+      weight: '5.2 kg per 5L can · 21.0 kg master box (4 × 5L)',
+      finish: 'Color-Coded Spill-Resistant HDPE Drums',
+      dishwasherSafe: 'Automated Chemical Dispenser & Machine Injector Safe',
+      usage: 'Commercial Kitchens, Guestrooms, Public Lobbies, Banquets',
+      packing: '4 × 5L cans per master carton with leakproof partitions'
     }
   }
 };
