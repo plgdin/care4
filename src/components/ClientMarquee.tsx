@@ -153,7 +153,7 @@ export const ClientMarquee: React.FC = () => {
         /* ── track wrapper (holds gradient masks + track) ── */
         .marquee-track-wrapper {
           position: relative;
-          margin-bottom: 18px;
+          margin-bottom: 24px;
         }
         .marquee-track-wrapper:last-of-type {
           margin-bottom: 0;
@@ -207,42 +207,27 @@ export const ClientMarquee: React.FC = () => {
           100% { transform: translateX(0); }
         }
 
-        /* ── logo card ── */
+        /* ── logo item (no box, border, or shadow) ── */
         .marquee-logo-card {
           flex-shrink: 0;
-          width: 210px;
-          height: 98px;
+          width: 200px;
+          height: 76px;
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: 14px 24px;
-          border-radius: 14px;
-          margin: 0 10px;
-          background: #ffffff;
-          border: 1px solid rgba(0, 0, 0, 0.06);
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
-          transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-                      box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-                      border-color 0.25s ease;
-        }
-        .marquee-logo-card:hover {
-          transform: translateY(-2px) scale(1.05);
-          box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
-          border-color: rgba(0, 0, 0, 0.12);
-          z-index: 3;
+          padding: 0 10px;
+          margin: 0 18px;
+          background: transparent;
+          border: none;
+          box-shadow: none;
         }
 
         /* ── logo image ── */
         .marquee-logo-img {
-          max-height: 58px;
-          max-width: 156px;
+          max-height: 56px;
+          max-width: 160px;
           object-fit: contain;
-          transition: transform 0.25s ease;
-        }
-
-        /* ── pause on hover ── */
-        .marquee-track:hover .marquee-content {
-          animation-play-state: paused;
+          display: block;
         }
 
         /* ── responsive ── */
@@ -260,15 +245,18 @@ export const ClientMarquee: React.FC = () => {
           .client-marquee-subtitle {
             font-size: 15px;
           }
+          .marquee-track-wrapper {
+            margin-bottom: 16px;
+          }
           .marquee-logo-card {
-            width: 160px;
-            height: 78px;
-            padding: 10px 18px;
-            margin: 0 7px;
+            width: 150px;
+            height: 60px;
+            margin: 0 12px;
+            padding: 0 6px;
           }
           .marquee-logo-img {
-            max-height: 46px;
-            max-width: 120px;
+            max-height: 44px;
+            max-width: 125px;
           }
           .marquee-gradient {
             width: 70px;
@@ -286,14 +274,14 @@ export const ClientMarquee: React.FC = () => {
             font-size: 24px;
           }
           .marquee-logo-card {
-            width: 136px;
-            height: 66px;
-            padding: 8px 14px;
-            margin: 0 5px;
+            width: 124px;
+            height: 50px;
+            margin: 0 8px;
+            padding: 0 4px;
           }
           .marquee-logo-img {
-            max-height: 38px;
-            max-width: 102px;
+            max-height: 36px;
+            max-width: 105px;
           }
           .marquee-gradient {
             width: 45px;
