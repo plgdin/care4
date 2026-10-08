@@ -12,10 +12,8 @@ const CLIENT_LOGOS: ClientLogo[] = [
   { name: 'SUT Hospital', file: 'sut_hospital_logo.png' },
   { name: 'KM Cherian Hospital', file: 'km_cherian_hospital_logo.png' },
   { name: 'Jubilee Memorial Hospital', file: 'jubilee_hospital_logo.webp' },
-  { name: 'Meditrina Hospital', file: 'meditrina_hospital_logo.png' },
   { name: 'NIMS Medicity', file: 'nims_medicity_logo.png' },
   { name: 'Travancore Medicity', file: 'medicity_kollam_logo.svg' },
-  { name: 'SP Fort Hospital', file: 'sp_fort_hospital_logo.png' },
   { name: 'SP Medifort', file: 'sp_medifort_logo.png' },
   { name: 'Santhigiri', file: 'santhigiri_logo.webp' },
 
