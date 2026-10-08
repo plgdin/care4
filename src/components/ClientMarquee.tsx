@@ -75,7 +75,6 @@ export const ClientMarquee: React.FC = () => {
 
       {/* Row 1 — scrolls left */}
       <div className="marquee-track-wrapper">
-        <div className="marquee-gradient marquee-gradient-left" />
         <div className="marquee-track marquee-left">
           <div className="marquee-content">
             {[...ROW_1, ...ROW_1].map((logo, i) => (
@@ -90,12 +89,10 @@ export const ClientMarquee: React.FC = () => {
             ))}
           </div>
         </div>
-        <div className="marquee-gradient marquee-gradient-right" />
       </div>
 
       {/* Row 2 — scrolls right */}
       <div className="marquee-track-wrapper">
-        <div className="marquee-gradient marquee-gradient-left" />
         <div className="marquee-track marquee-right">
           <div className="marquee-content">
             {[...ROW_2, ...ROW_2].map((logo, i) => (
@@ -110,7 +107,6 @@ export const ClientMarquee: React.FC = () => {
             ))}
           </div>
         </div>
-        <div className="marquee-gradient marquee-gradient-right" />
       </div>
 
       <style>{`
@@ -150,31 +146,13 @@ export const ClientMarquee: React.FC = () => {
           margin: 0 auto;
         }
 
-        /* ── track wrapper (holds gradient masks + track) ── */
+        /* ── track wrapper (holds track) ── */
         .marquee-track-wrapper {
           position: relative;
           margin-bottom: 24px;
         }
         .marquee-track-wrapper:last-of-type {
           margin-bottom: 0;
-        }
-
-        /* ── edge fade gradients ── */
-        .marquee-gradient {
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          width: 140px;
-          z-index: 2;
-          pointer-events: none;
-        }
-        .marquee-gradient-left {
-          left: 0;
-          background: linear-gradient(to right, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
-        }
-        .marquee-gradient-right {
-          right: 0;
-          background: linear-gradient(to left, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
         }
 
         /* ── track ── */
@@ -258,9 +236,6 @@ export const ClientMarquee: React.FC = () => {
             max-height: 44px;
             max-width: 125px;
           }
-          .marquee-gradient {
-            width: 70px;
-          }
           .marquee-left .marquee-content {
             animation-duration: 40s;
           }
@@ -282,9 +257,6 @@ export const ClientMarquee: React.FC = () => {
           .marquee-logo-img {
             max-height: 36px;
             max-width: 105px;
-          }
-          .marquee-gradient {
-            width: 45px;
           }
         }
       `}</style>
