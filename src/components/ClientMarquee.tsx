@@ -63,8 +63,11 @@ export const ClientMarquee: React.FC = () => {
       <div className="client-marquee-header">
         <div className="section-eyebrow client-marquee-eyebrow">
           <span className="section-eyebrow-line" />
-          <span>BRANDS WE COLLABORATED WITH</span>
+          <span>OUR CLIENT NETWORK</span>
         </div>
+        <h2 className="client-marquee-title">
+          Brands We Collaborated With
+        </h2>
         <p className="client-marquee-subtitle">
           Trusted by leading organizations across healthcare, hospitality, technology &amp; enterprise sectors.
         </p>
@@ -122,19 +125,28 @@ export const ClientMarquee: React.FC = () => {
         /* ── header ── */
         .client-marquee-header {
           text-align: center;
-          margin-bottom: 40px;
+          margin-bottom: 44px;
           padding: 0 24px;
         }
         .client-marquee-eyebrow {
           justify-content: center;
           margin-bottom: 12px;
         }
+        .client-marquee-title {
+          font-family: var(--font-heading);
+          font-size: clamp(30px, 3.6vw, 42px);
+          font-weight: 700;
+          color: var(--color-navy-dark);
+          line-height: 1.2;
+          margin: 0 auto 14px;
+          letter-spacing: -0.01em;
+        }
         .client-marquee-subtitle {
           font-family: var(--font-body);
           font-size: 17px;
           line-height: 1.6;
           color: var(--color-text-secondary);
-          max-width: 600px;
+          max-width: 620px;
           margin: 0 auto;
         }
 
@@ -180,10 +192,10 @@ export const ClientMarquee: React.FC = () => {
 
         /* ── animation ── */
         .marquee-left .marquee-content {
-          animation: scroll-left 50s linear infinite;
+          animation: scroll-left 52s linear infinite;
         }
         .marquee-right .marquee-content {
-          animation: scroll-right 54s linear infinite;
+          animation: scroll-right 56s linear infinite;
         }
 
         @keyframes scroll-left {
@@ -198,14 +210,14 @@ export const ClientMarquee: React.FC = () => {
         /* ── logo card ── */
         .marquee-logo-card {
           flex-shrink: 0;
-          width: 170px;
-          height: 84px;
+          width: 210px;
+          height: 98px;
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: 12px 22px;
-          border-radius: 12px;
-          margin: 0 9px;
+          padding: 14px 24px;
+          border-radius: 14px;
+          margin: 0 10px;
           background: #ffffff;
           border: 1px solid rgba(0, 0, 0, 0.06);
           box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
@@ -222,8 +234,8 @@ export const ClientMarquee: React.FC = () => {
 
         /* ── logo image ── */
         .marquee-logo-img {
-          max-height: 48px;
-          max-width: 126px;
+          max-height: 58px;
+          max-width: 156px;
           object-fit: contain;
           transition: transform 0.25s ease;
         }
@@ -239,42 +251,49 @@ export const ClientMarquee: React.FC = () => {
             padding: 52px 0 58px;
           }
           .client-marquee-header {
-            margin-bottom: 28px;
+            margin-bottom: 30px;
+          }
+          .client-marquee-title {
+            font-size: 28px;
+            margin-bottom: 10px;
           }
           .client-marquee-subtitle {
             font-size: 15px;
           }
           .marquee-logo-card {
-            width: 136px;
-            height: 68px;
-            padding: 10px 16px;
-            margin: 0 6px;
+            width: 160px;
+            height: 78px;
+            padding: 10px 18px;
+            margin: 0 7px;
           }
           .marquee-logo-img {
-            max-height: 40px;
-            max-width: 104px;
+            max-height: 46px;
+            max-width: 120px;
           }
           .marquee-gradient {
             width: 70px;
           }
           .marquee-left .marquee-content {
-            animation-duration: 38s;
+            animation-duration: 40s;
           }
           .marquee-right .marquee-content {
-            animation-duration: 42s;
+            animation-duration: 44s;
           }
         }
 
         @media (max-width: 480px) {
+          .client-marquee-title {
+            font-size: 24px;
+          }
           .marquee-logo-card {
-            width: 116px;
-            height: 58px;
-            padding: 8px 12px;
-            margin: 0 4px;
+            width: 136px;
+            height: 66px;
+            padding: 8px 14px;
+            margin: 0 5px;
           }
           .marquee-logo-img {
-            max-height: 34px;
-            max-width: 90px;
+            max-height: 38px;
+            max-width: 102px;
           }
           .marquee-gradient {
             width: 45px;
