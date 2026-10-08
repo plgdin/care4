@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 90" fill="none">
+  <rect width="320" height="90" rx="10" fill="#131920"/>
+  <circle cx="48" cy="45" r="24" fill="#1E293B" stroke="#94A3B8" stroke-width="1.5"/>
+  <text x="48" y="51" font-family="'Playfair Display', serif" font-size="18" font-weight="700" fill="#E2E8F0" text-anchor="middle">GA</text>
+  <text x="92" y="41" font-family="'Playfair Display', serif" font-size="16" font-weight="700" fill="#FFFFFF" letter-spacing="1.5">GOURMET ALLIANCE</text>
+  <text x="92" y="57" font-family="'Inter', sans-serif" font-size="8.5" font-weight="600" fill="#94A3B8" letter-spacing="2">FINE DINING RESTAURANT</text>
+</svg>

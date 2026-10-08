@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" width="240" height="80">
+  <rect width="240" height="80" rx="14" fill="#78350f"/>
+  <circle cx="42" cy="40" r="22" fill="#d97706"/>
+  <path d="M34 46 C34 50 50 50 50 46 L49 35 L35 35 Z" fill="#ffffff"/>
+  <path d="M50 38 C53 38 53 44 50 44" stroke="#ffffff" stroke-width="2" fill="none"/>
+  <path d="M39 31 C39 28 41 28 41 25 M45 31 C45 28 47 28 47 25" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+  <text x="74" y="42" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="22" fill="#fef3c7" letter-spacing="1">WAH CHAYA</text>
+  <text x="75" y="58" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="10" fill="#fde68a" letter-spacing="2">KOWDIAR • CHAI</text>
+</svg>

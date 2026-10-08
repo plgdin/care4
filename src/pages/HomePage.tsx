@@ -1,6 +1,7 @@
 import React from 'react';
 import { Hero } from '../components/Hero';
 import { AboutSnippet } from '../components/AboutSnippet';
+import { ClientMarquee } from '../components/ClientMarquee';
 import { CategoriesSection } from '../components/CategoriesSection';
 import { BrandsSection } from '../components/BrandsSection';
 import { HorecaBanner } from '../components/HorecaBanner';
@@ -21,6 +22,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenQuote }) =
       <AboutSnippet 
         onLearnMore={() => onNavigate('about')} 
       />
+      <ClientMarquee />
       <CategoriesSection 
         onViewAll={() => onNavigate('products')}
         onSelectCategory={() => onNavigate('products')}

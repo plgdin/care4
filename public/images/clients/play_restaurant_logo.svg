@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" width="240" height="80">
+  <rect width="240" height="80" rx="14" fill="#0f172a"/>
+  <polygon points="40,25 62,40 40,55" fill="#f59e0b"/>
+  <text x="75" y="44" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="28" fill="#ffffff" letter-spacing="3">PLAY</text>
+  <text x="76" y="60" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="10" fill="#94a3b8" letter-spacing="2">RESTAURANT &amp; CAFE</text>
+</svg>
