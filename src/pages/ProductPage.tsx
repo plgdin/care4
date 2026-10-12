@@ -33,7 +33,7 @@ const POPULAR_BRANDS = [
   'Conta'
 ];
 
-const SECTORS = ['Hotels', 'Restaurants', 'Catering'];
+const SECTORS = ['Hotels', 'Restaurants', 'Cafes', 'Catering'];
 
 interface ProductPageProps {
   onOpenQuote: (productName?: string) => void;
@@ -75,9 +75,11 @@ export const ProductPage: React.FC<ProductPageProps> = ({ onOpenQuote }) => {
         const matchSubtitle = product.subtitle.toLowerCase().includes(q);
         const matchDetails = product.details.toLowerCase().includes(q);
         const matchCategory = product.category.toLowerCase().includes(q);
+        const matchId = product.id.toLowerCase().includes(q);
         const matchBrands = product.brands.some(b => b.toLowerCase().includes(q));
         const matchIndustries = product.industries.some(i => i.toLowerCase().includes(q));
-        if (!matchTitle && !matchSubtitle && !matchDetails && !matchCategory && !matchBrands && !matchIndustries) {
+        const matchFactors = product.factors ? product.factors.some(f => f.toLowerCase().includes(q)) : false;
+        if (!matchTitle && !matchSubtitle && !matchDetails && !matchCategory && !matchId && !matchBrands && !matchIndustries && !matchFactors) {
           return false;
         }
       }
@@ -283,9 +285,18 @@ export const ProductPage: React.FC<ProductPageProps> = ({ onOpenQuote }) => {
             <p className="product-hero-desc">
               A complete range of hospitality products for hotels, restaurants and catering businesses.
             </p>
-            <button className="btn-browse-catalog" onClick={() => onOpenQuote()}>
-              <span>Browse Catalogue</span>
-              <ArrowRight size={19} />
+            <button 
+              className="btn-browse-catalog" 
+              onClick={() => {
+                const el = document.getElementById('catalog-main-search-input');
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                  el.focus();
+                }
+              }}
+            >
+              <span>Search Products</span>
+              <Search size={18} />
             </button>
           </div>
 
@@ -302,19 +313,37 @@ export const ProductPage: React.FC<ProductPageProps> = ({ onOpenQuote }) => {
         </div>
       </section>
 
-      {/* Mobile Sticky Bar for quick filter access */}
+      {/* Mobile Sticky Bar for quick search & filter access */}
       <div className="mobile-filter-bar">
+        <div className="mobile-search-inline-wrap">
+          <Search size={15} className="mobile-search-icon" />
+          <input
+            type="text"
+            className="mobile-search-input"
+            placeholder="Search products..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+          {searchQuery && (
+            <button 
+              className="mobile-search-clear" 
+              onClick={() => setSearchQuery('')}
+              aria-label="Clear mobile search"
+            >
+              <X size={14} />
+            </button>
+          )}
+        </div>
         <button 
           className="btn-mobile-filter-toggle"
           onClick={() => setMobileFilterOpen(true)}
         >
           <SlidersHorizontal size={15} />
-          <span>Filters & Search</span>
+          <span>Filters</span>
           {activeFilterCount > 0 && (
             <span className="mobile-badge-count">{activeFilterCount}</span>
           )}
         </button>
-        <span className="mobile-results-hint">{filteredProducts.length} products found</span>
       </div>
 
       {/* Main Catalog Section: Left Filter Sidebar + Right Products List */}
@@ -327,6 +356,43 @@ export const ProductPage: React.FC<ProductPageProps> = ({ onOpenQuote }) => {
 
           {/* Right Main Content */}
           <main className="product-content-area">
+            {/* Prominent Search Bar (Item 13) */}
+            <div className="catalog-hero-search-bar">
+              <div className="catalog-hero-search-inner">
+                <Search size={18} className="catalog-hero-search-icon" />
+                <input
+                  id="catalog-main-search-input"
+                  type="text"
+                  className="catalog-hero-search-input"
+                  placeholder="Search catalogue by product, brand, category, or code (e.g. Ocean, Crockery, Dinewell, Borosil)..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+                {searchQuery && (
+                  <button 
+                    className="catalog-hero-search-clear" 
+                    onClick={() => setSearchQuery('')}
+                    aria-label="Clear search query"
+                  >
+                    <X size={16} />
+                  </button>
+                )}
+              </div>
+              <div className="catalog-search-quick-tags">
+                <span className="quick-tag-label">Popular searches:</span>
+                {['Ocean', 'Dinewell', 'Borosil', 'Ariane', 'Crockery', 'Cutlery', 'Cleaning Chemicals'].map((tag) => (
+                  <button
+                    key={tag}
+                    type="button"
+                    className={`quick-tag-chip ${searchQuery.toLowerCase() === tag.toLowerCase() ? 'active' : ''}`}
+                    onClick={() => setSearchQuery(tag)}
+                  >
+                    {tag}
+                  </button>
+                ))}
+              </div>
+            </div>
+
             {/* Top Results Bar & Active Filter Chips */}
             <div className="catalog-top-bar">
               <div className="results-count-title">
@@ -660,6 +726,46 @@ export const ProductPage: React.FC<ProductPageProps> = ({ onOpenQuote }) => {
           justify-content: space-between;
           align-items: center;
         }
+        .mobile-search-inline-wrap {
+          position: relative;
+          display: flex;
+          align-items: center;
+          flex: 1;
+          margin-right: 12px;
+        }
+        .mobile-search-icon {
+          position: absolute;
+          left: 10px;
+          color: #94a3b8;
+          pointer-events: none;
+        }
+        .mobile-search-input {
+          width: 100%;
+          height: 38px;
+          padding: 0 28px 0 32px;
+          font-family: var(--font-inter);
+          font-size: 13.5px;
+          border: 1px solid #d1d5db;
+          border-radius: 6px;
+          background-color: #f9fafb;
+          color: #0f172a;
+        }
+        .mobile-search-input:focus {
+          outline: none;
+          border-color: var(--color-red-alt);
+          background-color: #ffffff;
+        }
+        .mobile-search-clear {
+          position: absolute;
+          right: 8px;
+          background: none;
+          border: none;
+          color: #94a3b8;
+          cursor: pointer;
+          padding: 2px;
+          display: flex;
+          align-items: center;
+        }
         .btn-mobile-filter-toggle {
           display: inline-flex;
           align-items: center;
@@ -932,8 +1038,107 @@ export const ProductPage: React.FC<ProductPageProps> = ({ onOpenQuote }) => {
         .product-content-area {
           display: flex;
           flex-direction: column;
-          gap: 26px;
+          gap: 24px;
           min-width: 0;
+        }
+
+        /* Prominent Catalog Search Bar (Item 13) */
+        .catalog-hero-search-bar {
+          background: #ffffff;
+          border: 1.5px solid #e2e8f0;
+          border-radius: 12px;
+          padding: 16px 20px;
+          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+          transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .catalog-hero-search-bar:focus-within {
+          border-color: var(--color-primary);
+          box-shadow: 0 6px 20px rgba(2, 52, 141, 0.08);
+        }
+        .catalog-hero-search-inner {
+          position: relative;
+          display: flex;
+          align-items: center;
+          width: 100%;
+        }
+        .catalog-hero-search-icon {
+          position: absolute;
+          left: 14px;
+          color: var(--color-primary);
+          pointer-events: none;
+        }
+        .catalog-hero-search-input {
+          width: 100%;
+          height: 48px;
+          padding: 0 38px 0 44px;
+          font-family: var(--font-inter);
+          font-size: 15px;
+          font-weight: 500;
+          border: 1px solid #e2e8f0;
+          border-radius: 9px;
+          background-color: #f8fafc;
+          color: #0f172a;
+          transition: all 0.2s ease;
+        }
+        .catalog-hero-search-input:focus {
+          outline: none;
+          background-color: #ffffff;
+          border-color: var(--color-primary);
+          box-shadow: 0 0 0 3px rgba(2, 52, 141, 0.1);
+        }
+        .catalog-hero-search-clear {
+          position: absolute;
+          right: 12px;
+          background: none;
+          border: none;
+          color: #94a3b8;
+          cursor: pointer;
+          padding: 4px;
+          display: flex;
+          align-items: center;
+          border-radius: 4px;
+          transition: color 0.15s;
+        }
+        .catalog-hero-search-clear:hover {
+          color: #0f172a;
+        }
+        .catalog-search-quick-tags {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 7px;
+          margin-top: 12px;
+          padding-top: 10px;
+          border-top: 1px solid #f1f5f9;
+        }
+        .quick-tag-label {
+          font-family: var(--font-inter);
+          font-size: 12.5px;
+          font-weight: 600;
+          color: #64748b;
+          margin-right: 4px;
+        }
+        .quick-tag-chip {
+          background: #f1f5f9;
+          border: 1px solid #e2e8f0;
+          color: #334155;
+          font-family: var(--font-inter);
+          font-size: 12px;
+          font-weight: 500;
+          padding: 3px 10px;
+          border-radius: 999px;
+          cursor: pointer;
+          transition: all 0.15s ease;
+        }
+        .quick-tag-chip:hover {
+          background: #e2e8f0;
+          color: #0f172a;
+          border-color: #cbd5e1;
+        }
+        .quick-tag-chip.active {
+          background: var(--color-primary);
+          color: #ffffff;
+          border-color: var(--color-primary);
         }
 
         /* Catalog Top Bar */

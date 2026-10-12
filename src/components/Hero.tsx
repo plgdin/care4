@@ -39,7 +39,7 @@ export const Hero: React.FC<HeroProps> = ({ onExplore, onTalkToTeam }) => {
               Quality products. Smoother operations.
             </h2>
             <p className="hero-body">
-              Care4 Associates supplies the essentials for hotels, restaurants and catering businesses — from tableware and kitchen equipment to housekeeping, guest amenities and cleaning solutions.
+              Care4 Associates supplies the essentials for hotels, restaurants, cafes and catering businesses — from tableware and kitchen equipment to housekeeping, guest amenities and cleaning solutions.
             </p>
           </div>
 
@@ -60,8 +60,8 @@ export const Hero: React.FC<HeroProps> = ({ onExplore, onTalkToTeam }) => {
               <span className="industry-label">Hotels</span>
             </div>
             <div className="industry-item">
-              <img src="/images/icon_restaurant_lg.png" alt="Restaurants" className="industry-icon-img" />
-              <span className="industry-label">Restaurants</span>
+              <img src="/images/icon_restaurant_lg.png" alt="Restaurants & Cafes" className="industry-icon-img" />
+              <span className="industry-label">Restaurants & Cafes</span>
             </div>
             <div className="industry-item">
               <img src="/images/icon_catering_lg.png" alt="Catering" className="industry-icon-img" />

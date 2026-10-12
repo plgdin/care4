@@ -63,28 +63,52 @@ export const HERO_SLIDES = [
 
 export const CATEGORIES_DATA: CategoryItem[] = [
   {
-    id: 'tableware',
-    title: 'Tableware & Crockery',
-    subtitle: 'Dining essentials for every experience.',
+    id: 'crockery',
+    title: 'Crockery',
+    subtitle: 'Dining essentials, bone china & melamine collections.',
     image: '/images/cardimage_b6bc00f1.png'
   },
   {
-    id: 'buffet',
-    title: 'Buffet & Banquet',
-    subtitle: 'Professional serving solutions for any event.',
+    id: 'cutlery',
+    title: 'Cutlery',
+    subtitle: 'Mirror & satin finished stainless steel flatware.',
+    image: '/images/image__stainless_steel_brassware__69672dfd.png'
+  },
+  {
+    id: 'linen',
+    title: 'Linen',
+    subtitle: 'Luxury combed cotton bath towels, bed sheets & drapes.',
+    image: '/images/image__hotels__8af4967c.png'
+  },
+  {
+    id: 'guest-amenities',
+    title: 'Guest Amenities',
+    subtitle: 'In-room botanical soaps, slippers, dental kits & comforts.',
+    image: '/images/cardimage_1dbd1171.png'
+  },
+  {
+    id: 'kitchen-utensils',
+    title: 'Kitchen Utensils',
+    subtitle: 'Heavy-gauge commercial cookware, chef knives & prep tools.',
     image: '/images/cardimage_ac51211f.png'
   },
   {
-    id: 'cleaning',
-    title: 'Cleaning & Janitorial',
-    subtitle: 'Hygiene solutions for safer spaces.',
-    image: '/images/cardimage_4fdce090.png'
+    id: 'housekeeping',
+    title: 'Housekeeping',
+    subtitle: 'Janitorial hardware, carts, bins, tissue & room care.',
+    image: '/images/image__cleaning_equipment___janitorial__b009223f.png'
   },
   {
-    id: 'amenities',
-    title: 'Guest Amenities',
-    subtitle: 'Thoughtful products for a better stay.',
-    image: '/images/cardimage_1dbd1171.png'
+    id: 'cleaning-chemicals',
+    title: 'Cleaning Chemicals',
+    subtitle: 'ISO concentrated degreasers, floor care & sanitizers.',
+    image: '/images/image__cleaning_chemicals__b85bdd2d.png'
+  },
+  {
+    id: 'engineering-equipments',
+    title: 'Engineering Equipments',
+    subtitle: 'Heavy-duty commercial kitchen ranges, chillers & machines.',
+    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.png'
   }
 ];
 
@@ -771,23 +795,23 @@ export const TABLEWARE_DETAIL_ITEMS = [
 export const ABOUT_STATS = [
   { value: '15+', label: 'Years of Experience' },
   { value: '500+', label: 'Happy Clients' },
-  { value: '1000+', label: 'Products Supplied' }
+  { value: '10000+', label: 'Products Supplied' }
 ];
 
 export const WHO_WE_SERVE: WhoWeServeItem[] = [
   {
     title: 'Hotels',
-    description: 'Premium products for hotels of all sizes, from boutique to large-scale chains.',
+    description: 'Premium guest amenities, luxury linens and housekeeping hardware for boutique & chain hotels.',
     image: '/images/image__hotels__8af4967c.png'
   },
   {
-    title: 'Restaurants',
-    description: 'Quality ingredients and supplies for diverse cuisines and concepts.',
+    title: 'Restaurants & Cafes',
+    description: 'Commercial tableware, cutlery, heavy cookware and hygiene solutions for dining operations.',
     image: '/images/image__restaurants__6ff4e1ae.png'
   },
   {
     title: 'Catering',
-    description: 'Reliable supply for caterers, banquets and large events.',
+    description: 'Reliable banquetware, chaffing systems, catering vessels and bulk logistics for large events.',
     image: '/images/image__buffet___beverage_equipment__f2c7e5ac.png'
   }
 ];
@@ -795,8 +819,8 @@ export const WHO_WE_SERVE: WhoWeServeItem[] = [
 export const WHAT_WE_OFFER: OfferItem[] = [
   {
     number: '1',
-    title: 'Complete FMCG Range',
-    description: 'From daily essentials to speciality items, we provide a comprehensive product portfolio.'
+    title: 'Comprehensive OS&E Portfolio',
+    description: 'From dining essentials to commercial machinery, we supply a complete operating supplies and equipment range.'
   },
   {
     number: '2',
@@ -1406,5 +1430,22 @@ export const PRODUCT_SPECS_MAP: Record<string, ProductDetailInfo> = {
       packing: '4 × 5L cans per master carton with leakproof partitions'
     }
   }
+};
+
+export const CONTACT_INFO = {
+  company: 'Care 4 Associates, India',
+  addressLine1: 'Shanum, TC-26/1960 PRA - G9A, GPO Lane, Pulimoodu',
+  addressLine2: 'Statue, Trivandrum, Kerala, India - 695 001',
+  fullAddress: 'Shanum, TC-26/1960 PRA - G9A, GPO Lane, Pulimoodu, Statue, Trivandrum, Kerala, India - 695 001',
+  phone: '+91 471 2450977',
+  mobiles: [
+    '+91 9995911830',
+    '+91 9349198950',
+    '+91 7558853330',
+    '+91 75588 53330'
+  ],
+  mobilesFormatted: '+91 9995911830 | +91 9349198950 | +91 7558853330 | +91 75588 53330',
+  mapEmbedUrl: 'https://maps.google.com/maps?q=GPO%20Lane%2C%20Pulimoodu%2C%20Statue%2C%20Trivandrum%2C%20Kerala%20695001&t=&z=16&ie=UTF8&iwloc=&output=embed',
+  mapDirectionsUrl: 'https://maps.google.com/?q=GPO+Lane,+Pulimoodu,+Statue,+Trivandrum,+Kerala+695001'
 };
 

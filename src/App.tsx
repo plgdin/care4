@@ -5,9 +5,10 @@ import { QuoteModal } from './components/QuoteModal';
 import { HomePage } from './pages/HomePage';
 import { ProductPage } from './pages/ProductPage';
 import { AboutPage } from './pages/AboutPage';
+import { ContactPage } from './pages/ContactPage';
 
 export const App: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'home' | 'products' | 'about'>('home');
+  const [activeTab, setActiveTab] = useState<'home' | 'products' | 'about' | 'contact'>('home');
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
   const [selectedQuoteProduct, setSelectedQuoteProduct] = useState<string | undefined>(undefined);
 
@@ -20,7 +21,7 @@ export const App: React.FC = () => {
   useEffect(() => {
     const handleHash = () => {
       const hash = window.location.hash.replace('#', '');
-      if (hash === 'products' || hash === 'about') {
+      if (hash === 'products' || hash === 'about' || hash === 'contact') {
         setActiveTab(hash);
       } else if (hash === 'home' || hash === '') {
         setActiveTab('home');
@@ -32,8 +33,8 @@ export const App: React.FC = () => {
   }, []);
 
   const handleNavigate = (tab: string, anchorId?: string) => {
-    if (tab === 'home' || tab === 'products' || tab === 'about') {
-      setActiveTab(tab);
+    if (tab === 'home' || tab === 'products' || tab === 'about' || tab === 'contact') {
+      setActiveTab(tab as any);
       window.location.hash = tab;
       if (anchorId) {
         setTimeout(() => {
@@ -70,6 +71,12 @@ export const App: React.FC = () => {
       {activeTab === 'about' && (
         <AboutPage 
           onOpenQuote={() => handleOpenQuote()} 
+          onNavigateHome={() => handleNavigate('home')} 
+        />
+      )}
+
+      {activeTab === 'contact' && (
+        <ContactPage 
           onNavigateHome={() => handleNavigate('home')} 
         />
       )}

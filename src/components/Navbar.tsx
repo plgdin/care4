@@ -7,7 +7,7 @@ interface NavbarProps {
   onOpenQuote: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ activeTab, onNavigate, onOpenQuote }) => {
+export const Navbar: React.FC<NavbarProps> = ({ activeTab, onNavigate, onOpenQuote: _onOpenQuote }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleLinkClick = (tab: string, anchorId?: string) => {
@@ -47,6 +47,18 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, onNavigate, onOpenQuo
         {/* Desktop Nav Items */}
         <nav className="navbar-nav-desktop">
           <button 
+            className={`nav-link ${activeTab === 'home' ? 'active' : ''}`}
+            onClick={() => handleLinkClick('home')}
+          >
+            Home
+          </button>
+          <button 
+            className={`nav-link ${activeTab === 'about' ? 'active' : ''}`}
+            onClick={() => handleLinkClick('about')}
+          >
+            About Us
+          </button>
+          <button 
             className={`nav-link ${activeTab === 'categories' ? 'active' : ''}`}
             onClick={() => handleLinkClick('home', 'categories-section')}
           >
@@ -59,22 +71,16 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, onNavigate, onOpenQuo
             Brands
           </button>
           <button 
-            className={`nav-link ${activeTab === 'about' ? 'active' : ''}`}
-            onClick={() => handleLinkClick('about')}
-          >
-            About Us
-          </button>
-          <button 
             className={`nav-link ${activeTab === 'products' ? 'active' : ''}`}
             onClick={() => handleLinkClick('products')}
           >
-            Product Catalog
+            Product Catalogue
           </button>
           <button 
-            className="btn-quote"
-            onClick={onOpenQuote}
+            className={`btn-quote ${activeTab === 'contact' ? 'active' : ''}`}
+            onClick={() => handleLinkClick('contact')}
           >
-            Get a Quote
+            Contact Us
           </button>
         </nav>
 
@@ -93,6 +99,18 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, onNavigate, onOpenQuo
         <div className="mobile-drawer">
           <button 
             className="mobile-nav-link"
+            onClick={() => handleLinkClick('home')}
+          >
+            Home
+          </button>
+          <button 
+            className="mobile-nav-link"
+            onClick={() => handleLinkClick('about')}
+          >
+            About Us
+          </button>
+          <button 
+            className="mobile-nav-link"
             onClick={() => handleLinkClick('home', 'categories-section')}
           >
             Categories
@@ -105,24 +123,15 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, onNavigate, onOpenQuo
           </button>
           <button 
             className="mobile-nav-link"
-            onClick={() => handleLinkClick('about')}
-          >
-            About Us
-          </button>
-          <button 
-            className="mobile-nav-link"
             onClick={() => handleLinkClick('products')}
           >
-            Product Catalog
+            Product Catalogue
           </button>
           <button 
-            className="btn-quote mobile-quote-btn"
-            onClick={() => {
-              setMobileMenuOpen(false);
-              onOpenQuote();
-            }}
+            className={`btn-quote mobile-quote-btn ${activeTab === 'contact' ? 'active' : ''}`}
+            onClick={() => handleLinkClick('contact')}
           >
-            Get a Quote
+            Contact Us
           </button>
         </div>
       )}

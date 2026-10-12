@@ -141,6 +141,13 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose, initial
               <span>Send Inquiry</span>
               <Send size={16} />
             </button>
+
+            <div className="modal-direct-contact">
+              <span className="direct-contact-label">Or reach our Trivandrum office directly:</span>
+              <p className="direct-contact-text">
+                <strong>Care 4 Associates, India</strong> · Phone: <a href="tel:+914712450977">+91 471 2450977</a> · Mobile: <a href="tel:+919995911830">+91 9995911830</a>
+              </p>
+            </div>
           </form>
         )}
       </div>
@@ -295,6 +302,34 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose, initial
           border-radius: var(--radius-xs);
           font-family: var(--font-body);
           font-weight: 600;
+        }
+        .modal-direct-contact {
+          margin-top: 18px;
+          padding-top: 14px;
+          border-top: 1px dashed var(--color-border);
+          text-align: center;
+        }
+        .direct-contact-label {
+          display: block;
+          font-size: 12px;
+          color: #64748b;
+          margin-bottom: 4px;
+          text-transform: uppercase;
+          letter-spacing: 0.04em;
+          font-weight: 600;
+        }
+        .direct-contact-text {
+          margin: 0;
+          font-size: 13px;
+          color: var(--color-navy-dark);
+        }
+        .direct-contact-text a {
+          color: var(--color-primary);
+          text-decoration: none;
+          font-weight: 600;
+        }
+        .direct-contact-text a:hover {
+          text-decoration: underline;
         }
         @media (max-width: 600px) {
           .modal-container {

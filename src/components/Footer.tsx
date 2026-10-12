@@ -30,7 +30,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
               <span>Get a Quote</span>
               <ArrowRight size={15} />
             </button>
-            <button className="btn-cta-contact" onClick={onOpenQuote}>
+            <button className="btn-cta-contact" onClick={() => onNavigate('contact')}>
               <span>Contact Us</span>
             </button>
           </div>
@@ -50,6 +50,17 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
             <p className="footer-tagline">
               Supplying the essentials behind exceptional hospitality.
             </p>
+            <div className="footer-contact-info-block">
+              <p className="footer-addr-text">
+                <strong>Care 4 Associates, India</strong><br />
+                Shanum, TC-26/1960 PRA - G9A, GPO Lane, Pulimoodu<br />
+                Statue, Trivandrum, Kerala, India - 695 001
+              </p>
+              <p className="footer-tel-text">
+                <span>Phone: <a href="tel:+914712450977">+91 471 2450977</a></span><br />
+                <span>Mobile: <a href="tel:+919995911830">+91 9995911830</a> | <a href="tel:+919349198950">+91 9349198950</a> | <a href="tel:+917558853330">+91 7558853330</a></span>
+              </p>
+            </div>
             <div className="footer-socials">
               <a 
                 href="https://linkedin.com" 
@@ -84,7 +95,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
               <li><button onClick={() => onNavigate('products')}>Products</button></li>
               <li><button onClick={() => onNavigate('home', 'categories-section')}>Industries</button></li>
               <li><button onClick={() => onNavigate('about')}>About Us</button></li>
-              <li><button onClick={onOpenQuote}>Contact</button></li>
+              <li><button onClick={() => onNavigate('contact')}>Contact Us</button></li>
             </ul>
           </div>
 
@@ -252,6 +263,34 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
           color: var(--color-text-body);
           margin-bottom: 14px;
           max-width: 260px;
+        }
+        .footer-contact-info-block {
+          margin-bottom: 16px;
+          font-family: var(--font-body);
+          font-size: 13px;
+          line-height: 1.5;
+          color: var(--color-navy-dark);
+        }
+        .footer-addr-text {
+          margin: 0 0 8px 0;
+          color: #334155;
+        }
+        .footer-addr-text strong {
+          color: var(--color-navy-dark);
+          font-weight: 700;
+        }
+        .footer-tel-text {
+          margin: 0;
+          color: #334155;
+          font-size: 12.5px;
+        }
+        .footer-tel-text a {
+          color: var(--color-primary);
+          text-decoration: none;
+          font-weight: 600;
+        }
+        .footer-tel-text a:hover {
+          text-decoration: underline;
         }
         .footer-socials {
           display: flex;

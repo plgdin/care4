@@ -33,7 +33,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
 
           <h1 className="about-hero-title">About Us</h1>
           <p className="about-hero-desc">
-            Care4 Associates, India is a leading distributor of FMCG products serving hotels, restaurants and catering establishments across Kerala and beyond.
+            Care4 Associates, India is a leading distributor of hospitality operating supplies, tableware and hygiene solutions serving hotels, restaurants, cafes and catering establishments across Kerala and beyond.
           </p>
 
           {/* Feature Badges */}
@@ -67,7 +67,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
             <h2 className="story-title">A Legacy of Trust and Service</h2>
 
             <p className="story-body">
-              With over years of experience in the distribution of food and allied products, Care4 Associates has grown to become a trusted partner for the hospitality industry. We are committed to delivering quality products, efficient supply chain solutions and exceptional service to hotels, restaurants, caterers and institutions across Kerala.
+              With years of experience in the distribution of hospitality essentials and operating supplies, Care4 Associates has grown to become a trusted partner for the hospitality industry. We are committed to delivering quality products, efficient supply chain solutions and exceptional service to hotels, restaurants, cafes, caterers and institutions across Kerala.
             </p>
 
             <button className="btn-our-journey" onClick={onOpenQuote}>
@@ -108,7 +108,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
             </div>
             <h2 className="serve-title">Serving Every Corner of Hospitality</h2>
             <p className="serve-desc">
-              We supply a wide range of FMCG and food products to various segments of the hospitality industry.
+              We supply a comprehensive range of hospitality essentials, kitchen equipment and hygiene solutions to various segments of the hospitality industry.
             </p>
           </div>
 

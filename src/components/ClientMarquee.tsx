@@ -66,7 +66,7 @@ export const ClientMarquee: React.FC = () => {
           <span>OUR CLIENT NETWORK</span>
         </div>
         <h2 className="client-marquee-title">
-          Brands We Collaborated With
+          Care4 Enjoys Being the Preferred Partner of Our Major Clients
         </h2>
         <p className="client-marquee-subtitle">
           Trusted by leading organizations across healthcare, hospitality, technology &amp; enterprise sectors.
@@ -206,6 +206,8 @@ export const ClientMarquee: React.FC = () => {
           max-width: 160px;
           object-fit: contain;
           display: block;
+          filter: contrast(1.1) brightness(1.02);
+          image-rendering: -webkit-optimize-contrast;
         }
 
         /* ── responsive ── */

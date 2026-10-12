@@ -29,12 +29,14 @@ export const HorecaBanner: React.FC = () => {
                 <span className="sectors-sep">|</span>
                 <span>RESTAURANTS</span>
                 <span className="sectors-sep">|</span>
+                <span>CAFES</span>
+                <span className="sectors-sep">|</span>
                 <span>CATERING</span>
               </div>
             </div>
 
             <p className="horeca-description">
-              We cater to the unique needs of the HoReCa sector with products and solutions designed to keep operations efficient, hygienic and guest-ready — every day.
+              ‘HORECA’ refers to Hotels, Restaurants, Cafes &amp; Catering businesses. We cater to the unique needs of the sector with products and solutions designed to keep operations efficient, hygienic and guest-ready — every day.
             </p>
           </div>
 
@@ -60,16 +62,16 @@ export const HorecaBanner: React.FC = () => {
 
             <div className="pillar-divider" />
 
-            {/* Pillar 2: Restaurants */}
+            {/* Pillar 2: Restaurants & Cafes */}
             <div className="horeca-pillar">
               <div className="pillar-icon-box">
                 <img 
                   src="/images/icon_restaurant_lg.png" 
-                  alt="Restaurants Icon" 
+                  alt="Restaurants & Cafes Icon" 
                   className="pillar-icon-img" 
                 />
               </div>
-              <h3 className="pillar-title">Restaurants</h3>
+              <h3 className="pillar-title">Restaurants &amp; Cafes</h3>
               <ul className="pillar-list">
                 <li>Tableware & crockery</li>
                 <li>Kitchen equipment</li>
