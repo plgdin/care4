@@ -19,10 +19,10 @@
   --color-red-badge-bg: #fee2e2;
 
   /* Typography */
-  --font-display: 'Platypi', Georgia, serif;
+  --font-display: 'Comic Sans MS', 'Comic Neue', cursive, sans-serif;
   --font-heading: 'Comic Sans MS', 'Comic Neue', cursive, sans-serif;
-  --font-body: 'Comic Sans MS', 'Comic Neue', cursive, sans-serif;
-  --font-inter: 'Comic Sans MS', 'Comic Neue', cursive, sans-serif;
+  --font-body: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-doodle: 'Rubik Doodle Triangles', cursive;
 
   /* Spacing & Layout */
