@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   ArrowRight, 
   ChevronRight, 
@@ -16,6 +16,63 @@ interface AboutPageProps {
   onOpenQuote: () => void;
   onNavigateHome: () => void;
 }
+
+const StatCountUp: React.FC<{ value: string; duration?: number }> = ({ value, duration = 1800 }) => {
+  const [displayValue, setDisplayValue] = useState('0');
+  const ref = useRef<HTMLSpanElement>(null);
+  const startedRef = useRef(false);
+
+  useEffect(() => {
+    const match = value.match(/^([^\d]*)(\d+)([^\d]*)$/);
+    if (!match) {
+      setDisplayValue(value);
+      return;
+    }
+
+    const prefix = match[1] || '';
+    const target = parseInt(match[2], 10);
+    const suffix = match[3] || '';
+
+    const element = ref.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !startedRef.current) {
+          startedRef.current = true;
+          let startTime: number | null = null;
+
+          const step = (timestamp: number) => {
+            if (!startTime) startTime = timestamp;
+            const progress = Math.min((timestamp - startTime) / duration, 1);
+            // Ease-out cubic curve
+            const easeOut = 1 - Math.pow(1 - progress, 3);
+            const currentNum = Math.floor(easeOut * target);
+
+            setDisplayValue(`${prefix}${currentNum}${suffix}`);
+
+            if (progress < 1) {
+              requestAnimationFrame(step);
+            } else {
+              setDisplayValue(value);
+            }
+          };
+
+          requestAnimationFrame(step);
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    observer.observe(element);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [value, duration]);
+
+  return <span ref={ref} className="stat-val">{displayValue}</span>;
+};
 
 export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHome }) => {
   return (
@@ -88,7 +145,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
               <div className="floating-stats-card">
                 {ABOUT_STATS.map((stat, i) => (
                   <div key={i} className="stat-unit">
-                    <span className="stat-val">{stat.value}</span>
+                    <StatCountUp value={stat.value} duration={1800} />
                     <span className="stat-lbl">{stat.label}</span>
                   </div>
                 ))}
@@ -350,6 +407,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
           font-weight: 900;
           color: var(--color-navy-deep);
           line-height: 1;
+          font-variant-numeric: tabular-nums;
         }
         .stat-lbl {
           font-family: var(--font-inter);

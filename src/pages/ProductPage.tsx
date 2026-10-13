@@ -112,7 +112,6 @@ export const ProductPage: React.FC<ProductPageProps> = ({ onOpenQuote }) => {
   };
 
   const activeFilterCount = 
-    (searchQuery.trim() ? 1 : 0) +
     (selectedCategory !== 'All' ? 1 : 0) +
     selectedBrands.length +
     (selectedSector !== 'All' ? 1 : 0);
@@ -147,32 +146,6 @@ export const ProductPage: React.FC<ProductPageProps> = ({ onOpenQuote }) => {
           </button>
         )}
       </div>
-
-      {/* 1. Search Box */}
-      <div className="filter-group">
-        <div className="sidebar-search-box">
-          <Search size={16} className="sidebar-search-icon" />
-          <input
-            id="product-search-input"
-            type="text"
-            className="sidebar-search-input"
-            placeholder="Search products, brands..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-          {searchQuery && (
-            <button 
-              className="sidebar-search-clear" 
-              onClick={() => setSearchQuery('')}
-              aria-label="Clear search"
-            >
-              <X size={14} />
-            </button>
-          )}
-        </div>
-      </div>
-
-      <div className="filter-divider" />
 
       {/* 2. Product Category Filter */}
       <div className="filter-group">
