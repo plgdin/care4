@@ -4,9 +4,10 @@ import { ArrowRight } from 'lucide-react';
 interface FooterProps {
   onNavigate: (tab: string, anchorId?: string) => void;
   onOpenQuote: () => void;
+  onOpenContact?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
+export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote, onOpenContact }) => {
   return (
     <footer className="site-footer">
       <div className="footer-container">
@@ -30,7 +31,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
               <span>Get a Quote</span>
               <ArrowRight size={15} />
             </button>
-            <button className="btn-cta-contact" onClick={() => onNavigate('contact')}>
+            <button 
+              className="btn-cta-contact" 
+              onClick={onOpenContact ? onOpenContact : () => onNavigate('contact')}
+            >
               <span>Contact Us</span>
             </button>
           </div>
@@ -95,7 +99,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
               <li><button onClick={() => onNavigate('products')}>Products</button></li>
               <li><button onClick={() => onNavigate('home', 'categories-section')}>Industries</button></li>
               <li><button onClick={() => onNavigate('about')}>About Us</button></li>
-              <li><button onClick={() => onNavigate('contact')}>Contact Us</button></li>
+              <li><button onClick={onOpenContact ? onOpenContact : () => onNavigate('contact')}>Contact Us</button></li>
             </ul>
           </div>
 

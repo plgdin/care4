@@ -3,11 +3,17 @@ import { Menu, X } from 'lucide-react';
 
 interface NavbarProps {
   activeTab: string;
-  onNavigate: (tab: string) => void;
+  onNavigate: (tab: string, anchorId?: string) => void;
   onOpenQuote: () => void;
+  onOpenContact: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ activeTab, onNavigate, onOpenQuote: _onOpenQuote }) => {
+export const Navbar: React.FC<NavbarProps> = ({ 
+  activeTab, 
+  onNavigate, 
+  onOpenQuote: _onOpenQuote,
+  onOpenContact 
+}) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleLinkClick = (tab: string, anchorId?: string) => {
@@ -26,6 +32,11 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, onNavigate, onOpenQuo
         if (el) el.scrollIntoView({ behavior: 'smooth' });
       }, 100);
     }
+  };
+
+  const handleContactClick = () => {
+    setMobileMenuOpen(false);
+    onOpenContact();
   };
 
   return (
@@ -77,8 +88,8 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, onNavigate, onOpenQuo
             Product Catalogue
           </button>
           <button 
-            className={`btn-quote ${activeTab === 'contact' ? 'active' : ''}`}
-            onClick={() => handleLinkClick('contact')}
+            className="btn-quote"
+            onClick={handleContactClick}
           >
             Contact Us
           </button>
@@ -128,8 +139,8 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, onNavigate, onOpenQuo
             Product Catalogue
           </button>
           <button 
-            className={`btn-quote mobile-quote-btn ${activeTab === 'contact' ? 'active' : ''}`}
-            onClick={() => handleLinkClick('contact')}
+            className="btn-quote mobile-quote-btn"
+            onClick={handleContactClick}
           >
             Contact Us
           </button>

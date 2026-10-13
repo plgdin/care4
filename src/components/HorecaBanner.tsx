@@ -178,9 +178,9 @@ export const HorecaBanner: React.FC = () => {
         /* Right Pillars Grid */
         .horeca-pillars-grid {
           display: grid;
-          grid-template-columns: 1fr auto 1.18fr auto 1fr;
-          gap: 16px;
-          align-items: center;
+          grid-template-columns: 1fr auto 1fr auto 1fr;
+          gap: 20px;
+          align-items: flex-start;
           width: 100%;
         }
         .horeca-pillar {
@@ -188,6 +188,7 @@ export const HorecaBanner: React.FC = () => {
           flex-direction: column;
           align-items: center;
           text-align: center;
+          width: 100%;
         }
         .pillar-icon-box {
           height: 64px;
@@ -195,7 +196,7 @@ export const HorecaBanner: React.FC = () => {
           display: flex;
           align-items: center;
           justify-content: center;
-          margin-bottom: 12px;
+          margin-bottom: 14px;
         }
         .pillar-icon-img {
           height: 56px;
@@ -210,11 +211,16 @@ export const HorecaBanner: React.FC = () => {
         .pillar-title {
           font-family: var(--font-heading);
           font-size: 20px;
-          font-weight: 800;
+          font-weight: 700;
           color: var(--color-navy-dark);
-          margin-bottom: 12px;
+          margin-bottom: 14px;
           letter-spacing: -0.01em;
           white-space: nowrap;
+          height: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
         }
         .pillar-list {
           list-style: none;
@@ -222,25 +228,26 @@ export const HorecaBanner: React.FC = () => {
           margin: 0 auto;
           display: flex;
           flex-direction: column;
-          gap: 7px;
+          gap: 9px;
           align-items: flex-start;
           text-align: left;
+          width: fit-content;
         }
         .pillar-list li {
           font-family: var(--font-body);
-          font-size: 14px;
+          font-size: 15.5px;
           color: #374151;
-          line-height: 1.35;
+          line-height: 1.4;
           font-weight: 500;
           white-space: nowrap;
           display: flex;
           align-items: center;
-          gap: 8px;
+          gap: 9px;
         }
         .pillar-list li::before {
           content: '';
-          width: 5px;
-          height: 5px;
+          width: 6px;
+          height: 6px;
           border-radius: 50%;
           background-color: var(--color-accent-red);
           flex-shrink: 0;
@@ -248,9 +255,10 @@ export const HorecaBanner: React.FC = () => {
         }
         .pillar-divider {
           width: 1px;
-          height: 150px;
+          height: 180px;
           background-color: #e5e7eb;
-          align-self: center;
+          align-self: flex-start;
+          margin-top: 10px;
         }
         @media (max-width: 1200px) {
           .horeca-card {
@@ -306,7 +314,7 @@ export const HorecaBanner: React.FC = () => {
             font-size: 19px;
           }
           .pillar-list li {
-            font-size: 14px;
+            font-size: 15px;
           }
         }
       `}</style>
