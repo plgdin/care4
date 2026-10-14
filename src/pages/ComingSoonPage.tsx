@@ -1,5 +1,4 @@
 import React from 'react';
-import { MapPin, Phone } from 'lucide-react';
 
 export const ComingSoonPage: React.FC = () => {
   return (
@@ -20,48 +19,9 @@ export const ComingSoonPage: React.FC = () => {
           <span>Under Construction</span>
         </div>
 
-        {/* Main Headline */}
-        <h1 className="coming-soon-title">Coming Soon</h1>
-        
-        <p className="coming-soon-text">
-          We are currently crafting our new digital experience. Our comprehensive hospitality supplies catalogue and solutions will be live shortly.
-        </p>
-
-        {/* Direct Contact Card */}
-        <div className="coming-soon-card">
-          <h2 className="card-headline">Care 4 Associates, India</h2>
-          <p className="card-sub">Hospitality Products & HoReCa Supplies</p>
-
-          <div className="contact-grid">
-            <div className="contact-item">
-              <div className="contact-icon">
-                <MapPin size={18} />
-              </div>
-              <div className="contact-meta">
-                <span className="meta-label">Location</span>
-                <span className="meta-val">
-                  Shanum, GPO Lane, Pulimoodu, Statue, Trivandrum, Kerala - 695 001
-                </span>
-              </div>
-            </div>
-
-            <div className="contact-item">
-              <div className="contact-icon">
-                <Phone size={18} />
-              </div>
-              <div className="contact-meta">
-                <span className="meta-label">Phone & Mobile</span>
-                <span className="meta-val">
-                  <a href="tel:+914712450977">+91 471 2450977</a> · <a href="tel:+919995911830">+91 9995911830</a>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <p className="copyright-line">
-          © {new Date().getFullYear()} Care 4 Associates. All rights reserved.
-        </p>
+        {/* Headline */}
+        <h1 className="coming-soon-title">Care4 Associates</h1>
+        <h2 className="coming-soon-subtitle">Coming Soon</h2>
       </div>
 
       <style>{`
@@ -79,7 +39,7 @@ export const ComingSoonPage: React.FC = () => {
         }
 
         .coming-soon-container {
-          max-width: 640px;
+          max-width: 580px;
           width: 100%;
           text-align: center;
           display: flex;
@@ -89,15 +49,15 @@ export const ComingSoonPage: React.FC = () => {
 
         .coming-soon-logo-box {
           background: #ffffff;
-          padding: 14px 28px;
+          padding: 16px 32px;
           border-radius: 16px;
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-          margin-bottom: 32px;
+          margin-bottom: 28px;
           display: inline-flex;
         }
 
         .coming-soon-logo {
-          height: 52px;
+          height: 56px;
           width: auto;
           display: block;
         }
@@ -134,108 +94,28 @@ export const ComingSoonPage: React.FC = () => {
         }
 
         .coming-soon-title {
-          font-size: 48px;
+          font-size: 44px;
           font-weight: 800;
           color: #ffffff;
           letter-spacing: -0.02em;
-          margin: 0 0 16px 0;
-          line-height: 1.1;
+          margin: 0 0 10px 0;
+          line-height: 1.15;
         }
 
-        .coming-soon-text {
-          font-size: 16px;
-          line-height: 1.6;
-          color: rgba(255, 255, 255, 0.75);
-          max-width: 520px;
-          margin: 0 0 32px 0;
-        }
-
-        .coming-soon-card {
-          width: 100%;
-          background: rgba(255, 255, 255, 0.05);
-          backdrop-filter: blur(12px);
-          border: 1px solid rgba(255, 255, 255, 0.12);
-          border-radius: 16px;
-          padding: 24px;
-          box-sizing: border-box;
-          text-align: left;
-        }
-
-        .card-headline {
-          font-size: 20px;
-          font-weight: 700;
-          color: #ffffff;
-          margin: 0 0 4px 0;
-        }
-
-        .card-sub {
-          font-size: 13px;
-          color: #94a3b8;
-          margin: 0 0 20px 0;
-        }
-
-        .contact-grid {
-          display: flex;
-          flex-direction: column;
-          gap: 14px;
-        }
-
-        .contact-item {
-          display: flex;
-          align-items: flex-start;
-          gap: 12px;
-        }
-
-        .contact-icon {
-          width: 34px;
-          height: 34px;
-          border-radius: 8px;
-          background: rgba(2, 52, 141, 0.4);
-          color: #60a5fa;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
-        }
-
-        .contact-meta {
-          display: flex;
-          flex-direction: column;
-        }
-
-        .meta-label {
-          font-size: 11px;
-          text-transform: uppercase;
-          letter-spacing: 0.06em;
-          color: #64748b;
-          font-weight: 700;
-        }
-
-        .meta-val {
-          font-size: 14px;
-          color: #e2e8f0;
-          line-height: 1.4;
-        }
-
-        .meta-val a {
-          color: #93c5fd;
-          text-decoration: none;
+        .coming-soon-subtitle {
+          font-size: 28px;
           font-weight: 600;
-        }
-
-        .meta-val a:hover {
-          text-decoration: underline;
-        }
-
-        .copyright-line {
-          margin-top: 28px;
-          font-size: 12px;
-          color: #64748b;
+          color: #93c5fd;
+          letter-spacing: 0.02em;
+          margin: 0;
         }
 
         @media (max-width: 600px) {
           .coming-soon-title {
-            font-size: 36px;
+            font-size: 32px;
+          }
+          .coming-soon-subtitle {
+            font-size: 22px;
           }
           .coming-soon-logo {
             height: 42px;
