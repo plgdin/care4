@@ -8,6 +8,7 @@ export interface CategoryItem {
 export interface BrandItem {
   name: string;
   logo: string;
+  scale?: number;
 }
 
 export interface ProductCatalogCard {
@@ -113,21 +114,21 @@ export const CATEGORIES_DATA: CategoryItem[] = [
 ];
 
 export const BRANDS_ROW_1: BrandItem[] = [
-  { name: 'Dinewell', logo: '/images/dinewell_logo_8ea87d82.png' },
-  { name: 'Bharath Potteries', logo: '/images/bharath_potteries_logo_734f20b7.png' },
-  { name: 'MILTON', logo: '/images/milton_logo_6b559719.png' },
-  { name: 'H&H', logo: '/images/h_h_logo_660137d0.png' },
-  { name: 'FRESH N FINE', logo: '/images/fresh_n_fine_logo_58f73fee.png' },
-  { name: 'SAC Chemicals', logo: '/images/sac_chemicals_logo_4c9ab67e.png' }
+  { name: 'Dinewell', logo: '/images/dinewell_logo_clean.png', scale: 0.92 },
+  { name: 'Bharath Potteries', logo: '/images/bharath_potteries_logo_clean.png', scale: 1.05 },
+  { name: 'MILTON', logo: '/images/milton_logo_clean.png', scale: 0.9 },
+  { name: 'H&H', logo: '/images/h_h_logo_clean.png', scale: 0.88 },
+  { name: 'FRESH N FINE', logo: '/images/fresh_n_fine_clean.png', scale: 0.92 },
+  { name: 'SAC Chemicals', logo: '/images/sac_chemicals_logo_clean.png', scale: 0.95 }
 ];
 
 export const BRANDS_ROW_2: BrandItem[] = [
-  { name: 'CONTA', logo: '/images/conta_logo_76d10c2d.png' },
-  { name: 'Betco', logo: '/images/betco_logo_b77db17d.png' },
-  { name: 'Kimberly-Clark', logo: '/images/kimberly-clark_logo_39ffe52a.png' },
-  { name: '3M', logo: '/images/3m_logo_a7adaa13.png' },
-  { name: 'TORK', logo: '/images/tork_logo_e4dd436c.png' },
-  { name: 'Rubbermaid', logo: '/images/rubbermaid_logo_f49e0fad.png' }
+  { name: 'CONTA', logo: '/images/conta_logo_clean.png', scale: 0.92 },
+  { name: 'Betco', logo: '/images/betco_logo_clean.png', scale: 0.9 },
+  { name: 'Kimberly-Clark', logo: '/images/kimberly_clark_logo_clean.png', scale: 0.92 },
+  { name: '3M', logo: '/images/3m_logo_clean.png', scale: 0.85 },
+  { name: 'TORK', logo: '/images/tork_logo_clean.png', scale: 0.88 },
+  { name: 'Rubbermaid', logo: '/images/rubbermaid_logo_3d_clean.png', scale: 0.88 }
 ];
 
 export const ALL_FILTER_BRANDS: string[] = [

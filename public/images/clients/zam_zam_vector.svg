@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" width="320" height="320">
+  <defs>
+    <!-- Top Arc for ZAM ZAM -->
+    <path id="topTextArc" d="M 52,160 A 108,108 0 0,1 268,160" fill="none" />
+    <!-- Bottom Arc for RESTAURANT -->
+    <path id="bottomTextArc" d="M 268,160 A 108,108 0 0,1 52,160" fill="none" />
+  </defs>
+
+  <!-- Solid Black Background Circle with Yellow Border -->
+  <circle cx="160" cy="160" r="148" fill="#121212" stroke="#fbb700" stroke-width="14" />
+
+  <!-- Inner Dashed Stitch Circle -->
+  <circle cx="160" cy="160" r="133" fill="none" stroke="#fbb700" stroke-width="3" stroke-dasharray="5,4" />
+
+  <!-- Inner Guide Lines flanking text -->
+  <circle cx="160" cy="160" r="88" fill="none" stroke="#fbb700" stroke-width="1.8" />
+
+  <!-- Top Text: ZAM ZAM -->
+  <text fill="#fbb700" 
+        font-family="'Impact', 'Oswald', 'Arial Narrow', sans-serif" 
+        font-weight="700" 
+        font-size="32" 
+        letter-spacing="5">
+    <textPath href="#topTextArc" startOffset="50%" text-anchor="middle">ZAM ZAM</textPath>
+  </text>
+
+  <!-- Central Double-Z Monogram (Official Zam Zam emblem) -->
+  <g transform="translate(160, 160)">
+    <!-- Back Z (shifted bottom-right) -->
+    <g fill="#fbb700">
+      <!-- Top bar -->
+      <polygon points="-8,-16 28,-16 28,-7 4,-7" />
+      <!-- Diagonal -->
+      <polygon points="28,-16 28,-7 -2,31 -12,31" />
+      <!-- Bottom bar -->
+      <polygon points="-12,22 24,22 24,31 -12,31" />
+    </g>
+
+    <!-- Front Z (shifted top-left with black outline for clean separation) -->
+    <g stroke="#121212" stroke-width="5" stroke-linejoin="miter" fill="#fbb700">
+      <!-- Top bar -->
+      <polygon points="-24,-34 12,-34 12,-25 -12,-25" />
+      <!-- Diagonal -->
+      <polygon points="12,-34 12,-25 -18,13 -28,13" />
+      <!-- Bottom bar -->
+      <polygon points="-28,4 8,4 8,13 -28,13" />
+    </g>
+  </g>
+
+  <!-- Bottom Text: RESTAURANT -->
+  <text fill="#fbb700" 
+        font-family="'Impact', 'Oswald', 'Arial Narrow', sans-serif" 
+        font-weight="700" 
+        font-size="22" 
+        letter-spacing="6.5">
+    <textPath href="#bottomTextArc" startOffset="50%" text-anchor="middle">RESTAURANT</textPath>
+  </text>
+</svg>

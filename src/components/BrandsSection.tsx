@@ -41,7 +41,12 @@ export const BrandsSection: React.FC<BrandsSectionProps> = ({ onViewAllBrands })
             {BRANDS_ROW_1.map((brand, i) => (
               <React.Fragment key={brand.name}>
                 <div className="brand-logo-cell">
-                  <img src={brand.logo} alt={brand.name} className="brand-logo-img" />
+                  <img
+                    src={brand.logo}
+                    alt={brand.name}
+                    className="brand-logo-img"
+                    style={brand.scale ? { transform: `scale(${brand.scale})`, transformOrigin: 'center center' } : undefined}
+                  />
                 </div>
                 {i < BRANDS_ROW_1.length - 1 && <div className="brand-vertical-divider" />}
               </React.Fragment>
@@ -55,7 +60,12 @@ export const BrandsSection: React.FC<BrandsSectionProps> = ({ onViewAllBrands })
             {BRANDS_ROW_2.map((brand, i) => (
               <React.Fragment key={brand.name}>
                 <div className="brand-logo-cell">
-                  <img src={brand.logo} alt={brand.name} className="brand-logo-img" />
+                  <img
+                    src={brand.logo}
+                    alt={brand.name}
+                    className="brand-logo-img"
+                    style={brand.scale ? { transform: `scale(${brand.scale})`, transformOrigin: 'center center' } : undefined}
+                  />
                 </div>
                 {i < BRANDS_ROW_2.length - 1 && <div className="brand-vertical-divider" />}
               </React.Fragment>
@@ -133,31 +143,33 @@ export const BrandsSection: React.FC<BrandsSectionProps> = ({ onViewAllBrands })
         }
         .brand-logo-cell {
           flex: 1;
-          height: 110px;
+          height: 96px;
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: 16px 24px;
+          padding: 12px 20px;
           transition: transform var(--transition-fast), filter var(--transition-fast);
         }
         .brand-logo-cell:hover {
-          transform: scale(1.05);
+          transform: scale(1.04);
         }
         .brand-logo-img {
-          max-height: 60px;
-          max-width: 160px;
+          max-height: 40px;
+          max-width: 135px;
+          width: auto;
+          height: auto;
           object-fit: contain;
-          filter: grayscale(15%);
-          transition: filter var(--transition-fast);
+          display: block;
+          transition: transform var(--transition-fast);
         }
         .brand-logo-cell:hover .brand-logo-img {
-          filter: grayscale(0%);
+          transform: scale(1.06);
         }
         .brand-vertical-divider {
           width: 1px;
-          height: 60px;
+          height: 50px;
           background-color: var(--color-border-dark);
-          opacity: 0.6;
+          opacity: 0.5;
         }
         .brand-horizontal-divider {
           width: 100%;

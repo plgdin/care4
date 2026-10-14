@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 210" width="460" height="210">
+  <defs>
+    <linearGradient id="plaqueGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#024724" />
+      <stop offset="100%" stop-color="#01361b" />
+    </linearGradient>
+  </defs>
+
+  <!-- Green Plaque with Authentic Angled Peak & Side Notches -->
+  <path d="M 230,16 
+           L 395,48 
+           C 406,50 416,58 412,70 
+           C 400,82 400,128 412,140 
+           C 416,152 406,160 395,162 
+           L 230,194 
+           L 65,162 
+           C 54,160 44,152 48,140 
+           C 60,128 60,82 48,70 
+           C 44,58 54,50 65,48 Z" 
+        fill="url(#plaqueGrad)" 
+        stroke="#c99e32" 
+        stroke-width="3" 
+        stroke-linejoin="round" />
+
+  <!-- Fleur-de-lis Top Emblem -->
+  <g transform="translate(230, 40) scale(0.9)" fill="#c99e32">
+    <!-- Center petal -->
+    <path d="M 0,-18 C 5,-12 6,-4 0,3 C -6,-4 -5,-12 0,-18 Z" />
+    <!-- Left petal -->
+    <path d="M -2,0 C -8,-10 -18,-6 -14,2 C -10,8 -3,4 -2,0 Z" />
+    <!-- Right petal -->
+    <path d="M 2,0 C 8,-10 18,-6 14,2 C 10,8 3,4 2,0 Z" />
+    <!-- Base band -->
+    <rect x="-6" y="2" width="12" height="2.5" rx="1.2" />
+    <!-- Base stem -->
+    <path d="M -4,5 C -6,10 6,10 4,5 Z" />
+  </g>
+
+  <!-- suprême text -->
+  <text x="230" y="74" 
+        text-anchor="middle" 
+        fill="#c99e32" 
+        font-family="'Playfair Display', 'Georgia', serif" 
+        font-size="24" 
+        letter-spacing="1">
+    suprême
+  </text>
+
+  <!-- UPPER CRUST in bold, crisp serif -->
+  <text x="230" y="118" 
+        text-anchor="middle" 
+        fill="#ffffff" 
+        font-family="'Cinzel', 'Times New Roman', 'Baskerville', serif" 
+        font-weight="700" 
+        font-size="36" 
+        letter-spacing="2">
+    UPPER CRUST
+  </text>
+
+  <!-- WORLD'S FINEST TASTES in gold uppercase -->
+  <text x="230" y="142" 
+        text-anchor="middle" 
+        fill="#c99e32" 
+        font-family="'Inter', 'Arial', sans-serif" 
+        font-weight="600" 
+        font-size="12" 
+        letter-spacing="4">
+    WORLD'S FINEST TASTES
+  </text>
+
+  <!-- Bottom decorative scroll flourish -->
+  <g stroke="#c99e32" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Center loop -->
+    <path d="M 230,165 C 220,165 215,150 230,150 C 245,150 240,165 230,165 Z" />
+    <!-- Left scrolls -->
+    <path d="M 222,157 C 205,170 195,152 210,147 C 195,147 185,158 175,154" />
+    <!-- Right scrolls -->
+    <path d="M 238,157 C 255,170 265,152 250,147 C 265,147 275,158 285,154" />
+  </g>
+</svg>
