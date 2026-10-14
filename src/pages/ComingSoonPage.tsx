@@ -6,9 +6,9 @@ export const ComingSoonPage: React.FC = () => {
       <div className="coming-soon-container">
         {/* Brand Logo */}
         <div className="coming-soon-logo-box">
-          <img 
-            src="/images/care4_logo.png" 
-            alt="Care4 Associates" 
+          <img
+            src="/images/care4_logo.png"
+            alt="Care4 Associates"
             className="coming-soon-logo"
           />
         </div>
@@ -16,7 +16,7 @@ export const ComingSoonPage: React.FC = () => {
         {/* Status Pill */}
         <div className="status-pill">
           <span className="status-dot" />
-          <span>Under Construction</span>
+          <span>Under Development</span>
         </div>
 
         {/* Headline */}
