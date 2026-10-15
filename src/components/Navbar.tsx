@@ -49,7 +49,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           aria-label="Care4 Associates Home"
         >
           <img 
-            src="/images/care4_logo.png" 
+            src="/images/care4_logo.webp" 
             alt="Care4 Associates" 
             className="navbar-logo-img"
           />

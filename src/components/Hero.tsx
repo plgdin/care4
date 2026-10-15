@@ -56,15 +56,15 @@ export const Hero: React.FC<HeroProps> = ({ onExplore, onTalkToTeam }) => {
           {/* Industry Icons */}
           <div className="hero-industries-row">
             <div className="industry-item">
-              <img src="/images/icon_hotel_lg.png" alt="Hotels" className="industry-icon-img" />
+              <img src="/images/icon_hotel_lg.webp" alt="Hotels" className="industry-icon-img" />
               <span className="industry-label">Hotels</span>
             </div>
             <div className="industry-item">
-              <img src="/images/icon_restaurant_lg.png" alt="Restaurants & Cafes" className="industry-icon-img" />
+              <img src="/images/icon_restaurant_lg.webp" alt="Restaurants & Cafes" className="industry-icon-img" />
               <span className="industry-label">Restaurants & Cafes</span>
             </div>
             <div className="industry-item">
-              <img src="/images/icon_catering_lg.png" alt="Catering" className="industry-icon-img" />
+              <img src="/images/icon_catering_lg.webp" alt="Catering" className="industry-icon-img" />
               <span className="industry-label">Catering</span>
             </div>
           </div>

@@ -9,46 +9,46 @@ interface ClientLogo {
 
 const CLIENT_LOGOS: ClientLogo[] = [
   // Healthcare & Hospitals
-  { name: 'KIMS Healthcare', file: 'kims_healthcare_logo.jpg', scale: 1.2 },
-  { name: 'SUT Hospital', file: 'sut_hospital_logo.png', scale: 1.25 },
-  { name: 'KM Cherian Hospital', file: 'km_cherian_hospital_logo.png', scale: 1.15 },
+  { name: 'KIMS Healthcare', file: 'kims_healthcare_logo.webp', scale: 1.2 },
+  { name: 'SUT Hospital', file: 'sut_hospital_logo.webp', scale: 1.25 },
+  { name: 'KM Cherian Hospital', file: 'km_cherian_hospital_logo.webp', scale: 1.15 },
   { name: 'Jubilee Memorial Hospital', file: 'jubilee_hospital_logo.webp', scale: 1.1 },
-  { name: 'NIMS Medicity', file: 'nims_medicity_logo.png', scale: 1.2 },
+  { name: 'NIMS Medicity', file: 'nims_medicity_logo.webp', scale: 1.2 },
   { name: 'Travancore Medicity', file: 'medicity_kollam_logo.svg', scale: 1.3 },
-  { name: 'SP Medifort', file: 'sp_medifort_logo.png', scale: 1.45 },
+  { name: 'SP Medifort', file: 'sp_medifort_logo.webp', scale: 1.45 },
   { name: 'Santhigiri', file: 'santhigiri_logo.webp', scale: 1.45 },
 
   // Technology & Enterprise
   { name: 'TCS', file: 'tcs_logo.svg' },
   { name: 'ISRO', file: 'isro_logo.svg', scale: 1.45 },
-  { name: 'LPSC', file: 'lpsc_logo.png', scale: 1.45 },
-  { name: 'Infoblox', file: 'infoblox_logo.png' },
+  { name: 'LPSC', file: 'lpsc_logo.webp', scale: 1.45 },
+  { name: 'Infoblox', file: 'infoblox_logo.webp' },
   { name: 'IBS Software', file: 'ibs_software_logo.svg' },
   { name: 'Icon Clinical', file: 'icon_clinical_logo.svg', scale: 1.2 },
   { name: 'Terumo Penpol', file: 'terumo_penpol_logo.svg' },
   { name: 'HLL Lifecare', file: 'hll_lifecare_logo.svg', scale: 1.15 },
-  { name: 'Press Ganey', file: 'press_ganey_logo.png', scale: 1.3 },
-  { name: 'Assurtech Solutions', file: 'assurtech_solutions_logo.png' },
-  { name: 'iDynamics', file: 'idynamics_logo.png', scale: 1.35 },
-  { name: 'Asianet News', file: 'asianet_news_logo.png', scale: 1.3 },
+  { name: 'Press Ganey', file: 'press_ganey_logo.webp', scale: 1.3 },
+  { name: 'Assurtech Solutions', file: 'assurtech_solutions_logo.webp' },
+  { name: 'iDynamics', file: 'idynamics_logo.webp', scale: 1.35 },
+  { name: 'Asianet News', file: 'asianet_news_logo.webp', scale: 1.3 },
 
   // Hospitality & Renowned Clubs
-  { name: 'Ruby Arena Hotel', file: 'ruby_arena_hotel_logo.png', scale: 1.15 },
-  { name: 'Hotel Libra', file: 'hotel_libra_logo.png', scale: 1.4 },
-  { name: 'Hotel Thamburu', file: 'hotel_thamburu_logo.png', scale: 1.35 },
-  { name: 'National Club', file: 'national_club_logo.png', scale: 1.35 },
-  { name: 'Sri Mulam Club', file: 'sri_mulam_club_logo.png', scale: 1.45 },
+  { name: 'Ruby Arena Hotel', file: 'ruby_arena_hotel_logo.webp', scale: 1.15 },
+  { name: 'Hotel Libra', file: 'hotel_libra_logo.webp', scale: 1.4 },
+  { name: 'Hotel Thamburu', file: 'hotel_thamburu_logo.webp', scale: 1.35 },
+  { name: 'National Club', file: 'national_club_logo.webp', scale: 1.35 },
+  { name: 'Sri Mulam Club', file: 'sri_mulam_club_logo.webp', scale: 1.45 },
 
   // Premier Dining, Bakeries & Food Services
-  { name: 'Paragon Restaurant', file: 'paragon_restaurant_logo.png', scale: 1.4 },
-  { name: 'Azad Restaurant', file: 'azad_restaurant_logo.png', scale: 1.2 },
-  { name: "Halai's Biryani", file: 'halais_biryani_logo.png', scale: 1.35 },
-  { name: 'Rahmania Kethels', file: 'rahmania_kethels_logo.png', scale: 1.2 },
-  { name: 'Ruchi Pure Veg', file: 'ruchi_pure_veg_logo.jpg', scale: 1.45 },
+  { name: 'Paragon Restaurant', file: 'paragon_restaurant_logo.webp', scale: 1.4 },
+  { name: 'Azad Restaurant', file: 'azad_restaurant_logo.webp', scale: 1.2 },
+  { name: "Halai's Biryani", file: 'halais_biryani_logo.webp', scale: 1.35 },
+  { name: 'Rahmania Kethels', file: 'rahmania_kethels_logo.webp', scale: 1.2 },
+  { name: 'Ruchi Pure Veg', file: 'ruchi_pure_veg_logo.webp', scale: 1.45 },
   { name: 'Supreme Food Alliance', file: 'supreme_uppercrust_vector.svg', scale: 1.35 },
   { name: 'Zam Zam Bun Cafe', file: 'zam_zam_vector.svg', scale: 1.45 },
   { name: 'Uday Sky Kitchen', file: 'uday_sky_kitchen_vector.svg', scale: 1.25 },
-  { name: 'Trivanz Food Court', file: 'trivanz_clean_hires.png', scale: 1.4 },
+  { name: 'Trivanz Food Court', file: 'trivanz_clean_hires.webp', scale: 1.4 },
 ];
 
 /* Balanced distribution across two rows */

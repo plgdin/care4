@@ -47,17 +47,17 @@ export interface CategorySpotlightInfo {
 export const HERO_SLIDES = [
   {
     id: 1,
-    image: '/images/heroimage_3f45b21f.png',
+    image: '/images/heroimage_3f45b21f.webp',
     alt: 'Fine dining hospitality table setting'
   },
   {
     id: 2,
-    image: '/images/image__restaurant_setting__c005091f.png',
+    image: '/images/image__restaurant_setting__c005091f.webp',
     alt: 'Elegant restaurant setting'
   },
   {
     id: 3,
-    image: '/images/image__fine_dining__2ac60065.png',
+    image: '/images/image__fine_dining__2ac60065.webp',
     alt: 'Hospitality catering and banquet'
   }
 ];
@@ -67,68 +67,68 @@ export const CATEGORIES_DATA: CategoryItem[] = [
     id: 'crockery',
     title: 'Crockery',
     subtitle: 'Dining essentials, bone china & melamine collections.',
-    image: '/images/cardimage_b6bc00f1.png'
+    image: '/images/cardimage_b6bc00f1.webp'
   },
   {
     id: 'cutlery',
     title: 'Cutlery',
     subtitle: 'Mirror & satin finished stainless steel flatware.',
-    image: '/images/image__stainless_steel_brassware__69672dfd.png'
+    image: '/images/image__stainless_steel_brassware__69672dfd.webp'
   },
   {
     id: 'linen',
     title: 'Linen',
     subtitle: 'Luxury combed cotton bath towels, bed sheets & drapes.',
-    image: '/images/image__hotels__8af4967c.png'
+    image: '/images/image__hotels__8af4967c.webp'
   },
   {
     id: 'guest-amenities',
     title: 'Guest Amenities',
     subtitle: 'In-room botanical soaps, slippers, dental kits & comforts.',
-    image: '/images/cardimage_1dbd1171.png'
+    image: '/images/cardimage_1dbd1171.webp'
   },
   {
     id: 'kitchen-utensils',
     title: 'Kitchen Utensils',
     subtitle: 'Heavy-gauge commercial cookware, chef knives & prep tools.',
-    image: '/images/cardimage_ac51211f.png'
+    image: '/images/cardimage_ac51211f.webp'
   },
   {
     id: 'housekeeping',
     title: 'Housekeeping',
     subtitle: 'Janitorial hardware, carts, bins, tissue & room care.',
-    image: '/images/image__cleaning_equipment___janitorial__b009223f.png'
+    image: '/images/image__cleaning_equipment___janitorial__b009223f.webp'
   },
   {
     id: 'cleaning-chemicals',
     title: 'Cleaning Chemicals',
     subtitle: 'ISO concentrated degreasers, floor care & sanitizers.',
-    image: '/images/image__cleaning_chemicals__b85bdd2d.png'
+    image: '/images/image__cleaning_chemicals__b85bdd2d.webp'
   },
   {
     id: 'engineering-equipments',
     title: 'Engineering Equipments',
     subtitle: 'Heavy-duty commercial kitchen ranges, chillers & machines.',
-    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.png'
+    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.webp'
   }
 ];
 
 export const BRANDS_ROW_1: BrandItem[] = [
-  { name: 'Dinewell', logo: '/images/dinewell_logo_clean.png', scale: 0.92 },
-  { name: 'Bharath Potteries', logo: '/images/bharath_potteries_logo_clean.png', scale: 1.05 },
-  { name: 'MILTON', logo: '/images/milton_logo_clean.png', scale: 0.9 },
-  { name: 'H&H', logo: '/images/h_h_logo_clean.png', scale: 0.88 },
-  { name: 'FRESH N FINE', logo: '/images/fresh_n_fine_clean.png', scale: 0.92 },
-  { name: 'SAC Chemicals', logo: '/images/sac_chemicals_logo_clean.png', scale: 0.95 }
+  { name: 'Dinewell', logo: '/images/dinewell_logo_clean.webp', scale: 0.92 },
+  { name: 'Bharath Potteries', logo: '/images/bharath_potteries_logo_clean.webp', scale: 1.05 },
+  { name: 'MILTON', logo: '/images/milton_logo_clean.webp', scale: 0.9 },
+  { name: 'H&H', logo: '/images/h_h_logo_clean.webp', scale: 0.88 },
+  { name: 'FRESH N FINE', logo: '/images/fresh_n_fine_clean.webp', scale: 0.92 },
+  { name: 'SAC Chemicals', logo: '/images/sac_chemicals_logo_clean.webp', scale: 0.95 }
 ];
 
 export const BRANDS_ROW_2: BrandItem[] = [
-  { name: 'CONTA', logo: '/images/conta_logo_clean.png', scale: 0.92 },
-  { name: 'Betco', logo: '/images/betco_logo_clean.png', scale: 0.9 },
-  { name: 'Kimberly-Clark', logo: '/images/kimberly_clark_logo_clean.png', scale: 0.92 },
-  { name: '3M', logo: '/images/3m_logo_clean.png', scale: 0.85 },
-  { name: 'TORK', logo: '/images/tork_logo_clean.png', scale: 0.88 },
-  { name: 'Rubbermaid', logo: '/images/rubbermaid_logo_3d_clean.png', scale: 0.88 }
+  { name: 'CONTA', logo: '/images/conta_logo_clean.webp', scale: 0.92 },
+  { name: 'Betco', logo: '/images/betco_logo_clean.webp', scale: 0.9 },
+  { name: 'Kimberly-Clark', logo: '/images/kimberly_clark_logo_clean.webp', scale: 0.92 },
+  { name: '3M', logo: '/images/3m_logo_clean.webp', scale: 0.85 },
+  { name: 'TORK', logo: '/images/tork_logo_clean.webp', scale: 0.88 },
+  { name: 'Rubbermaid', logo: '/images/rubbermaid_logo_3d_clean.webp', scale: 0.88 }
 ];
 
 export const ALL_FILTER_BRANDS: string[] = [
@@ -204,7 +204,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Dinewell Melamine Dinnerware',
     subtitle: 'Chip-resistant buffet plates, bowls & platters',
     details: '100% Melamine · Dinewell',
-    image: '/images/cardimage_b6bc00f1.png',
+    image: '/images/cardimage_b6bc00f1.webp',
     category: 'Crockery',
     brands: ['Dinewell'],
     industries: ['Hotels', 'Restaurants', 'Catering'],
@@ -215,7 +215,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Borosil Glassware & Opalware',
     subtitle: 'Toughened glass dining & beverage collections',
     details: 'Opalware & Glass · Borosil',
-    image: '/images/image__tableware___crockery__a8a959b7.png',
+    image: '/images/image__tableware___crockery__a8a959b7.webp',
     category: 'Crockery',
     brands: ['Borosil'],
     industries: ['Hotels', 'Restaurants', 'Catering'],
@@ -226,7 +226,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Ariane & Arcoroc Fine Porcelain',
     subtitle: 'European vitrified tableware & banquet plates',
     details: 'Fine Porcelain & Opal · Ariane, Arcoroc',
-    image: '/images/image__tableware___crockery__c6601dfa.png',
+    image: '/images/image__tableware___crockery__c6601dfa.webp',
     category: 'Crockery',
     brands: ['Ariane', 'Arcoroc'],
     industries: ['Hotels', 'Restaurants'],
@@ -237,7 +237,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Bharat Crockery & Clay Craft',
     subtitle: 'High-alumina ceramic & bone china dinner suites',
     details: 'Ceramic & Bone China · Bharat - Crockery, Clay Craft',
-    image: '/images/cardimage_b6bc00f1.png',
+    image: '/images/cardimage_b6bc00f1.webp',
     category: 'Crockery',
     brands: ['Bharat - Crockery', 'Clay Craft'],
     industries: ['Hotels', 'Restaurants', 'Catering'],
@@ -248,7 +248,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Ocean & Union Commercial Glassware',
     subtitle: 'Clear soda-lime tumblers, goblets & beer glasses',
     details: 'Commercial Glassware · Ocean, Union',
-    image: '/images/image__hospitality_tableware__eab14684.png',
+    image: '/images/image__hospitality_tableware__eab14684.webp',
     category: 'Crockery',
     brands: ['Ocean', 'Union'],
     industries: ['Hotels', 'Restaurants', 'Catering'],
@@ -259,7 +259,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Servewell & Superware Melamine Dining',
     subtitle: 'Food-grade melamine serving trays, bowls & plates',
     details: 'Melamine Dining · Servewell, Superware',
-    image: '/images/image__fine_dining__2ac60065.png',
+    image: '/images/image__fine_dining__2ac60065.webp',
     category: 'Crockery',
     brands: ['Servewell', 'Superware'],
     industries: ['Restaurants', 'Catering', 'Hotels'],
@@ -270,7 +270,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Cello, JCPL & V 4 Tableware',
     subtitle: 'Modern tabletop essentials & banquet collections',
     details: 'Tabletop Sets · Cello, JCPL, V 4',
-    image: '/images/image__restaurant_setting__c005091f.png',
+    image: '/images/image__restaurant_setting__c005091f.webp',
     category: 'Crockery',
     brands: ['Cello', 'JCPL', 'V 4'],
     industries: ['Hotels', 'Restaurants', 'Catering'],
@@ -283,7 +283,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'FNS Luxury Cutlery Collection',
     subtitle: 'Handcrafted premium 18/10 stainless steel suites',
     details: '18/10 Stainless Steel · FNS',
-    image: '/images/image__stainless_steel_brassware__69672dfd.png',
+    image: '/images/image__stainless_steel_brassware__69672dfd.webp',
     category: 'Cutlery',
     brands: ['FNS'],
     industries: ['Hotels', 'Restaurants'],
@@ -294,7 +294,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Shapes Commercial Flatware',
     subtitle: 'Contemporary dining spoons, forks, knives & steak suites',
     details: 'Heavy Gauge Flatware · Shapes',
-    image: '/images/image__stainless_steel_brassware__69672dfd.png',
+    image: '/images/image__stainless_steel_brassware__69672dfd.webp',
     category: 'Cutlery',
     brands: ['Shapes'],
     industries: ['Hotels', 'Restaurants', 'Catering'],
@@ -305,7 +305,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Venus Hospitality Cutlery',
     subtitle: 'Heavy-gauge mirror & satin banquet silverware',
     details: 'High-Grade Cutlery · Venus',
-    image: '/images/cardimage_ac51211f.png',
+    image: '/images/cardimage_ac51211f.webp',
     category: 'Cutlery',
     brands: ['Venus'],
     industries: ['Hotels', 'Restaurants', 'Catering'],
@@ -316,7 +316,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Supreme Foodservice Cutlery',
     subtitle: 'High-turnover durable cutlery for banquets & cafes',
     details: 'Foodservice Grade · Supreme',
-    image: '/images/image__fine_dining__2ac60065.png',
+    image: '/images/image__fine_dining__2ac60065.webp',
     category: 'Cutlery',
     brands: ['Supreme'],
     industries: ['Restaurants', 'Catering', 'Hotels'],
@@ -329,7 +329,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Bath Towels, Hand Towels & Bath Mats',
     subtitle: '100% Combed terry cotton luxury plush towels',
     details: '550-650 GSM Cotton · Cintra Cottons',
-    image: '/images/image__hotels__8af4967c.png',
+    image: '/images/image__hotels__8af4967c.webp',
     category: 'Linen',
     brands: ['Cintra Cottons'],
     industries: ['Hotels', 'Resorts'],
@@ -340,7 +340,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Pool Towels & Face Towels',
     subtitle: 'Vat-dyed chlorine-resistant poolside & face linens',
     details: 'Vat-Dyed Cotton · Cintra Cottons',
-    image: '/images/heroimage_3f45b21f.png',
+    image: '/images/heroimage_3f45b21f.webp',
     category: 'Linen',
     brands: ['Cintra Cottons'],
     industries: ['Hotels', 'Resorts'],
@@ -351,7 +351,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Bed Sheets, Bed Covers & Duvets',
     subtitle: '300-400 TC pure cotton & sateen stripe bed linen',
     details: '300-400 TC Sateen · Cintra Cottons',
-    image: '/images/centerimage_f8709305.png',
+    image: '/images/centerimage_f8709305.webp',
     category: 'Linen',
     brands: ['Cintra Cottons'],
     industries: ['Hotels'],
@@ -362,7 +362,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Pillows, Pillow Covers & Mattress Protectors',
     subtitle: 'Microfiber down-feel pillows & waterproof protectors',
     details: 'Microfiber & Quilted · Cintra Cottons',
-    image: '/images/image__hotels__8af4967c.png',
+    image: '/images/image__hotels__8af4967c.webp',
     category: 'Linen',
     brands: ['Cintra Cottons'],
     industries: ['Hotels'],
@@ -373,7 +373,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Curtains, Carpets, Rugs & Cushions',
     subtitle: 'Flame-retardant blackout drapery, throws & floor coverings',
     details: 'Flame-Retardant Fabric · Cintra Cottons',
-    image: '/images/centerimage_f8709305.png',
+    image: '/images/centerimage_f8709305.webp',
     category: 'Linen',
     brands: ['Cintra Cottons'],
     industries: ['Hotels', 'Restaurants'],
@@ -386,7 +386,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Liquid Amenities & Soaps',
     subtitle: 'Bath gel, shampoo, body lotion, moisturizer & soaps',
     details: 'Botanical Formulations · Victol Gold',
-    image: '/images/image__guest_amenities_equipment__f4f6ec37.png',
+    image: '/images/image__guest_amenities_equipment__f4f6ec37.webp',
     category: 'Guest Amenities',
     brands: ['Victol Gold'],
     industries: ['Hotels'],
@@ -397,7 +397,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Customised Guest & Room Kits',
     subtitle: 'Dental kit, shaving kit, sewing kit & medical kits',
     details: 'Eco-Packaging · Victol Gold',
-    image: '/images/cardimage_1dbd1171.png',
+    image: '/images/cardimage_1dbd1171.webp',
     category: 'Guest Amenities',
     brands: ['Victol Gold'],
     industries: ['Hotels'],
@@ -408,7 +408,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Room Amenities & Bath Slippers',
     subtitle: 'Bath slippers, hangers, laundry paper bags, shoe mitts',
     details: 'In-Room Essentials · Victol Gold',
-    image: '/images/image__guest_amenities_equipment__f4f6ec37.png',
+    image: '/images/image__guest_amenities_equipment__f4f6ec37.webp',
     category: 'Guest Amenities',
     brands: ['Victol Gold'],
     industries: ['Hotels'],
@@ -419,7 +419,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Bath Amenities, Toilet Rolls & WC Bands',
     subtitle: 'Virgin pulp toilet rolls, sanitized WC bands & glass covers',
     details: 'Sanitary Paper Goods · Victol Gold',
-    image: '/images/image__paper_products___dispensers__1a5dc51e.png',
+    image: '/images/image__paper_products___dispensers__1a5dc51e.webp',
     category: 'Guest Amenities',
     brands: ['Victol Gold'],
     industries: ['Hotels'],
@@ -430,7 +430,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Folders, Cards & Disposables',
     subtitle: 'Bill folders, menu folders, DND cards, luggage tags, stirrers & straws',
     details: 'Front Office & Dining · Victol Gold',
-    image: '/images/cardimage_4fdce090.png',
+    image: '/images/cardimage_4fdce090.webp',
     category: 'Guest Amenities',
     brands: ['Victol Gold'],
     industries: ['Hotels', 'Restaurants'],
@@ -443,7 +443,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Prestige & Milton Commercial Cookware',
     subtitle: 'Heavy-gauge stock pots, frying pans & pressure cookers',
     details: 'Commercial Cookware · Prestige, Milton',
-    image: '/images/cardimage_ac51211f.png',
+    image: '/images/cardimage_ac51211f.webp',
     category: 'Kitchen Utensils',
     brands: ['Prestige', 'Milton'],
     industries: ['Restaurants', 'Hotels', 'Catering'],
@@ -454,7 +454,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Godrej - Cartini & Bakers Professional Knives',
     subtitle: 'Chef knives, carving tools, cleavers & prep accessories',
     details: 'Culinary Cutlery · Godrej - Cartini, Bakers',
-    image: '/images/image__stainless_steel_brassware__69672dfd.png',
+    image: '/images/image__stainless_steel_brassware__69672dfd.webp',
     category: 'Kitchen Utensils',
     brands: ['Godrej - Cartini', 'Bakers'],
     industries: ['Hotels', 'Restaurants', 'Catering'],
@@ -465,7 +465,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Cambro Nilkamal & Polygaurd Food Storage',
     subtitle: 'GN food pans, airtight ingredient bins & measuring jugs',
     details: 'NSF Certified · Cambro Nilkamal, Polygaurd',
-    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.png',
+    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.webp',
     category: 'Kitchen Utensils',
     brands: ['Cambro Nilkamal', 'Polygaurd'],
     industries: ['Hotels', 'Restaurants', 'Catering'],
@@ -476,7 +476,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Pradeep & Anchor Utensils',
     subtitle: 'Stainless steel catering degchis, topes, handis & colanders',
     details: 'Catering Vessels · Pradeep, Anchor Utensils',
-    image: '/images/cardimage_ac51211f.png',
+    image: '/images/cardimage_ac51211f.webp',
     category: 'Kitchen Utensils',
     brands: ['Pradeep', 'Anchor Utensils'],
     industries: ['Catering', 'Restaurants', 'Hotels'],
@@ -487,7 +487,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Hem, Indigo & Kenford Kitchenware',
     subtitle: 'Commercial ladles, skimmers, whisks & buffet serving tongs',
     details: 'Kitchen Prep Tools · Hem, Indigo, Kenford',
-    image: '/images/image__fine_dining__2ac60065.png',
+    image: '/images/image__fine_dining__2ac60065.webp',
     category: 'Kitchen Utensils',
     brands: ['Hem', 'Indigo', 'Kenford'],
     industries: ['Hotels', 'Restaurants', 'Catering'],
@@ -498,7 +498,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Mosaic, Rena, Rudra & Venus Kitchen Vessels',
     subtitle: 'Gastronorm containers, serving dishes & kitchen holloware',
     details: 'Commercial Vessels · Mosaic, Rena, Rudra, Venus',
-    image: '/images/image__restaurant_setting__c005091f.png',
+    image: '/images/image__restaurant_setting__c005091f.webp',
     category: 'Kitchen Utensils',
     brands: ['Mosaic', 'Rena', 'Rudra', 'Venus'],
     industries: ['Hotels', 'Restaurants', 'Catering'],
@@ -509,7 +509,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'KMW, Sujatha & Zanuff Corvus Equipment',
     subtitle: 'Heavy commercial kitchen prep appliances & utility accessories',
     details: 'Prep & Utility · KMW, Sujatha, Zanuff Corvus',
-    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.png',
+    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.webp',
     category: 'Kitchen Utensils',
     brands: ['KMW', 'Sujatha', 'Zanuff Corvus'],
     industries: ['Restaurants', 'Catering', 'Hotels'],
@@ -522,7 +522,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Gala & Roots Commercial Cleaning Tools',
     subtitle: 'Heavy-duty microfiber mops, floor squeegees & lobby dustpans',
     details: 'Janitorial Tools · Gala, Roots',
-    image: '/images/image__cleaning_equipment___janitorial__b009223f.png',
+    image: '/images/image__cleaning_equipment___janitorial__b009223f.webp',
     category: 'House Keeping',
     brands: ['Gala', 'Roots'],
     industries: ['Hotels', 'Facilities & Janitorial', 'Restaurants'],
@@ -533,7 +533,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Cambro Nilkamal & Conta Utility Trolleys & Bins',
     subtitle: 'Room service carts, linen hampers & waste segregation bins',
     details: 'Trolleys & Bins · Cambro Nilkamal, Conta',
-    image: '/images/image_3_c35c9821.png',
+    image: '/images/image_3_c35c9821.webp',
     category: 'House Keeping',
     brands: ['Cambro Nilkamal', 'Conta'],
     industries: ['Hotels', 'Facilities & Janitorial', 'Restaurants'],
@@ -544,7 +544,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Kimberly & Premier Paper & Dispensers',
     subtitle: 'Commercial hand roll towels, jumbo rolls & facial tissues',
     details: 'Washroom Solutions · Kimberly, Premier',
-    image: '/images/image__paper_products___dispensers__1a5dc51e.png',
+    image: '/images/image__paper_products___dispensers__1a5dc51e.webp',
     category: 'House Keeping',
     brands: ['Kimberly', 'Premier'],
     industries: ['Hotels', 'Facilities & Janitorial', 'Restaurants'],
@@ -555,7 +555,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Fresh N Fine & Family Plastic Supplies',
     subtitle: 'Guestroom liners, dustbins, laundry baskets & plastics',
     details: 'Room Plastics · Fresh N Fine, Family Plastic',
-    image: '/images/cardimage_4fdce090.png',
+    image: '/images/cardimage_4fdce090.webp',
     category: 'House Keeping',
     brands: ['Fresh N Fine', 'Family Plastic'],
     industries: ['Hotels', 'Facilities & Janitorial'],
@@ -566,7 +566,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Dabur & Hit Room Care & Pest Solutions',
     subtitle: 'Commercial odor neutralizers, fresheners & insect control',
     details: 'Facility Hygiene · Dabur, Hit',
-    image: '/images/cardimage_1dbd1171.png',
+    image: '/images/cardimage_1dbd1171.webp',
     category: 'House Keeping',
     brands: ['Dabur', 'Hit'],
     industries: ['Hotels', 'Restaurants', 'Facilities & Janitorial'],
@@ -579,7 +579,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Diversey Professional Cleaning Concentrates',
     subtitle: 'Taski floor care, kitchen degreasers, sanitizers & dishwash',
     details: 'Concentrated Chemicals · Diversey',
-    image: '/images/image__cleaning_chemicals__b85bdd2d.png',
+    image: '/images/image__cleaning_chemicals__b85bdd2d.webp',
     category: 'Cleaning Chemicals',
     brands: ['Diversey'],
     industries: ['Hotels', 'Restaurants', 'Facilities & Janitorial', 'Catering'],
@@ -590,7 +590,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'SAC Commercial Hygiene Chemicals',
     subtitle: 'Surface cleaners, glass cleaners, descalers & multi-purpose liquids',
     details: 'Surface & Multi-Clean · SAC',
-    image: '/images/cardimage_4fdce090.png',
+    image: '/images/cardimage_4fdce090.webp',
     category: 'Cleaning Chemicals',
     brands: ['SAC'],
     industries: ['Hotels', 'Restaurants', 'Facilities & Janitorial'],
@@ -603,7 +603,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Commercial Kitchen Equipments',
     subtitle: 'High-power burners, ovens, fryers, griddles & hot bain-maries',
     details: 'Commercial Kitchen Units · Kitchen Equipments',
-    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.png',
+    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.webp',
     category: 'Engineering Equipments',
     brands: ['Kitchen Equipments'],
     industries: ['Hotels', 'Restaurants', 'Catering'],
@@ -614,7 +614,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Serman Engineering & Commercial Machinery',
     subtitle: 'Commercial refrigeration, dishwashers & facility machines',
     details: 'Heavy Machinery & Systems · Serman',
-    image: '/images/image__fine_dining__2ac60065.png',
+    image: '/images/image__fine_dining__2ac60065.webp',
     category: 'Engineering Equipments',
     brands: ['Serman'],
     industries: ['Hotels', 'Restaurants', 'Facilities & Janitorial'],
@@ -637,7 +637,7 @@ export const CATEGORY_SPOTLIGHT_MAP: Record<string, CategorySpotlightInfo> = {
   'Crockery': {
     eyebrow: 'FINE DINING & BUFFET TABLEWARE',
     title: 'Crockery',
-    image: '/images/image__tableware___crockery__c6601dfa.png',
+    image: '/images/image__tableware___crockery__c6601dfa.webp',
     badges: ['Hotels', 'Restaurants', 'Catering'],
     items: [
       'Dinewell Melamine Plates & Bowls',
@@ -657,7 +657,7 @@ export const CATEGORY_SPOTLIGHT_MAP: Record<string, CategorySpotlightInfo> = {
   'Cutlery': {
     eyebrow: 'MIRROR & SATIN CUTLERY SUITES',
     title: 'Cutlery',
-    image: '/images/image__stainless_steel_brassware__69672dfd.png',
+    image: '/images/image__stainless_steel_brassware__69672dfd.webp',
     badges: ['Hotels', 'Restaurants', 'Catering'],
     items: [
       'FNS Luxury 18/10 Cutlery Sets',
@@ -673,7 +673,7 @@ export const CATEGORY_SPOTLIGHT_MAP: Record<string, CategorySpotlightInfo> = {
   'Linen': {
     eyebrow: 'LUXURY COTTON BED & BATH LINENS',
     title: 'Linen',
-    image: '/images/cardimage_ac51211f.png',
+    image: '/images/cardimage_ac51211f.webp',
     badges: ['Hotels', 'Resorts'],
     items: [
       'Bath Towels (550 - 650 GSM Combed Cotton)',
@@ -691,7 +691,7 @@ export const CATEGORY_SPOTLIGHT_MAP: Record<string, CategorySpotlightInfo> = {
   'Guest Amenities': {
     eyebrow: 'IN-ROOM LUXURY & GUEST COMFORTS',
     title: 'Guest Amenities',
-    image: '/images/image__guest_amenities_equipment__f4f6ec37.png',
+    image: '/images/image__guest_amenities_equipment__f4f6ec37.webp',
     badges: ['Hotels', 'Resorts'],
     items: [
       'Bath Gel, Body Lotion, Foam Bath & Moisturizer',
@@ -709,7 +709,7 @@ export const CATEGORY_SPOTLIGHT_MAP: Record<string, CategorySpotlightInfo> = {
   'Kitchen Utensils': {
     eyebrow: 'COMMERCIAL COOKWARE & PREP HARDWARE',
     title: 'Kitchen Utensils',
-    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.png',
+    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.webp',
     badges: ['Restaurants', 'Hotels', 'Catering'],
     items: [
       'Prestige Commercial Cookware & Pressure Pans',
@@ -728,7 +728,7 @@ export const CATEGORY_SPOTLIGHT_MAP: Record<string, CategorySpotlightInfo> = {
   'House Keeping': {
     eyebrow: 'FACILITY CLEANING & JANITORIAL SYSTEMS',
     title: 'House Keeping',
-    image: '/images/image__cleaning_equipment___janitorial__b009223f.png',
+    image: '/images/image__cleaning_equipment___janitorial__b009223f.webp',
     badges: ['Hotels', 'Facilities & Janitorial', 'Restaurants'],
     items: [
       'Gala & Roots Commercial Microfiber Mops & Squeegees',
@@ -745,7 +745,7 @@ export const CATEGORY_SPOTLIGHT_MAP: Record<string, CategorySpotlightInfo> = {
   'Cleaning Chemicals': {
     eyebrow: 'INSTITUTIONAL HYGIENE & SANITATION',
     title: 'Cleaning Chemicals',
-    image: '/images/image__cleaning_chemicals__b85bdd2d.png',
+    image: '/images/image__cleaning_chemicals__b85bdd2d.webp',
     badges: ['Hotels', 'Restaurants', 'Facilities & Janitorial'],
     items: [
       'Diversey Taski Floor Cleaners (R1 - R9 Series)',
@@ -762,7 +762,7 @@ export const CATEGORY_SPOTLIGHT_MAP: Record<string, CategorySpotlightInfo> = {
   'Engineering Equipments': {
     eyebrow: 'COMMERCIAL HEAVY-DUTY MACHINERY',
     title: 'Engineering Equipments',
-    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.png',
+    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.webp',
     badges: ['Hotels', 'Restaurants', 'Catering'],
     items: [
       'Commercial High-Pressure Cooking Ranges & Burners',
@@ -803,17 +803,17 @@ export const WHO_WE_SERVE: WhoWeServeItem[] = [
   {
     title: 'Hotels',
     description: 'Premium guest amenities, luxury linens and housekeeping hardware for boutique & chain hotels.',
-    image: '/images/image__hotels__8af4967c.png'
+    image: '/images/image__hotels__8af4967c.webp'
   },
   {
     title: 'Restaurants & Cafes',
     description: 'Commercial tableware, cutlery, heavy cookware and hygiene solutions for dining operations.',
-    image: '/images/image__restaurants__6ff4e1ae.png'
+    image: '/images/image__restaurants__6ff4e1ae.webp'
   },
   {
     title: 'Catering',
     description: 'Reliable banquetware, chaffing systems, catering vessels and bulk logistics for large events.',
-    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.png'
+    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.webp'
   }
 ];
 
@@ -907,9 +907,9 @@ export const PRODUCT_SPECS_MAP: Record<string, ProductDetailInfo> = {
     material: 'Fine Bone China & Soda-Lime Commercial Glass',
     finish: 'Super-Vitrified Glaze / Rolled Rim Chip Resistance',
     galleryImages: [
-      '/images/image__restaurant_setting__c005091f.png',
-      '/images/image__tableware___crockery__c6601dfa.png',
-      '/images/image__fine_dining__2ac60065.png'
+      '/images/image__restaurant_setting__c005091f.webp',
+      '/images/image__tableware___crockery__c6601dfa.webp',
+      '/images/image__fine_dining__2ac60065.webp'
     ],
     badges: [
       { title: '100% Food Grade', sub: 'Lead, Cadmium & Arsenic Safe', icon: 'food' },
@@ -938,9 +938,9 @@ export const PRODUCT_SPECS_MAP: Record<string, ProductDetailInfo> = {
     material: 'AISI 304 (18/10) Food-Grade Stainless Steel',
     finish: 'Hand-Polished Mirror Rim & Satin Brushed Stem',
     galleryImages: [
-      '/images/image__stainless_steel_brassware__69672dfd.png',
-      '/images/cardimage_ac51211f.png',
-      '/images/cardimage_1dbd1171.png'
+      '/images/image__stainless_steel_brassware__69672dfd.webp',
+      '/images/cardimage_ac51211f.webp',
+      '/images/cardimage_1dbd1171.webp'
     ],
     badges: [
       { title: '18/10 Stainless Steel', sub: 'Acid & Rust Resistant', icon: 'food' },
@@ -969,9 +969,9 @@ export const PRODUCT_SPECS_MAP: Record<string, ProductDetailInfo> = {
     material: 'Heavy-Gauge SS304 Stainless Steel & Shatterproof Polycarbonate',
     finish: 'Mirror Polished SS with Tempered Glass Viewing Window',
     galleryImages: [
-      '/images/image__buffet___beverage_equipment__f2c7e5ac.png',
-      '/images/cardimage_ac51211f.png',
-      '/images/cardimage_b6bc00f1.png'
+      '/images/image__buffet___beverage_equipment__f2c7e5ac.webp',
+      '/images/cardimage_ac51211f.webp',
+      '/images/cardimage_b6bc00f1.webp'
     ],
     badges: [
       { title: 'Food Grade SS304', sub: 'NSF & CE Commercial Certified', icon: 'food' },
@@ -1000,9 +1000,9 @@ export const PRODUCT_SPECS_MAP: Record<string, ProductDetailInfo> = {
     material: 'ISO 9001 & ISO 14001 Compliant Formulations',
     finish: 'Concentrate Liquid with Color-Coded Dispenser Dosing',
     galleryImages: [
-      '/images/image__cleaning_chemicals__b85bdd2d.png',
-      '/images/cardimage_4fdce090.png',
-      '/images/centerimage_f8709305.png'
+      '/images/image__cleaning_chemicals__b85bdd2d.webp',
+      '/images/cardimage_4fdce090.webp',
+      '/images/centerimage_f8709305.webp'
     ],
     badges: [
       { title: '100% Food Safe QAC', sub: 'Surface & Dishwash Contact', icon: 'food' },
@@ -1031,9 +1031,9 @@ export const PRODUCT_SPECS_MAP: Record<string, ProductDetailInfo> = {
     material: 'Virgin Polypropylene, Tubular Stainless Steel, Microfiber',
     finish: 'Impact-Resistant Color-Coded Moulded Finish',
     galleryImages: [
-      '/images/image__cleaning_equipment___janitorial__b009223f.png',
-      '/images/cardimage_4fdce090.png',
-      '/images/image_3_c35c9821.png'
+      '/images/image__cleaning_equipment___janitorial__b009223f.webp',
+      '/images/cardimage_4fdce090.webp',
+      '/images/image_3_c35c9821.webp'
     ],
     badges: [
       { title: 'HACCP Compliant', sub: 'Color-Coded Hygiene Zones', icon: 'food' },
@@ -1062,9 +1062,9 @@ export const PRODUCT_SPECS_MAP: Record<string, ProductDetailInfo> = {
     material: '100% Pure Virgin Pulp & FSC-Certified Fibers',
     finish: '2-Ply Embossed Quilted Weave',
     galleryImages: [
-      '/images/image__paper_products___dispensers__1a5dc51e.png',
-      '/images/cardimage_1dbd1171.png',
-      '/images/heroimage_3f45b21f.png'
+      '/images/image__paper_products___dispensers__1a5dc51e.webp',
+      '/images/cardimage_1dbd1171.webp',
+      '/images/heroimage_3f45b21f.webp'
     ],
     badges: [
       { title: '100% Virgin Pulp', sub: 'FSC Forestry Certified', icon: 'food' },
@@ -1093,9 +1093,9 @@ export const PRODUCT_SPECS_MAP: Record<string, ProductDetailInfo> = {
     material: 'Biodegradable Wheat Straw, Kraft Board, Botanical Extracts',
     finish: 'Matte Kraft Foil-Lined Pouch & Hot-Stamped Gold Foil',
     galleryImages: [
-      '/images/image__guest_amenities_equipment__f4f6ec37.png',
-      '/images/image_2_f90fe997.png',
-      '/images/heroimage_3f45b21f.png'
+      '/images/image__guest_amenities_equipment__f4f6ec37.webp',
+      '/images/image_2_f90fe997.webp',
+      '/images/heroimage_3f45b21f.webp'
     ],
     badges: [
       { title: 'Eco-Degradable Straw', sub: 'Zero Single-Use Plastic', icon: 'food' },
@@ -1124,9 +1124,9 @@ export const PRODUCT_SPECS_MAP: Record<string, ProductDetailInfo> = {
     material: 'Commercial Stainless Steel & High-Density Virgin Polyethylene (HDPE)',
     finish: 'Fingerprint-Resistant Brushed SS & Color-Coded Lids',
     galleryImages: [
-      '/images/image_3_c35c9821.png',
-      '/images/image__cleaning_equipment___janitorial__b009223f.png',
-      '/images/cardimage_4fdce090.png'
+      '/images/image_3_c35c9821.webp',
+      '/images/image__cleaning_equipment___janitorial__b009223f.webp',
+      '/images/cardimage_4fdce090.webp'
     ],
     badges: [
       { title: 'Sanitary Hands-Free', sub: 'Heavy Duty Foot Pedal', icon: 'food' },
@@ -1155,9 +1155,9 @@ export const PRODUCT_SPECS_MAP: Record<string, ProductDetailInfo> = {
     material: '100% Certified Food-Grade Melamine',
     finish: 'Matte & Gloss Vitrified Porcelain Appearance',
     galleryImages: [
-      '/images/cardimage_b6bc00f1.png',
-      '/images/image__tableware___crockery__c6601dfa.png',
-      '/images/image__fine_dining__2ac60065.png'
+      '/images/cardimage_b6bc00f1.webp',
+      '/images/image__tableware___crockery__c6601dfa.webp',
+      '/images/image__fine_dining__2ac60065.webp'
     ],
     badges: [
       { title: '100% Food Grade', sub: 'BPA & Lead Free Certified', icon: 'food' },
@@ -1186,9 +1186,9 @@ export const PRODUCT_SPECS_MAP: Record<string, ProductDetailInfo> = {
     material: 'Tri-Ply Base SS304 Stainless Steel & Forged High-Carbon Steel',
     finish: 'Commercial Satin Exterior with Brushed Interior',
     galleryImages: [
-      '/images/cardimage_ac51211f.png',
-      '/images/image__stainless_steel_brassware__69672dfd.png',
-      '/images/image__buffet___beverage_equipment__f2c7e5ac.png'
+      '/images/cardimage_ac51211f.webp',
+      '/images/image__stainless_steel_brassware__69672dfd.webp',
+      '/images/image__buffet___beverage_equipment__f2c7e5ac.webp'
     ],
     badges: [
       { title: 'Food Grade SS304', sub: 'NSF Certified Heavy Base', icon: 'food' },
@@ -1217,9 +1217,9 @@ export const PRODUCT_SPECS_MAP: Record<string, ProductDetailInfo> = {
     material: 'High-Solid Acrylic Polymers & Alkaline Degreasers',
     finish: 'Ultra High-Gloss Wet Look Finish (Non-Yellowing)',
     galleryImages: [
-      '/images/cardimage_4fdce090.png',
-      '/images/image__cleaning_chemicals__b85bdd2d.png',
-      '/images/image__cleaning_equipment___janitorial__b009223f.png'
+      '/images/cardimage_4fdce090.webp',
+      '/images/image__cleaning_chemicals__b85bdd2d.webp',
+      '/images/image__cleaning_equipment___janitorial__b009223f.webp'
     ],
     badges: [
       { title: 'UL Slip Certified', sub: 'ASTM D-2047 Safe Traction', icon: 'food' },
@@ -1248,9 +1248,9 @@ export const PRODUCT_SPECS_MAP: Record<string, ProductDetailInfo> = {
     material: 'Impact-Resistant ABS Polymer & SS Accent Trim',
     finish: 'Matte White & Satin Chrome Front Panel',
     galleryImages: [
-      '/images/image__paper_products___dispensers__1a5dc51e.png',
-      '/images/image__guest_amenities_equipment__f4f6ec37.png',
-      '/images/cardimage_1dbd1171.png'
+      '/images/image__paper_products___dispensers__1a5dc51e.webp',
+      '/images/image__guest_amenities_equipment__f4f6ec37.webp',
+      '/images/cardimage_1dbd1171.webp'
     ],
     badges: [
       { title: 'Infrared Sensor', sub: 'Touchless Sanitary Dispense', icon: 'food' },
@@ -1281,9 +1281,9 @@ export const PRODUCT_SPECS_MAP: Record<string, ProductDetailInfo> = {
     material: '100% Food-Grade Melamine Resin',
     finish: 'Glazed Porcelain-Like Scratch-Resistant Finish',
     galleryImages: [
-      '/images/cardimage_b6bc00f1.png',
-      '/images/image__tableware___crockery__c6601dfa.png',
-      '/images/image__fine_dining__2ac60065.png'
+      '/images/cardimage_b6bc00f1.webp',
+      '/images/image__tableware___crockery__c6601dfa.webp',
+      '/images/image__fine_dining__2ac60065.webp'
     ],
     badges: [
       { title: '100% Melamine', sub: 'BPA Free & Food Contact Safe', icon: 'food' },
@@ -1307,9 +1307,9 @@ export const PRODUCT_SPECS_MAP: Record<string, ProductDetailInfo> = {
     material: 'Toughened Borosilicate & Opal Glass',
     finish: 'Crystal Clear & Non-Porous Ultra-Smooth Glaze',
     galleryImages: [
-      '/images/image__tableware___crockery__a8a959b7.png',
-      '/images/image__hospitality_tableware__eab14684.png',
-      '/images/image__restaurant_setting__c005091f.png'
+      '/images/image__tableware___crockery__a8a959b7.webp',
+      '/images/image__hospitality_tableware__eab14684.webp',
+      '/images/image__restaurant_setting__c005091f.webp'
     ],
     badges: [
       { title: '100% Borosilicate', sub: 'Thermal Shock Resistant', icon: 'food' },
@@ -1333,9 +1333,9 @@ export const PRODUCT_SPECS_MAP: Record<string, ProductDetailInfo> = {
     material: 'AISI 304 (18/10) Food-Grade Stainless Steel',
     finish: 'Mirror Polished Bowls with Ergonomic Forged Stems',
     galleryImages: [
-      '/images/image__stainless_steel_brassware__69672dfd.png',
-      '/images/cardimage_ac51211f.png',
-      '/images/image__fine_dining__2ac60065.png'
+      '/images/image__stainless_steel_brassware__69672dfd.webp',
+      '/images/cardimage_ac51211f.webp',
+      '/images/image__fine_dining__2ac60065.webp'
     ],
     badges: [
       { title: '18/10 Stainless Steel', sub: 'Maximum Rust & Corrosion Resistance', icon: 'food' },
@@ -1359,9 +1359,9 @@ export const PRODUCT_SPECS_MAP: Record<string, ProductDetailInfo> = {
     material: '100% Ring-Spun Long-Staple Combed Cotton',
     finish: 'Double-Stitched Reinforced Hems & Terry Loop Weave',
     galleryImages: [
-      '/images/cardimage_ac51211f.png',
-      '/images/heroimage_3f45b21f.png',
-      '/images/image__hotels__8af4967c.png'
+      '/images/cardimage_ac51211f.webp',
+      '/images/heroimage_3f45b21f.webp',
+      '/images/image__hotels__8af4967c.webp'
     ],
     badges: [
       { title: '100% Combed Cotton', sub: 'High GSM Ultra-Plush Feel', icon: 'food' },
@@ -1385,9 +1385,9 @@ export const PRODUCT_SPECS_MAP: Record<string, ProductDetailInfo> = {
     material: 'Natural Extracts, Paraben-Free, Biodegradable Surfactants',
     finish: 'Silkscreen Printed / Hot-Stamped Bottle & Soft Tubes',
     galleryImages: [
-      '/images/image__guest_amenities_equipment__f4f6ec37.png',
-      '/images/cardimage_1dbd1171.png',
-      '/images/cardimage_4fdce090.png'
+      '/images/image__guest_amenities_equipment__f4f6ec37.webp',
+      '/images/cardimage_1dbd1171.webp',
+      '/images/cardimage_4fdce090.webp'
     ],
     badges: [
       { title: 'Dermatologically Tested', sub: 'Paraben & Cruelty Free', icon: 'food' },
@@ -1411,9 +1411,9 @@ export const PRODUCT_SPECS_MAP: Record<string, ProductDetailInfo> = {
     material: 'ISO 9001 / ISO 14001 Professional Chemical Concentrates',
     finish: 'Color-Coded Sealed HDPE Canisters for Dispenser Dosing',
     galleryImages: [
-      '/images/image__cleaning_chemicals__b85bdd2d.png',
-      '/images/cardimage_4fdce090.png',
-      '/images/centerimage_f8709305.png'
+      '/images/image__cleaning_chemicals__b85bdd2d.webp',
+      '/images/cardimage_4fdce090.webp',
+      '/images/centerimage_f8709305.webp'
     ],
     badges: [
       { title: 'Food-Grade Certified', sub: 'Safe for Commercial Kitchen Contact', icon: 'food' },

@@ -42,7 +42,7 @@ export const AboutSnippet: React.FC<AboutSnippetProps> = ({ onLearnMore }) => {
         <div className="about-snippet-right">
           <div className="about-image-card">
             <img 
-              src="/images/image__restaurant_setting__c005091f.png" 
+              src="/images/image__restaurant_setting__c005091f.webp" 
               alt="Care4 Hospitality Table Setting" 
               className="about-snippet-img"
             />

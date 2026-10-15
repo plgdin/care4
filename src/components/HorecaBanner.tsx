@@ -16,7 +16,7 @@ export const HorecaBanner: React.FC = () => {
               {/* Exact user-provided HO|RE|CA| Logo */}
               <div className="horeca-brand-logo">
                 <img 
-                  src="/images/horeca_logo.png" 
+                  src="/images/horeca_logo.webp" 
                   alt="HO|RE|CA|" 
                   className="horeca-brand-logo-img" 
                 />
@@ -46,7 +46,7 @@ export const HorecaBanner: React.FC = () => {
             <div className="horeca-pillar">
               <div className="pillar-icon-box">
                 <img 
-                  src="/images/icon_hotel_lg.png" 
+                  src="/images/icon_hotel_lg.webp" 
                   alt="Hotels Icon" 
                   className="pillar-icon-img" 
                 />
@@ -66,7 +66,7 @@ export const HorecaBanner: React.FC = () => {
             <div className="horeca-pillar">
               <div className="pillar-icon-box">
                 <img 
-                  src="/images/icon_restaurant_lg.png" 
+                  src="/images/icon_restaurant_lg.webp" 
                   alt="Restaurants & Cafes Icon" 
                   className="pillar-icon-img" 
                 />
@@ -86,7 +86,7 @@ export const HorecaBanner: React.FC = () => {
             <div className="horeca-pillar">
               <div className="pillar-icon-box">
                 <img 
-                  src="/images/icon_catering_lg.png" 
+                  src="/images/icon_catering_lg.webp" 
                   alt="Catering Icon" 
                   className="pillar-icon-img" 
                 />

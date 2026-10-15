@@ -137,7 +137,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
           <div className="our-story-right">
             <div className="story-image-card">
               <img 
-                src="/images/image__restaurant_setting__c005091f.png" 
+                src="/images/image__restaurant_setting__c005091f.webp" 
                 alt="Hospitality Dining Experience" 
                 className="story-img"
               />
@@ -226,7 +226,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
         .about-hero-section {
           position: relative;
           background-color: var(--color-navy-deep);
-          background-image: url('/images/image__fine_dining__2ac60065.png');
+          background-image: url('/images/image__fine_dining__2ac60065.webp');
           background-size: cover;
           background-position: center;
           padding: 80px 0 72px 0;

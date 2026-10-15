@@ -121,7 +121,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({ onOpenQuote }) => {
   const spotlightData = CATEGORY_SPOTLIGHT_MAP[activeSpotlightKey] || CATEGORY_SPOTLIGHT_MAP['Crockery'] || {
     eyebrow: 'FINE DINING & BUFFET TABLEWARE',
     title: 'Crockery',
-    image: '/images/image__tableware___crockery__c6601dfa.png',
+    image: '/images/image__tableware___crockery__c6601dfa.webp',
     badges: ['Hotels', 'Restaurants', 'Catering'],
     items: TABLEWARE_DETAIL_ITEMS,
     footnote: 'Available in bulk and minimum quantities. Customer-specific sizes and branding arranged on request — contact us for a quote.'
@@ -276,7 +276,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({ onOpenQuote }) => {
           <div className="product-hero-right">
             <div className="product-hero-image-card">
               <img 
-                src="/images/image__hospitality_tableware__eab14684.png" 
+                src="/images/image__hospitality_tableware__eab14684.webp" 
                 alt="Hospitality Tableware Collection" 
                 className="product-hero-img" 
               />

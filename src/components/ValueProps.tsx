@@ -11,7 +11,7 @@ export const ValueProps: React.FC<ValuePropsSectionProps> = ({ onGetQuote }) => 
       {/* Full-bleed background image across the entire banner */}
       <div className="valueprops-bg-wrapper">
         <img 
-          src="/images/centerimage_f8709305.png" 
+          src="/images/centerimage_f8709305.webp" 
           alt="Hospitality Room Comfort" 
           className="valueprops-bg-img" 
         />

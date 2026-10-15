@@ -46,7 +46,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote, onOpenC
           <div className="footer-col col-brand">
             <div className="footer-brand-header">
               <img 
-                src="/images/footer_brand_logo_clean.png" 
+                src="/images/footer_brand_logo_clean.webp" 
                 alt="Care4 Associates - HoReCa Supplies & Solutions" 
                 className="footer-brand-logo-img" 
               />
@@ -130,7 +130,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote, onOpenC
           <div className="footer-col col-motto">
             <div className="motto-box">
               <img 
-                src="/images/hospitality_refined_clean.png" 
+                src="/images/hospitality_refined_clean.webp" 
                 alt="Hospitality refined. A cleaner. Safer. Better tomorrow." 
                 className="hospitality-refined-img"
               />
