@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { 
   ArrowRight, 
   ChevronRight, 
@@ -37,15 +37,38 @@ const SECTORS = ['Hotels', 'Restaurants', 'Cafes', 'Catering'];
 
 interface ProductPageProps {
   onOpenQuote: (productName?: string) => void;
+  initialFilter?: string;
+  onClearInitialFilter?: () => void;
 }
 
-export const ProductPage: React.FC<ProductPageProps> = ({ onOpenQuote }) => {
+export const ProductPage: React.FC<ProductPageProps> = ({ 
+  onOpenQuote, 
+  initialFilter, 
+  onClearInitialFilter 
+}) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
   const [selectedSector, setSelectedSector] = useState<string>('All');
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
   const [selectedDetailProduct, setSelectedDetailProduct] = useState<ProductCatalogCard | null>(null);
+
+  useEffect(() => {
+    if (initialFilter) {
+      const catMatch = CATEGORY_FILTERS.find(c => c.toLowerCase() === initialFilter.toLowerCase());
+      if (catMatch) {
+        setSelectedCategory(catMatch);
+        setSelectedSector('All');
+      } else {
+        const secMatch = SECTORS.find(s => s.toLowerCase() === initialFilter.toLowerCase());
+        if (secMatch) {
+          setSelectedSector(secMatch);
+          setSelectedCategory('All');
+        }
+      }
+      if (onClearInitialFilter) onClearInitialFilter();
+    }
+  }, [initialFilter, onClearInitialFilter]);
 
   // Toggle helpers
   const handleToggleBrand = (brand: string) => {
@@ -256,7 +279,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({ onOpenQuote }) => {
             <h1 className="product-hero-title">Our Products</h1>
             <div className="product-hero-bar" />
             <p className="product-hero-desc">
-              A complete range of hospitality products for hotels, restaurants and catering businesses.
+              A complete range of hospitality products for hotels, restaurants, cafes and catering businesses.
             </p>
             <button 
               className="btn-browse-catalog" 
@@ -276,12 +299,43 @@ export const ProductPage: React.FC<ProductPageProps> = ({ onOpenQuote }) => {
           <div className="product-hero-right">
             <div className="product-hero-image-card">
               <img 
-                src="/images/image__hospitality_tableware__eab14684.webp" 
-                alt="Hospitality Tableware Collection" 
+                src="/images/product_catalog_hero_bright.jpg" 
+                alt="Hospitality Tableware & Equipment Collection" 
                 className="product-hero-img" 
               />
               <div className="product-hero-img-gradient" />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Prominent Category Navigation Bar - All Categories & Cafes Front and Center */}
+      <section className="catalog-category-bar-section">
+        <div className="catalog-category-bar-container">
+          <div className="catalog-category-tabs-row">
+            <button
+              className={`category-pill-tab ${selectedCategory === 'All' ? 'active' : ''}`}
+              onClick={() => setSelectedCategory('All')}
+            >
+              <span>All Categories</span>
+              <span className="pill-badge">{getCategoryCount('All')}</span>
+            </button>
+            {CATEGORY_FILTERS.map((cat) => {
+              const isCafe = cat === 'Cafes';
+              return (
+                <button
+                  key={cat}
+                  className={`category-pill-tab ${selectedCategory === cat ? 'active' : ''} ${isCafe ? 'cafe-pill-special' : ''}`}
+                  onClick={() => setSelectedCategory(cat)}
+                >
+                  {isCafe && (
+                    <span className="cafe-pill-icon">☕</span>
+                  )}
+                  <span>{cat}</span>
+                  <span className="pill-badge">{getCategoryCount(cat)}</span>
+                </button>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -685,6 +739,95 @@ export const ProductPage: React.FC<ProductPageProps> = ({ onOpenQuote }) => {
           position: absolute;
           inset: 0;
           background: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.35) 100%);
+        }
+
+        /* Horizontal Category Navigation Bar */
+        .catalog-category-bar-section {
+          background-color: #ffffff;
+          border-bottom: 1px solid #e2e8f0;
+          padding: 14px 0;
+          position: sticky;
+          top: 72px;
+          z-index: 95;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+        .catalog-category-bar-container {
+          width: 100%;
+          max-width: var(--container-max-width);
+          margin: 0 auto;
+          padding: 0 48px;
+        }
+        .catalog-category-tabs-row {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          overflow-x: auto;
+          padding-bottom: 4px;
+          scrollbar-width: thin;
+        }
+        .catalog-category-tabs-row::-webkit-scrollbar {
+          height: 4px;
+        }
+        .catalog-category-tabs-row::-webkit-scrollbar-thumb {
+          background: #cbd5e1;
+          border-radius: 4px;
+        }
+        .category-pill-tab {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          padding: 8px 16px;
+          border-radius: 9999px;
+          font-family: var(--font-inter);
+          font-size: 14px;
+          font-weight: 600;
+          color: #475569;
+          background: #f1f5f9;
+          border: 1px solid #e2e8f0;
+          white-space: nowrap;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          flex-shrink: 0;
+        }
+        .category-pill-tab:hover {
+          color: var(--color-navy-dark);
+          background: #e2e8f0;
+          border-color: #cbd5e1;
+        }
+        .category-pill-tab.active {
+          background: var(--color-navy-dark);
+          color: #ffffff;
+          border-color: var(--color-navy-dark);
+          box-shadow: 0 2px 8px rgba(15, 23, 42, 0.2);
+        }
+        .category-pill-tab .pill-badge {
+          background: rgba(0, 0, 0, 0.08);
+          color: inherit;
+          font-size: 11px;
+          font-weight: 700;
+          padding: 2px 7px;
+          border-radius: 9999px;
+        }
+        .category-pill-tab.active .pill-badge {
+          background: rgba(255, 255, 255, 0.25);
+          color: #ffffff;
+        }
+        .category-pill-tab.cafe-pill-special {
+          border-color: #fbcfe8;
+          background: #fdf2f8;
+          color: #be185d;
+        }
+        .category-pill-tab.cafe-pill-special:hover {
+          background: #fce7f3;
+          border-color: #f472b6;
+        }
+        .category-pill-tab.cafe-pill-special.active {
+          background: #db2777;
+          border-color: #db2777;
+          color: #ffffff;
+        }
+        .cafe-pill-icon {
+          font-size: 15px;
         }
 
         /* Mobile Filter Bar */

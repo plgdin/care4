@@ -73,19 +73,25 @@ export const CATEGORIES_DATA: CategoryItem[] = [
     id: 'cutlery',
     title: 'Cutlery',
     subtitle: 'Mirror & satin finished stainless steel flatware.',
-    image: '/images/image__stainless_steel_brassware__69672dfd.webp'
+    image: '/images/cutlery_fork_spoon_knife.jpg'
   },
   {
     id: 'linen',
     title: 'Linen',
     subtitle: 'Luxury combed cotton bath towels, bed sheets & drapes.',
-    image: '/images/image__hotels__8af4967c.webp'
+    image: '/images/luxury_hotel_linen.jpg'
   },
   {
     id: 'guest-amenities',
     title: 'Guest Amenities',
     subtitle: 'In-room botanical soaps, slippers, dental kits & comforts.',
     image: '/images/cardimage_1dbd1171.webp'
+  },
+  {
+    id: 'cafes',
+    title: 'Cafes',
+    subtitle: 'Specialty coffee mugs, frappe glassware, barista tools & disposables.',
+    image: '/images/category_cafe_beverage.jpg'
   },
   {
     id: 'kitchen-utensils',
@@ -109,25 +115,29 @@ export const CATEGORIES_DATA: CategoryItem[] = [
     id: 'engineering-equipments',
     title: 'Engineering Equipments',
     subtitle: 'Heavy-duty commercial kitchen ranges, chillers & machines.',
-    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.webp'
+    image: '/images/commercial_kitchen_equipment.jpg'
   }
 ];
 
 export const BRANDS_ROW_1: BrandItem[] = [
   { name: 'Dinewell', logo: '/images/dinewell_logo_clean.webp', scale: 0.92 },
+  { name: 'Borosil', logo: '/images/borosil_logo_clean.svg', scale: 0.95 },
+  { name: 'Ariane', logo: '/images/ariane_logo_clean.svg', scale: 1.0 },
   { name: 'Bharath Potteries', logo: '/images/bharath_potteries_logo_clean.webp', scale: 1.05 },
   { name: 'MILTON', logo: '/images/milton_logo_clean.webp', scale: 0.9 },
-  { name: 'H&H', logo: '/images/h_h_logo_clean.webp', scale: 0.88 },
-  { name: 'FRESH N FINE', logo: '/images/fresh_n_fine_clean.webp', scale: 0.92 },
-  { name: 'SAC Chemicals', logo: '/images/sac_chemicals_logo_clean.webp', scale: 0.95 }
+  { name: 'Prestige', logo: '/images/prestige_logo_clean.svg', scale: 0.95 },
+  { name: 'H&H', logo: '/images/h_h_logo_clean.webp', scale: 0.88 }
 ];
 
 export const BRANDS_ROW_2: BrandItem[] = [
+  { name: 'Diversey', logo: '/images/diversey_logo_clean.svg', scale: 1.0 },
+  { name: 'Ocean', logo: '/images/ocean_logo_clean.svg', scale: 0.95 },
+  { name: 'Cambro Nilkamal', logo: '/images/cambro_logo_clean.svg', scale: 0.92 },
+  { name: 'FRESH N FINE', logo: '/images/fresh_n_fine_clean.webp', scale: 0.92 },
+  { name: 'SAC Chemicals', logo: '/images/sac_chemicals_logo_clean.webp', scale: 0.95 },
   { name: 'CONTA', logo: '/images/conta_logo_clean.webp', scale: 0.92 },
-  { name: 'Betco', logo: '/images/betco_logo_clean.webp', scale: 0.9 },
   { name: 'Kimberly-Clark', logo: '/images/kimberly_clark_logo_clean.webp', scale: 0.92 },
   { name: '3M', logo: '/images/3m_logo_clean.webp', scale: 0.85 },
-  { name: 'TORK', logo: '/images/tork_logo_clean.webp', scale: 0.88 },
   { name: 'Rubbermaid', logo: '/images/rubbermaid_logo_3d_clean.webp', scale: 0.88 }
 ];
 
@@ -137,7 +147,7 @@ export const ALL_FILTER_BRANDS: string[] = [
   'Bharat - Crockery',
   'Borosil',
   'Cello',
-  'Clay Craft',
+  'Claycraft Fine Tableware',
   'Dinewell',
   'JCPL',
   'Ocean',
@@ -149,8 +159,6 @@ export const ALL_FILTER_BRANDS: string[] = [
   'Supreme',
   'Venus',
   'FNS',
-  'Cintra Cottons',
-  'Victol Gold',
   'Anchor Utensils',
   'Bakers',
   'Cambro Nilkamal',
@@ -234,12 +242,12 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
   },
   {
     id: 'crockery-bharat-claycraft',
-    title: 'Bharat Crockery & Clay Craft',
-    subtitle: 'High-alumina ceramic & bone china dinner suites',
-    details: 'Ceramic & Bone China · Bharat - Crockery, Clay Craft',
+    title: 'Bharat Crockery & Claycraft Fine Tableware',
+    subtitle: 'High-alumina ceramic & fine tableware suites',
+    details: 'Ceramic & Fine Tableware · Bharat - Crockery, Claycraft Fine Tableware',
     image: '/images/cardimage_b6bc00f1.webp',
     category: 'Crockery',
-    brands: ['Bharat - Crockery', 'Clay Craft'],
+    brands: ['Bharat - Crockery', 'Claycraft Fine Tableware'],
     industries: ['Hotels', 'Restaurants', 'Catering'],
     factors: ['Lead & Cadmium Safe', 'Custom Branding']
   },
@@ -328,10 +336,10 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     id: 'linen-towels-bathmats',
     title: 'Bath Towels, Hand Towels & Bath Mats',
     subtitle: '100% Combed terry cotton luxury plush towels',
-    details: '550-650 GSM Cotton · Cintra Cottons',
-    image: '/images/image__hotels__8af4967c.webp',
+    details: '550-650 GSM Combed Cotton · Luxury Hospitality',
+    image: '/images/luxury_hotel_linen.jpg',
     category: 'Linen',
-    brands: ['Cintra Cottons'],
+    brands: [],
     industries: ['Hotels', 'Resorts'],
     factors: ['100% Combed Cotton', 'High Absorbency', 'Bulk Wholesale']
   },
@@ -339,10 +347,10 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     id: 'linen-pool-face-towels',
     title: 'Pool Towels & Face Towels',
     subtitle: 'Vat-dyed chlorine-resistant poolside & face linens',
-    details: 'Vat-Dyed Cotton · Cintra Cottons',
-    image: '/images/heroimage_3f45b21f.webp',
+    details: 'Vat-Dyed Chlorine-Resistant Cotton',
+    image: '/images/luxury_hotel_linen.jpg',
     category: 'Linen',
-    brands: ['Cintra Cottons'],
+    brands: [],
     industries: ['Hotels', 'Resorts'],
     factors: ['Chlorine Resistant', 'Quick Dry']
   },
@@ -350,10 +358,10 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     id: 'linen-bedsheets-duvets',
     title: 'Bed Sheets, Bed Covers & Duvets',
     subtitle: '300-400 TC pure cotton & sateen stripe bed linen',
-    details: '300-400 TC Sateen · Cintra Cottons',
-    image: '/images/centerimage_f8709305.webp',
+    details: '300-400 TC Pure Cotton Sateen',
+    image: '/images/luxury_hotel_linen.jpg',
     category: 'Linen',
-    brands: ['Cintra Cottons'],
+    brands: [],
     industries: ['Hotels'],
     factors: ['Hypoallergenic', 'Commercial Wash Proof']
   },
@@ -361,10 +369,10 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     id: 'linen-pillows-protectors',
     title: 'Pillows, Pillow Covers & Mattress Protectors',
     subtitle: 'Microfiber down-feel pillows & waterproof protectors',
-    details: 'Microfiber & Quilted · Cintra Cottons',
-    image: '/images/image__hotels__8af4967c.webp',
+    details: 'Microfiber Down-Feel & Quilted Fill',
+    image: '/images/luxury_hotel_linen.jpg',
     category: 'Linen',
-    brands: ['Cintra Cottons'],
+    brands: [],
     industries: ['Hotels'],
     factors: ['Waterproof Barrier', 'Anti-Bacterial']
   },
@@ -372,10 +380,10 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     id: 'linen-curtains-carpets-rugs',
     title: 'Curtains, Carpets, Rugs & Cushions',
     subtitle: 'Flame-retardant blackout drapery, throws & floor coverings',
-    details: 'Flame-Retardant Fabric · Cintra Cottons',
-    image: '/images/centerimage_f8709305.webp',
+    details: 'Flame-Retardant Hospitality Fabric',
+    image: '/images/luxury_hotel_linen.jpg',
     category: 'Linen',
-    brands: ['Cintra Cottons'],
+    brands: [],
     industries: ['Hotels', 'Restaurants'],
     factors: ['Blackout FR', 'Custom Dimensions']
   },
@@ -385,10 +393,10 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     id: 'amenities-liquids-soaps',
     title: 'Liquid Amenities & Soaps',
     subtitle: 'Bath gel, shampoo, body lotion, moisturizer & soaps',
-    details: 'Botanical Formulations · Victol Gold',
+    details: 'Botanical Formulations · Hotel Essentials',
     image: '/images/image__guest_amenities_equipment__f4f6ec37.webp',
     category: 'Guest Amenities',
-    brands: ['Victol Gold'],
+    brands: [],
     industries: ['Hotels'],
     factors: ['Paraben Free', 'Custom Hotel Branding']
   },
@@ -396,10 +404,10 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     id: 'amenities-room-kits',
     title: 'Customised Guest & Room Kits',
     subtitle: 'Dental kit, shaving kit, sewing kit & medical kits',
-    details: 'Eco-Packaging · Victol Gold',
+    details: 'Eco-Packaging · Custom Guest Kits',
     image: '/images/cardimage_1dbd1171.webp',
     category: 'Guest Amenities',
-    brands: ['Victol Gold'],
+    brands: [],
     industries: ['Hotels'],
     factors: ['Biodegradable', 'Custom Hotel Logo']
   },
@@ -407,10 +415,10 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     id: 'amenities-room-accessories',
     title: 'Room Amenities & Bath Slippers',
     subtitle: 'Bath slippers, hangers, laundry paper bags, shoe mitts',
-    details: 'In-Room Essentials · Victol Gold',
+    details: 'In-Room Essentials & Slippers',
     image: '/images/image__guest_amenities_equipment__f4f6ec37.webp',
     category: 'Guest Amenities',
-    brands: ['Victol Gold'],
+    brands: [],
     industries: ['Hotels'],
     factors: ['Eco-Friendly', 'Bulk Wholesale']
   },
@@ -418,10 +426,10 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     id: 'amenities-bath-tissue',
     title: 'Bath Amenities, Toilet Rolls & WC Bands',
     subtitle: 'Virgin pulp toilet rolls, sanitized WC bands & glass covers',
-    details: 'Sanitary Paper Goods · Victol Gold',
+    details: 'Sanitary Paper Goods & Tissue',
     image: '/images/image__paper_products___dispensers__1a5dc51e.webp',
     category: 'Guest Amenities',
-    brands: ['Victol Gold'],
+    brands: [],
     industries: ['Hotels'],
     factors: ['100% Virgin Pulp', 'Hygienic Wrapping']
   },
@@ -429,10 +437,10 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     id: 'amenities-housekeeping-stationery',
     title: 'Folders, Cards & Disposables',
     subtitle: 'Bill folders, menu folders, DND cards, luggage tags, stirrers & straws',
-    details: 'Front Office & Dining · Victol Gold',
+    details: 'Front Office, Guest Stationery & Dining',
     image: '/images/cardimage_4fdce090.webp',
     category: 'Guest Amenities',
-    brands: ['Victol Gold'],
+    brands: [],
     industries: ['Hotels', 'Restaurants'],
     factors: ['Custom Embossing', 'Food Grade Disposables']
   },
@@ -603,7 +611,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Commercial Kitchen Equipments',
     subtitle: 'High-power burners, ovens, fryers, griddles & hot bain-maries',
     details: 'Commercial Kitchen Units · Kitchen Equipments',
-    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.webp',
+    image: '/images/commercial_kitchen_equipment.jpg',
     category: 'Engineering Equipments',
     brands: ['Kitchen Equipments'],
     industries: ['Hotels', 'Restaurants', 'Catering'],
@@ -614,11 +622,79 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Serman Engineering & Commercial Machinery',
     subtitle: 'Commercial refrigeration, dishwashers & facility machines',
     details: 'Heavy Machinery & Systems · Serman',
-    image: '/images/image__fine_dining__2ac60065.webp',
+    image: '/images/commercial_kitchen_equipment.jpg',
     category: 'Engineering Equipments',
     brands: ['Serman'],
     industries: ['Hotels', 'Restaurants', 'Facilities & Janitorial'],
     factors: ['Energy Efficient', 'Heavy Duty Performance']
+  },
+
+  // --- 9. CAFES ---
+  {
+    id: 'cafes-borosil-mugs-glassware',
+    title: 'Borosil Specialty Coffee Mugs & Tumblers',
+    subtitle: 'Heat-resistant borosilicate latte cups, espresso shots & tumblers',
+    details: 'Borosilicate Glassware · Borosil',
+    image: '/images/category_cafe_beverage.jpg',
+    category: 'Cafes',
+    brands: ['Borosil'],
+    industries: ['Cafes', 'Restaurants', 'Hotels'],
+    factors: ['Thermal Shock Proof', 'Commercial Grade', 'Dishwasher Safe']
+  },
+  {
+    id: 'cafes-ocean-drinkware-beverage',
+    title: 'Ocean Cafe Beverage & Frappe Glassware',
+    subtitle: 'Cold brew glasses, smoothie goblets & iced tea carafes',
+    details: 'Clear Soda-Lime Glass · Ocean',
+    image: '/images/image__tableware___crockery__a8a959b7.webp',
+    category: 'Cafes',
+    brands: ['Ocean'],
+    industries: ['Cafes', 'Restaurants', 'Hotels'],
+    factors: ['Crystal Clarity', 'High Durability', 'Bulk Wholesale']
+  },
+  {
+    id: 'cafes-dinewell-bakery-display',
+    title: 'Dinewell Melamine Pastry & Display Platters',
+    subtitle: 'Countertop bakery trays, dessert pedestals & cake stands',
+    details: '100% Melamine · Dinewell',
+    image: '/images/cardimage_b6bc00f1.webp',
+    category: 'Cafes',
+    brands: ['Dinewell'],
+    industries: ['Cafes', 'Restaurants'],
+    factors: ['Chip Resistant', 'Stain Resistant', 'Easy Clean']
+  },
+  {
+    id: 'cafes-shapes-fns-cutlery',
+    title: 'Shapes & FNS Cafe Flatware & Dessert Spoons',
+    subtitle: 'Long sundae spoons, pastry forks, tea spoons & butter spreaders',
+    details: '18/10 Stainless Steel · Shapes, FNS',
+    image: '/images/cutlery_fork_spoon_knife.jpg',
+    category: 'Cafes',
+    brands: ['Shapes', 'FNS'],
+    industries: ['Cafes', 'Restaurants'],
+    factors: ['Mirror Finish', 'Ergonomic Handle']
+  },
+  {
+    id: 'cafes-beverage-blenders-dispensers',
+    title: 'Commercial Barista Blenders & Beverage Dispensers',
+    subtitle: 'Heavy-duty smoothie blenders, hot water urns & juice dispensers',
+    details: 'Commercial Machinery · Serman, Kitchen Equipments',
+    image: '/images/commercial_kitchen_equipment.jpg',
+    category: 'Cafes',
+    brands: ['Serman', 'Kitchen Equipments'],
+    industries: ['Cafes', 'Hotels', 'Restaurants'],
+    factors: ['Heavy Duty Performance', 'Energy Efficient']
+  },
+  {
+    id: 'cafes-paper-disposables-straws',
+    title: 'Cafe Disposables, Straws & Wooden Stirrers',
+    subtitle: 'Kraft coffee sleeves, PLA biodegradable straws, stirrers & paper napkins',
+    details: 'Eco-Friendly Paper & Wood · Fresh N Fine, Kimberly',
+    image: '/images/image__paper_products___dispensers__1a5dc51e.webp',
+    category: 'Cafes',
+    brands: ['Fresh N Fine', 'Kimberly'],
+    industries: ['Cafes', 'Restaurants', 'Catering'],
+    factors: ['Eco-Friendly / Green', 'Food Grade Certified', 'Biodegradable']
   }
 ];
 
@@ -626,6 +702,7 @@ export const CATEGORY_FILTERS = [
   'Crockery',
   'Cutlery',
   'Linen',
+  'Cafes',
   'Guest Amenities',
   'Kitchen Utensils',
   'House Keeping',
@@ -638,27 +715,27 @@ export const CATEGORY_SPOTLIGHT_MAP: Record<string, CategorySpotlightInfo> = {
     eyebrow: 'FINE DINING & BUFFET TABLEWARE',
     title: 'Crockery',
     image: '/images/image__tableware___crockery__c6601dfa.webp',
-    badges: ['Hotels', 'Restaurants', 'Catering'],
+    badges: ['Hotels', 'Restaurants', 'Cafes', 'Catering'],
     items: [
       'Dinewell Melamine Plates & Bowls',
       'Borosil Commercial Glassware',
       'Ariane Fine Porcelain Dinner Sets',
       'Arcoroc Vitrified Glass Tableware',
       'Bharat Crockery Ceramic Suites',
-      'Clay Craft Bone China Crockery',
+      'Claycraft Fine Tableware Ceramic Suites',
       'Ocean Glass Drinkware & Goblets',
       'Servewell & Superware Trays & Plates',
       'Union Glass Tumblers & Beer Mugs',
       'Cello & JCPL Tabletop Collections',
       'V 4 Fine Dining Accessories'
     ],
-    footnote: 'Authorized distributors for Arcoroc, Ariane, Bharat, Borosil, Cello, Clay Craft, Dinewell, JCPL, Ocean, Servewell, Superware, Union, and V 4.'
+    footnote: 'Authorized distributors for Arcoroc, Ariane, Bharat, Borosil, Cello, Claycraft Fine Tableware, Dinewell, JCPL, Ocean, Servewell, Superware, Union, and V 4.'
   },
   'Cutlery': {
     eyebrow: 'MIRROR & SATIN CUTLERY SUITES',
     title: 'Cutlery',
-    image: '/images/image__stainless_steel_brassware__69672dfd.webp',
-    badges: ['Hotels', 'Restaurants', 'Catering'],
+    image: '/images/cutlery_fork_spoon_knife.jpg',
+    badges: ['Hotels', 'Restaurants', 'Cafes', 'Catering'],
     items: [
       'FNS Luxury 18/10 Cutlery Sets',
       'Shapes Heavy Gauge Dinner Spoons & Forks',
@@ -673,7 +750,7 @@ export const CATEGORY_SPOTLIGHT_MAP: Record<string, CategorySpotlightInfo> = {
   'Linen': {
     eyebrow: 'LUXURY COTTON BED & BATH LINENS',
     title: 'Linen',
-    image: '/images/cardimage_ac51211f.webp',
+    image: '/images/luxury_hotel_linen.jpg',
     badges: ['Hotels', 'Resorts'],
     items: [
       'Bath Towels (550 - 650 GSM Combed Cotton)',
@@ -686,7 +763,25 @@ export const CATEGORY_SPOTLIGHT_MAP: Record<string, CategorySpotlightInfo> = {
       'Flame-Retardant Curtains & Drapes',
       'Carpets, Rugs, Cushions & Throws'
     ],
-    footnote: 'High-thread count luxury hospitality linens crafted with premium cottons. Base reference: www.cintracottons.com.'
+    footnote: 'High-thread count luxury hospitality linens crafted with premium combed cottons, fine sateen weaves, and institutional laundry durability.'
+  },
+  'Cafes': {
+    eyebrow: 'SPECIALTY COFFEE, BEVERAGE & CAFE ESSENTIALS',
+    title: 'Cafes',
+    image: '/images/category_cafe_beverage.jpg',
+    badges: ['Cafes', 'Coffee Shops', 'Bistros', 'Bakeries'],
+    items: [
+      'Borosil Heat-Resistant Coffee Mugs, Cups & Saucers',
+      'Ocean Glass Beverage Tumblers, Milkshake & Frappe Glasses',
+      'Fine Porcelain Ceramic Espresso, Cappuccino & Latte Sets',
+      'Stainless Steel Milk Frothing Pitchers & Coffee Pots',
+      'Pastry Display Cloches, Melamine Cake Stands & Snack Trays',
+      'Specialty Dessert Spoons, Pastry Forks & Beverage Stirrers',
+      'Commercial Blenders, Juicers & Beverage Dispensers',
+      'Eco-Friendly Wooden Stirrers, Paper Straws & Beverage Napkins',
+      'Food-Safe Surface Sanitizers & Espresso Machine Cleaning Supplies'
+    ],
+    footnote: 'Complete cafe, coffee shop and beverage service supplies available in bulk wholesale with custom branding options.'
   },
   'Guest Amenities': {
     eyebrow: 'IN-ROOM LUXURY & GUEST COMFORTS',
@@ -704,7 +799,7 @@ export const CATEGORY_SPOTLIGHT_MAP: Record<string, CategorySpotlightInfo> = {
       'Bill Folders, DND Cards, Menu Folders & Luggage Tags',
       'Room Fresheners, Shoe Shine, Stirrers & Straws'
     ],
-    footnote: 'Full range of curated guestroom and bathroom amenities. Base reference: www.victolgold.com.'
+    footnote: 'Full range of curated guestroom and bathroom amenities available in bulk wholesale with custom hotel branding.'
   },
   'Kitchen Utensils': {
     eyebrow: 'COMMERCIAL COOKWARE & PREP HARDWARE',
@@ -762,7 +857,7 @@ export const CATEGORY_SPOTLIGHT_MAP: Record<string, CategorySpotlightInfo> = {
   'Engineering Equipments': {
     eyebrow: 'COMMERCIAL HEAVY-DUTY MACHINERY',
     title: 'Engineering Equipments',
-    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.webp',
+    image: '/images/commercial_kitchen_equipment.jpg',
     badges: ['Hotels', 'Restaurants', 'Catering'],
     items: [
       'Commercial High-Pressure Cooking Ranges & Burners',
@@ -1354,14 +1449,14 @@ export const PRODUCT_SPECS_MAP: Record<string, ProductDetailInfo> = {
     }
   },
   'linen-towels-bathmats': {
-    skuPrefix: 'LN-CC / Cintra Cottons Luxury',
+    skuPrefix: 'LN-HT / Hotel Luxury Towels',
     tagline: '550–650 GSM 100% combed cotton luxury hospitality towels.',
     material: '100% Ring-Spun Long-Staple Combed Cotton',
     finish: 'Double-Stitched Reinforced Hems & Terry Loop Weave',
     galleryImages: [
-      '/images/cardimage_ac51211f.webp',
-      '/images/heroimage_3f45b21f.webp',
-      '/images/image__hotels__8af4967c.webp'
+      '/images/luxury_hotel_linen.jpg',
+      '/images/luxury_hotel_linen.jpg',
+      '/images/luxury_hotel_linen.jpg'
     ],
     badges: [
       { title: '100% Combed Cotton', sub: 'High GSM Ultra-Plush Feel', icon: 'food' },
@@ -1380,7 +1475,7 @@ export const PRODUCT_SPECS_MAP: Record<string, ProductDetailInfo> = {
     }
   },
   'amenities-liquids-soaps': {
-    skuPrefix: 'AM-VG / Victol Gold Botanical',
+    skuPrefix: 'AM-GA / Hotel Guest Amenities',
     tagline: 'Eco-conscious botanical room formulations with customizable hotel branding.',
     material: 'Natural Extracts, Paraben-Free, Biodegradable Surfactants',
     finish: 'Silkscreen Printed / Hot-Stamped Bottle & Soft Tubes',
@@ -1434,19 +1529,26 @@ export const PRODUCT_SPECS_MAP: Record<string, ProductDetailInfo> = {
 };
 
 export const CONTACT_INFO = {
-  company: 'Care 4 Associates, India',
-  addressLine1: 'Shanum, TC-26/1960 PRA - G9A, GPO Lane, Pulimoodu',
-  addressLine2: 'Statue, Trivandrum, Kerala, India - 695 001',
-  fullAddress: 'Shanum, TC-26/1960 PRA - G9A, GPO Lane, Pulimoodu, Statue, Trivandrum, Kerala, India - 695 001',
-  phone: '+91 471 2450977',
-  mobiles: [
-    '+91 9995911830',
-    '+91 9349198950',
-    '+91 7558853330',
-    '+91 75588 53330'
+  company: 'Care4 Associates',
+  addressLine1: 'Shanum, TC-26/1960, GPO Lane,',
+  addressLine2: 'Statue, Thiruvananthapuram – 695 001,',
+  addressLine3: 'Kerala, India.',
+  fullAddress: 'Care4 Associates, Shanum, TC-26/1960, GPO Lane, Statue, Thiruvananthapuram – 695 001, Kerala, India.',
+  emails: [
+    'care4associate@gmail.com',
+    'info@care4associates.com'
   ],
-  mobilesFormatted: '+91 9995911830 | +91 9349198950 | +91 7558853330 | +91 75588 53330',
-  mapEmbedUrl: 'https://maps.google.com/maps?q=GPO%20Lane%2C%20Pulimoodu%2C%20Statue%2C%20Trivandrum%2C%20Kerala%20695001&t=&z=16&ie=UTF8&iwloc=&output=embed',
-  mapDirectionsUrl: 'https://maps.google.com/?q=GPO+Lane,+Pulimoodu,+Statue,+Trivandrum,+Kerala+695001'
+  landlines: [
+    '+91 471 245 0977',
+    '+91 471 247 5111'
+  ],
+  mobiles: [
+    '+91 99954 65830',
+    '+91 98470 11830',
+    '+91 99959 11830',
+    '+91 93491 98950'
+  ],
+  mapEmbedUrl: 'https://maps.google.com/maps?q=Care4+Associates,+GPO+Lane,+Statue,+Thiruvananthapuram,+Kerala+695001&t=&z=16&ie=UTF8&iwloc=&output=embed',
+  mapDirectionsUrl: 'https://www.google.com/maps/search/Care4+Associates,+GPO+Lane,+Statue,+Thiruvananthapuram,+Kerala+695001'
 };
 

@@ -66,12 +66,6 @@ export const ClientMarquee: React.FC = () => {
           <span className="section-eyebrow-line" />
           <span>OUR CLIENT NETWORK</span>
         </div>
-        <h2 className="client-marquee-title">
-          Care4 Enjoys Being the Preferred Partner of Our Major Clients
-        </h2>
-        <p className="client-marquee-subtitle">
-          Trusted by leading organizations across healthcare, hospitality, technology &amp; enterprise sectors.
-        </p>
       </div>
 
       {/* Row 1 — scrolls left */}
@@ -112,11 +106,18 @@ export const ClientMarquee: React.FC = () => {
         </div>
       </div>
 
+      {/* Caption below customer logos (Items 12 & 13) */}
+      <div className="client-marquee-footer">
+        <p className="client-marquee-subtitle">
+          Trusted by leading organizations across healthcare, hospitality, technology &amp; enterprise sectors.
+        </p>
+      </div>
+
       <style>{`
         /* ── section ── */
         .client-marquee-section {
           background-color: #ffffff;
-          padding: 68px 0 76px;
+          padding: 48px 0 56px;
           overflow: hidden;
           border-top: 1px solid rgba(0, 0, 0, 0.04);
         }
@@ -124,7 +125,7 @@ export const ClientMarquee: React.FC = () => {
         /* ── header ── */
         .client-marquee-header {
           text-align: center;
-          margin-bottom: 44px;
+          margin-bottom: 24px;
           padding: 0 24px;
         }
         .client-marquee-eyebrow {
@@ -140,12 +141,18 @@ export const ClientMarquee: React.FC = () => {
           margin: 0 auto 14px;
           letter-spacing: -0.01em;
         }
-        .client-marquee-subtitle {
+        .client-marquee-footer {
+          text-align: center;
+          margin-top: 36px;
+          padding: 0 24px;
+        }
+        .client-marquee-footer .client-marquee-subtitle {
           font-family: var(--font-body);
-          font-size: 17px;
+          font-size: 17.5px;
+          font-weight: 500;
           line-height: 1.6;
-          color: var(--color-text-secondary);
-          max-width: 620px;
+          color: #64748b;
+          max-width: 820px;
           margin: 0 auto;
         }
 

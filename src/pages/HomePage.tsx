@@ -8,7 +8,7 @@ import { HorecaBanner } from '../components/HorecaBanner';
 import { ValueProps } from '../components/ValueProps';
 
 interface HomePageProps {
-  onNavigate: (tab: string, anchorId?: string) => void;
+  onNavigate: (tab: string, anchorId?: string, categoryOrSector?: string) => void;
   onOpenQuote: () => void;
 }
 
@@ -25,7 +25,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenQuote }) =
       <ClientMarquee />
       <CategoriesSection 
         onViewAll={() => onNavigate('products')}
-        onSelectCategory={() => onNavigate('products')}
+        onSelectCategory={(catId) => onNavigate('products', undefined, catId)}
       />
       <BrandsSection 
         onViewAllBrands={() => onNavigate('products')}

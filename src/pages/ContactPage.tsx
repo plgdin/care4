@@ -3,6 +3,7 @@ import {
   MapPin, 
   Phone, 
   Smartphone, 
+  Mail,
   Send, 
   CheckCircle, 
   ExternalLink, 
@@ -70,8 +71,34 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigateHome }) => {
                   <span className="info-label">Office Address</span>
                   <p className="info-value address-value">
                     {CONTACT_INFO.addressLine1}<br />
-                    {CONTACT_INFO.addressLine2}
+                    {CONTACT_INFO.addressLine2}<br />
+                    {CONTACT_INFO.addressLine3}
                   </p>
+                </div>
+              </div>
+
+              {/* Email Row */}
+              <div className="contact-info-row">
+                <div className="info-icon-box">
+                  <Mail size={20} />
+                </div>
+                <div className="info-text-box">
+                  <span className="info-label">Email</span>
+                  <div className="mobile-tags-wrap">
+                    {CONTACT_INFO.emails.map((em, idx) => (
+                      <React.Fragment key={idx}>
+                        <a 
+                          href={`mailto:${em}`} 
+                          className="mobile-pill-link"
+                        >
+                          {em}
+                        </a>
+                        {idx < CONTACT_INFO.emails.length - 1 && (
+                          <span className="mobile-sep">|</span>
+                        )}
+                      </React.Fragment>
+                    ))}
+                  </div>
                 </div>
               </div>
 
@@ -81,10 +108,22 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigateHome }) => {
                   <Phone size={20} />
                 </div>
                 <div className="info-text-box">
-                  <span className="info-label">Telephone</span>
-                  <a href={`tel:${CONTACT_INFO.phone.replace(/\s+/g, '')}`} className="info-value phone-link">
-                    {CONTACT_INFO.phone}
-                  </a>
+                  <span className="info-label">Landline</span>
+                  <div className="mobile-tags-wrap">
+                    {CONTACT_INFO.landlines.map((ll, idx) => (
+                      <React.Fragment key={idx}>
+                        <a 
+                          href={`tel:${ll.replace(/\s+/g, '')}`} 
+                          className="mobile-pill-link"
+                        >
+                          {ll}
+                        </a>
+                        {idx < CONTACT_INFO.landlines.length - 1 && (
+                          <span className="mobile-sep">|</span>
+                        )}
+                      </React.Fragment>
+                    ))}
+                  </div>
                 </div>
               </div>
 

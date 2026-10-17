@@ -13,6 +13,7 @@ export const App: React.FC = () => {
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
   const [contactModalOpen, setContactModalOpen] = useState(false);
   const [selectedQuoteProduct, setSelectedQuoteProduct] = useState<string | undefined>(undefined);
+  const [productFilter, setProductFilter] = useState<string | undefined>(undefined);
 
   const handleOpenQuote = (productName?: string) => {
     setSelectedQuoteProduct(productName);
@@ -20,17 +21,15 @@ export const App: React.FC = () => {
   };
 
   const handleOpenContact = () => {
-    setContactModalOpen(true);
+    handleNavigate('contact');
   };
 
   // Sync with browser URL hash if present
   useEffect(() => {
     const handleHash = () => {
       const hash = window.location.hash.replace('#', '');
-      if (hash === 'products' || hash === 'about') {
-        setActiveTab(hash);
-      } else if (hash === 'contact') {
-        setContactModalOpen(true);
+      if (hash === 'products' || hash === 'about' || hash === 'contact') {
+        setActiveTab(hash as any);
       } else if (hash === 'home' || hash === '') {
         setActiveTab('home');
       }
@@ -40,14 +39,13 @@ export const App: React.FC = () => {
     return () => window.removeEventListener('hashchange', handleHash);
   }, []);
 
-  const handleNavigate = (tab: string, anchorId?: string) => {
-    if (tab === 'contact') {
-      setContactModalOpen(true);
-      return;
-    }
-    if (tab === 'home' || tab === 'products' || tab === 'about') {
+  const handleNavigate = (tab: string, anchorId?: string, categoryOrSector?: string) => {
+    if (tab === 'home' || tab === 'products' || tab === 'about' || tab === 'contact') {
       setActiveTab(tab as any);
       window.location.hash = tab;
+      if (categoryOrSector && tab === 'products') {
+        setProductFilter(categoryOrSector);
+      }
       if (anchorId) {
         setTimeout(() => {
           const el = document.getElementById(anchorId);
@@ -78,6 +76,8 @@ export const App: React.FC = () => {
       {activeTab === 'products' && (
         <ProductPage 
           onOpenQuote={(prod) => handleOpenQuote(prod)} 
+          initialFilter={productFilter}
+          onClearInitialFilter={() => setProductFilter(undefined)}
         />
       )}
 

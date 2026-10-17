@@ -4,6 +4,7 @@ import {
   MapPin, 
   Phone, 
   Smartphone, 
+  Mail,
   Clock, 
   Send, 
   CheckCircle, 
@@ -254,21 +255,51 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
                     <span className="detail-label">Office Address</span>
                     <p className="detail-value">
                       {CONTACT_INFO.addressLine1}<br />
-                      {CONTACT_INFO.addressLine2}
+                      {CONTACT_INFO.addressLine2}<br />
+                      {CONTACT_INFO.addressLine3}
                     </p>
                   </div>
                 </div>
 
-                {/* Telephone */}
+                {/* Email */}
+                <div className="info-detail-row">
+                  <div className="detail-icon-box">
+                    <Mail size={18} />
+                  </div>
+                  <div className="detail-text-box">
+                    <span className="detail-label">Email</span>
+                    <div className="modal-mobile-tags">
+                      {CONTACT_INFO.emails.map((em, idx) => (
+                        <a 
+                          key={idx}
+                          href={`mailto:${em}`} 
+                          className="modal-mobile-pill"
+                        >
+                          {em}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Landline */}
                 <div className="info-detail-row">
                   <div className="detail-icon-box">
                     <Phone size={18} />
                   </div>
                   <div className="detail-text-box">
-                    <span className="detail-label">Telephone</span>
-                    <a href={`tel:${CONTACT_INFO.phone.replace(/\s+/g, '')}`} className="detail-value phone-link">
-                      {CONTACT_INFO.phone}
-                    </a>
+                    <span className="detail-label">Landline</span>
+                    <div className="modal-mobile-tags">
+                      {CONTACT_INFO.landlines.map((ll, idx) => (
+                        <a 
+                          key={idx}
+                          href={`tel:${ll.replace(/\s+/g, '')}`} 
+                          className="modal-mobile-pill"
+                        >
+                          {ll}
+                        </a>
+                      ))}
+                    </div>
                   </div>
                 </div>
 

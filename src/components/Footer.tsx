@@ -1,8 +1,9 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, MapPin, Mail, Phone, Smartphone } from 'lucide-react';
+import { CONTACT_INFO } from '../data/siteData';
 
 interface FooterProps {
-  onNavigate: (tab: string, anchorId?: string) => void;
+  onNavigate: (tab: string, anchorId?: string, categoryOrSector?: string) => void;
   onOpenQuote: () => void;
   onOpenContact?: () => void;
 }
@@ -55,15 +56,63 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote, onOpenC
               Supplying the essentials behind exceptional hospitality.
             </p>
             <div className="footer-contact-info-block">
-              <p className="footer-addr-text">
-                <strong>Care 4 Associates, India</strong><br />
-                Shanum, TC-26/1960 PRA - G9A, GPO Lane, Pulimoodu<br />
-                Statue, Trivandrum, Kerala, India - 695 001
-              </p>
-              <p className="footer-tel-text">
-                <span>Phone: <a href="tel:+914712450977">+91 471 2450977</a></span><br />
-                <span>Mobile: <a href="tel:+919995911830">+91 9995911830</a> | <a href="tel:+919349198950">+91 9349198950</a> | <a href="tel:+917558853330">+91 7558853330</a></span>
-              </p>
+              <div className="footer-info-row footer-addr-row">
+                <MapPin size={16} className="footer-row-icon" />
+                <p className="footer-addr-text">
+                  <strong>{CONTACT_INFO.company}</strong><br />
+                  {CONTACT_INFO.addressLine1}<br />
+                  {CONTACT_INFO.addressLine2}<br />
+                  {CONTACT_INFO.addressLine3}
+                </p>
+              </div>
+
+              <div className="footer-info-row">
+                <Mail size={15} className="footer-row-icon" />
+                <p className="footer-tel-text">
+                  {CONTACT_INFO.emails.map((email, idx) => (
+                    <React.Fragment key={idx}>
+                      <a href={`mailto:${email}`}>{email}</a>
+                      {idx < CONTACT_INFO.emails.length - 1 && <span className="footer-sep"> | </span>}
+                    </React.Fragment>
+                  ))}
+                </p>
+              </div>
+
+              <div className="footer-info-row">
+                <Phone size={15} className="footer-row-icon" />
+                <p className="footer-tel-text">
+                  {CONTACT_INFO.landlines.map((landline, idx) => (
+                    <React.Fragment key={idx}>
+                      <a href={`tel:${landline.replace(/\s+/g, '')}`}>{landline}</a>
+                      {idx < CONTACT_INFO.landlines.length - 1 && <span className="footer-sep"> | </span>}
+                    </React.Fragment>
+                  ))}
+                </p>
+              </div>
+
+              <div className="footer-info-row">
+                <Smartphone size={15} className="footer-row-icon" />
+                <p className="footer-tel-text">
+                  {CONTACT_INFO.mobiles.map((mob, idx) => (
+                    <React.Fragment key={idx}>
+                      <a href={`tel:${mob.replace(/\s+/g, '')}`}>{mob}</a>
+                      {idx < CONTACT_INFO.mobiles.length - 1 && <span className="footer-sep"> | </span>}
+                    </React.Fragment>
+                  ))}
+                </p>
+              </div>
+
+              <div className="footer-map-action">
+                <a 
+                  href={CONTACT_INFO.mapDirectionsUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="footer-map-btn"
+                >
+                  <MapPin size={13} />
+                  <span>Google Maps Location</span>
+                </a>
+              </div>
             </div>
             <div className="footer-socials">
               <a 
@@ -96,7 +145,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote, onOpenC
             <h4 className="footer-col-title">Quick Links</h4>
             <ul className="footer-links-list">
               <li><button onClick={() => onNavigate('home')}>Home</button></li>
-              <li><button onClick={() => onNavigate('products')}>Products</button></li>
+              <li><button onClick={() => onNavigate('products')}>Product Catalogue</button></li>
+              <li><button onClick={() => onNavigate('products', undefined, 'Cafes')}>Cafes</button></li>
               <li><button onClick={() => onNavigate('home', 'categories-section')}>Industries</button></li>
               <li><button onClick={() => onNavigate('about')}>About Us</button></li>
               <li><button onClick={onOpenContact ? onOpenContact : () => onNavigate('contact')}>Contact Us</button></li>
@@ -107,9 +157,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote, onOpenC
           <div className="footer-col">
             <h4 className="footer-col-title">Industries</h4>
             <ul className="footer-links-list">
-              <li><button onClick={() => onNavigate('home', 'categories-section')}>Hotels</button></li>
-              <li><button onClick={() => onNavigate('home', 'categories-section')}>Restaurants</button></li>
-              <li><button onClick={() => onNavigate('home', 'categories-section')}>Catering</button></li>
+              <li><button onClick={() => onNavigate('products', undefined, 'Hotels')}>Hotels</button></li>
+              <li><button onClick={() => onNavigate('products', undefined, 'Restaurants')}>Restaurants</button></li>
+              <li><button onClick={() => onNavigate('products', undefined, 'Cafes')}>Cafes</button></li>
+              <li><button onClick={() => onNavigate('products', undefined, 'Catering')}>Catering</button></li>
             </ul>
           </div>
 
@@ -275,9 +326,25 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote, onOpenC
           line-height: 1.5;
           color: var(--color-navy-dark);
         }
+        .footer-info-row {
+          display: flex;
+          align-items: flex-start;
+          gap: 8px;
+          margin-bottom: 8px;
+        }
+        .footer-row-icon {
+          color: var(--color-accent-red);
+          flex-shrink: 0;
+          margin-top: 3px;
+        }
+        .footer-addr-row {
+          margin-bottom: 10px;
+        }
         .footer-addr-text {
-          margin: 0 0 8px 0;
+          margin: 0;
           color: #334155;
+          font-size: 12.5px;
+          line-height: 1.45;
         }
         .footer-addr-text strong {
           color: var(--color-navy-dark);
@@ -287,6 +354,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote, onOpenC
           margin: 0;
           color: #334155;
           font-size: 12.5px;
+          line-height: 1.45;
         }
         .footer-tel-text a {
           color: var(--color-primary);
@@ -295,6 +363,33 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote, onOpenC
         }
         .footer-tel-text a:hover {
           text-decoration: underline;
+        }
+        .footer-sep {
+          color: #94a3b8;
+          margin: 0 4px;
+        }
+        .footer-map-action {
+          margin-top: 10px;
+          margin-bottom: 12px;
+        }
+        .footer-map-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          padding: 5px 12px;
+          background: #eff6ff;
+          color: #1d4ed8;
+          border: 1px solid #bfdbfe;
+          border-radius: var(--radius-sm);
+          font-size: 12px;
+          font-weight: 600;
+          text-decoration: none;
+          transition: all var(--transition-fast);
+        }
+        .footer-map-btn:hover {
+          background: #dbeafe;
+          color: #1e40af;
+          border-color: #93c5fd;
         }
         .footer-socials {
           display: flex;
