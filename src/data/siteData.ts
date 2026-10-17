@@ -109,7 +109,7 @@ export const CATEGORIES_DATA: CategoryItem[] = [
     id: 'cleaning-chemicals',
     title: 'Cleaning Chemicals',
     subtitle: 'ISO concentrated degreasers, floor care & sanitizers.',
-    image: '/images/image__cleaning_chemicals__b85bdd2d.webp'
+    image: '/images/commercial_cleaning_chemicals.jpg'
   },
   {
     id: 'engineering-equipments',
@@ -291,7 +291,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'FNS Luxury Cutlery Collection',
     subtitle: 'Handcrafted premium 18/10 stainless steel suites',
     details: '18/10 Stainless Steel · FNS',
-    image: '/images/image__stainless_steel_brassware__69672dfd.webp',
+    image: '/images/cutlery_fork_spoon_knife.jpg',
     category: 'Cutlery',
     brands: ['FNS'],
     industries: ['Hotels', 'Restaurants'],
@@ -302,7 +302,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Shapes Commercial Flatware',
     subtitle: 'Contemporary dining spoons, forks, knives & steak suites',
     details: 'Heavy Gauge Flatware · Shapes',
-    image: '/images/image__stainless_steel_brassware__69672dfd.webp',
+    image: '/images/cutlery_fork_spoon_knife.jpg',
     category: 'Cutlery',
     brands: ['Shapes'],
     industries: ['Hotels', 'Restaurants', 'Catering'],
@@ -313,7 +313,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Venus Hospitality Cutlery',
     subtitle: 'Heavy-gauge mirror & satin banquet silverware',
     details: 'High-Grade Cutlery · Venus',
-    image: '/images/cardimage_ac51211f.webp',
+    image: '/images/cutlery_fork_spoon_knife.jpg',
     category: 'Cutlery',
     brands: ['Venus'],
     industries: ['Hotels', 'Restaurants', 'Catering'],
@@ -324,7 +324,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Supreme Foodservice Cutlery',
     subtitle: 'High-turnover durable cutlery for banquets & cafes',
     details: 'Foodservice Grade · Supreme',
-    image: '/images/image__fine_dining__2ac60065.webp',
+    image: '/images/cutlery_fork_spoon_knife.jpg',
     category: 'Cutlery',
     brands: ['Supreme'],
     industries: ['Restaurants', 'Catering', 'Hotels'],
@@ -427,7 +427,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Bath Amenities, Toilet Rolls & WC Bands',
     subtitle: 'Virgin pulp toilet rolls, sanitized WC bands & glass covers',
     details: 'Sanitary Paper Goods & Tissue',
-    image: '/images/image__paper_products___dispensers__1a5dc51e.webp',
+    image: '/images/hotel_bath_amenities_toilet_rolls.jpg',
     category: 'Guest Amenities',
     brands: [],
     industries: ['Hotels'],
@@ -438,7 +438,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Folders, Cards & Disposables',
     subtitle: 'Bill folders, menu folders, DND cards, luggage tags, stirrers & straws',
     details: 'Front Office, Guest Stationery & Dining',
-    image: '/images/cardimage_4fdce090.webp',
+    image: '/images/hotel_folders_cards_stationery.jpg',
     category: 'Guest Amenities',
     brands: [],
     industries: ['Hotels', 'Restaurants'],
@@ -552,7 +552,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Kimberly & Premier Paper & Dispensers',
     subtitle: 'Commercial hand roll towels, jumbo rolls & facial tissues',
     details: 'Washroom Solutions · Kimberly, Premier',
-    image: '/images/image__paper_products___dispensers__1a5dc51e.webp',
+    image: '/images/paper_products_dispensers.jpg',
     category: 'House Keeping',
     brands: ['Kimberly', 'Premier'],
     industries: ['Hotels', 'Facilities & Janitorial', 'Restaurants'],
@@ -587,7 +587,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Diversey Professional Cleaning Concentrates',
     subtitle: 'Taski floor care, kitchen degreasers, sanitizers & dishwash',
     details: 'Concentrated Chemicals · Diversey',
-    image: '/images/image__cleaning_chemicals__b85bdd2d.webp',
+    image: '/images/commercial_cleaning_chemicals.jpg',
     category: 'Cleaning Chemicals',
     brands: ['Diversey'],
     industries: ['Hotels', 'Restaurants', 'Facilities & Janitorial', 'Catering'],
@@ -690,7 +690,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Cafe Disposables, Straws & Wooden Stirrers',
     subtitle: 'Kraft coffee sleeves, PLA biodegradable straws, stirrers & paper napkins',
     details: 'Eco-Friendly Paper & Wood · Fresh N Fine, Kimberly',
-    image: '/images/image__paper_products___dispensers__1a5dc51e.webp',
+    image: '/images/cafe_disposables_straws.jpg',
     category: 'Cafes',
     brands: ['Fresh N Fine', 'Kimberly'],
     industries: ['Cafes', 'Restaurants', 'Catering'],
@@ -840,7 +840,7 @@ export const CATEGORY_SPOTLIGHT_MAP: Record<string, CategorySpotlightInfo> = {
   'Cleaning Chemicals': {
     eyebrow: 'INSTITUTIONAL HYGIENE & SANITATION',
     title: 'Cleaning Chemicals',
-    image: '/images/image__cleaning_chemicals__b85bdd2d.webp',
+    image: '/images/commercial_cleaning_chemicals.jpg',
     badges: ['Hotels', 'Restaurants', 'Facilities & Janitorial'],
     items: [
       'Diversey Taski Floor Cleaners (R1 - R9 Series)',
@@ -1095,7 +1095,7 @@ export const PRODUCT_SPECS_MAP: Record<string, ProductDetailInfo> = {
     material: 'ISO 9001 & ISO 14001 Compliant Formulations',
     finish: 'Concentrate Liquid with Color-Coded Dispenser Dosing',
     galleryImages: [
-      '/images/image__cleaning_chemicals__b85bdd2d.webp',
+      '/images/commercial_cleaning_chemicals.jpg',
       '/images/cardimage_4fdce090.webp',
       '/images/centerimage_f8709305.webp'
     ],
@@ -1157,7 +1157,7 @@ export const PRODUCT_SPECS_MAP: Record<string, ProductDetailInfo> = {
     material: '100% Pure Virgin Pulp & FSC-Certified Fibers',
     finish: '2-Ply Embossed Quilted Weave',
     galleryImages: [
-      '/images/image__paper_products___dispensers__1a5dc51e.webp',
+      '/images/paper_products_dispensers.jpg',
       '/images/cardimage_1dbd1171.webp',
       '/images/heroimage_3f45b21f.webp'
     ],
@@ -1313,7 +1313,7 @@ export const PRODUCT_SPECS_MAP: Record<string, ProductDetailInfo> = {
     finish: 'Ultra High-Gloss Wet Look Finish (Non-Yellowing)',
     galleryImages: [
       '/images/cardimage_4fdce090.webp',
-      '/images/image__cleaning_chemicals__b85bdd2d.webp',
+      '/images/commercial_cleaning_chemicals.jpg',
       '/images/image__cleaning_equipment___janitorial__b009223f.webp'
     ],
     badges: [
@@ -1343,7 +1343,7 @@ export const PRODUCT_SPECS_MAP: Record<string, ProductDetailInfo> = {
     material: 'Impact-Resistant ABS Polymer & SS Accent Trim',
     finish: 'Matte White & Satin Chrome Front Panel',
     galleryImages: [
-      '/images/image__paper_products___dispensers__1a5dc51e.webp',
+      '/images/paper_products_dispensers.jpg',
       '/images/image__guest_amenities_equipment__f4f6ec37.webp',
       '/images/cardimage_1dbd1171.webp'
     ],
@@ -1506,7 +1506,7 @@ export const PRODUCT_SPECS_MAP: Record<string, ProductDetailInfo> = {
     material: 'ISO 9001 / ISO 14001 Professional Chemical Concentrates',
     finish: 'Color-Coded Sealed HDPE Canisters for Dispenser Dosing',
     galleryImages: [
-      '/images/image__cleaning_chemicals__b85bdd2d.webp',
+      '/images/commercial_cleaning_chemicals.jpg',
       '/images/cardimage_4fdce090.webp',
       '/images/centerimage_f8709305.webp'
     ],
