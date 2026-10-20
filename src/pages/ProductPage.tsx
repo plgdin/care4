@@ -5,13 +5,23 @@ import {
   Search, 
   X, 
   SlidersHorizontal, 
-  RotateCcw
+  RotateCcw,
+  Package,
+  Grid3X3,
+  UtensilsCrossed,
+  Utensils,
+  Layers,
+  Coffee,
+  Droplets,
+  CookingPot,
+  SprayCan,
+  FlaskConical,
+  Wrench,
+  type LucideIcon
 } from 'lucide-react';
 import { 
   CATALOG_PRODUCTS, 
   CATEGORY_FILTERS, 
-  CATEGORY_SPOTLIGHT_MAP,
-  TABLEWARE_DETAIL_ITEMS,
   ProductCatalogCard
 } from '../data/siteData';
 import { ProductDetailModal } from '../components/ProductDetailModal';
@@ -34,6 +44,24 @@ const POPULAR_BRANDS = [
 ];
 
 const SECTORS = ['Hotels', 'Restaurants', 'Cafes', 'Catering'];
+
+// Category icon mapping using Lucide icons
+const CATEGORY_ICON_MAP: Record<string, LucideIcon> = {
+  'Crockery': UtensilsCrossed,
+  'Cutlery': Utensils,
+  'Linen': Layers,
+  'Cafes': Coffee,
+  'Guest Amenities': Droplets,
+  'Kitchen Utensils': CookingPot,
+  'House Keeping': SprayCan,
+  'Cleaning Chemicals': FlaskConical,
+  'Engineering Equipments': Wrench
+};
+
+const CategoryIcon: React.FC<{ category: string; size?: number; className?: string }> = ({ category, size = 15, className = '' }) => {
+  const IconComponent = CATEGORY_ICON_MAP[category] || Package;
+  return <IconComponent size={size} className={`cat-icon ${className}`} />;
+};
 
 interface ProductPageProps {
   onOpenQuote: (productName?: string) => void;
@@ -139,18 +167,20 @@ export const ProductPage: React.FC<ProductPageProps> = ({
     selectedBrands.length +
     (selectedSector !== 'All' ? 1 : 0);
 
-  // Active spotlight category
-  const activeSpotlightKey = selectedCategory !== 'All' ? selectedCategory : 'Crockery';
-  const spotlightData = CATEGORY_SPOTLIGHT_MAP[activeSpotlightKey] || CATEGORY_SPOTLIGHT_MAP['Crockery'] || {
-    eyebrow: 'FINE DINING & BUFFET TABLEWARE',
-    title: 'Crockery',
-    image: '/images/image__tableware___crockery__c6601dfa.webp',
-    badges: ['Hotels', 'Restaurants', 'Catering'],
-    items: TABLEWARE_DETAIL_ITEMS,
-    footnote: 'Available in bulk and minimum quantities. Customer-specific sizes and branding arranged on request — contact us for a quote.'
-  };
+  // Group products by category when viewing "All"
+  const groupedProducts = useMemo(() => {
+    if (selectedCategory !== 'All' || searchQuery.trim() || selectedBrands.length > 0 || selectedSector !== 'All') {
+      return null; // Don't group when filtering
+    }
+    const groups: Record<string, ProductCatalogCard[]> = {};
+    filteredProducts.forEach(p => {
+      if (!groups[p.category]) groups[p.category] = [];
+      groups[p.category].push(p);
+    });
+    return groups;
+  }, [filteredProducts, selectedCategory, searchQuery, selectedBrands, selectedSector]);
 
-  // Render the left sidebar content (simple & uncluttered)
+  // Render the left sidebar content
   const renderFilterSidebar = () => (
     <div className="filter-sidebar-inner">
       {/* Sidebar Header */}
@@ -170,7 +200,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
         )}
       </div>
 
-      {/* 2. Product Category Filter */}
+      {/* Product Category Filter */}
       <div className="filter-group">
         <div className="filter-group-header">
           <span className="filter-group-label">Category</span>
@@ -179,7 +209,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
               className="filter-group-clear"
               onClick={() => setSelectedCategory('All')}
             >
-              All
+              Show All
             </button>
           )}
         </div>
@@ -188,7 +218,10 @@ export const ProductPage: React.FC<ProductPageProps> = ({
             className={`category-filter-item ${selectedCategory === 'All' ? 'active' : ''}`}
             onClick={() => setSelectedCategory('All')}
           >
-            <span className="category-item-name">All Categories</span>
+            <span className="category-item-name">
+              <Grid3X3 size={14} className="cat-item-icon" />
+              All Categories
+            </span>
             <span className="filter-count-badge">{getCategoryCount('All')}</span>
           </button>
           {CATEGORY_FILTERS.map((cat) => (
@@ -197,7 +230,10 @@ export const ProductPage: React.FC<ProductPageProps> = ({
               className={`category-filter-item ${selectedCategory === cat ? 'active' : ''}`}
               onClick={() => setSelectedCategory(cat)}
             >
-              <span className="category-item-name">{cat}</span>
+              <span className="category-item-name">
+                <CategoryIcon category={cat} size={14} />
+                {cat}
+              </span>
               <span className="filter-count-badge">{getCategoryCount(cat)}</span>
             </button>
           ))}
@@ -206,7 +242,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
 
       <div className="filter-divider" />
 
-      {/* 3. Brand Filter - Clean Pill Badges (No tall scroll lists) */}
+      {/* Brand Filter */}
       <div className="filter-group">
         <div className="filter-group-header">
           <span className="filter-group-label">Brand</span>
@@ -238,10 +274,10 @@ export const ProductPage: React.FC<ProductPageProps> = ({
 
       <div className="filter-divider" />
 
-      {/* 4. Who We Serve (Sector) */}
+      {/* Sector Filter */}
       <div className="filter-group">
         <div className="filter-group-header">
-          <span className="filter-group-label">For</span>
+          <span className="filter-group-label">Industry</span>
           {selectedSector !== 'All' && (
             <button 
               className="filter-group-clear"
@@ -267,6 +303,82 @@ export const ProductPage: React.FC<ProductPageProps> = ({
           })}
         </div>
       </div>
+
+      <div className="filter-divider" />
+
+      {/* Quick Help */}
+      <div className="sidebar-help-box">
+        <Package size={16} className="sidebar-help-icon" />
+        <p className="sidebar-help-text">
+          Can't find what you need? We source 500+ products across all categories.
+        </p>
+        <button className="sidebar-help-btn" onClick={() => onOpenQuote()}>
+          Request Custom Sourcing
+          <ArrowRight size={13} />
+        </button>
+      </div>
+    </div>
+  );
+
+  // Render a single product card
+  const renderProductCard = (card: ProductCatalogCard) => (
+    <div 
+      key={card.id} 
+      className="catalog-product-card" 
+      onClick={() => setSelectedDetailProduct(card)}
+    >
+      <div className="card-thumb-wrapper">
+        <img src={card.image} alt={card.title} className="card-thumb-img" />
+        <div className="card-category-pill-tag">
+          <CategoryIcon category={card.category} size={13} className="card-pill-icon" />
+          {card.category}
+        </div>
+      </div>
+      <div className="card-details-box">
+        <h4 className="card-product-title">{card.title}</h4>
+        <p className="card-product-subtitle">{card.subtitle}</p>
+        
+        <div className="card-brands-line">
+          {card.brands.slice(0, 3).map(b => (
+            <span key={b} className="card-brand-tag">{b}</span>
+          ))}
+        </div>
+
+        <div className="card-bottom-row">
+          <div className="card-industries">
+            {card.industries.slice(0, 2).map(ind => (
+              <span key={ind} className="card-industry-dot">{ind}</span>
+            ))}
+          </div>
+          <div className="card-view-link">
+            <span>View Details</span>
+            <ChevronRight size={14} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  // Render a category group section
+  const renderCategoryGroup = (category: string, products: ProductCatalogCard[]) => (
+    <div key={category} className="category-group-section">
+      <div className="category-group-header">
+        <div className="category-group-title-row">
+          <CategoryIcon category={category} size={22} className="category-group-icon" />
+          <h3 className="category-group-title">{category}</h3>
+          <span className="category-group-count">{products.length} {products.length === 1 ? 'product' : 'products'}</span>
+        </div>
+        <button 
+          className="category-group-view-all"
+          onClick={() => setSelectedCategory(category)}
+        >
+          View All
+          <ArrowRight size={14} />
+        </button>
+      </div>
+      <div className="catalog-cards-grid">
+        {products.map(card => renderProductCard(card))}
+      </div>
     </div>
   );
 
@@ -274,6 +386,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
     <div className="product-page">
       {/* Product Hero Header */}
       <section className="product-hero-section">
+        <div className="product-hero-bg-overlay" />
         <div className="product-hero-container">
           <div className="product-hero-left">
             <h1 className="product-hero-title">Our Products</h1>
@@ -309,38 +422,68 @@ export const ProductPage: React.FC<ProductPageProps> = ({
         </div>
       </section>
 
-      {/* Prominent Category Navigation Bar - All Categories & Cafes Front and Center */}
-      <section className="catalog-category-bar-section">
-        <div className="catalog-category-bar-container">
-          <div className="catalog-category-tabs-row">
+      {/* Full-Width Search Bar — The First Thing You See */}
+      <section className="catalog-search-section">
+        <div className="catalog-search-container">
+          <div className="catalog-search-box">
+            <div className="catalog-search-inner">
+              <Search size={20} className="catalog-search-icon" />
+              <input
+                id="catalog-main-search-input"
+                type="text"
+                className="catalog-search-input"
+                placeholder="Search by product name, brand, or category..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+              {searchQuery && (
+                <button 
+                  className="catalog-search-clear" 
+                  onClick={() => setSearchQuery('')}
+                  aria-label="Clear search query"
+                >
+                  <X size={16} />
+                </button>
+              )}
+            </div>
+            <div className="catalog-search-suggestions">
+              <span className="search-suggest-label">Try:</span>
+              {['Ocean', 'Dinewell', 'Borosil', 'Crockery', 'Cutlery'].map((tag) => (
+                <button
+                  key={tag}
+                  type="button"
+                  className={`search-suggest-chip ${searchQuery.toLowerCase() === tag.toLowerCase() ? 'active' : ''}`}
+                  onClick={() => setSearchQuery(tag)}
+                >
+                  {tag}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Quick Category Pills — Horizontal Scroll */}
+          <div className="quick-category-row">
             <button
-              className={`category-pill-tab ${selectedCategory === 'All' ? 'active' : ''}`}
+              className={`quick-cat-pill ${selectedCategory === 'All' ? 'active' : ''}`}
               onClick={() => setSelectedCategory('All')}
             >
-              <span>All Categories</span>
-              <span className="pill-badge">{getCategoryCount('All')}</span>
+              All
             </button>
-            {CATEGORY_FILTERS.map((cat) => {
-              const isCafe = cat === 'Cafes';
-              return (
-                <button
-                  key={cat}
-                  className={`category-pill-tab ${selectedCategory === cat ? 'active' : ''} ${isCafe ? 'cafe-pill-special' : ''}`}
-                  onClick={() => setSelectedCategory(cat)}
-                >
-                  {isCafe && (
-                    <span className="cafe-pill-icon">☕</span>
-                  )}
-                  <span>{cat}</span>
-                  <span className="pill-badge">{getCategoryCount(cat)}</span>
-                </button>
-              );
-            })}
+            {CATEGORY_FILTERS.map((cat) => (
+              <button
+                key={cat}
+                className={`quick-cat-pill ${selectedCategory === cat ? 'active' : ''}`}
+                onClick={() => setSelectedCategory(cat)}
+              >
+                <CategoryIcon category={cat} size={14} />
+                {cat}
+              </button>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Mobile Sticky Bar for quick search & filter access */}
+      {/* Mobile Sticky Bar */}
       <div className="mobile-filter-bar">
         <div className="mobile-search-inline-wrap">
           <Search size={15} className="mobile-search-icon" />
@@ -373,120 +516,65 @@ export const ProductPage: React.FC<ProductPageProps> = ({
         </button>
       </div>
 
-      {/* Main Catalog Section: Left Filter Sidebar + Right Products List */}
+      {/* Main Catalog: Sidebar + Products */}
       <section className="product-catalog-section">
         <div className="product-catalog-container">
-          {/* Left Filter Sidebar (Desktop) */}
+          {/* Left Sidebar */}
           <aside className="product-filter-sidebar">
             {renderFilterSidebar()}
           </aside>
 
-          {/* Right Main Content */}
+          {/* Right: Products */}
           <main className="product-content-area">
-            {/* Prominent Search Bar (Item 13) */}
-            <div className="catalog-hero-search-bar">
-              <div className="catalog-hero-search-inner">
-                <Search size={18} className="catalog-hero-search-icon" />
-                <input
-                  id="catalog-main-search-input"
-                  type="text"
-                  className="catalog-hero-search-input"
-                  placeholder="Search catalogue by product, brand, category, or code (e.g. Ocean, Crockery, Dinewell, Borosil)..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                />
-                {searchQuery && (
-                  <button 
-                    className="catalog-hero-search-clear" 
-                    onClick={() => setSearchQuery('')}
-                    aria-label="Clear search query"
-                  >
-                    <X size={16} />
-                  </button>
-                )}
-              </div>
-              <div className="catalog-search-quick-tags">
-                <span className="quick-tag-label">Popular searches:</span>
-                {['Ocean', 'Dinewell', 'Borosil', 'Ariane', 'Crockery', 'Cutlery', 'Cleaning Chemicals'].map((tag) => (
-                  <button
-                    key={tag}
-                    type="button"
-                    className={`quick-tag-chip ${searchQuery.toLowerCase() === tag.toLowerCase() ? 'active' : ''}`}
-                    onClick={() => setSearchQuery(tag)}
-                  >
-                    {tag}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Top Results Bar & Active Filter Chips */}
-            <div className="catalog-top-bar">
-              <div className="results-count-title">
-                <span className="results-count-number">{filteredProducts.length}</span>
-                <span className="results-count-text">
-                  {filteredProducts.length === 1 ? 'Product found' : 'Products found'}
+            {/* Results Summary Bar */}
+            <div className="catalog-results-bar">
+              <div className="results-info">
+                <span className="results-number">{filteredProducts.length}</span>
+                <span className="results-label">
+                  {filteredProducts.length === 1 ? 'Product' : 'Products'}
                 </span>
                 {selectedCategory !== 'All' && (
-                  <span className="results-category-tag">in {selectedCategory}</span>
+                  <span className="results-in-cat">
+                    in <strong>{selectedCategory}</strong>
+                  </span>
+                )}
+                {searchQuery.trim() && (
+                  <span className="results-for-query">
+                    for "<strong>{searchQuery}</strong>"
+                  </span>
                 )}
               </div>
-
               {activeFilterCount > 0 && (
-                <button className="clear-all-inline-btn" onClick={handleResetAll}>
+                <button className="clear-all-btn" onClick={handleResetAll}>
                   <RotateCcw size={13} />
-                  <span>Clear All</span>
+                  Clear All Filters
                 </button>
               )}
             </div>
 
-            {/* Active Chips Strip */}
+            {/* Active Filter Chips */}
             {activeFilterCount > 0 && (
-              <div className="active-chips-strip">
-                {searchQuery.trim() && (
-                  <div className="active-chip">
-                    <span className="chip-label">Search: "{searchQuery}"</span>
-                    <button 
-                      className="chip-remove" 
-                      onClick={() => setSearchQuery('')}
-                      aria-label="Remove search filter"
-                    >
-                      <X size={12} />
-                    </button>
-                  </div>
-                )}
+              <div className="active-chips-row">
                 {selectedCategory !== 'All' && (
                   <div className="active-chip">
-                    <span className="chip-label">Category: {selectedCategory}</span>
-                    <button 
-                      className="chip-remove" 
-                      onClick={() => setSelectedCategory('All')}
-                      aria-label="Remove category filter"
-                    >
+                    <span className="chip-with-icon"><CategoryIcon category={selectedCategory} size={13} /> {selectedCategory}</span>
+                    <button className="chip-x" onClick={() => setSelectedCategory('All')}>
                       <X size={12} />
                     </button>
                   </div>
                 )}
                 {selectedBrands.map(b => (
                   <div key={b} className="active-chip">
-                    <span className="chip-label">Brand: {b}</span>
-                    <button 
-                      className="chip-remove" 
-                      onClick={() => handleToggleBrand(b)}
-                      aria-label={`Remove brand ${b}`}
-                    >
+                    <span>{b}</span>
+                    <button className="chip-x" onClick={() => handleToggleBrand(b)}>
                       <X size={12} />
                     </button>
                   </div>
                 ))}
                 {selectedSector !== 'All' && (
                   <div className="active-chip">
-                    <span className="chip-label">For: {selectedSector}</span>
-                    <button 
-                      className="chip-remove" 
-                      onClick={() => setSelectedSector('All')}
-                      aria-label="Remove sector filter"
-                    >
+                    <span>{selectedSector}</span>
+                    <button className="chip-x" onClick={() => setSelectedSector('All')}>
                       <X size={12} />
                     </button>
                   </div>
@@ -494,113 +582,35 @@ export const ProductPage: React.FC<ProductPageProps> = ({
               </div>
             )}
 
-            {/* Category Spotlight Card */}
-            <div className="category-spotlight-wrapper">
-              <div className="category-spotlight-card">
-                <div className="spotlight-image-col">
-                  <img 
-                    src={spotlightData.image} 
-                    alt={spotlightData.title} 
-                    className="spotlight-img"
-                  />
-                  <div className="spotlight-img-gradient" />
-                </div>
-
-                <div className="spotlight-info-col">
-                  <span className="spotlight-eyebrow">{spotlightData.eyebrow}</span>
-                  <h2 className="spotlight-heading">{spotlightData.title}</h2>
-
-                  <div className="spotlight-badges">
-                    {spotlightData.badges.map(b => (
-                      <span key={b} className="industry-badge">{b}</span>
-                    ))}
-                  </div>
-
-                  <div className="spotlight-items-grid">
-                    {spotlightData.items.map((item, idx) => (
-                      <div 
-                        key={idx} 
-                        className="spotlight-item-row" 
-                        onClick={() => {
-                          const match = CATALOG_PRODUCTS.find(p => p.category === activeSpotlightKey) || CATALOG_PRODUCTS[0];
-                          setSelectedDetailProduct(match);
-                        }}
-                      >
-                        <span className="item-name">{item}</span>
-                        <ChevronRight size={14} className="item-chevron" />
-                      </div>
-                    ))}
-                  </div>
-
-                  <p className="spotlight-footnote">
-                    {spotlightData.footnote}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Product Cards Section Header */}
-            <div className="products-grid-header">
-              <div className="grid-title-group">
-                <h3 className="grid-heading">Available Products</h3>
-                <div className="grid-heading-bar" />
-              </div>
-              <button className="view-all-link" onClick={() => onOpenQuote()}>
-                <span>Request Custom Sourcing</span>
-                <ArrowRight size={15} />
-              </button>
-            </div>
-
-            {/* Product Cards Grid */}
+            {/* Product Cards — Grouped or Flat */}
             {filteredProducts.length > 0 ? (
-              <div className="catalog-cards-grid">
-                {filteredProducts.map((card) => (
-                  <div 
-                    key={card.id} 
-                    className="catalog-product-card" 
-                    onClick={() => setSelectedDetailProduct(card)}
-                  >
-                    <div className="card-thumb-wrapper">
-                      <img src={card.image} alt={card.title} className="card-thumb-img" />
-                      <div className="card-category-pill-tag">
-                        {card.category}
-                      </div>
-                      <div className="card-accent-pill" title="View Specifications">
-                        <ArrowRight size={12} color="#ffffff" />
-                      </div>
-                    </div>
-                    <div className="card-details-box">
-                      <h4 className="card-category-title">{card.title}</h4>
-                      <p className="card-category-sub">{card.subtitle}</p>
-                      <p className="card-meta-line">{card.details}</p>
-
-                      <div className="card-footer-tags">
-                        {card.industries.slice(0, 2).map(ind => (
-                          <span key={ind} className="card-mini-tag">{ind}</span>
-                        ))}
-                      </div>
-
-                      <div className="card-view-specs-link">
-                        <span>View Specs & Sizing</span>
-                        <ChevronRight size={13} />
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              groupedProducts ? (
+                // Show grouped by category when no filters active
+                <div className="category-groups-container">
+                  {CATEGORY_FILTERS.map(cat => {
+                    const products = groupedProducts[cat];
+                    if (!products || products.length === 0) return null;
+                    return renderCategoryGroup(cat, products);
+                  })}
+                </div>
+              ) : (
+                // Flat grid when filtering
+                <div className="catalog-cards-grid">
+                  {filteredProducts.map(card => renderProductCard(card))}
+                </div>
+              )
             ) : (
-              /* Empty State */
               <div className="catalog-empty-state">
-                <div className="empty-state-icon-box">
+                <div className="empty-icon-circle">
                   <Search size={32} color="var(--color-red-alt)" />
                 </div>
-                <h3 className="empty-state-title">No matching products found</h3>
-                <p className="empty-state-desc">
-                  We couldn't find any items matching your selected criteria. Try adjusting your search query or clearing filters.
+                <h3 className="empty-title">No products match your filters</h3>
+                <p className="empty-desc">
+                  Try adjusting your search or clearing some filters to see more results.
                 </p>
                 <button className="btn-reset-empty" onClick={handleResetAll}>
                   <RotateCcw size={15} />
-                  <span>Reset Filters</span>
+                  <span>Reset All Filters</span>
                 </button>
               </div>
             )}
@@ -608,7 +618,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
         </div>
       </section>
 
-      {/* Mobile Drawer Backdrop & Panel */}
+      {/* Mobile Drawer */}
       {mobileFilterOpen && (
         <div className="mobile-filter-drawer-backdrop" onClick={() => setMobileFilterOpen(false)}>
           <div 
@@ -639,7 +649,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
         </div>
       )}
 
-      {/* Product Detail Modal (Union Glass & Ocean Glass Specs) */}
+      {/* Product Detail Modal */}
       <ProductDetailModal 
         product={selectedDetailProduct}
         onClose={() => setSelectedDetailProduct(null)}
@@ -651,17 +661,28 @@ export const ProductPage: React.FC<ProductPageProps> = ({
 
       <style>{`
         .product-page {
-          background-color: #fafafa;
+          background-color: #f8f9fb;
           min-height: 100vh;
         }
 
-        /* Hero Header */
+        /* ==================== HERO ==================== */
         .product-hero-section {
-          background-color: #fafafa;
-          padding: 68px 0 54px 0;
-          border-bottom: 1px solid var(--color-border);
+          position: relative;
+          background-color: var(--color-navy-deep);
+          background-image: url('/images/product_catalog_hero_bright.jpg');
+          background-size: cover;
+          background-position: center;
+          padding: 80px 0 72px 0;
+          color: #ffffff;
+        }
+        .product-hero-bg-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(135deg, rgba(15, 28, 45, 0.94) 0%, rgba(15, 28, 45, 0.82) 100%);
         }
         .product-hero-container {
+          position: relative;
+          z-index: 2;
           width: 100%;
           max-width: var(--container-max-width);
           margin: 0 auto;
@@ -675,7 +696,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
           font-family: var(--font-display);
           font-size: 72px;
           font-weight: 800;
-          color: #000000;
+          color: #ffffff;
           line-height: 1.08;
           margin-bottom: 16px;
           letter-spacing: -0.02em;
@@ -692,7 +713,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
           font-family: var(--font-inter);
           font-size: 21px;
           line-height: 1.6;
-          color: #475569;
+          color: rgba(255, 255, 255, 0.8);
           margin-bottom: 32px;
           max-width: 580px;
         }
@@ -723,8 +744,9 @@ export const ProductPage: React.FC<ProductPageProps> = ({
           border-radius: 20px;
           overflow: hidden;
           margin-left: auto;
-          box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.18);
+          box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.4);
           transition: transform 0.3s ease;
+          border: 1px solid rgba(255, 255, 255, 0.1);
         }
         .product-hero-image-card:hover {
           transform: translateY(-3px);
@@ -741,45 +763,125 @@ export const ProductPage: React.FC<ProductPageProps> = ({
           background: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.35) 100%);
         }
 
-        /* Horizontal Category Navigation Bar */
-        .catalog-category-bar-section {
-          background-color: #ffffff;
+        /* ==================== SEARCH SECTION ==================== */
+        .catalog-search-section {
+          background: #ffffff;
           border-bottom: 1px solid #e2e8f0;
-          padding: 14px 0;
+          padding: 28px 0 20px 0;
           position: sticky;
           top: 72px;
           z-index: 95;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
         }
-        .catalog-category-bar-container {
+        .catalog-search-container {
           width: 100%;
           max-width: var(--container-max-width);
           margin: 0 auto;
           padding: 0 48px;
         }
-        .catalog-category-tabs-row {
+        .catalog-search-box {
+          margin-bottom: 16px;
+        }
+        .catalog-search-inner {
+          position: relative;
           display: flex;
           align-items: center;
-          gap: 10px;
-          overflow-x: auto;
-          padding-bottom: 4px;
-          scrollbar-width: thin;
         }
-        .catalog-category-tabs-row::-webkit-scrollbar {
-          height: 4px;
+        .catalog-search-icon {
+          position: absolute;
+          left: 16px;
+          color: #94a3b8;
+          pointer-events: none;
         }
-        .catalog-category-tabs-row::-webkit-scrollbar-thumb {
-          background: #cbd5e1;
+        .catalog-search-input {
+          width: 100%;
+          height: 52px;
+          padding: 0 44px 0 48px;
+          font-family: var(--font-inter);
+          font-size: 16px;
+          font-weight: 500;
+          border: 2px solid #e2e8f0;
+          border-radius: 12px;
+          background-color: #f8fafc;
+          color: #0f172a;
+          transition: all 0.2s ease;
+        }
+        .catalog-search-input:focus {
+          outline: none;
+          background-color: #ffffff;
+          border-color: var(--color-red-alt);
+          box-shadow: 0 0 0 4px rgba(204, 34, 41, 0.08);
+        }
+        .catalog-search-clear {
+          position: absolute;
+          right: 14px;
+          background: none;
+          border: none;
+          color: #94a3b8;
+          cursor: pointer;
+          padding: 4px;
+          display: flex;
+          align-items: center;
           border-radius: 4px;
         }
-        .category-pill-tab {
-          display: inline-flex;
+        .catalog-search-clear:hover {
+          color: #0f172a;
+        }
+        .catalog-search-suggestions {
+          display: flex;
           align-items: center;
           gap: 8px;
-          padding: 8px 16px;
+          margin-top: 10px;
+        }
+        .search-suggest-label {
+          font-family: var(--font-inter);
+          font-size: 12.5px;
+          font-weight: 600;
+          color: #94a3b8;
+        }
+        .search-suggest-chip {
+          font-family: var(--font-inter);
+          font-size: 12px;
+          font-weight: 500;
+          padding: 4px 12px;
+          border-radius: 999px;
+          border: 1px solid #e2e8f0;
+          background: #f8fafc;
+          color: #475569;
+          cursor: pointer;
+          transition: all 0.15s ease;
+        }
+        .search-suggest-chip:hover {
+          background: #e2e8f0;
+          color: #0f172a;
+          border-color: #cbd5e1;
+        }
+        .search-suggest-chip.active {
+          background: var(--color-red-alt);
+          color: #ffffff;
+          border-color: var(--color-red-alt);
+        }
+
+        /* Quick Category Row */
+        .quick-category-row {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          overflow-x: auto;
+          padding-bottom: 2px;
+          scrollbar-width: none;
+        }
+        .quick-category-row::-webkit-scrollbar {
+          display: none;
+        }
+        .quick-cat-pill {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          padding: 7px 16px;
           border-radius: 9999px;
           font-family: var(--font-inter);
-          font-size: 14px;
+          font-size: 13.5px;
           font-weight: 600;
           color: #475569;
           background: #f1f5f9;
@@ -789,48 +891,25 @@ export const ProductPage: React.FC<ProductPageProps> = ({
           transition: all 0.2s ease;
           flex-shrink: 0;
         }
-        .category-pill-tab:hover {
+        .quick-cat-pill:hover {
           color: var(--color-navy-dark);
           background: #e2e8f0;
           border-color: #cbd5e1;
         }
-        .category-pill-tab.active {
+        .quick-cat-pill.active {
           background: var(--color-navy-dark);
           color: #ffffff;
           border-color: var(--color-navy-dark);
           box-shadow: 0 2px 8px rgba(15, 23, 42, 0.2);
         }
-        .category-pill-tab .pill-badge {
-          background: rgba(0, 0, 0, 0.08);
-          color: inherit;
-          font-size: 11px;
-          font-weight: 700;
-          padding: 2px 7px;
-          border-radius: 9999px;
+        .quick-cat-pill .cat-icon {
+          color: #1f2937;
         }
-        .category-pill-tab.active .pill-badge {
-          background: rgba(255, 255, 255, 0.25);
+        .quick-cat-pill.active .cat-icon {
           color: #ffffff;
-        }
-        .category-pill-tab.cafe-pill-special {
-          border-color: #fbcfe8;
-          background: #fdf2f8;
-          color: #be185d;
-        }
-        .category-pill-tab.cafe-pill-special:hover {
-          background: #fce7f3;
-          border-color: #f472b6;
-        }
-        .category-pill-tab.cafe-pill-special.active {
-          background: #db2777;
-          border-color: #db2777;
-          color: #ffffff;
-        }
-        .cafe-pill-icon {
-          font-size: 15px;
         }
 
-        /* Mobile Filter Bar */
+        /* ==================== MOBILE FILTER BAR ==================== */
         .mobile-filter-bar {
           display: none;
           background: #ffffff;
@@ -903,15 +982,10 @@ export const ProductPage: React.FC<ProductPageProps> = ({
           padding: 2px 6px;
           border-radius: 10px;
         }
-        .mobile-results-hint {
-          font-size: 13px;
-          color: #6b7280;
-          font-weight: 500;
-        }
 
-        /* Main Catalog Layout */
+        /* ==================== MAIN CATALOG LAYOUT ==================== */
         .product-catalog-section {
-          padding: 36px 0 80px 0;
+          padding: 32px 0 80px 0;
         }
         .product-catalog-container {
           width: 100%;
@@ -919,43 +993,37 @@ export const ProductPage: React.FC<ProductPageProps> = ({
           margin: 0 auto;
           padding: 0 48px;
           display: grid;
-          grid-template-columns: 290px 1fr;
-          gap: 36px;
+          grid-template-columns: 260px 1fr;
+          gap: 32px;
           align-items: start;
         }
 
-        /* Left Filter Sidebar - Compact, No Ugly Scrollbar */
+        /* ==================== LEFT SIDEBAR ==================== */
         .product-filter-sidebar {
           position: sticky;
-          top: 96px;
+          top: 200px;
           background: #ffffff;
-          border: 1px solid var(--color-border);
-          border-radius: 12px;
+          border: 1px solid #e2e8f0;
+          border-radius: 14px;
           padding: 20px 18px;
-          box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-          max-height: calc(100vh - 110px);
+          box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+          max-height: calc(100vh - 220px);
           overflow-y: auto;
-          /* Completely hide scrollbars across all browsers */
-          scrollbar-width: none; /* Firefox */
-          -ms-overflow-style: none; /* IE/Edge */
+          scrollbar-width: none;
         }
         .product-filter-sidebar::-webkit-scrollbar {
           display: none;
-          width: 0;
-          height: 0;
         }
-
         .filter-sidebar-inner {
           display: flex;
           flex-direction: column;
           gap: 16px;
         }
-
         .filter-sidebar-header {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding-bottom: 2px;
+          padding-bottom: 4px;
         }
         .filter-header-title-box {
           display: flex;
@@ -996,7 +1064,6 @@ export const ProductPage: React.FC<ProductPageProps> = ({
         .btn-reset-filters:hover {
           background: #fee2e2;
         }
-
         .filter-group {
           display: flex;
           flex-direction: column;
@@ -1009,11 +1076,11 @@ export const ProductPage: React.FC<ProductPageProps> = ({
         }
         .filter-group-label {
           font-family: var(--font-inter);
-          font-size: 12px;
+          font-size: 11.5px;
           font-weight: 800;
           text-transform: uppercase;
-          letter-spacing: 0.05em;
-          color: #4b5563;
+          letter-spacing: 0.06em;
+          color: #6b7280;
         }
         .filter-group-clear {
           font-size: 11.5px;
@@ -1025,71 +1092,26 @@ export const ProductPage: React.FC<ProductPageProps> = ({
         .filter-group-clear:hover {
           text-decoration: underline;
         }
-
-        /* Search Box */
-        .sidebar-search-box {
-          position: relative;
-          display: flex;
-          align-items: center;
-        }
-        .sidebar-search-icon {
-          position: absolute;
-          left: 11px;
-          color: #9ca3af;
-          pointer-events: none;
-        }
-        .sidebar-search-input {
-          width: 100%;
-          height: 38px;
-          padding: 0 30px 0 34px;
-          font-family: var(--font-inter);
-          font-size: 13.5px;
-          border: 1px solid #d1d5db;
-          border-radius: 7px;
-          background-color: #f9fafb;
-          color: #111827;
-          transition: all 0.2s ease;
-        }
-        .sidebar-search-input:focus {
-          outline: none;
-          border-color: var(--color-red-alt);
-          background-color: #ffffff;
-          box-shadow: 0 0 0 3px rgba(204, 34, 41, 0.1);
-        }
-        .sidebar-search-clear {
-          position: absolute;
-          right: 7px;
-          background: none;
-          color: #9ca3af;
-          cursor: pointer;
-          padding: 3px;
-          display: flex;
-          align-items: center;
-        }
-        .sidebar-search-clear:hover {
-          color: #111827;
-        }
-
         .filter-divider {
           height: 1px;
-          background-color: #f3f4f6;
-          margin: 1px 0;
+          background-color: #f1f5f9;
+          margin: 2px 0;
         }
 
-        /* Category Filter List */
+        /* Category List */
         .category-filter-list {
           display: flex;
           flex-direction: column;
-          gap: 3px;
+          gap: 2px;
         }
         .category-filter-item {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding: 6px 8px;
-          border-radius: 6px;
+          padding: 7px 10px;
+          border-radius: 8px;
           font-family: var(--font-inter);
-          font-size: 13px;
+          font-size: 13.5px;
           font-weight: 500;
           color: #374151;
           background: transparent;
@@ -1107,20 +1129,40 @@ export const ProductPage: React.FC<ProductPageProps> = ({
           color: var(--color-red-alt);
           font-weight: 700;
         }
+        .category-item-name {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+        .cat-item-icon {
+          color: #9ca3af;
+        }
+        .category-filter-item.active .cat-item-icon {
+          color: var(--color-red-alt);
+        }
+        .cat-icon {
+          color: #1f2937;
+          flex-shrink: 0;
+        }
+        .category-filter-item.active .cat-icon {
+          color: var(--color-red-alt);
+        }
         .filter-count-badge {
           font-size: 11px;
           font-weight: 600;
-          color: #6b7280;
+          color: #9ca3af;
           background: #f3f4f6;
-          padding: 1px 6px;
+          padding: 1px 7px;
           border-radius: 10px;
+          min-width: 22px;
+          text-align: center;
         }
         .category-filter-item.active .filter-count-badge {
           background: #fee2e2;
           color: var(--color-red-alt);
         }
 
-        /* Pills Filter Wrap (Brands & Sectors) */
+        /* Brand Pills */
         .pills-filter-wrap {
           display: flex;
           flex-wrap: wrap;
@@ -1150,148 +1192,87 @@ export const ProductPage: React.FC<ProductPageProps> = ({
           font-weight: 600;
         }
 
-        /* Right Content Area */
+        /* Sidebar Help Box */
+        .sidebar-help-box {
+          background: linear-gradient(135deg, #fef2f2 0%, #fff7ed 100%);
+          border: 1px solid #fde8e8;
+          border-radius: 10px;
+          padding: 16px;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+        .sidebar-help-icon {
+          color: var(--color-red-alt);
+        }
+        .sidebar-help-text {
+          font-family: var(--font-inter);
+          font-size: 12.5px;
+          line-height: 1.5;
+          color: #6b7280;
+        }
+        .sidebar-help-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          font-family: var(--font-inter);
+          font-size: 12.5px;
+          font-weight: 700;
+          color: var(--color-red-alt);
+          background: none;
+          cursor: pointer;
+          margin-top: 2px;
+          transition: transform 0.15s ease;
+        }
+        .sidebar-help-btn:hover {
+          transform: translateX(3px);
+        }
+
+        /* ==================== RIGHT CONTENT AREA ==================== */
         .product-content-area {
           display: flex;
           flex-direction: column;
-          gap: 24px;
+          gap: 20px;
           min-width: 0;
         }
 
-        /* Prominent Catalog Search Bar (Item 13) */
-        .catalog-hero-search-bar {
-          background: #ffffff;
-          border: 1.5px solid #e2e8f0;
-          border-radius: 12px;
-          padding: 16px 20px;
-          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-          transition: border-color 0.2s, box-shadow 0.2s;
-        }
-        .catalog-hero-search-bar:focus-within {
-          border-color: var(--color-primary);
-          box-shadow: 0 6px 20px rgba(2, 52, 141, 0.08);
-        }
-        .catalog-hero-search-inner {
-          position: relative;
-          display: flex;
-          align-items: center;
-          width: 100%;
-        }
-        .catalog-hero-search-icon {
-          position: absolute;
-          left: 14px;
-          color: var(--color-primary);
-          pointer-events: none;
-        }
-        .catalog-hero-search-input {
-          width: 100%;
-          height: 48px;
-          padding: 0 38px 0 44px;
-          font-family: var(--font-inter);
-          font-size: 15px;
-          font-weight: 500;
-          border: 1px solid #e2e8f0;
-          border-radius: 9px;
-          background-color: #f8fafc;
-          color: #0f172a;
-          transition: all 0.2s ease;
-        }
-        .catalog-hero-search-input:focus {
-          outline: none;
-          background-color: #ffffff;
-          border-color: var(--color-primary);
-          box-shadow: 0 0 0 3px rgba(2, 52, 141, 0.1);
-        }
-        .catalog-hero-search-clear {
-          position: absolute;
-          right: 12px;
-          background: none;
-          border: none;
-          color: #94a3b8;
-          cursor: pointer;
-          padding: 4px;
-          display: flex;
-          align-items: center;
-          border-radius: 4px;
-          transition: color 0.15s;
-        }
-        .catalog-hero-search-clear:hover {
-          color: #0f172a;
-        }
-        .catalog-search-quick-tags {
-          display: flex;
-          align-items: center;
-          flex-wrap: wrap;
-          gap: 7px;
-          margin-top: 12px;
-          padding-top: 10px;
-          border-top: 1px solid #f1f5f9;
-        }
-        .quick-tag-label {
-          font-family: var(--font-inter);
-          font-size: 12.5px;
-          font-weight: 600;
-          color: #64748b;
-          margin-right: 4px;
-        }
-        .quick-tag-chip {
-          background: #f1f5f9;
-          border: 1px solid #e2e8f0;
-          color: #334155;
-          font-family: var(--font-inter);
-          font-size: 12px;
-          font-weight: 500;
-          padding: 3px 10px;
-          border-radius: 999px;
-          cursor: pointer;
-          transition: all 0.15s ease;
-        }
-        .quick-tag-chip:hover {
-          background: #e2e8f0;
-          color: #0f172a;
-          border-color: #cbd5e1;
-        }
-        .quick-tag-chip.active {
-          background: var(--color-primary);
-          color: #ffffff;
-          border-color: var(--color-primary);
-        }
-
-        /* Catalog Top Bar */
-        .catalog-top-bar {
+        /* Results Bar */
+        .catalog-results-bar {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding-bottom: 12px;
-          border-bottom: 1px solid var(--color-border);
+          padding: 10px 0;
+          border-bottom: 1px solid #e2e8f0;
         }
-        .results-count-title {
+        .results-info {
           display: flex;
           align-items: baseline;
-          gap: 8px;
+          gap: 6px;
+          flex-wrap: wrap;
         }
-        .results-count-number {
+        .results-number {
           font-family: var(--font-inter);
-          font-size: 22px;
+          font-size: 24px;
           font-weight: 800;
           color: var(--color-navy-deep);
         }
-        .results-count-text {
+        .results-label {
           font-family: var(--font-inter);
-          font-size: 14.5px;
+          font-size: 15px;
           font-weight: 600;
-          color: #4b5563;
+          color: #6b7280;
         }
-        .results-category-tag {
+        .results-in-cat,
+        .results-for-query {
           font-family: var(--font-inter);
-          font-size: 12.5px;
-          font-weight: 600;
+          font-size: 14px;
+          color: #6b7280;
+        }
+        .results-in-cat strong,
+        .results-for-query strong {
           color: var(--color-red-alt);
-          background: #fef2f2;
-          padding: 2px 8px;
-          border-radius: 4px;
         }
-        .clear-all-inline-btn {
+        .clear-all-btn {
           display: inline-flex;
           align-items: center;
           gap: 6px;
@@ -1301,32 +1282,35 @@ export const ProductPage: React.FC<ProductPageProps> = ({
           font-size: 13px;
           font-weight: 600;
           cursor: pointer;
+          padding: 6px 12px;
+          border-radius: 6px;
+          transition: background 0.15s ease;
         }
-        .clear-all-inline-btn:hover {
-          text-decoration: underline;
+        .clear-all-btn:hover {
+          background: #fef2f2;
         }
 
-        /* Active Chips Strip */
-        .active-chips-strip {
+        /* Active Chips */
+        .active-chips-row {
           display: flex;
           flex-wrap: wrap;
-          gap: 7px;
+          gap: 8px;
         }
         .active-chip {
           display: inline-flex;
           align-items: center;
           gap: 6px;
           background: #ffffff;
-          border: 1px solid #e5e7eb;
-          padding: 4px 11px;
-          border-radius: 16px;
+          border: 1px solid #e2e8f0;
+          padding: 5px 12px;
+          border-radius: 20px;
           font-family: var(--font-inter);
-          font-size: 12px;
+          font-size: 12.5px;
           font-weight: 600;
           color: #374151;
-          box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+          box-shadow: 0 1px 3px rgba(0,0,0,0.04);
         }
-        .chip-remove {
+        .chip-x {
           background: transparent;
           border: none;
           color: #9ca3af;
@@ -1334,171 +1318,93 @@ export const ProductPage: React.FC<ProductPageProps> = ({
           display: flex;
           align-items: center;
           padding: 0;
-          transition: color 0.15s ease;
         }
-        .chip-remove:hover {
+        .chip-x:hover {
           color: var(--color-red-alt);
         }
 
-        /* Spotlight Card */
-        .category-spotlight-wrapper {
-          width: 100%;
-        }
-        .category-spotlight-card {
-          width: 100%;
-          background: #ffffff;
-          border: 1px solid var(--color-border);
-          border-radius: 14px;
-          overflow: hidden;
-          display: grid;
-          grid-template-columns: 280px 1fr;
-          box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-        }
-        .spotlight-image-col {
-          position: relative;
-          background-color: #f3f4f6;
-          height: 100%;
-          min-height: 400px;
-        }
-        .spotlight-img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .spotlight-img-gradient {
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(90deg, transparent 70%, rgba(255,255,255,0.4) 100%);
-        }
-        .spotlight-info-col {
-          padding: 30px 34px;
+        /* ==================== CATEGORY GROUPS ==================== */
+        .category-groups-container {
           display: flex;
           flex-direction: column;
+          gap: 40px;
         }
-        .spotlight-eyebrow {
-          font-family: var(--font-inter);
-          font-size: 11.5px;
-          font-weight: 700;
-          letter-spacing: 0.08em;
-          color: var(--color-red-alt);
-          text-transform: uppercase;
-          margin-bottom: 8px;
-        }
-        .spotlight-heading {
-          font-family: var(--font-inter);
-          font-size: 32px;
-          font-weight: 900;
-          color: var(--color-navy-deep);
-          margin-bottom: 12px;
-        }
-        .spotlight-badges {
+        .category-group-section {
           display: flex;
-          gap: 8px;
-          margin-bottom: 20px;
-          flex-wrap: wrap;
+          flex-direction: column;
+          gap: 16px;
         }
-        .industry-badge {
-          background-color: var(--color-red-badge-bg);
-          color: var(--color-red-alt);
-          font-family: var(--font-inter);
-          font-weight: 600;
-          font-size: 12px;
-          padding: 3px 10px;
-          border-radius: 4px;
-        }
-        .spotlight-items-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 9px 18px;
-          margin-bottom: 22px;
-        }
-        .spotlight-item-row {
+        .category-group-header {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding: 6px 9px;
-          border-bottom: 1px solid #f3f4f6;
-          font-family: var(--font-inter);
-          font-size: 14.5px;
-          color: #364153;
-          cursor: pointer;
-          transition: background-color var(--transition-fast), color var(--transition-fast);
-          border-radius: 4px;
+          padding-bottom: 12px;
+          border-bottom: 2px solid #e2e8f0;
         }
-        .spotlight-item-row:hover {
-          background-color: #fef2f2;
-          color: var(--color-red-alt);
-        }
-        .item-chevron {
-          color: var(--color-text-muted);
-        }
-        .spotlight-footnote {
-          font-family: var(--font-inter);
-          font-size: 12px;
-          color: var(--color-text-muted);
-          line-height: 1.5;
-          margin-top: auto;
-        }
-
-        /* Products Grid Header */
-        .products-grid-header {
+        .category-group-title-row {
           display: flex;
-          justify-content: space-between;
           align-items: center;
-          margin-top: 6px;
+          gap: 10px;
         }
-        .grid-heading {
+        .category-group-icon {
+          color: #1f2937;
+          flex-shrink: 0;
+        }
+        .category-group-title {
           font-family: var(--font-inter);
-          font-size: 26px;
+          font-size: 22px;
           font-weight: 800;
           color: var(--color-navy-deep);
         }
-        .grid-heading-bar {
-          width: 48px;
-          height: 3px;
-          background-color: var(--color-red-alt);
-          margin-top: 4px;
+        .category-group-count {
+          font-family: var(--font-inter);
+          font-size: 13px;
+          font-weight: 600;
+          color: #94a3b8;
+          background: #f1f5f9;
+          padding: 2px 10px;
+          border-radius: 99px;
         }
-        .view-all-link {
+        .category-group-view-all {
           display: inline-flex;
           align-items: center;
-          gap: 7px;
+          gap: 5px;
           font-family: var(--font-inter);
-          font-size: 14px;
+          font-size: 13.5px;
           font-weight: 600;
           color: var(--color-red-alt);
           background: none;
           cursor: pointer;
-          transition: transform var(--transition-fast);
+          transition: transform 0.15s ease;
         }
-        .view-all-link:hover {
-          transform: translateX(4px);
+        .category-group-view-all:hover {
+          transform: translateX(3px);
         }
 
-        /* Catalog Cards Grid */
+        /* ==================== PRODUCT CARDS ==================== */
         .catalog-cards-grid {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(2, 1fr);
           gap: 20px;
         }
         .catalog-product-card {
           background: #ffffff;
-          border-radius: 10px;
+          border-radius: 14px;
           overflow: hidden;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-          border: 1px solid var(--color-border);
-          transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+          box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+          border: 1px solid #e8ecf1;
+          transition: transform 0.25s ease, box-shadow 0.25s ease;
           cursor: pointer;
           display: flex;
           flex-direction: column;
         }
         .catalog-product-card:hover {
           transform: translateY(-4px);
-          box-shadow: var(--shadow-hover);
+          box-shadow: 0 12px 32px rgba(0,0,0,0.1);
         }
         .card-thumb-wrapper {
           position: relative;
-          height: 170px;
+          height: 200px;
           background-color: #f3f4f6;
           overflow: hidden;
         }
@@ -1509,129 +1415,140 @@ export const ProductPage: React.FC<ProductPageProps> = ({
           transition: transform 0.4s ease;
         }
         .catalog-product-card:hover .card-thumb-img {
-          transform: scale(1.06);
+          transform: scale(1.05);
         }
         .card-category-pill-tag {
           position: absolute;
-          top: 10px;
-          left: 10px;
-          background-color: rgba(17, 24, 39, 0.75);
-          backdrop-filter: blur(4px);
+          top: 12px;
+          left: 12px;
+          background-color: rgba(17, 24, 39, 0.8);
+          backdrop-filter: blur(6px);
           color: #ffffff;
           font-family: var(--font-inter);
-          font-size: 11px;
+          font-size: 11.5px;
           font-weight: 600;
-          padding: 3px 8px;
-          border-radius: 4px;
-        }
-        .card-accent-pill {
-          position: absolute;
-          top: 10px;
-          right: 10px;
-          width: 22px;
-          height: 22px;
-          border-radius: 50%;
-          background: var(--color-red-alt);
+          padding: 4px 10px;
+          border-radius: 6px;
           display: flex;
           align-items: center;
-          justify-content: center;
+          gap: 4px;
         }
         .card-details-box {
-          padding: 15px;
+          padding: 18px 20px 20px 20px;
           display: flex;
           flex-direction: column;
-          gap: 5px;
+          gap: 6px;
           flex-grow: 1;
         }
-        .card-category-title {
+        .card-product-title {
           font-family: var(--font-inter);
-          font-size: 16px;
+          font-size: 17px;
           font-weight: 700;
-          color: var(--color-red-alt);
+          color: #111827;
           line-height: 1.3;
         }
-        .card-category-sub {
+        .card-product-subtitle {
           font-family: var(--font-inter);
           font-size: 13.5px;
-          color: var(--color-text-body);
-          line-height: 1.4;
+          color: #6b7280;
+          line-height: 1.45;
         }
-        .card-meta-line {
-          font-family: var(--font-inter);
-          font-size: 11.5px;
-          color: var(--color-text-muted);
-          margin-top: 4px;
-        }
-        .card-footer-tags {
+        .card-brands-line {
           display: flex;
           flex-wrap: wrap;
           gap: 5px;
-          margin-top: 8px;
-          padding-top: 8px;
-          border-top: 1px solid #f3f4f6;
+          margin-top: 6px;
         }
-        .card-mini-tag {
+        .card-brand-tag {
           font-family: var(--font-inter);
           font-size: 11px;
           font-weight: 600;
-          color: #4b5563;
-          background: #f3f4f6;
-          padding: 2px 7px;
+          color: var(--color-red-alt);
+          background: #fef2f2;
+          padding: 2px 8px;
           border-radius: 4px;
         }
-        .card-view-specs-link {
+        .card-bottom-row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: auto;
+          padding-top: 12px;
+          border-top: 1px solid #f3f4f6;
+        }
+        .card-industries {
+          display: flex;
+          gap: 12px;
+        }
+        .card-industry-dot {
+          font-family: var(--font-inter);
+          font-size: 11.5px;
+          font-weight: 500;
+          color: #94a3b8;
+          position: relative;
+          padding-left: 10px;
+        }
+        .card-industry-dot::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 5px;
+          height: 5px;
+          border-radius: 50%;
+          background: #d1d5db;
+        }
+        .card-view-link {
           display: inline-flex;
           align-items: center;
-          gap: 4px;
+          gap: 3px;
           font-family: var(--font-inter);
           font-size: 12.5px;
           font-weight: 700;
           color: var(--color-red-alt);
-          margin-top: 8px;
-          padding-top: 8px;
-          border-top: 1px dashed #f3f4f6;
-          transition: transform var(--transition-fast);
+          transition: transform 0.15s ease;
         }
-        .catalog-product-card:hover .card-view-specs-link {
+        .catalog-product-card:hover .card-view-link {
           transform: translateX(3px);
         }
 
-        /* Empty State */
+        /* ==================== EMPTY STATE ==================== */
         .catalog-empty-state {
           background: #ffffff;
-          border: 1px dashed #d1d5db;
-          border-radius: 12px;
-          padding: 50px 30px;
+          border: 2px dashed #e2e8f0;
+          border-radius: 16px;
+          padding: 60px 30px;
           text-align: center;
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 12px;
+          gap: 14px;
         }
-        .empty-state-icon-box {
-          width: 60px;
-          height: 60px;
+        .empty-icon-circle {
+          width: 64px;
+          height: 64px;
           border-radius: 50%;
           background: #fef2f2;
           display: flex;
           align-items: center;
           justify-content: center;
         }
-        .empty-state-title {
+        .empty-title {
           font-family: var(--font-inter);
-          font-size: 19px;
+          font-size: 20px;
           font-weight: 800;
           color: #111827;
         }
-        .empty-state-desc {
+        .empty-desc {
           font-family: var(--font-inter);
-          font-size: 14px;
+          font-size: 14.5px;
           color: #6b7280;
-          max-width: 420px;
+          max-width: 400px;
           line-height: 1.5;
         }
         .btn-reset-empty {
-          margin-top: 4px;
+          margin-top: 6px;
           display: inline-flex;
           align-items: center;
           gap: 7px;
@@ -1640,8 +1557,8 @@ export const ProductPage: React.FC<ProductPageProps> = ({
           font-family: var(--font-inter);
           font-size: 14px;
           font-weight: 600;
-          padding: 9px 18px;
-          border-radius: 6px;
+          padding: 10px 20px;
+          border-radius: 8px;
           cursor: pointer;
           transition: background 0.15s ease;
         }
@@ -1649,7 +1566,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
           background: #b31a20;
         }
 
-        /* Mobile Drawer */
+        /* ==================== MOBILE DRAWER ==================== */
         .mobile-filter-drawer-backdrop {
           position: fixed;
           inset: 0;
@@ -1713,7 +1630,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
           cursor: pointer;
         }
 
-        /* Responsive Breakpoints */
+        /* ==================== RESPONSIVE ==================== */
         @media (max-width: 1200px) {
           .catalog-cards-grid {
             grid-template-columns: repeat(2, 1fr);
@@ -1731,12 +1648,11 @@ export const ProductPage: React.FC<ProductPageProps> = ({
           .mobile-filter-bar {
             display: flex;
           }
-          .category-spotlight-card {
-            grid-template-columns: 1fr;
+          .catalog-search-section {
+            display: none;
           }
-          .spotlight-image-col {
-            min-height: 240px;
-            height: 240px;
+          .catalog-cards-grid {
+            grid-template-columns: repeat(2, 1fr);
           }
         }
 
@@ -1760,14 +1676,16 @@ export const ProductPage: React.FC<ProductPageProps> = ({
           .catalog-cards-grid {
             grid-template-columns: 1fr;
           }
-          .spotlight-items-grid {
-            grid-template-columns: 1fr;
+          .category-group-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
           }
-          .spotlight-info-col {
-            padding: 24px 20px;
+          .category-group-title {
+            font-size: 18px;
           }
-          .spotlight-heading {
-            font-size: 26px;
+          .product-catalog-container {
+            padding: 0 16px;
           }
         }
       `}</style>

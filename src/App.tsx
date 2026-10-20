@@ -21,15 +21,17 @@ export const App: React.FC = () => {
   };
 
   const handleOpenContact = () => {
-    handleNavigate('contact');
+    setContactModalOpen(true);
   };
 
   // Sync with browser URL hash if present
   useEffect(() => {
     const handleHash = () => {
       const hash = window.location.hash.replace('#', '');
-      if (hash === 'products' || hash === 'about' || hash === 'contact') {
-        setActiveTab(hash as any);
+      if (hash === 'products' || hash === 'about') {
+        setActiveTab(hash);
+      } else if (hash === 'contact') {
+        setContactModalOpen(true);
       } else if (hash === 'home' || hash === '') {
         setActiveTab('home');
       }
@@ -40,7 +42,11 @@ export const App: React.FC = () => {
   }, []);
 
   const handleNavigate = (tab: string, anchorId?: string, categoryOrSector?: string) => {
-    if (tab === 'home' || tab === 'products' || tab === 'about' || tab === 'contact') {
+    if (tab === 'contact') {
+      setContactModalOpen(true);
+      return;
+    }
+    if (tab === 'home' || tab === 'products' || tab === 'about') {
       setActiveTab(tab as any);
       window.location.hash = tab;
       if (categoryOrSector && tab === 'products') {
