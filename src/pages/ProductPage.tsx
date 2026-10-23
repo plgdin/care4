@@ -19,6 +19,7 @@ import {
   Wrench, 
   Package, 
   Send,
+  ShieldCheck,
   type LucideIcon 
 } from 'lucide-react';
 import { 
@@ -63,7 +64,7 @@ const HOSPITALITY_DEPARTMENTS: HospitalityDepartment[] = [
     verifiedBrands: ['Dinewell', 'Ariane', 'Arcoroc', 'Borosil', 'FNS', 'Ocean'],
     bundle: {
       title: '100-Cover Banquet Opening Suite',
-      desc: 'Turnkey procurement package including complete dinner plates, side bowls, satin cutlery, water goblets & banquet napkins.',
+      desc: 'Turnkey procurement package including complete dinner plates, side bowls, satin cutlery, water goblets & banquet linens.',
       includes: [
         '100x Dinewell Melamine Dinner Plates',
         '100x FNS 18/10 Mirror Cutlery Sets',
@@ -84,7 +85,7 @@ const HOSPITALITY_DEPARTMENTS: HospitalityDepartment[] = [
     verifiedBrands: ['Ocean', 'Borosil', 'Dinewell', 'Milton'],
     bundle: {
       title: 'Specialty Espresso & Bar Launch Setup',
-      desc: 'Everything required behind the barista station and beverage bar counter for modern quick-service cafes.',
+      desc: 'Complete back-of-the-counter barista station and drinkware supply for specialty coffee shops and beverage lounges.',
       includes: [
         '72x Commercial Latte & Cappuccino Cups',
         '48x Ocean Frappe & Shake Glassware',
@@ -295,7 +296,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
             <div className="lookbook-header-text">
               <h1 className="lookbook-main-title">Hospitality Department Lookbook</h1>
               <p className="lookbook-main-desc">
-                Organized by operational department. Explore curated supply lines, verified partner brands, and turnkey opening bundles for hotels, restaurants, cafes, and catering facilities.
+                Curated commercial supply lines, verified partner brands, and turnkey opening packages for hotels, restaurants, cafes, and banquets.
               </p>
             </div>
 
@@ -339,14 +340,14 @@ export const ProductPage: React.FC<ProductPageProps> = ({
               className={`dept-tab-btn ${activeDeptId === 'all' ? 'active' : ''}`}
               onClick={() => handleSelectDept('all')}
             >
-              <span>Master Catalog (All)</span>
+              <span>Master Catalog (All Items)</span>
               <span className="dept-tab-badge">{CATALOG_PRODUCTS.length}</span>
             </button>
           </nav>
         </div>
       </section>
 
-      {/* ==================== 2. EDITORIAL HERO & TURNKEY BUNDLE ==================== */}
+      {/* ==================== 2. EDITORIAL HERO & TURNKEY PROCUREMENT BUNDLE ==================== */}
       {currentDept && (
         <section className="dept-editorial-banner">
           <div className="dept-editorial-inner">
@@ -362,7 +363,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                 <h2 className="dept-narrative-title">{currentDept.narrativeTitle}</h2>
                 <p className="dept-narrative-text">{currentDept.narrativeText}</p>
                 <div className="dept-verified-brands">
-                  <span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.7)', fontWeight: 600 }}>
+                  <span className="dept-verified-label">
                     Verified Brands:
                   </span>
                   {currentDept.verifiedBrands.map(b => (
@@ -375,14 +376,14 @@ export const ProductPage: React.FC<ProductPageProps> = ({
             {/* Turnkey Procurement Bundle */}
             <div className="turnkey-bundle-card">
               <div>
-                <span className="bundle-highlight-badge">Turnkey Procurement Bundle</span>
+                <span className="bundle-highlight-badge">Turnkey Procurement Package</span>
                 <h3 className="bundle-card-title">{currentDept.bundle.title}</h3>
                 <p className="bundle-card-desc">{currentDept.bundle.desc}</p>
 
                 <div className="bundle-includes-grid">
                   {currentDept.bundle.includes.map((inc, i) => (
                     <div key={i} className="bundle-item-check">
-                      <Check size={14} className="bundle-check-icon" />
+                      <Check size={16} className="bundle-check-icon" />
                       <span>{inc}</span>
                     </div>
                   ))}
@@ -398,8 +399,8 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                   className="btn-inquire-bundle"
                   onClick={() => handleInquireBundle(currentDept.bundle)}
                 >
-                  <Send size={14} />
-                  <span>Inquire on Bundle</span>
+                  <Send size={15} />
+                  <span>Inquire on Package</span>
                 </button>
               </div>
             </div>
@@ -428,7 +429,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                   className={`subcat-pill ${activeSubcat === cat ? 'active' : ''}`}
                   onClick={() => setActiveSubcat(cat)}
                 >
-                  <CategoryIcon category={cat} size={13} />
+                  <CategoryIcon category={cat} size={14} />
                   <span>{cat}</span>
                   <span className="subcat-count">{catCount}</span>
                 </button>
@@ -438,10 +439,10 @@ export const ProductPage: React.FC<ProductPageProps> = ({
 
           <div className="lookbook-search-toggle-wrap">
             <div className="lookbook-search-input-wrap">
-              <Search size={14} className="lookbook-search-icon" />
+              <Search size={16} className="lookbook-search-icon" />
               <input 
                 type="text"
-                placeholder="Search items in this section..."
+                placeholder="Search products, materials, brands..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
@@ -451,7 +452,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                   onClick={() => setSearchQuery('')}
                   aria-label="Clear search"
                 >
-                  <X size={13} />
+                  <X size={15} />
                 </button>
               )}
             </div>
@@ -462,19 +463,19 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                 type="button"
                 className={`lb-view-btn ${viewMode === 'grid' ? 'active' : ''}`}
                 onClick={() => setViewMode('grid')}
-                title="Card Grid"
+                title="Showcase Cards"
               >
-                <Grid3X3 size={14} />
-                <span>Cards</span>
+                <Grid3X3 size={15} />
+                <span>Showcase</span>
               </button>
               <button 
                 type="button"
                 className={`lb-view-btn ${viewMode === 'table' ? 'active' : ''}`}
                 onClick={() => setViewMode('table')}
-                title="Spec Table"
+                title="Procurement Specs Ledger"
               >
-                <LayoutList size={14} />
-                <span>Specs</span>
+                <LayoutList size={15} />
+                <span>Specs Ledger</span>
               </button>
             </div>
           </div>
@@ -485,8 +486,8 @@ export const ProductPage: React.FC<ProductPageProps> = ({
       <main className="lookbook-content-layout">
         <div className="lookbook-results-header">
           <div className="lookbook-results-count">
-            Showing <strong>{filteredProducts.length}</strong> {filteredProducts.length === 1 ? 'item' : 'items'} in {currentDept ? currentDept.label : 'All Categories'}
-            {activeSubcat !== 'All' && <span> · Filtered by <strong>{activeSubcat}</strong></span>}
+            Showing <strong>{filteredProducts.length}</strong> {filteredProducts.length === 1 ? 'commercial product' : 'commercial products'} in {currentDept ? currentDept.label : 'Master Catalog'}
+            {activeSubcat !== 'All' && <span> · Category: <strong>{activeSubcat}</strong></span>}
             {searchQuery && <span> · Matching "<strong>{searchQuery}</strong>"</span>}
           </div>
 
@@ -499,21 +500,21 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                 setSearchQuery('');
               }}
             >
-              <RotateCcw size={12} />
+              <RotateCcw size={13} />
               <span>Reset Filters</span>
             </button>
           )}
         </div>
 
-        {/* ==================== 5. CARDS GRID OR SPEC TABLE ==================== */}
+        {/* ==================== 5. HIGH-IMPACT CARDS GRID OR SPEC LEDGER ==================== */}
         {filteredProducts.length === 0 ? (
           <div className="catalog-empty-view">
             <div className="empty-icon-box">
-              <Search size={28} />
+              <Search size={32} />
             </div>
-            <h3 className="empty-heading">No items match your query</h3>
+            <h3 className="empty-heading">No commercial items match your query</h3>
             <p className="empty-desc">
-              Try clearing your search keyword or switching to another category.
+              Try adjusting your search keyword or switching to another category tab to view available supply lines.
             </p>
             <button 
               type="button"
@@ -523,8 +524,8 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                 setSearchQuery('');
               }}
             >
-              <RotateCcw size={14} />
-              <span>Clear Filter</span>
+              <RotateCcw size={15} />
+              <span>Reset Category Filter</span>
             </button>
           </div>
         ) : viewMode === 'grid' ? (
@@ -533,7 +534,10 @@ export const ProductPage: React.FC<ProductPageProps> = ({
               const inRfq = rfqItems.includes(product.id);
               const specs = PRODUCT_SPECS_MAP[product.id];
               const primaryBrand = product.brands[0] || 'Care4 Institutional';
-              const materialSpec = specs?.material || product.details;
+              const materialSpec = specs?.material || specs?.keySpecs?.material || product.details;
+              const packingSpec = specs?.keySpecs?.packing || 'Standard Commercial Pack';
+              const badgesList = specs?.badges?.map(b => b.title) || product.factors || [];
+              const displayedBadges = badgesList.slice(0, 3);
 
               return (
                 <article key={product.id} className="lb-product-card">
@@ -548,7 +552,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                       loading="lazy"
                     />
                     <div className="lb-card-cat-badge">
-                      <CategoryIcon category={product.category} size={11} />
+                      <CategoryIcon category={product.category} size={13} />
                       <span>{product.category}</span>
                     </div>
                     <div className="lb-card-brand-badge">
@@ -565,9 +569,33 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                     </h3>
                     <p className="lb-card-desc">{product.subtitle}</p>
 
-                    <div className="lb-card-spec-meta">
-                      <FileText size={12} style={{ color: '#64748b', flexShrink: 0 }} />
-                      <span>{materialSpec}</span>
+                    {/* On-Card Commercial Specs Panel */}
+                    <div className="lb-card-specs-panel">
+                      <div className="lb-spec-line">
+                        <FileText size={15} className="lb-spec-line-icon" />
+                        <div className="lb-spec-line-content">
+                          <span className="lb-spec-line-label">Material:</span>
+                          <span className="lb-spec-line-value">{materialSpec}</span>
+                        </div>
+                      </div>
+                      <div className="lb-spec-line">
+                        <Package size={15} className="lb-spec-line-icon" />
+                        <div className="lb-spec-line-content">
+                          <span className="lb-spec-line-label">Packing:</span>
+                          <span className="lb-spec-line-value">{packingSpec}</span>
+                        </div>
+                      </div>
+
+                      {displayedBadges.length > 0 && (
+                        <div className="lb-badges-strip">
+                          {displayedBadges.map((badge, idx) => (
+                            <span key={idx} className="lb-spec-pill">
+                              <ShieldCheck size={12} />
+                              <span>{badge}</span>
+                            </span>
+                          ))}
+                        </div>
+                      )}
                     </div>
 
                     <div className="lb-card-actions">
@@ -576,7 +604,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                         className="btn-lb-specs"
                         onClick={() => setSelectedDetailProduct(product)}
                       >
-                        <FileText size={13} />
+                        <FileText size={15} />
                         <span>Specs Sheet</span>
                       </button>
 
@@ -587,13 +615,13 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                       >
                         {inRfq ? (
                           <>
-                            <Check size={13} />
-                            <span>In RFQ</span>
+                            <Check size={16} />
+                            <span>✓ In RFQ</span>
                           </>
                         ) : (
                           <>
-                            <Plus size={13} />
-                            <span>+ Quote</span>
+                            <Plus size={16} />
+                            <span>+ Add Quote</span>
                           </>
                         )}
                       </button>
@@ -608,12 +636,11 @@ export const ProductPage: React.FC<ProductPageProps> = ({
             <table className="catalog-table">
               <thead>
                 <tr>
-                  <th style={{ width: '80px' }}>Item</th>
+                  <th style={{ width: '100px' }}>Item</th>
                   <th>Product Title & Category</th>
                   <th>Verified Brands</th>
-                  <th>Material & Specs</th>
-                  <th>Sectors</th>
-                  <th>Carton Pack</th>
+                  <th>Material & Key Specifications</th>
+                  <th>Carton Packing</th>
                   <th style={{ textAlign: 'right' }}>Procurement Actions</th>
                 </tr>
               </thead>
@@ -622,7 +649,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                   const inRfq = rfqItems.includes(product.id);
                   const specs = PRODUCT_SPECS_MAP[product.id];
                   const packing = specs?.keySpecs?.packing || 'Standard Commercial Pack';
-                  const material = specs?.keySpecs?.material || product.details;
+                  const material = specs?.material || specs?.keySpecs?.material || product.details;
 
                   return (
                     <tr key={product.id}>
@@ -652,12 +679,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                         <div className="table-spec-text">{material}</div>
                       </td>
                       <td>
-                        {product.industries.map(ind => (
-                          <span key={ind} className="table-brand-pill">{ind}</span>
-                        ))}
-                      </td>
-                      <td>
-                        <span style={{ fontSize: '12px', color: '#64748b' }}>{packing}</span>
+                        <div className="table-packing-text">{packing}</div>
                       </td>
                       <td style={{ textAlign: 'right' }} className="table-actions-cell">
                         <button 
@@ -690,13 +712,13 @@ export const ProductPage: React.FC<ProductPageProps> = ({
           {rfqDrawerOpen && (
             <div className="rfq-dock-drawer">
               <div className="rfq-drawer-top">
-                <span className="rfq-drawer-top-title">Selected for Quote ({rfqItems.length})</span>
+                <span className="rfq-drawer-top-title">Selected for Bulk Quote ({rfqItems.length})</span>
                 <button 
                   className="rfq-drawer-top-close"
                   onClick={() => setRfqDrawerOpen(false)}
                   aria-label="Close tray"
                 >
-                  <X size={16} />
+                  <X size={18} />
                 </button>
               </div>
 
@@ -716,7 +738,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                         onClick={() => handleToggleRfq(id)}
                         title="Remove item"
                       >
-                        <X size={14} />
+                        <X size={16} />
                       </button>
                     </div>
                   );
@@ -729,15 +751,15 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                   className="btn-rfq-submit-tray"
                   onClick={handleSubmitRfq}
                 >
-                  <Send size={15} />
-                  <span>Request Bulk Pricing ({rfqItems.length})</span>
+                  <Send size={16} />
+                  <span>Request Bulk Pricing ({rfqItems.length} items)</span>
                 </button>
                 <button 
                   type="button"
                   className="btn-rfq-clear"
                   onClick={() => setRfqItems([])}
                 >
-                  Clear all items
+                  Clear all selected items
                 </button>
               </div>
             </div>
@@ -748,6 +770,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
             className="rfq-dock-pill"
             onClick={() => setRfqDrawerOpen(!rfqDrawerOpen)}
           >
+            <FileText size={18} />
             <span>RFQ Inquiry</span>
             <span className="rfq-dock-count">{rfqItems.length}</span>
           </button>
