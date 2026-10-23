@@ -563,7 +563,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Fresh N Fine & Family Plastic Supplies',
     subtitle: 'Guestroom liners, dustbins, laundry baskets & plastics',
     details: 'Room Plastics · Fresh N Fine, Family Plastic',
-    image: '/images/image__paper_products___dispensers__1a5dc51e.webp',
+    image: '/images/image_3_c35c9821.webp',
     category: 'House Keeping',
     brands: ['Fresh N Fine', 'Family Plastic'],
     industries: ['Hotels', 'Facilities & Janitorial'],
