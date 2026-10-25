@@ -278,6 +278,28 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     industries: ['Hotels', 'Restaurants', 'Catering'],
     factors: ['Bulk Wholesale', 'Economical Bulk']
   },
+  {
+    id: 'crockery-yeraa',
+    title: 'Yera Commercial Foodservice Glassware',
+    subtitle: 'Heavy-base water tumblers, juice glasses, sundae cups & dessert bowls',
+    details: 'Soda-Lime Pressed Glass · Yeraa',
+    image: '/images/image__tableware___crockery__a8a959b7.webp',
+    category: 'Crockery',
+    brands: ['Yeraa'],
+    industries: ['Hotels', 'Restaurants', 'Cafes', 'Catering'],
+    factors: ['Thermal Shock Resistant', 'Dishwasher Safe', 'Lead-Free']
+  },
+  {
+    id: 'crockery-bar-stemware',
+    title: 'Commercial Bar & Restaurant Stemware',
+    subtitle: 'Wine goblets, champagne flutes, whiskey rocks, beer mugs & cocktail glasses',
+    details: 'Lead-Free Crystal & Toughened Glass · Ocean, Arcoroc, Borosil',
+    image: '/images/image__tableware___crockery__c6601dfa.webp',
+    category: 'Crockery',
+    brands: ['Ocean', 'Arcoroc', 'Borosil'],
+    industries: ['Hotels', 'Restaurants', 'Banquets & Venues'],
+    factors: ['Crystal Clarity', 'Laser-Cut Rim', 'Dishwasher Safe']
+  },
 
   // --- 2. CUTLERY ---
   {
@@ -381,60 +403,104 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     industries: ['Hotels', 'Restaurants'],
     factors: ['Blackout FR', 'Custom Dimensions']
   },
+  {
+    id: 'linen-table-dining',
+    title: 'Table Linen, Cloth Napkins & Chair Covers',
+    subtitle: 'Hotel-grade white damask table cloths, table mats, cloth napkins & banquet chair covers',
+    details: '100% Combed Cotton & Damask · Cintra Cottons',
+    image: '/images/image__fine_dining__2ac60065.webp',
+    category: 'Linen',
+    brands: ['Cintra Cottons'],
+    industries: ['Hotels', 'Restaurants', 'Banquets & Venues', 'Catering'],
+    factors: ['100% Cotton', 'Stain Resistant', 'High Durability', 'Commercial Grade']
+  },
+  {
+    id: 'linen-bathrobes-decor',
+    title: 'Luxury Hotel Bathrobes, Bed Runners & Blankets',
+    subtitle: '450 GSM waffle-weave & terry bathrobes, bed runners & decorative cushion throws',
+    details: '100% Combed Cotton · Cintra Cottons',
+    image: '/images/luxury_hotel_bed_linen.jpg',
+    category: 'Linen',
+    brands: ['Cintra Cottons'],
+    industries: ['Hotels', 'Resorts', 'Healthcare'],
+    factors: ['Ultra Soft', 'High Absorbency', 'Hotel Grade White', 'Eco-Friendly']
+  },
 
   // --- 4. GUEST AMENITIES ---
   {
     id: 'amenities-liquids-soaps',
     title: 'Liquid Amenities & Soaps',
-    subtitle: 'Bath gel, shampoo, body lotion, moisturizer & soaps',
-    details: 'Botanical Formulations · Hotel Essentials',
+    subtitle: 'Bath gel, foam bath, shampoo, shower gel, body lotion, moisturizer & soaps',
+    details: 'Botanical Formulations · Victol Gold',
     image: '/images/botanical_guest_amenities.jpg',
     category: 'Guest Amenities',
-    brands: [],
-    industries: ['Hotels'],
+    brands: ['Victol Gold'],
+    industries: ['Hotels', 'Resorts'],
     factors: ['Paraben Free', 'Custom Hotel Branding']
   },
   {
     id: 'amenities-room-kits',
     title: 'Customised Guest & Room Kits',
     subtitle: 'Dental kit, shaving kit, sewing kit & medical kits',
-    details: 'Eco-Packaging · Custom Guest Kits',
+    details: 'Eco-Packaging · Victol Gold',
     image: '/images/hotel_guest_kits.jpg',
     category: 'Guest Amenities',
-    brands: [],
-    industries: ['Hotels'],
+    brands: ['Victol Gold'],
+    industries: ['Hotels', 'Resorts'],
     factors: ['Biodegradable', 'Custom Hotel Logo']
+  },
+  {
+    id: 'amenities-inscape-accessories',
+    title: 'Inscape Guestroom Leatherette Folders & Amenity Accessories',
+    subtitle: 'Leatherette bill/menu folders, tissue box covers, amenity display trays, luggage tags & DND signs',
+    details: 'Guestroom & Front Office Leatherette · Inscape',
+    image: '/images/hotel_folders_cards_stationery.jpg',
+    category: 'Guest Amenities',
+    brands: ['Inscape'],
+    industries: ['Hotels', 'Resorts', 'Restaurants'],
+    factors: ['Handcrafted Finish', 'Custom Embossing', 'Water Resistant']
+  },
+  {
+    id: 'amenities-eco-friendly-bamboo',
+    title: 'Eco-Friendly Bamboo Amenities & Kraft Packaging',
+    subtitle: 'Biodegradable bamboo toothbrushes, wooden combs, paper cotton swabs & kraft wrapped guest comforts',
+    details: 'Sustainable Guestroom Collection · Victol Gold',
+    image: '/images/image__guest_amenities_equipment__f4f6ec37.webp',
+    category: 'Guest Amenities',
+    brands: ['Victol Gold'],
+    industries: ['Hotels', 'Resorts'],
+    factors: ['100% Biodegradable', 'Zero Plastic', 'Eco-Friendly / Green']
   },
   {
     id: 'amenities-room-accessories',
     title: 'Room Amenities & Bath Slippers',
-    subtitle: 'Bath slippers, hangers, laundry paper bags, shoe mitts',
-    details: 'In-Room Essentials & Slippers',
-    image: '/images/image__guest_amenities_equipment__f4f6ec37.webp',
+    subtitle: 'Hygiene bags, shoe mitts, hangers, laundry paper bags & bath slippers',
+    details: 'In-Room Essentials, Hygiene Bags & Slippers',
+    image: '/images/cardimage_1dbd1171.webp',
     category: 'Guest Amenities',
-    brands: [],
-    industries: ['Hotels'],
+    brands: ['Victol Gold'],
+    industries: ['Hotels', 'Resorts'],
     factors: ['Eco-Friendly', 'Bulk Wholesale']
   },
   {
     id: 'amenities-bath-tissue',
     title: 'Bath Amenities, Toilet Rolls & WC Bands',
-    subtitle: 'Virgin pulp toilet rolls, sanitized WC bands & glass covers',
-    details: 'Sanitary Paper Goods & Tissue',
+    subtitle: 'Virgin pulp toilet rolls, sanitized WC bands, glass covers & glass coasters',
+    details: 'Sanitary Paper Goods & Tissue · Fresh N Fine',
     image: '/images/hotel_bath_amenities_toilet_rolls.jpg',
     category: 'Guest Amenities',
-    brands: [],
+    brands: ['Fresh N Fine'],
     industries: ['Hotels'],
     factors: ['100% Virgin Pulp', 'Hygienic Wrapping']
   },
   {
     id: 'amenities-housekeeping-stationery',
-    title: 'Folders, Cards & Disposables',
-    subtitle: 'Bill folders, menu folders, DND cards, luggage tags, stirrers & straws',
-    details: 'Front Office, Guest Stationery & Dining',
+    title: 'Guest Stationery, Folders & Disposables',
+    subtitle: 'Pens, bill/menu folders, DND cards, Doli paper, food containers, luggage tags, shoe shine, toothpicks, stirrers, straws & room fresheners',
+    details: 'Front Office, Guest Stationery, Room Care & Dining',
     image: '/images/hotel_folders_cards_stationery.jpg',
     category: 'Guest Amenities',
-    brands: [],
+    brands: ['Inscape', 'Fresh N Fine'],
     industries: ['Hotels', 'Restaurants'],
     factors: ['Custom Embossing', 'Food Grade Disposables']
   },
@@ -638,6 +704,50 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     industries: ['Hotels', 'Restaurants', 'Catering'],
     factors: ['Industrial Build', 'CE Certified']
   },
+  {
+    id: 'utensils-alltime-plastics',
+    title: 'All Time Commercial Food Storage & Ingredient Bins',
+    subtitle: 'Airtight ingredient storage containers, dough trays, bussing tubs & food crates',
+    details: 'BPA-Free Food Grade Plastic · All Time',
+    image: '/images/cambro_food_pans.jpg',
+    category: 'Kitchen Utensils',
+    brands: ['All Time'],
+    industries: ['Hotels', 'Restaurants', 'Catering', 'Cloud Kitchens'],
+    factors: ['Food Grade Certified', 'Stackable', 'Freezer Safe']
+  },
+  {
+    id: 'utensils-pinnacle-thermal',
+    title: 'Pinnacle Thermal Food Carriers & Buffet Warmers',
+    subtitle: 'Insulated thermo casserole warmers, food transport carriers & banquet ice chests',
+    details: 'Polyurethane Insulated · Pinnacle',
+    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.webp',
+    category: 'Kitchen Utensils',
+    brands: ['Pinnacle'],
+    industries: ['Catering', 'Hotels', 'Banquets & Venues'],
+    factors: ['6+ Hour Heat Retention', 'Rugged Outer Shell', 'Food Safe']
+  },
+  {
+    id: 'utensils-chafing-buffet',
+    title: 'Commercial Roll-Top Chafing Dishes & Buffet Stations',
+    subtitle: 'Hydraulic roll-top chafers, induction chafing dishes, soup urns & food display risers',
+    details: 'AISI 304 Stainless Steel · Pradeep, Bakers, Mosaic',
+    image: '/images/image__stainless_steel_brassware__69672dfd.webp',
+    category: 'Kitchen Utensils',
+    brands: ['Pradeep', 'Bakers', 'Mosaic'],
+    industries: ['Hotels', 'Banquets & Venues', 'Catering'],
+    factors: ['Hydraulic Soft-Close', 'Induction & Sterno Ready', 'Corrosion Resistant']
+  },
+  {
+    id: 'utensils-haccp-chopping-boards',
+    title: 'HACCP Color-Coded Commercial Cutting Boards',
+    subtitle: 'High-density polyethylene color-coded food prep boards preventing cross-contamination',
+    details: 'High-Density Polyethylene (HDPE) · All Time, Cambro',
+    image: '/images/cambro_food_pans.jpg',
+    category: 'Kitchen Utensils',
+    brands: ['All Time', 'Cambro'],
+    industries: ['Hotels', 'Restaurants', 'Cloud Kitchens', 'Healthcare'],
+    factors: ['HACCP Compliant', 'Non-Porous', 'Knife-Friendly']
+  },
 
   // --- 6. HOUSE KEEPING ---
   {
@@ -750,6 +860,28 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     industries: ['Hotels', 'Restaurants', 'Facilities & Janitorial'],
     factors: ['Instant Kill Formulation', 'Fast Acting']
   },
+  {
+    id: 'housekeeping-reckitt-sanitation',
+    title: 'Reckitt Professional Infection Control & Disinfection',
+    subtitle: 'Hospital-grade Dettol antiseptic, Lizol floor disinfectants, Harpic & Colin surface cleaners',
+    details: 'Hospital-Grade Infection Control · Reckitt',
+    image: '/images/image__cleaning_equipment___janitorial__b009223f.webp',
+    category: 'House Keeping',
+    brands: ['Reckitt'],
+    industries: ['Hotels', 'Healthcare & Hospitals', 'Facilities & Janitorial'],
+    factors: ['99.9% Pathogen Kill', 'NABH Approved', 'Medical Grade']
+  },
+  {
+    id: 'housekeeping-skylark-floorcare',
+    title: 'Skylark Professional Mops, Squeegees & Floor Care',
+    subtitle: 'Kentucky wet mops, dry dust mops, flat microfiber mop systems & floor squeegees',
+    details: 'Commercial Floor Maintenance · Skylark',
+    image: '/images/housekeeping_service_cart.jpg',
+    category: 'House Keeping',
+    brands: ['Skylark'],
+    industries: ['Hotels', 'Hospitals', 'Facilities & Janitorial'],
+    factors: ['High Absorption', 'Lint Free', 'Commercial Grade']
+  },
 
   // --- 7. CLEANING CHEMICALS ---
   {
@@ -774,13 +906,24 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     industries: ['Hotels', 'Restaurants', 'Facilities & Janitorial'],
     factors: ['High Potency', 'Bulk 5L / 20L Packs']
   },
+  {
+    id: 'chemicals-sdb-biotic',
+    title: 'SDB Biotic Eco-Enzyme & Kitchen Hygiene Concentrates',
+    subtitle: 'Biological drain maintainers, eco grease cutters & probiotic washroom cleaners',
+    details: 'Eco-Enzyme Green Formulations · SDB Biotic',
+    image: '/images/commercial_cleaning_chemicals.jpg',
+    category: 'Cleaning Chemicals',
+    brands: ['SDB Biotic'],
+    industries: ['Hotels', 'Restaurants', 'Facilities & Janitorial'],
+    factors: ['100% Eco-Friendly', 'Non-Corrosive', 'Septic Safe']
+  },
 
   // --- 8. ENGINEERING EQUIPMENTS ---
   {
     id: 'engineering-kitchen-equipments',
-    title: 'Commercial Kitchen Equipments',
-    subtitle: 'High-power burners, ovens, fryers, griddles & hot bain-maries',
-    details: 'Commercial Kitchen Units · Kitchen Equipments',
+    title: 'Commercial Cooking Ranges & Hot Equipment',
+    subtitle: 'Induction cookers, dosa plates, griddles, fryers, commercial gas ranges & hot bain-maries',
+    details: 'Commercial Cooking Units · Kitchen Equipments',
     image: '/images/commercial_kitchen_equipment.jpg',
     category: 'Engineering Equipments',
     brands: ['Kitchen Equipments'],
@@ -789,14 +932,102 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
   },
   {
     id: 'engineering-serman',
-    title: 'Serman Engineering & Commercial Machinery',
-    subtitle: 'Commercial refrigeration, dishwashers & facility machines',
-    details: 'Heavy Machinery & Systems · Serman',
+    title: 'Commercial Refrigeration & Warewashing',
+    subtitle: 'Commercial refrigerators, deep freezers, undercounter chillers, display counters & dishwashers',
+    details: 'Refrigeration, Warewashing & Systems · Serman',
     image: '/images/commercial_kitchen_equipment.jpg',
     category: 'Engineering Equipments',
     brands: ['Serman'],
     industries: ['Hotels', 'Restaurants', 'Facilities & Janitorial'],
     factors: ['Energy Efficient', 'Heavy Duty Performance']
+  },
+  {
+    id: 'engineering-food-prep-machinery',
+    title: 'Food Preparation Machinery',
+    subtitle: 'Chicken grills, dough kneaders, vegetable cutters, pulverizers, meat mincers, planetary mixers & shawarma machines',
+    details: 'Heavy-Duty Food Prep Machinery · Serman',
+    image: '/images/commercial_kitchen_equipment.jpg',
+    category: 'Engineering Equipments',
+    brands: ['Serman'],
+    industries: ['Hotels', 'Restaurants', 'Catering'],
+    factors: ['Heavy Duty Motor', 'Commercial Grade', 'Service Support']
+  },
+  {
+    id: 'engineering-bakery-ovens',
+    title: 'Bakery & Service Ovens',
+    subtitle: 'Deck ovens, convection ovens, pizza ovens and professional bakery service equipment',
+    details: 'Commercial Baking Equipment · Serman',
+    image: '/images/commercial_kitchen_equipment.jpg',
+    category: 'Engineering Equipments',
+    brands: ['Serman'],
+    industries: ['Hotels', 'Restaurants', 'Cafes', 'Catering'],
+    factors: ['Even Heat Distribution', 'Commercial Grade', 'Energy Efficient']
+  },
+  {
+    id: 'engineering-water-ice',
+    title: 'Water Coolers & Ice Cube Machines',
+    subtitle: 'Commercial water coolers and ice cube machines for kitchen, banquet and beverage operations',
+    details: 'Water & Ice Systems · Serman',
+    image: '/images/commercial_kitchen_equipment.jpg',
+    category: 'Engineering Equipments',
+    brands: ['Serman'],
+    industries: ['Hotels', 'Restaurants', 'Cafes', 'Catering'],
+    factors: ['High Output', 'Hygienic Operation', 'Commercial Grade']
+  },
+  {
+    id: 'engineering-ventilation',
+    title: 'Kitchen Exhaust & Ventilation Systems',
+    subtitle: 'Industrial hoods, fresh-air systems and exhaust systems for commercial kitchens',
+    details: 'Commercial Ventilation Systems · Serman',
+    image: '/images/commercial_kitchen_equipment.jpg',
+    category: 'Engineering Equipments',
+    brands: ['Serman'],
+    industries: ['Hotels', 'Restaurants', 'Catering'],
+    factors: ['Site-Specific Design', 'Heavy Duty', 'Installation Support']
+  },
+  {
+    id: 'engineering-ss-fabrication',
+    title: 'Stainless Steel Tables & Sinks',
+    subtitle: 'Commercial SS tables, sinks and utility stations for housekeeping, linen and hygiene operations',
+    details: 'Custom Stainless Steel Fabrication · Serman',
+    image: '/images/commercial_kitchen_equipment.jpg',
+    category: 'Engineering Equipments',
+    brands: ['Serman'],
+    industries: ['Hotels', 'Restaurants', 'Facilities & Janitorial', 'Catering'],
+    factors: ['Custom Dimensions', 'Corrosion Resistant', 'Commercial Grade']
+  },
+  {
+    id: 'engineering-guestroom-kettles',
+    title: 'Havells & Philips Commercial Hotel Kettles',
+    subtitle: '0.8L to 1.2L 304 SS cordless electric kettles with auto-shutoff & boil-dry safety',
+    details: 'Commercial Hospitality Electricals · Havells, Philips',
+    image: '/images/commercial_kitchen_equipment.jpg',
+    category: 'Engineering Equipments',
+    brands: ['Havells', 'Philips'],
+    industries: ['Hotels', 'Resorts', 'Healthcare'],
+    factors: ['304 Stainless Steel', 'Auto-Shutoff Safety', 'Concealed Heating Element']
+  },
+  {
+    id: 'engineering-hairdryers-handdryers',
+    title: 'Hospitality Wall Hair Dryers & Sensor Hand Dryers',
+    subtitle: 'Wall-mounted bathroom hair dryers with shaver sockets & automatic high-speed hand dryers',
+    details: 'Bathroom Safety Appliances · Havells, Altek',
+    image: '/images/image__guest_amenities_equipment__f4f6ec37.webp',
+    category: 'Engineering Equipments',
+    brands: ['Havells', 'Altek'],
+    industries: ['Hotels', 'Resorts', 'Facilities & Janitorial'],
+    factors: ['Overheat Protection', 'Dual Voltage Socket', 'Touchless Sensor']
+  },
+  {
+    id: 'engineering-insect-killers-aircurtains',
+    title: 'Altek Electronic Fly Killers & Air Curtains',
+    subtitle: 'High-attraction UV insect killers and commercial entrance air curtains for hygiene control',
+    details: 'Commercial Pest & Climate Barriers · Altek, Havells',
+    image: '/images/commercial_kitchen_equipment.jpg',
+    category: 'Engineering Equipments',
+    brands: ['Altek', 'Havells'],
+    industries: ['Hotels', 'Restaurants', 'Cafes', 'Food Processing'],
+    factors: ['HACCP Kitchen Compliant', 'High UV Output', 'Energy Efficient']
   },
 
   // --- 9. CAFES ---
@@ -872,12 +1103,12 @@ export const CATEGORY_FILTERS = [
   'Crockery',
   'Cutlery',
   'Linen',
-  'Cafes',
   'Guest Amenities',
   'Kitchen Utensils',
   'House Keeping',
   'Cleaning Chemicals',
-  'Engineering Equipments'
+  'Engineering Equipments',
+  'Cafes'
 ];
 
 export const ABOUT_STATS = [
@@ -1171,4 +1402,3 @@ export const CONTACT_INFO = {
   mapEmbedUrl: 'https://maps.google.com/maps?q=Care4+Associates,+GPO+Lane,+Statue,+Thiruvananthapuram,+Kerala+695001&t=&z=16&ie=UTF8&iwloc=&output=embed',
   mapDirectionsUrl: 'https://www.google.com/maps/search/Care4+Associates,+GPO+Lane,+Statue,+Thiruvananthapuram,+Kerala+695001'
 };
-

@@ -32,21 +32,38 @@ const CLIENT_LOGOS: ClientLogo[] = [
   { name: 'iDynamics', file: 'idynamics_logo.webp', scale: 1.35 },
   { name: 'Asianet News', file: 'asianet_news_logo.webp', scale: 1.3 },
 
-  // Hospitality & Renowned Clubs
+  // Luxury Resorts & Premium Hotels
   { name: 'Ruby Arena Hotel', file: 'ruby_arena_hotel_logo.webp', scale: 1.15 },
   { name: 'Hotel Libra', file: 'hotel_libra_logo.webp', scale: 1.4 },
   { name: 'Hotel Thamburu', file: 'hotel_thamburu_logo.webp', scale: 1.35 },
+  { name: 'Classic Avenue', file: 'classic_avenue_hotel_logo.png', scale: 1.2 },
+  { name: 'Cordial Sopanam Hotel', file: 'cordial_sopanam_hotel_logo.png', scale: 1.25 },
+  { name: 'KTDC Hotels', file: 'ktdc_logo.jpg', scale: 1.15 },
+  { name: "B'Canti Beach Resort", file: 'bcanti_resort_logo.png', scale: 1.25 },
+  { name: 'Sun View Beach Resort', file: 'sun_view_resort_logo.png', scale: 1.2 },
+  { name: 'Spice Retreat', file: 'spice_retreat_logo.svg', scale: 1.2 },
   { name: 'National Club', file: 'national_club_logo.webp', scale: 1.35 },
   { name: 'Sri Mulam Club', file: 'sri_mulam_club_logo.webp', scale: 1.45 },
 
-  // Premier Dining, Bakeries & Food Services
+  // Artisan Cafes & Bakeries
+  { name: "Eve's Coffee", file: 'eves_coffee_logo.png', scale: 1.25 },
+  { name: 'Ambrosia Bakery & Cafe', file: 'ambrosia_logo.png', scale: 1.3 },
+  { name: 'Zam Zam Bun Cafe', file: 'zam_zam_vector.svg', scale: 1.45 },
+  { name: 'Huddles Cafe', file: 'huddles_cafe_logo.png', scale: 1.2 },
+  { name: 'Patty & Bun', file: 'patty_and_bun_logo.png', scale: 1.2 },
+  { name: 'Cafe Marisol', file: 'cafe_marisol_logo.png', scale: 1.2 },
+  { name: 'Old Skool Cafe', file: 'old_skool_cafe_logo.png', scale: 1.25 },
+  { name: 'Turf Cafe', file: 'turf_cafe_logo.png', scale: 1.2 },
+  { name: 'La Forno Cafe', file: 'la_forno_cafe_logo.png', scale: 1.2 },
+  { name: 'Kynorah Cafe', file: 'kynorah_cafe_logo.svg', scale: 1.25 },
+
+  // Premier Dining & Food Services
   { name: 'Paragon Restaurant', file: 'paragon_restaurant_logo.webp', scale: 1.4 },
   { name: 'Azad Restaurant', file: 'azad_restaurant_logo.webp', scale: 1.2 },
   { name: "Halai's Biryani", file: 'halais_biryani_logo.webp', scale: 1.35 },
   { name: 'Rahmania Kethels', file: 'rahmania_kethels_logo.webp', scale: 1.2 },
   { name: 'Ruchi Pure Veg', file: 'ruchi_pure_veg_logo.webp', scale: 1.45 },
   { name: 'Supreme Food Alliance', file: 'supreme_uppercrust_vector.svg', scale: 1.35 },
-  { name: 'Zam Zam Bun Cafe', file: 'zam_zam_vector.svg', scale: 1.45 },
   { name: 'Uday Sky Kitchen', file: 'uday_sky_kitchen_vector.svg', scale: 1.25 },
   { name: 'Trivanz Food Court', file: 'trivanz_clean_hires.webp', scale: 1.4 },
 ];
@@ -109,7 +126,7 @@ export const ClientMarquee: React.FC = () => {
       {/* Caption below customer logos (Items 12 & 13) */}
       <div className="client-marquee-footer">
         <p className="client-marquee-subtitle">
-          Trusted by leading organizations across healthcare, hospitality, technology &amp; enterprise sectors.
+          Trusted by leading organizations across luxury resorts, artisan cafes, premier hotels, healthcare &amp; enterprise sectors.
         </p>
       </div>
 

@@ -90,8 +90,8 @@ export const ProductPage: React.FC<ProductPageProps> = ({
   initialFilter, 
   onClearInitialFilter 
 }) => {
-  const [activeDeptId, setActiveDeptId] = useState<string>('dining');
-  const [activeSubcat, setActiveSubcat] = useState<string>('All');
+  const [activeCategory, setActiveCategory] = useState<string>('All');
+  const [activeDeptId, setActiveDeptId] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [viewMode, setViewMode] = useState<'grid' | 'table'>('grid');
   const [selectedDetailProduct, setSelectedDetailProduct] = useState<ProductCatalogCard | null>(null);
@@ -106,23 +106,22 @@ export const ProductPage: React.FC<ProductPageProps> = ({
         c.toLowerCase() === normalizedFilter
       );
       if (matchedCat) {
-        // Find which department owns this category
-        const dept = HOSPITALITY_DEPARTMENTS.find(d => d.categories.includes(matchedCat));
-        if (dept) {
-          setActiveDeptId(dept.id);
-          setActiveSubcat(matchedCat);
-        } else {
-          setActiveDeptId('all');
-          setActiveSubcat(matchedCat);
-        }
+        setActiveCategory(matchedCat);
+        setActiveDeptId('all');
       } else {
         // Check if sector matches a department
-        if (initialFilter.toLowerCase().includes('hotel') || initialFilter.toLowerCase().includes('restaurant')) {
+        if (initialFilter.toLowerCase().includes('hotel') || initialFilter.toLowerCase().includes('dining') || initialFilter.toLowerCase().includes('restaurant')) {
           setActiveDeptId('dining');
+          setActiveCategory('All');
         } else if (initialFilter.toLowerCase().includes('cafe')) {
           setActiveDeptId('cafe');
-        } else if (initialFilter.toLowerCase().includes('catering')) {
+          setActiveCategory('All');
+        } else if (initialFilter.toLowerCase().includes('kitchen') || initialFilter.toLowerCase().includes('catering')) {
           setActiveDeptId('kitchen');
+          setActiveCategory('All');
+        } else if (initialFilter.toLowerCase().includes('housekeeping')) {
+          setActiveDeptId('housekeeping');
+          setActiveCategory('All');
         }
       }
       if (onClearInitialFilter) onClearInitialFilter();
@@ -134,24 +133,40 @@ export const ProductPage: React.FC<ProductPageProps> = ({
     return HOSPITALITY_DEPARTMENTS.find(d => d.id === activeDeptId) || null;
   }, [activeDeptId]);
 
-  // Available sub-categories for the active department
-  const availableSubcategories = useMemo(() => {
-    if (!currentDept) return CATEGORY_FILTERS;
-    return currentDept.categories;
-  }, [currentDept]);
+  // Handle classification change
+  const handleSelectCategory = (cat: string) => {
+    setActiveCategory(cat);
+    if (cat !== 'All' && activeDeptId !== 'all') {
+      const dept = HOSPITALITY_DEPARTMENTS.find(d => d.id === activeDeptId);
+      if (dept && !dept.categories.includes(cat)) {
+        setActiveDeptId('all');
+      }
+    }
+  };
 
-  // Filter products based on active department, subcategory, and search query
+  // Handle department filter change
+  const handleSelectDept = (deptId: string) => {
+    setActiveDeptId(deptId);
+    if (deptId !== 'all') {
+      const dept = HOSPITALITY_DEPARTMENTS.find(d => d.id === deptId);
+      if (dept && activeCategory !== 'All' && !dept.categories.includes(activeCategory)) {
+        setActiveCategory('All');
+      }
+    }
+  };
+
+  // Filter products based on active department, classification, and search query
   const filteredProducts = useMemo(() => {
     return CATALOG_PRODUCTS.filter(product => {
       // 1. Department match
-      if (currentDept) {
-        const belongsToDept = currentDept.categories.includes(product.category);
-        if (!belongsToDept) return false;
+      if (activeDeptId !== 'all') {
+        const dept = HOSPITALITY_DEPARTMENTS.find(d => d.id === activeDeptId);
+        if (dept && !dept.categories.includes(product.category)) return false;
       }
 
-      // 2. Sub-category match
-      if (activeSubcat !== 'All') {
-        if (product.category !== activeSubcat) return false;
+      // 2. Category classification match
+      if (activeCategory !== 'All') {
+        if (product.category !== activeCategory) return false;
       }
 
       // 3. Search query match
@@ -169,14 +184,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
 
       return true;
     });
-  }, [currentDept, activeSubcat, searchQuery]);
-
-  // Handle department change
-  const handleSelectDept = (deptId: string) => {
-    setActiveDeptId(deptId);
-    setActiveSubcat('All');
-    setSearchQuery('');
-  };
+  }, [activeDeptId, activeCategory, searchQuery]);
 
   return (
     <div className="lookbook-page-root">
@@ -218,62 +226,67 @@ export const ProductPage: React.FC<ProductPageProps> = ({
           </div>
         </div>
 
-        {/* Department Switcher Navigation */}
+        {/* 2026 Product Classification Master Navigation Bar */}
         <div className="product-hero-tabs-wrap">
           <div className="product-hero-tabs-container">
-            <nav className="department-tabs-bar" aria-label="Hospitality departments">
-              {HOSPITALITY_DEPARTMENTS.map(dept => {
-                const count = CATALOG_PRODUCTS.filter(p => dept.categories.includes(p.category)).length;
-                const isActive = activeDeptId === dept.id;
+            <nav className="classification-tabs-bar" aria-label="Official Product Classifications">
+              <button
+                type="button"
+                className={`classification-tab-btn ${activeCategory === 'All' ? 'active' : ''}`}
+                onClick={() => handleSelectCategory('All')}
+              >
+                <Grid3X3 size={15} />
+                <span>All Products</span>
+                <span className="tab-count-badge">{CATALOG_PRODUCTS.length}</span>
+              </button>
+
+              {CATEGORY_FILTERS.map(cat => {
+                const count = CATALOG_PRODUCTS.filter(p => p.category === cat).length;
+                const isActive = activeCategory === cat;
                 return (
                   <button
-                    key={dept.id}
+                    key={cat}
                     type="button"
-                    className={`dept-tab-btn ${isActive ? 'active' : ''}`}
-                    onClick={() => handleSelectDept(dept.id)}
+                    className={`classification-tab-btn ${isActive ? 'active' : ''}`}
+                    onClick={() => handleSelectCategory(cat)}
                   >
-                    <span>{dept.label}</span>
-                    <span className="dept-tab-badge">{count}</span>
+                    <CategoryIcon category={cat} size={15} />
+                    <span>{cat}</span>
+                    <span className="tab-count-badge">{count}</span>
                   </button>
                 );
               })}
-              <button
-                type="button"
-                className={`dept-tab-btn ${activeDeptId === 'all' ? 'active' : ''}`}
-                onClick={() => handleSelectDept('all')}
-              >
-                <span>Master Catalog (All Items)</span>
-                <span className="dept-tab-badge">{CATALOG_PRODUCTS.length}</span>
-              </button>
             </nav>
           </div>
         </div>
       </section>
 
-      {/* ==================== 3. SUB-CATEGORY & SEARCH BAR ==================== */}
+      {/* ==================== 2. STICKY SUB-CATEGORY & SEARCH BAR ==================== */}
       <div className="lookbook-subnav-bar">
         <div className="lookbook-subnav-inner">
-          <div className="subcat-pills-row">
+          {/* Operational Venue Filter Chips */}
+          <div className="dept-pills-row">
+            <span className="filter-row-label">Operational Scope:</span>
             <button
               type="button"
-              className={`subcat-pill ${activeSubcat === 'All' ? 'active' : ''}`}
-              onClick={() => setActiveSubcat('All')}
+              className={`dept-pill-btn ${activeDeptId === 'all' ? 'active' : ''}`}
+              onClick={() => handleSelectDept('all')}
             >
-              <span>All Department Items</span>
-              <span className="subcat-count">{filteredProducts.length}</span>
+              <span>All Venues</span>
+              <span className="dept-pill-badge">{CATALOG_PRODUCTS.length}</span>
             </button>
-            {availableSubcategories.map(cat => {
-              const catCount = CATALOG_PRODUCTS.filter(p => p.category === cat).length;
+            {HOSPITALITY_DEPARTMENTS.map(dept => {
+              const count = CATALOG_PRODUCTS.filter(p => dept.categories.includes(p.category)).length;
+              const isActive = activeDeptId === dept.id;
               return (
                 <button
-                  key={cat}
+                  key={dept.id}
                   type="button"
-                  className={`subcat-pill ${activeSubcat === cat ? 'active' : ''}`}
-                  onClick={() => setActiveSubcat(cat)}
+                  className={`dept-pill-btn ${isActive ? 'active' : ''}`}
+                  onClick={() => handleSelectDept(dept.id)}
                 >
-                  <CategoryIcon category={cat} size={14} />
-                  <span>{cat}</span>
-                  <span className="subcat-count">{catCount}</span>
+                  <span>{dept.label}</span>
+                  <span className="dept-pill-badge">{count}</span>
                 </button>
               );
             })}
@@ -285,7 +298,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
               <input 
                 id="catalog-main-search-input"
                 type="text"
-                placeholder="Search products, materials, brands..."
+                placeholder="Search 86 products, specs, brands..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
@@ -325,26 +338,34 @@ export const ProductPage: React.FC<ProductPageProps> = ({
         </div>
       </div>
 
-      {/* ==================== 4. MAIN CONTENT AREA ==================== */}
+      {/* ==================== 3. MAIN CONTENT AREA ==================== */}
       <main className="lookbook-content-layout">
         <div className="lookbook-results-header">
           <div className="lookbook-results-count">
-            Showing <strong>{filteredProducts.length}</strong> {filteredProducts.length === 1 ? 'commercial product' : 'commercial products'} in {currentDept ? currentDept.label : 'Master Catalog'}
-            {activeSubcat !== 'All' && <span> · Category: <strong>{activeSubcat}</strong></span>}
+            Showing <strong>{filteredProducts.length}</strong> {filteredProducts.length === 1 ? 'commercial product' : 'commercial products'}
+            {activeCategory !== 'All' ? (
+              <span> in <strong>{activeCategory}</strong></span>
+            ) : (
+              <span> across <strong>All 9 Classifications</strong></span>
+            )}
+            {activeDeptId !== 'all' && (
+              <span> · Filtered by <strong>{currentDept?.label}</strong></span>
+            )}
             {searchQuery && <span> · Matching "<strong>{searchQuery}</strong>"</span>}
           </div>
 
-          {(activeSubcat !== 'All' || searchQuery) && (
+          {(activeCategory !== 'All' || activeDeptId !== 'all' || searchQuery) && (
             <button 
               type="button"
               className="btn-clear-all-filters"
               onClick={() => {
-                setActiveSubcat('All');
+                setActiveCategory('All');
+                setActiveDeptId('all');
                 setSearchQuery('');
               }}
             >
               <RotateCcw size={13} />
-              <span>Reset Filters</span>
+              <span>Reset All Filters</span>
             </button>
           )}
         </div>
@@ -363,7 +384,8 @@ export const ProductPage: React.FC<ProductPageProps> = ({
               type="button"
               className="btn-reset-filters-cta"
               onClick={() => {
-                setActiveSubcat('All');
+                setActiveCategory('All');
+                setActiveDeptId('all');
                 setSearchQuery('');
               }}
             >
