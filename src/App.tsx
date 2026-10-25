@@ -6,10 +6,9 @@ import { ContactModal } from './components/ContactModal';
 import { HomePage } from './pages/HomePage';
 import { ProductPage } from './pages/ProductPage';
 import { AboutPage } from './pages/AboutPage';
-import { ContactPage } from './pages/ContactPage';
 
 export const App: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'home' | 'products' | 'about' | 'contact'>('home');
+  const [activeTab, setActiveTab] = useState<'home' | 'products' | 'about'>('home');
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
   const [contactModalOpen, setContactModalOpen] = useState(false);
   const [selectedQuoteProduct, setSelectedQuoteProduct] = useState<string | undefined>(undefined);
@@ -68,7 +67,6 @@ export const App: React.FC = () => {
       <Navbar 
         activeTab={activeTab} 
         onNavigate={handleNavigate} 
-        onOpenQuote={() => handleOpenQuote()} 
         onOpenContact={handleOpenContact}
       />
 
@@ -90,12 +88,6 @@ export const App: React.FC = () => {
       {activeTab === 'about' && (
         <AboutPage 
           onOpenQuote={() => handleOpenQuote()} 
-          onNavigateHome={() => handleNavigate('home')} 
-        />
-      )}
-
-      {activeTab === 'contact' && (
-        <ContactPage 
           onNavigateHome={() => handleNavigate('home')} 
         />
       )}

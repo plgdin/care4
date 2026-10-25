@@ -15,22 +15,11 @@ export const BrandsSection: React.FC<BrandsSectionProps> = ({ onViewAllBrands })
           <div className="header-left">
             <div className="section-eyebrow">
               <span className="section-eyebrow-line" />
-              <span>TRUSTED BRANDS</span>
+              <span>PREFERRED BRANDS</span>
             </div>
             <h2 className="brands-title">
               The brands behind great hospitality.
             </h2>
-          </div>
-          <div className="header-right">
-            <p className="brands-desc">
-              We use well-known and reliable brands in our supply solutions, so you get quality products that perform.
-            </p>
-            {onViewAllBrands && (
-              <button className="action-link" onClick={onViewAllBrands}>
-                <span>View all brands</span>
-                <ArrowRight size={16} />
-              </button>
-            )}
           </div>
         </div>
 
@@ -72,6 +61,19 @@ export const BrandsSection: React.FC<BrandsSectionProps> = ({ onViewAllBrands })
             ))}
           </div>
         </div>
+
+        {/* Brand Section Footer Note (moved below logos) */}
+        <div className="brands-footer">
+          <p className="brands-desc">
+            We use well-known and reliable brands in our supply solutions, so you get quality products that perform.
+          </p>
+          {onViewAllBrands && (
+            <button className="action-link" onClick={onViewAllBrands}>
+              <span>View all brands</span>
+              <ArrowRight size={16} />
+            </button>
+          )}
+        </div>
       </div>
 
       <style>{`
@@ -103,18 +105,19 @@ export const BrandsSection: React.FC<BrandsSectionProps> = ({ onViewAllBrands })
           line-height: 1.15;
           letter-spacing: -0.015em;
         }
-        .header-right {
-          max-width: 520px;
+        .brands-footer {
+          margin-top: 36px;
           display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 16px;
+          justify-content: space-between;
+          align-items: center;
+          gap: 32px;
         }
         .brands-desc {
           font-family: var(--font-body);
-          font-size: 18.5px;
-          line-height: 1.65;
+          font-size: 18px;
+          line-height: 1.6;
           color: var(--color-text-body);
+          max-width: 680px;
         }
         .action-link {
           display: inline-flex;
@@ -124,6 +127,7 @@ export const BrandsSection: React.FC<BrandsSectionProps> = ({ onViewAllBrands })
           font-size: 17px;
           font-weight: 600;
           color: var(--color-navy-dark);
+          white-space: nowrap;
           transition: color var(--transition-fast), transform var(--transition-fast);
         }
         .action-link:hover {
@@ -178,8 +182,12 @@ export const BrandsSection: React.FC<BrandsSectionProps> = ({ onViewAllBrands })
         }
         @media (max-width: 992px) {
           .brands-header {
+            margin-bottom: 36px;
+          }
+          .brands-footer {
             flex-direction: column;
             align-items: flex-start;
+            gap: 16px;
           }
           .brands-row {
             display: grid;

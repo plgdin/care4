@@ -39,7 +39,7 @@ export const Hero: React.FC<HeroProps> = ({ onExplore, onTalkToTeam }) => {
               Quality products. Smoother operations.
             </h2>
             <p className="hero-body">
-              Care4 Associates supplies the essentials for hotels, restaurants, cafes and catering businesses — from tableware and kitchen equipment to housekeeping, guest amenities and cleaning solutions.
+              Care4 Associates supplies the essentials for hotels, restaurants, cafes and catering businesses — all the way from a spoon to commercial kitchen equipment, guest amenities and housekeeping solutions.
             </p>
           </div>
 

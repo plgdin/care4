@@ -4,14 +4,12 @@ import { Menu, X } from 'lucide-react';
 interface NavbarProps {
   activeTab: string;
   onNavigate: (tab: string, anchorId?: string) => void;
-  onOpenQuote: () => void;
   onOpenContact: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ 
   activeTab, 
   onNavigate, 
-  onOpenQuote: _onOpenQuote,
   onOpenContact 
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

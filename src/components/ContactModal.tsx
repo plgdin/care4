@@ -47,11 +47,57 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
     };
   }, [isOpen, onClose]);
 
+  // Reset submitted state whenever modal opens
+  useEffect(() => {
+    if (isOpen) {
+      setSubmitted(false);
+    }
+  }, [isOpen]);
+
   if (!isOpen) return null;
+
+  const generateMailtoUrl = () => {
+    const subject = encodeURIComponent(`[Care4 Inquiry] ${formData.name} - ${formData.business || 'Hospitality Inquiry'}`);
+    const body = encodeURIComponent(
+`Care4 Associates - Client Inquiry
+
+Contact Name: ${formData.name}
+Business / Establishment: ${formData.business}
+Industry Segment: ${formData.industry}
+Email: ${formData.email}
+Phone: ${formData.phone}
+
+Message / Requirements:
+${formData.message || 'General hospitality inquiry'}
+
+Sent via Care4 Associates Web Portal`
+    );
+    return `mailto:${CONTACT_INFO.emails[0]}?subject=${subject}&body=${body}`;
+  };
+
+  const generateWhatsAppUrl = () => {
+    const text = encodeURIComponent(
+`*Care4 Associates - Inquiry*
+*Name:* ${formData.name}
+*Business:* ${formData.business}
+*Industry:* ${formData.industry}
+*Phone:* ${formData.phone}
+*Email:* ${formData.email}
+
+*Message:*
+${formData.message || 'General hospitality inquiry'}`
+    );
+    return `https://wa.me/919995911830?text=${text}`;
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
+    try {
+      window.location.href = generateMailtoUrl();
+    } catch {
+      // Fallback
+    }
   };
 
   const handleReset = () => {
@@ -94,17 +140,33 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
             {submitted ? (
               <div className="contact-modal-success">
                 <CheckCircle size={56} className="success-icon" />
-                <h3 className="success-title">Thank You!</h3>
+                <h3 className="success-title">Inquiry Prepared!</h3>
                 <p className="success-message">
-                  Your inquiry has been submitted successfully. Our hospitality consultant will reach out to you shortly.
+                  Your message has been drafted for <strong>{CONTACT_INFO.emails[0]}</strong>. You can send it directly or chat instantly with our sales team via WhatsApp.
                 </p>
-                <button 
-                  type="button" 
-                  className="btn-modal-reset" 
-                  onClick={handleReset}
-                >
-                  Submit Another Inquiry
-                </button>
+                <div className="contact-success-actions">
+                  <a 
+                    href={generateWhatsAppUrl()} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="btn-contact-whatsapp"
+                  >
+                    Chat on WhatsApp (+91 99959 11830)
+                  </a>
+                  <a 
+                    href={generateMailtoUrl()} 
+                    className="btn-contact-email"
+                  >
+                    Send via Email App
+                  </a>
+                  <button 
+                    type="button" 
+                    className="btn-modal-reset" 
+                    onClick={handleReset}
+                  >
+                    Submit Another Inquiry
+                  </button>
+                </div>
               </div>
             ) : (
               <form className="contact-modal-form" onSubmit={handleSubmit}>
@@ -552,19 +614,61 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
           line-height: 1.5;
         }
         .btn-modal-reset {
-          margin-top: 6px;
+          margin-top: 4px;
           font-family: var(--font-body);
-          font-size: 13.5px;
+          font-size: 13px;
           font-weight: 600;
-          color: var(--color-primary);
-          background: #ffffff;
-          border: 1px solid #cbd5e1;
-          padding: 8px 18px;
-          border-radius: 8px;
+          color: #64748b;
+          background: transparent;
+          border: none;
+          padding: 6px 14px;
           cursor: pointer;
           transition: all 0.15s ease;
         }
         .btn-modal-reset:hover {
+          color: var(--color-navy-dark);
+        }
+        .contact-success-actions {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          width: 100%;
+          max-width: 360px;
+          margin-top: 6px;
+        }
+        .btn-contact-whatsapp {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: #25d366;
+          color: #ffffff;
+          padding: 11px 20px;
+          border-radius: 8px;
+          font-family: var(--font-body);
+          font-weight: 600;
+          font-size: 14px;
+          text-decoration: none;
+          transition: background 0.15s ease;
+        }
+        .btn-contact-whatsapp:hover {
+          background: #1ebd5a;
+        }
+        .btn-contact-email {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: #ffffff;
+          color: var(--color-navy-dark);
+          padding: 10px 20px;
+          border: 1px solid #cbd5e1;
+          border-radius: 8px;
+          font-family: var(--font-body);
+          font-weight: 600;
+          font-size: 14px;
+          text-decoration: none;
+          transition: all 0.15s ease;
+        }
+        .btn-contact-email:hover {
           background: #f8fafc;
           border-color: #94a3b8;
         }

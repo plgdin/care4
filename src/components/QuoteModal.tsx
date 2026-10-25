@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X, CheckCircle, Send } from 'lucide-react';
+import { CONTACT_INFO } from '../data/siteData';
 
 interface QuoteModalProps {
   isOpen: boolean;
@@ -18,20 +19,85 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose, initial
     message: ''
   });
 
+  // Close on Escape key press & prevent background scroll
+  React.useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen, onClose]);
+
+  // Reset submitted state whenever modal opens
+  React.useEffect(() => {
+    if (isOpen) {
+      setSubmitted(false);
+    }
+  }, [isOpen]);
+
   React.useEffect(() => {
     if (initialProduct && isOpen) {
       setFormData(prev => ({
         ...prev,
-        message: `I would like to request bulk pricing and product specifications for: ${initialProduct}`
+        message: `I would like to request pricing and product specifications for: ${initialProduct}`
       }));
     }
   }, [initialProduct, isOpen]);
 
   if (!isOpen) return null;
 
+  const generateMailtoUrl = () => {
+    const subject = encodeURIComponent(`[Care4 Quote Request] ${formData.name} - ${formData.business || 'Hospitality Inquiry'}`);
+    const body = encodeURIComponent(
+`Care4 Associates - Quotation Request
+
+Contact Name: ${formData.name}
+Business / Property: ${formData.business}
+Industry Segment: ${formData.industry}
+Email: ${formData.email}
+Phone: ${formData.phone}
+
+Product Requirements:
+${formData.message || 'General catalog quotation'}
+
+Sent via Care4 Associates Web Portal`
+    );
+    return `mailto:${CONTACT_INFO.emails[0]}?subject=${subject}&body=${body}`;
+  };
+
+  const generateWhatsAppUrl = () => {
+    const text = encodeURIComponent(
+`*Care4 Associates - Quotation Request*
+*Name:* ${formData.name}
+*Business:* ${formData.business}
+*Industry:* ${formData.industry}
+*Phone:* ${formData.phone}
+*Email:* ${formData.email}
+
+*Requirements:*
+${formData.message || 'General catalog quotation'}`
+    );
+    return `https://wa.me/919995911830?text=${text}`;
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
+    try {
+      window.location.href = generateMailtoUrl();
+    } catch {
+      // Fallback handled in success state
+    }
   };
 
   const handleReset = () => {
@@ -40,7 +106,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose, initial
   };
 
   return (
-    <div className="modal-backdrop" onClick={onClose}>
+    <div className="modal-backdrop" onClick={onClose} role="dialog" aria-modal="true">
       <div className="modal-container" onClick={(e) => e.stopPropagation()}>
         <button className="modal-close-btn" onClick={onClose} aria-label="Close modal">
           <X size={20} />
@@ -48,14 +114,31 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose, initial
 
         {submitted ? (
           <div className="modal-success-state">
-            <CheckCircle size={60} color="#16a34a" />
-            <h3 className="success-title">Thank You!</h3>
+            <CheckCircle size={56} color="#16a34a" />
+            <h3 className="success-title">Inquiry Prepared!</h3>
             <p className="success-desc">
-              Your inquiry has been received. Our hospitality specialist will get in touch with you within 24 hours.
+              Your quotation details have been generated for <strong>{CONTACT_INFO.emails[0]}</strong>. You can send it directly or chat instantly with our sales team via WhatsApp.
             </p>
-            <button className="btn-modal-done" onClick={handleReset}>
-              Close
-            </button>
+
+            <div className="modal-success-actions">
+              <a 
+                href={generateWhatsAppUrl()} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="btn-modal-whatsapp"
+              >
+                Chat on WhatsApp (+91 99959 11830)
+              </a>
+              <a 
+                href={generateMailtoUrl()} 
+                className="btn-modal-email"
+              >
+                Send via Email App
+              </a>
+              <button type="button" className="btn-modal-done" onClick={handleReset}>
+                Done
+              </button>
+            </div>
           </div>
         ) : (
           <form className="modal-form" onSubmit={handleSubmit}>
@@ -145,7 +228,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose, initial
             <div className="modal-direct-contact">
               <span className="direct-contact-label">Or reach our Trivandrum office directly:</span>
               <p className="direct-contact-text">
-                <strong>Care 4 Associates, India</strong> · Phone: <a href="tel:+914712450977">+91 471 2450977</a> · Mobile: <a href="tel:+919995911830">+91 9995911830</a>
+                <strong>{CONTACT_INFO.company}</strong> · Phone: <a href={`tel:${CONTACT_INFO.landlines[0].replace(/\s+/g, '')}`}>{CONTACT_INFO.landlines[0]}</a> · Mobile: <a href={`tel:${CONTACT_INFO.mobiles[0].replace(/\s+/g, '')}`}>{CONTACT_INFO.mobiles[0]}</a>
               </p>
             </div>
           </form>
@@ -293,15 +376,65 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose, initial
           font-size: 15px;
           color: var(--color-text-body);
           margin-bottom: 24px;
+          max-width: 420px;
+          line-height: 1.5;
+        }
+        .modal-success-actions {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          width: 100%;
           max-width: 380px;
         }
-        .btn-modal-done {
-          background: var(--color-navy-dark);
+        .btn-modal-whatsapp {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          background: #25d366;
           color: #ffffff;
-          padding: 12px 32px;
+          padding: 12px 20px;
           border-radius: var(--radius-xs);
           font-family: var(--font-body);
           font-weight: 600;
+          font-size: 14px;
+          text-decoration: none;
+          transition: background var(--transition-fast);
+        }
+        .btn-modal-whatsapp:hover {
+          background: #1ebd5a;
+        }
+        .btn-modal-email {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: var(--color-bg-alt);
+          color: var(--color-navy-dark);
+          padding: 10px 20px;
+          border: 1px solid var(--color-border);
+          border-radius: var(--radius-xs);
+          font-family: var(--font-body);
+          font-weight: 600;
+          font-size: 14px;
+          text-decoration: none;
+          transition: background var(--transition-fast);
+        }
+        .btn-modal-email:hover {
+          background: var(--color-border);
+        }
+        .btn-modal-done {
+          background: transparent;
+          color: #64748b;
+          padding: 8px 20px;
+          border-radius: var(--radius-xs);
+          font-family: var(--font-body);
+          font-weight: 600;
+          font-size: 13px;
+          cursor: pointer;
+          border: none;
+        }
+        .btn-modal-done:hover {
+          color: var(--color-navy-dark);
         }
         .modal-direct-contact {
           margin-top: 18px;

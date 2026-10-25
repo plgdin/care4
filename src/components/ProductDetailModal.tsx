@@ -809,17 +809,31 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
         /* Print Mode */
         @media print {
+          body * {
+            visibility: hidden !important;
+          }
+          .pdm-backdrop,
+          .pdm-backdrop * {
+            visibility: visible !important;
+          }
           .pdm-backdrop {
-            position: static;
-            background: none;
-            backdrop-filter: none;
-            padding: 0;
+            position: absolute !important;
+            left: 0 !important;
+            top: 0 !important;
+            width: 100% !important;
+            background: #ffffff !important;
+            backdrop-filter: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            z-index: 999999 !important;
           }
           .pdm-dialog {
-            box-shadow: none;
-            max-width: 100%;
-            max-height: none;
-            border-radius: 0;
+            box-shadow: none !important;
+            max-width: 100% !important;
+            max-height: none !important;
+            border-radius: 0 !important;
+            border: none !important;
+            overflow: visible !important;
           }
           .pdm-close-btn,
           .pdm-footer {

@@ -4,8 +4,6 @@ import {
   X, 
   Grid3X3, 
   LayoutList, 
-  Check, 
-  Plus, 
   FileText, 
   RotateCcw, 
   UtensilsCrossed, 
@@ -32,111 +30,34 @@ import { ProductDetailModal } from '../components/ProductDetailModal';
 import '../styles/product-page.css';
 
 // ----------------------------------------------------------------------
-// Department Lookbook Definitions & Turnkey Bundles
+// Department Lookbook Definitions
 // ----------------------------------------------------------------------
-interface TurnkeyBundle {
-  title: string;
-  desc: string;
-  includes: string[];
-  dispatch: string;
-  inquiryPayload: string;
-}
-
 interface HospitalityDepartment {
   id: string;
   label: string;
   categories: string[];
-  narrativeTitle: string;
-  narrativeText: string;
-  bgImage: string;
-  verifiedBrands: string[];
-  bundle: TurnkeyBundle;
 }
 
 const HOSPITALITY_DEPARTMENTS: HospitalityDepartment[] = [
   {
     id: 'dining',
     label: 'Fine Dining & Banquets',
-    categories: ['Crockery', 'Cutlery', 'Linen'],
-    narrativeTitle: 'Curated Tabletop & Banquet Hospitality',
-    narrativeText: 'Super-vitrified European fine porcelain, high-grade Dinewell melamine, mirror-finished stainless flatware, and luxury banquet linens engineered for high-turnover luxury dining.',
-    bgImage: '/images/image__fine_dining__2ac60065.webp',
-    verifiedBrands: ['Dinewell', 'Ariane', 'Arcoroc', 'Borosil', 'FNS', 'Ocean'],
-    bundle: {
-      title: '100-Cover Banquet Opening Suite',
-      desc: 'Turnkey procurement package including complete dinner plates, side bowls, satin cutlery, water goblets & banquet linens.',
-      includes: [
-        '100x Dinewell Melamine Dinner Plates',
-        '100x FNS 18/10 Mirror Cutlery Sets',
-        '120x Borosil / Ocean Glassware Tumblers',
-        '100x Combed Cotton Damask Napkins'
-      ],
-      dispatch: 'Ready for 48-Hour Dispatch',
-      inquiryPayload: 'Turnkey 100-Cover Banquet Opening Suite (Dinewell Tableware, FNS Cutlery, Ocean Glassware, Luxury Napkins)'
-    }
+    categories: ['Crockery', 'Cutlery', 'Linen']
   },
   {
     id: 'cafe',
     label: 'Cafe & Beverage Lounge',
-    categories: ['Cafes', 'Crockery'],
-    narrativeTitle: 'Specialty Coffee, Barista & Bar Supply',
-    narrativeText: 'Commercial ceramic espresso cups, frappe drinkware, stainless barista steaming pitchers, cocktail bar accessories, and food-grade eco takeout packaging.',
-    bgImage: '/images/category_cafe_beverage.jpg',
-    verifiedBrands: ['Ocean', 'Borosil', 'Dinewell', 'Milton'],
-    bundle: {
-      title: 'Specialty Espresso & Bar Launch Setup',
-      desc: 'Complete back-of-the-counter barista station and drinkware supply for specialty coffee shops and beverage lounges.',
-      includes: [
-        '72x Commercial Latte & Cappuccino Cups',
-        '48x Ocean Frappe & Shake Glassware',
-        'Commercial Barista Milk Pitchers & Tampers',
-        '1,000x Eco Paper Cups & Straws'
-      ],
-      dispatch: 'In Stock / Rapid Delivery',
-      inquiryPayload: 'Specialty Espresso & Bar Launch Setup (Commercial Ceramic Mugs, Ocean Frappe Glassware, Barista Pitchers, Eco Cups)'
-    }
+    categories: ['Cafes', 'Crockery']
   },
   {
     id: 'kitchen',
     label: 'Commercial Kitchen',
-    categories: ['Kitchen Utensils', 'Engineering Equipments'],
-    narrativeTitle: 'Back-of-House Cookline & Food Storage',
-    narrativeText: 'Heavy-gauge commercial cookware, Cambro NSF food storage pans, forged chef knives, preparation tools, and institutional engineering equipment.',
-    bgImage: '/images/commercial_kitchen_equipment.jpg',
-    verifiedBrands: ['Cambro Nilkamal', 'Prestige', 'Godrej - Cartini', 'Conta'],
-    bundle: {
-      title: 'Heavy Back-of-House Chef Cookline Suite',
-      desc: 'Commercial prep and cooking suite designed to withstand intense 16-hour kitchen operations.',
-      includes: [
-        'Prestige Heavy-Duty Stockpots & Kadai',
-        'Godrej Cartini Forged Chef Knife Sets',
-        'Cambro NSF Polycarbonate GN Food Pans',
-        'Stainless Steel Prep Colanders & Ladles'
-      ],
-      dispatch: 'Institutional Freight Ready',
-      inquiryPayload: 'Heavy Back-of-House Chef Cookline Suite (Prestige Commercial Cookware, Cambro GN Pans, Godrej Cartini Knives)'
-    }
+    categories: ['Kitchen Utensils', 'Engineering Equipments']
   },
   {
     id: 'housekeeping',
     label: 'Housekeeping & Suites',
-    categories: ['Guest Amenities', 'Linen', 'House Keeping', 'Cleaning Chemicals'],
-    narrativeTitle: 'In-Room Luxury & Institutional Sanitation',
-    narrativeText: 'Plush combed cotton bath towels, botanical hotel toiletries, Diversey hospital-grade disinfectant suites, and professional janitorial equipment.',
-    bgImage: '/images/luxury_hotel_linen.jpg',
-    verifiedBrands: ['Diversey', 'Gala', 'SAC', 'Conta'],
-    bundle: {
-      title: '50-Room Hotel Suite Sourcing Package',
-      desc: 'Complete turnkey room essentials bundle for boutique hotels, resorts, and corporate guest houses.',
-      includes: [
-        '150x 600 GSM Combed Cotton Bath Towels',
-        '500x Botanical Guest Shampoo & Soaps',
-        'Diversey R-Series Sanitation Chemical Kit',
-        'Commercial Mops, Trolleys & Janitorial Carts'
-      ],
-      dispatch: 'Bulk Institutional Freight Ready',
-      inquiryPayload: '50-Room Hotel Suite Sourcing Package (Plush Bath Towels, Guest Amenities, Diversey Chemicals)'
-    }
+    categories: ['Guest Amenities', 'Linen', 'House Keeping', 'Cleaning Chemicals']
   }
 ];
 
@@ -174,10 +95,6 @@ export const ProductPage: React.FC<ProductPageProps> = ({
   const [searchQuery, setSearchQuery] = useState('');
   const [viewMode, setViewMode] = useState<'grid' | 'table'>('grid');
   const [selectedDetailProduct, setSelectedDetailProduct] = useState<ProductCatalogCard | null>(null);
-
-  // RFQ Inquiry Tray State
-  const [rfqItems, setRfqItems] = useState<string[]>([]);
-  const [rfqDrawerOpen, setRfqDrawerOpen] = useState(false);
 
   // Sync initial filter from navigation
   useEffect(() => {
@@ -261,152 +178,77 @@ export const ProductPage: React.FC<ProductPageProps> = ({
     setSearchQuery('');
   };
 
-  // Toggle item in RFQ Tray
-  const handleToggleRfq = (productId: string, e?: React.MouseEvent) => {
-    if (e) e.stopPropagation();
-    setRfqItems(prev => {
-      const exists = prev.includes(productId);
-      const updated = exists ? prev.filter(id => id !== productId) : [...prev, productId];
-      if (!exists && updated.length === 1) {
-        setRfqDrawerOpen(true);
-      }
-      return updated;
-    });
-  };
-
-  // Submit RFQ Tray
-  const handleSubmitRfq = () => {
-    const productsInRfq = CATALOG_PRODUCTS.filter(p => rfqItems.includes(p.id));
-    const titles = productsInRfq.map(p => p.title).join(', ');
-    setRfqDrawerOpen(false);
-    onOpenQuote(titles);
-  };
-
-  // Quick Inquire on Turnkey Bundle
-  const handleInquireBundle = (bundle: TurnkeyBundle) => {
-    onOpenQuote(bundle.inquiryPayload);
-  };
-
   return (
     <div className="lookbook-page-root">
-      {/* ==================== 1. MASTHEAD & DEPARTMENT TABS ==================== */}
-      <section className="lookbook-masthead">
-        <div className="lookbook-masthead-inner">
-          <div className="lookbook-masthead-header">
-            <div className="lookbook-header-text">
-              <h1 className="lookbook-main-title">Hospitality Department Lookbook</h1>
-              <p className="lookbook-main-desc">
-                Curated commercial supply lines, verified partner brands, and turnkey opening packages for hotels, restaurants, cafes, and banquets.
-              </p>
-            </div>
-
-            <div className="lookbook-quick-stats">
-              <div className="lookbook-stat-item">
-                <span className="lookbook-stat-num">4</span>
-                <span className="lookbook-stat-label">Departments</span>
-              </div>
-              <div className="lookbook-stat-div" />
-              <div className="lookbook-stat-item">
-                <span className="lookbook-stat-num">68+</span>
-                <span className="lookbook-stat-label">Product Lines</span>
-              </div>
-              <div className="lookbook-stat-div" />
-              <div className="lookbook-stat-item">
-                <span className="lookbook-stat-num">100%</span>
-                <span className="lookbook-stat-label">Commercial Grade</span>
-              </div>
-            </div>
+      {/* ==================== 1. PRODUCT HERO HEADER ==================== */}
+      <section className="product-hero-section">
+        <div className="product-hero-bg-overlay" />
+        <div className="product-hero-container">
+          <div className="product-hero-left">
+            <h1 className="product-hero-title">Our Products</h1>
+            <div className="product-hero-bar" />
+            <p className="product-hero-desc">
+              Care4 Associates supplies the essentials for hotels, restaurants, cafes and catering businesses — all the way from a spoon to commercial kitchen equipment, guest amenities and housekeeping solutions.
+            </p>
+            <button 
+              type="button"
+              className="btn-browse-catalog" 
+              onClick={() => {
+                const el = document.getElementById('catalog-main-search-input');
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                  el.focus();
+                }
+              }}
+            >
+              <span>Search Products</span>
+              <Search size={18} />
+            </button>
           </div>
 
-          {/* Department Switcher Navigation */}
-          <nav className="department-tabs-bar" aria-label="Hospitality departments">
-            {HOSPITALITY_DEPARTMENTS.map(dept => {
-              const count = CATALOG_PRODUCTS.filter(p => dept.categories.includes(p.category)).length;
-              const isActive = activeDeptId === dept.id;
-              return (
-                <button
-                  key={dept.id}
-                  type="button"
-                  className={`dept-tab-btn ${isActive ? 'active' : ''}`}
-                  onClick={() => handleSelectDept(dept.id)}
-                >
-                  <span>{dept.label}</span>
-                  <span className="dept-tab-badge">{count}</span>
-                </button>
-              );
-            })}
-            <button
-              type="button"
-              className={`dept-tab-btn ${activeDeptId === 'all' ? 'active' : ''}`}
-              onClick={() => handleSelectDept('all')}
-            >
-              <span>Master Catalog (All Items)</span>
-              <span className="dept-tab-badge">{CATALOG_PRODUCTS.length}</span>
-            </button>
-          </nav>
+          <div className="product-hero-right">
+            <div className="product-hero-image-card">
+              <img 
+                src="/images/product_catalog_hero_bright.jpg" 
+                alt="Hospitality Tableware & Equipment Collection" 
+                className="product-hero-img" 
+              />
+              <div className="product-hero-img-gradient" />
+            </div>
+          </div>
+        </div>
+
+        {/* Department Switcher Navigation */}
+        <div className="product-hero-tabs-wrap">
+          <div className="product-hero-tabs-container">
+            <nav className="department-tabs-bar" aria-label="Hospitality departments">
+              {HOSPITALITY_DEPARTMENTS.map(dept => {
+                const count = CATALOG_PRODUCTS.filter(p => dept.categories.includes(p.category)).length;
+                const isActive = activeDeptId === dept.id;
+                return (
+                  <button
+                    key={dept.id}
+                    type="button"
+                    className={`dept-tab-btn ${isActive ? 'active' : ''}`}
+                    onClick={() => handleSelectDept(dept.id)}
+                  >
+                    <span>{dept.label}</span>
+                    <span className="dept-tab-badge">{count}</span>
+                  </button>
+                );
+              })}
+              <button
+                type="button"
+                className={`dept-tab-btn ${activeDeptId === 'all' ? 'active' : ''}`}
+                onClick={() => handleSelectDept('all')}
+              >
+                <span>Master Catalog (All Items)</span>
+                <span className="dept-tab-badge">{CATALOG_PRODUCTS.length}</span>
+              </button>
+            </nav>
+          </div>
         </div>
       </section>
-
-      {/* ==================== 2. EDITORIAL HERO & TURNKEY PROCUREMENT BUNDLE ==================== */}
-      {currentDept && (
-        <section className="dept-editorial-banner">
-          <div className="dept-editorial-inner">
-            {/* Department Narrative & Environment Visual */}
-            <div className="dept-narrative-card">
-              <img 
-                src={currentDept.bgImage} 
-                alt={currentDept.narrativeTitle} 
-                className="dept-narrative-bg" 
-              />
-              <div className="dept-narrative-overlay" />
-              <div className="dept-narrative-content">
-                <h2 className="dept-narrative-title">{currentDept.narrativeTitle}</h2>
-                <p className="dept-narrative-text">{currentDept.narrativeText}</p>
-                <div className="dept-verified-brands">
-                  <span className="dept-verified-label">
-                    Verified Brands:
-                  </span>
-                  {currentDept.verifiedBrands.map(b => (
-                    <span key={b} className="dept-brand-pill">{b}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Turnkey Procurement Bundle */}
-            <div className="turnkey-bundle-card">
-              <div>
-                <span className="bundle-highlight-badge">Turnkey Procurement Package</span>
-                <h3 className="bundle-card-title">{currentDept.bundle.title}</h3>
-                <p className="bundle-card-desc">{currentDept.bundle.desc}</p>
-
-                <div className="bundle-includes-grid">
-                  {currentDept.bundle.includes.map((inc, i) => (
-                    <div key={i} className="bundle-item-check">
-                      <Check size={16} className="bundle-check-icon" />
-                      <span>{inc}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="bundle-action-row">
-                <div className="bundle-dispatch-note">
-                  Logistics: <strong>{currentDept.bundle.dispatch}</strong>
-                </div>
-                <button 
-                  type="button"
-                  className="btn-inquire-bundle"
-                  onClick={() => handleInquireBundle(currentDept.bundle)}
-                >
-                  <Send size={15} />
-                  <span>Inquire on Package</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* ==================== 3. SUB-CATEGORY & SEARCH BAR ==================== */}
       <div className="lookbook-subnav-bar">
@@ -441,6 +283,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
             <div className="lookbook-search-input-wrap">
               <Search size={16} className="lookbook-search-icon" />
               <input 
+                id="catalog-main-search-input"
                 type="text"
                 placeholder="Search products, materials, brands..."
                 value={searchQuery}
@@ -531,7 +374,6 @@ export const ProductPage: React.FC<ProductPageProps> = ({
         ) : viewMode === 'grid' ? (
           <div className="lookbook-cards-grid">
             {filteredProducts.map(product => {
-              const inRfq = rfqItems.includes(product.id);
               const specs = PRODUCT_SPECS_MAP[product.id];
               const primaryBrand = product.brands[0] || 'Care4 Institutional';
               const materialSpec = specs?.material || specs?.keySpecs?.material || product.details;
@@ -610,20 +452,11 @@ export const ProductPage: React.FC<ProductPageProps> = ({
 
                       <button 
                         type="button"
-                        className={`btn-lb-quote ${inRfq ? 'in-rfq' : ''}`}
-                        onClick={(e) => handleToggleRfq(product.id, e)}
+                        className="btn-lb-quote"
+                        onClick={() => onOpenQuote(product.title)}
                       >
-                        {inRfq ? (
-                          <>
-                            <Check size={16} />
-                            <span>✓ In RFQ</span>
-                          </>
-                        ) : (
-                          <>
-                            <Plus size={16} />
-                            <span>+ Add Quote</span>
-                          </>
-                        )}
+                        <Send size={15} />
+                        <span>Request Quote</span>
                       </button>
                     </div>
                   </div>
@@ -646,7 +479,6 @@ export const ProductPage: React.FC<ProductPageProps> = ({
               </thead>
               <tbody>
                 {filteredProducts.map(product => {
-                  const inRfq = rfqItems.includes(product.id);
                   const specs = PRODUCT_SPECS_MAP[product.id];
                   const packing = specs?.keySpecs?.packing || 'Standard Commercial Pack';
                   const material = specs?.material || specs?.keySpecs?.material || product.details;
@@ -691,10 +523,10 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                         </button>
                         <button 
                           type="button"
-                          className={`btn-table-quote ${inRfq ? 'in-rfq' : ''}`}
-                          onClick={(e) => handleToggleRfq(product.id, e)}
+                          className="btn-table-quote"
+                          onClick={() => onOpenQuote(product.title)}
                         >
-                          {inRfq ? '✓ In RFQ' : '+ Add Quote'}
+                          Request Quote
                         </button>
                       </td>
                     </tr>
@@ -706,78 +538,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
         )}
       </main>
 
-      {/* ==================== 6. FLOATING RFQ DOCK & DRAWER ==================== */}
-      {rfqItems.length > 0 && (
-        <aside className="rfq-dock-root" aria-label="RFQ Inquiry Tray">
-          {rfqDrawerOpen && (
-            <div className="rfq-dock-drawer">
-              <div className="rfq-drawer-top">
-                <span className="rfq-drawer-top-title">Selected for Bulk Quote ({rfqItems.length})</span>
-                <button 
-                  className="rfq-drawer-top-close"
-                  onClick={() => setRfqDrawerOpen(false)}
-                  aria-label="Close tray"
-                >
-                  <X size={18} />
-                </button>
-              </div>
-
-              <div className="rfq-drawer-scroll">
-                {rfqItems.map(id => {
-                  const prod = CATALOG_PRODUCTS.find(p => p.id === id);
-                  if (!prod) return null;
-                  return (
-                    <div key={id} className="rfq-drawer-row">
-                      <div className="rfq-drawer-info">
-                        <div className="rfq-drawer-item-title">{prod.title}</div>
-                        <div className="rfq-drawer-item-sub">{prod.category} · {prod.brands[0] || 'Care4'}</div>
-                      </div>
-                      <button 
-                        type="button"
-                        className="rfq-drawer-remove"
-                        onClick={() => handleToggleRfq(id)}
-                        title="Remove item"
-                      >
-                        <X size={16} />
-                      </button>
-                    </div>
-                  );
-                })}
-              </div>
-
-              <div className="rfq-drawer-bottom">
-                <button 
-                  type="button"
-                  className="btn-rfq-submit-tray"
-                  onClick={handleSubmitRfq}
-                >
-                  <Send size={16} />
-                  <span>Request Bulk Pricing ({rfqItems.length} items)</span>
-                </button>
-                <button 
-                  type="button"
-                  className="btn-rfq-clear"
-                  onClick={() => setRfqItems([])}
-                >
-                  Clear all selected items
-                </button>
-              </div>
-            </div>
-          )}
-
-          <button 
-            type="button"
-            className="rfq-dock-pill"
-            onClick={() => setRfqDrawerOpen(!rfqDrawerOpen)}
-          >
-            <FileText size={18} />
-            <span>RFQ Inquiry</span>
-            <span className="rfq-dock-count">{rfqItems.length}</span>
-          </button>
-        </aside>
-      )}
-
-      {/* ==================== 7. PRODUCT SPEC MODAL ==================== */}
+      {/* ==================== 6. PRODUCT SPEC MODAL ==================== */}
       <ProductDetailModal 
         product={selectedDetailProduct}
         onClose={() => setSelectedDetailProduct(null)}
