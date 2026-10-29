@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react';
 import { 
   Search, 
   X, 
@@ -18,6 +18,8 @@ import {
   Package, 
   Send,
   ShieldCheck,
+  ChevronLeft,
+  ChevronRight,
   type LucideIcon 
 } from 'lucide-react';
 import { 
@@ -29,37 +31,6 @@ import {
 import { ProductDetailModal } from '../components/ProductDetailModal';
 import '../styles/product-page.css';
 
-// ----------------------------------------------------------------------
-// Department Lookbook Definitions
-// ----------------------------------------------------------------------
-interface HospitalityDepartment {
-  id: string;
-  label: string;
-  categories: string[];
-}
-
-const HOSPITALITY_DEPARTMENTS: HospitalityDepartment[] = [
-  {
-    id: 'dining',
-    label: 'Fine Dining & Banquets',
-    categories: ['Crockery', 'Cutlery', 'Linen']
-  },
-  {
-    id: 'cafe',
-    label: 'Cafe & Beverage Lounge',
-    categories: ['Cafes', 'Crockery']
-  },
-  {
-    id: 'kitchen',
-    label: 'Commercial Kitchen',
-    categories: ['Kitchen Utensils', 'Engineering Equipments']
-  },
-  {
-    id: 'housekeeping',
-    label: 'Housekeeping & Suites',
-    categories: ['Guest Amenities', 'Linen', 'House Keeping', 'Cleaning Chemicals']
-  }
-];
 
 // Category Icon Mapping
 const CATEGORY_ICON_MAP: Record<string, LucideIcon> = {
@@ -79,6 +50,61 @@ const CategoryIcon: React.FC<{ category: string; size?: number }> = ({ category,
   return <IconComponent size={size} />;
 };
 
+// Hook to track scroll overflow and provide scroll actions
+function useScrollArrows(deps: unknown[] = []) {
+  const ref = useRef<HTMLElement | null>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+
+  const checkScroll = useCallback(() => {
+    const el = ref.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 2);
+    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 2);
+  }, []);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    checkScroll();
+    el.addEventListener('scroll', checkScroll, { passive: true });
+    window.addEventListener('resize', checkScroll);
+    return () => {
+      el.removeEventListener('scroll', checkScroll);
+      window.removeEventListener('resize', checkScroll);
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [checkScroll, ...deps]);
+
+  const scrollBy = useCallback((dir: 'left' | 'right') => {
+    const el = ref.current;
+    if (!el) return;
+    el.scrollBy({ left: dir === 'left' ? -200 : 200, behavior: 'smooth' });
+  }, []);
+
+  return { ref, canScrollLeft, canScrollRight, scrollBy };
+}
+
+// Scroll arrow button component
+const ScrollArrow: React.FC<{
+  direction: 'left' | 'right';
+  visible: boolean;
+  onClick: () => void;
+  variant?: 'light' | 'dark';
+}> = ({ direction, visible, onClick, variant = 'dark' }) => {
+  if (!visible) return null;
+  return (
+    <button
+      type="button"
+      className={`scroll-arrow-btn scroll-arrow-${direction} scroll-arrow-${variant}`}
+      onClick={onClick}
+      aria-label={`Scroll ${direction}`}
+    >
+      {direction === 'left' ? <ChevronLeft size={18} /> : <ChevronRight size={18} />}
+    </button>
+  );
+};
+
 interface ProductPageProps {
   onOpenQuote: (productName?: string) => void;
   initialFilter?: string;
@@ -91,80 +117,37 @@ export const ProductPage: React.FC<ProductPageProps> = ({
   onClearInitialFilter 
 }) => {
   const [activeCategory, setActiveCategory] = useState<string>('All');
-  const [activeDeptId, setActiveDeptId] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [viewMode, setViewMode] = useState<'grid' | 'table'>('grid');
   const [selectedDetailProduct, setSelectedDetailProduct] = useState<ProductCatalogCard | null>(null);
+
+  // Scroll arrows for classification tabs
+  const classificationScroll = useScrollArrows([activeCategory]);
 
   // Sync initial filter from navigation
   useEffect(() => {
     if (initialFilter) {
       const normalizedFilter = initialFilter.toLowerCase().replace(/-/g, ' ');
-      // Check if it's a category
       const matchedCat = CATEGORY_FILTERS.find(c => 
         c.toLowerCase() === initialFilter.toLowerCase() ||
         c.toLowerCase() === normalizedFilter
       );
       if (matchedCat) {
         setActiveCategory(matchedCat);
-        setActiveDeptId('all');
-      } else {
-        // Check if sector matches a department
-        if (initialFilter.toLowerCase().includes('hotel') || initialFilter.toLowerCase().includes('dining') || initialFilter.toLowerCase().includes('restaurant')) {
-          setActiveDeptId('dining');
-          setActiveCategory('All');
-        } else if (initialFilter.toLowerCase().includes('cafe')) {
-          setActiveDeptId('cafe');
-          setActiveCategory('All');
-        } else if (initialFilter.toLowerCase().includes('kitchen') || initialFilter.toLowerCase().includes('catering')) {
-          setActiveDeptId('kitchen');
-          setActiveCategory('All');
-        } else if (initialFilter.toLowerCase().includes('housekeeping')) {
-          setActiveDeptId('housekeeping');
-          setActiveCategory('All');
-        }
       }
       if (onClearInitialFilter) onClearInitialFilter();
     }
   }, [initialFilter, onClearInitialFilter]);
 
-  // Active Department Object
-  const currentDept = useMemo(() => {
-    return HOSPITALITY_DEPARTMENTS.find(d => d.id === activeDeptId) || null;
-  }, [activeDeptId]);
-
   // Handle classification change
   const handleSelectCategory = (cat: string) => {
     setActiveCategory(cat);
-    if (cat !== 'All' && activeDeptId !== 'all') {
-      const dept = HOSPITALITY_DEPARTMENTS.find(d => d.id === activeDeptId);
-      if (dept && !dept.categories.includes(cat)) {
-        setActiveDeptId('all');
-      }
-    }
   };
 
-  // Handle department filter change
-  const handleSelectDept = (deptId: string) => {
-    setActiveDeptId(deptId);
-    if (deptId !== 'all') {
-      const dept = HOSPITALITY_DEPARTMENTS.find(d => d.id === deptId);
-      if (dept && activeCategory !== 'All' && !dept.categories.includes(activeCategory)) {
-        setActiveCategory('All');
-      }
-    }
-  };
-
-  // Filter products based on active department, classification, and search query
+  // Filter products based on classification and search query
   const filteredProducts = useMemo(() => {
     return CATALOG_PRODUCTS.filter(product => {
-      // 1. Department match
-      if (activeDeptId !== 'all') {
-        const dept = HOSPITALITY_DEPARTMENTS.find(d => d.id === activeDeptId);
-        if (dept && !dept.categories.includes(product.category)) return false;
-      }
-
-      // 2. Category classification match
+      // 1. Category classification match
       if (activeCategory !== 'All') {
         if (product.category !== activeCategory) return false;
       }
@@ -184,7 +167,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
 
       return true;
     });
-  }, [activeDeptId, activeCategory, searchQuery]);
+  }, [activeCategory, searchQuery]);
 
   return (
     <div className="lookbook-page-root">
@@ -228,8 +211,9 @@ export const ProductPage: React.FC<ProductPageProps> = ({
 
         {/* 2026 Product Classification Master Navigation Bar */}
         <div className="product-hero-tabs-wrap">
-          <div className="product-hero-tabs-container">
-            <nav className="classification-tabs-bar" aria-label="Official Product Classifications">
+          <div className="product-hero-tabs-container scroll-arrow-wrapper">
+            <ScrollArrow direction="left" visible={classificationScroll.canScrollLeft} onClick={() => classificationScroll.scrollBy('left')} variant="light" />
+            <nav className="classification-tabs-bar" ref={classificationScroll.ref as React.RefObject<HTMLElement>} aria-label="Official Product Classifications">
               <button
                 type="button"
                 className={`classification-tab-btn ${activeCategory === 'All' ? 'active' : ''}`}
@@ -257,41 +241,14 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                 );
               })}
             </nav>
+            <ScrollArrow direction="right" visible={classificationScroll.canScrollRight} onClick={() => classificationScroll.scrollBy('right')} variant="light" />
           </div>
         </div>
       </section>
 
-      {/* ==================== 2. STICKY SUB-CATEGORY & SEARCH BAR ==================== */}
+      {/* ==================== 2. STICKY SEARCH BAR ==================== */}
       <div className="lookbook-subnav-bar">
         <div className="lookbook-subnav-inner">
-          {/* Operational Venue Filter Chips */}
-          <div className="dept-pills-row">
-            <span className="filter-row-label">Operational Scope:</span>
-            <button
-              type="button"
-              className={`dept-pill-btn ${activeDeptId === 'all' ? 'active' : ''}`}
-              onClick={() => handleSelectDept('all')}
-            >
-              <span>All Venues</span>
-              <span className="dept-pill-badge">{CATALOG_PRODUCTS.length}</span>
-            </button>
-            {HOSPITALITY_DEPARTMENTS.map(dept => {
-              const count = CATALOG_PRODUCTS.filter(p => dept.categories.includes(p.category)).length;
-              const isActive = activeDeptId === dept.id;
-              return (
-                <button
-                  key={dept.id}
-                  type="button"
-                  className={`dept-pill-btn ${isActive ? 'active' : ''}`}
-                  onClick={() => handleSelectDept(dept.id)}
-                >
-                  <span>{dept.label}</span>
-                  <span className="dept-pill-badge">{count}</span>
-                </button>
-              );
-            })}
-          </div>
-
           <div className="lookbook-search-toggle-wrap">
             <div className="lookbook-search-input-wrap">
               <Search size={16} className="lookbook-search-icon" />
@@ -348,19 +305,15 @@ export const ProductPage: React.FC<ProductPageProps> = ({
             ) : (
               <span> across <strong>All 9 Classifications</strong></span>
             )}
-            {activeDeptId !== 'all' && (
-              <span> · Filtered by <strong>{currentDept?.label}</strong></span>
-            )}
             {searchQuery && <span> · Matching "<strong>{searchQuery}</strong>"</span>}
           </div>
 
-          {(activeCategory !== 'All' || activeDeptId !== 'all' || searchQuery) && (
+          {(activeCategory !== 'All' || searchQuery) && (
             <button 
               type="button"
               className="btn-clear-all-filters"
               onClick={() => {
                 setActiveCategory('All');
-                setActiveDeptId('all');
                 setSearchQuery('');
               }}
             >
@@ -385,7 +338,6 @@ export const ProductPage: React.FC<ProductPageProps> = ({
               className="btn-reset-filters-cta"
               onClick={() => {
                 setActiveCategory('All');
-                setActiveDeptId('all');
                 setSearchQuery('');
               }}
             >
@@ -397,7 +349,6 @@ export const ProductPage: React.FC<ProductPageProps> = ({
           <div className="lookbook-cards-grid">
             {filteredProducts.map(product => {
               const specs = PRODUCT_SPECS_MAP[product.id];
-              const primaryBrand = product.brands[0] || 'Care4 Institutional';
               const materialSpec = specs?.material || specs?.keySpecs?.material || product.details;
               const packingSpec = specs?.keySpecs?.packing || 'Standard Commercial Pack';
               const badgesList = specs?.badges?.map(b => b.title) || product.factors || [];
@@ -418,9 +369,6 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                     <div className="lb-card-cat-badge">
                       <CategoryIcon category={product.category} size={13} />
                       <span>{product.category}</span>
-                    </div>
-                    <div className="lb-card-brand-badge">
-                      {primaryBrand}
                     </div>
                   </div>
 
