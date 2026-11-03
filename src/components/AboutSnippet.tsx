@@ -30,6 +30,9 @@ export const AboutSnippet: React.FC<AboutSnippetProps> = ({ onLearnMore }) => {
             <p>
               With a customer-focused approach, we provide tailored products and services for every unique requirement.
             </p>
+            <p className="about-serve-highlight">
+              We proudly serve Hotels, Resorts, Retreat Centres, Restaurants, Cafes, Cloud Kitchens, Hospitals, Catering Companies, Industrial Canteens &amp; Homestays across Kerala and neighbouring states.
+            </p>
           </div>
 
           <button className="btn-about-cta" onClick={onLearnMore}>
@@ -96,6 +99,16 @@ export const AboutSnippet: React.FC<AboutSnippetProps> = ({ onLearnMore }) => {
         }
         .about-snippet-body p {
           margin: 0;
+        }
+        .about-serve-highlight {
+          font-weight: 600 !important;
+          color: var(--color-navy-dark) !important;
+          padding: 12px 16px;
+          border-left: 3.5px solid var(--color-accent-red);
+          background: rgba(2, 52, 141, 0.035);
+          border-radius: 0 6px 6px 0;
+          font-size: 16.5px !important;
+          line-height: 1.6 !important;
         }
         .btn-about-cta {
           display: inline-flex;

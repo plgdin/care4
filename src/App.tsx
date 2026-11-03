@@ -29,6 +29,12 @@ export const App: React.FC = () => {
       const hash = window.location.hash.replace('#', '');
       if (hash === 'products' || hash === 'about') {
         setActiveTab(hash);
+      } else if (hash === 'what-we-offer' || hash === 'offer') {
+        setActiveTab('about');
+        setTimeout(() => {
+          const el = document.getElementById('what-we-offer');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
       } else if (hash === 'contact') {
         setContactModalOpen(true);
       } else if (hash === 'home' || hash === '') {

@@ -83,6 +83,9 @@ export const ClientMarquee: React.FC = () => {
           <span className="section-eyebrow-line" />
           <span>OUR CLIENT NETWORK</span>
         </div>
+        <p className="client-marquee-serve-statement">
+          We proudly serve Hotels, Resorts, Retreat Centres, Restaurants, Cafes, Cloud Kitchens, Hospitals, Catering Companies, Industrial Canteens &amp; Homestays across Kerala and neighbouring states.
+        </p>
       </div>
 
       {/* Row 1 — scrolls left */}
@@ -147,7 +150,17 @@ export const ClientMarquee: React.FC = () => {
         }
         .client-marquee-eyebrow {
           justify-content: center;
-          margin-bottom: 12px;
+          margin-bottom: 14px;
+        }
+        .client-marquee-serve-statement {
+          font-family: var(--font-manrope), var(--font-heading), sans-serif;
+          font-size: clamp(16px, 1.35vw, 20px);
+          font-weight: 600;
+          color: var(--color-navy-dark);
+          line-height: 1.55;
+          max-width: 980px;
+          margin: 0 auto;
+          letter-spacing: -0.01em;
         }
         .client-marquee-title {
           font-family: var(--font-heading);

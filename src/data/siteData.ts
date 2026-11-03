@@ -1138,35 +1138,37 @@ export const WHO_WE_SERVE: WhoWeServeItem[] = [
 export const WHAT_WE_OFFER: OfferItem[] = [
   {
     number: '1',
-    title: 'Comprehensive OS&E Portfolio',
-    description: 'From dining essentials to commercial machinery, we supply a complete operating supplies and equipment range.'
+    title: 'One-Stop Solution',
+    description: 'From a teaspoon to a full kitchen project — complete hospitality operating supplies and equipment under one roof.'
   },
   {
     number: '2',
-    title: 'Authorized Distribution',
-    description: 'Authorized distributor of leading national and international brands.'
+    title: 'Premium Brands & Quality Assured',
+    description: 'Authorized distribution of India’s and global leading brands with certified commercial durability and hygiene standards.'
   },
   {
     number: '3',
-    title: 'Bulk & Consistent Supply',
-    description: 'Reliable and timely supply to meet your business needs at any scale.'
+    title: 'Bulk Supply at Best Wholesale Price',
+    description: 'Direct institutional wholesale pricing, reliable volume supply, and transparent commercial procurement rates.'
   },
   {
     number: '4',
-    title: 'Customer-Specific Sourcing',
-    description: 'We understand your requirements and source products accordingly.'
+    title: 'Pan-Kerala Delivery & After-Sales Support',
+    description: 'Prompt logistics across Kerala and neighbouring states backed by dedicated service technicians and maintenance support.'
   },
   {
     number: '5',
-    title: 'Maintenance & Service',
-    description: 'A dedicated team to ensure smooth operations and quick support.'
+    title: 'Turnkey Kitchen Projects',
+    description: 'Complete commercial kitchen solutions: Design, Supply, Installation & Service from blueprint to operational handover.'
   },
   {
     number: '6',
-    title: 'Logistics & Delivery',
-    description: 'Efficient and prompt delivery across Kerala and nearby regions.'
+    title: 'Expert Consultation for New Setups',
+    description: 'Professional layout planning, equipment sizing, and par-level budgeting for new hotels, resorts, restaurants, and cloud kitchens.'
   }
 ];
+
+export const OFFER_TAGLINE = "We Don't Just Supply Equipment, We Build Kitchens that Perform.";
 
 export interface ProductSpecRow {
   code: string;
@@ -1389,15 +1391,13 @@ export const CONTACT_INFO = {
   ],
   landlines: [
     '+91 471 245 0977',
-    '+91 471 247 5111',
-    '+91 471 245 0978'
+    '+91 471 247 5111'
   ],
   mobiles: [
-    '+91 99959 11830',
-    '+91 93491 98950',
-    '+91 75588 53330',
     '+91 99954 65830',
-    '+91 98470 11830'
+    '+91 98470 11830',
+    '+91 99959 11830',
+    '+91 93491 98950'
   ],
   mapEmbedUrl: 'https://maps.google.com/maps?q=Care4+Associates,+GPO+Lane,+Statue,+Thiruvananthapuram,+Kerala+695001&t=&z=16&ie=UTF8&iwloc=&output=embed',
   mapDirectionsUrl: 'https://www.google.com/maps/search/Care4+Associates,+GPO+Lane,+Statue,+Thiruvananthapuram,+Kerala+695001'

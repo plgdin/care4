@@ -119,31 +119,35 @@ export const Hero: React.FC<HeroProps> = ({
             </button>
           </div>
 
-          {/* Restored Industry Icons (Hotels, Restaurants & Cafes, Catering in one line) */}
-          <div className="hero-industries-row">
-            <div className="industry-item">
-              <img 
-                src="/images/icon_hotel_lg.webp" 
-                alt="Hotels" 
-                className="industry-icon-img" 
-              />
-              <span className="industry-label">Hotels</span>
+          {/* Industry Icons with Catering brought down to ensure crystal-clear visibility */}
+          <div className="hero-industries-block">
+            <div className="hero-industries-row">
+              <div className="industry-item">
+                <img 
+                  src="/images/icon_hotel_lg.webp" 
+                  alt="Hotels" 
+                  className="industry-icon-img" 
+                />
+                <span className="industry-label">Hotels</span>
+              </div>
+              <div className="industry-item">
+                <img 
+                  src="/images/icon_restaurant_lg.webp" 
+                  alt="Restaurants & Cafes" 
+                  className="industry-icon-img" 
+                />
+                <span className="industry-label">Restaurants &amp; Cafes</span>
+              </div>
             </div>
-            <div className="industry-item">
-              <img 
-                src="/images/icon_restaurant_lg.webp" 
-                alt="Restaurants & Cafes" 
-                className="industry-icon-img" 
-              />
-              <span className="industry-label">Restaurants &amp; Cafes</span>
-            </div>
-            <div className="industry-item">
-              <img 
-                src="/images/icon_catering_lg.webp" 
-                alt="Catering" 
-                className="industry-icon-img" 
-              />
-              <span className="industry-label">Catering</span>
+            <div className="hero-industries-row hero-industries-row-catering">
+              <div className="industry-item">
+                <img 
+                  src="/images/icon_catering_lg.webp" 
+                  alt="Catering" 
+                  className="industry-icon-img" 
+                />
+                <span className="industry-label">Catering</span>
+              </div>
             </div>
           </div>
 
@@ -242,11 +246,11 @@ export const Hero: React.FC<HeroProps> = ({
           background: linear-gradient(
             96.5deg,
             #ffffff 0%,
-            #ffffff 36%,
-            rgba(255, 255, 255, 0.9) 39%,
-            rgba(255, 255, 255, 0.5) 42%,
-            rgba(255, 255, 255, 0.1) 45%,
-            transparent 47%
+            #ffffff 38%,
+            rgba(255, 255, 255, 0.95) 41%,
+            rgba(255, 255, 255, 0.6) 44%,
+            rgba(255, 255, 255, 0.15) 47%,
+            transparent 50%
           );
         }
 
@@ -354,7 +358,7 @@ export const Hero: React.FC<HeroProps> = ({
           transform: translateX(-50%);
         }
         .caption-2 {
-          left: 68%;
+          left: calc(68% - 65px);
           transform: translateX(-50%);
         }
         .caption-3 {
@@ -520,13 +524,21 @@ export const Hero: React.FC<HeroProps> = ({
           box-shadow: 0 4px 12px rgba(16, 38, 63, 0.15);
         }
 
-        /* Restored Industry Icons Row */
+        /* Industry Icons Block (Catering brought down for crystal-clear visibility) */
+        .hero-industries-block {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          margin-bottom: 30px;
+        }
         .hero-industries-row {
           display: flex;
           align-items: center;
           gap: 26px;
-          margin-bottom: 34px;
-          flex-wrap: nowrap;
+          flex-wrap: wrap;
+        }
+        .hero-industries-row-catering {
+          margin-top: 2px;
         }
         .industry-item {
           display: flex;
@@ -619,6 +631,15 @@ export const Hero: React.FC<HeroProps> = ({
           }
           .hero-divider-2 {
             clip-path: polygon(68% 0, calc(68% + 2px) 0, calc(68% - 40px + 2px) 100%, calc(68% - 40px) 100%);
+          }
+          .caption-1 {
+            left: 18%;
+          }
+          .caption-2 {
+            left: 50%;
+          }
+          .caption-3 {
+            left: 84%;
           }
         }
 

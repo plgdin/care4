@@ -191,7 +191,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
       </section>
 
       {/* What We Offer Section */}
-      <section className="what-we-offer-section">
+      <section className="what-we-offer-section" id="what-we-offer">
         <div className="what-we-offer-container">
           <div className="offer-header">
             <div className="story-eyebrow-group">
@@ -199,21 +199,57 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
               <div className="story-eyebrow-bar" />
             </div>
             <h2 className="offer-title">Comprehensive Solutions for Your Business</h2>
+            <p className="offer-motto-quote">
+              “We Don't Just Supply Equipment, We Build Kitchens that Perform.”
+            </p>
             <p className="offer-desc">
-              A wide selection of high-quality products and value-added services to support your daily operations.
+              From a single teaspoon to complete turnkey commercial kitchens, we deliver premium quality, bulk wholesale value, and end-to-end support across Kerala and neighbouring states.
             </p>
           </div>
 
           <div className="offer-cards-grid">
-            {WHAT_WE_OFFER.map((item) => (
-              <div key={item.number} className="offer-card">
-                <div className="offer-number-doodle">{item.number}</div>
-                <div className="offer-card-content">
-                  <h3 className="offer-card-title">{item.title}</h3>
-                  <p className="offer-card-desc">{item.description}</p>
+            {WHAT_WE_OFFER.map((item) => {
+              const isHighlight = item.number === '5' || item.number === '6';
+              return (
+                <div 
+                  key={item.number} 
+                  className={`offer-card ${isHighlight ? 'offer-card-highlight' : ''}`}
+                >
+                  <div className="offer-card-top">
+                    <span className="offer-check-mark">✓</span>
+                    <span className="offer-number-doodle">{item.number}</span>
+                    {isHighlight && (
+                      <span className="offer-badge-tag">
+                        {item.number === '5' ? 'TURNKEY PROJECT' : 'EXPERT CONSULTATION'}
+                      </span>
+                    )}
+                  </div>
+                  <div className="offer-card-content">
+                    <h3 className="offer-card-title">{item.title}</h3>
+                    <p className="offer-card-desc">{item.description}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
+          </div>
+
+          {/* Featured Turnkey Kitchens & Consultation Banner */}
+          <div className="offer-turnkey-feature">
+            <div className="turnkey-feature-left">
+              <div className="turnkey-badge">TURNKEY PROJECTS &amp; CONSULTATION</div>
+              <h3 className="turnkey-title">
+                We Don't Just Supply Equipment, We Build Kitchens that Perform.
+              </h3>
+              <p className="turnkey-text">
+                Planning a new hotel, resort, cloud kitchen, or restaurant? Our dedicated commercial kitchen team manages everything from CAD workflow planning, stainless steel fabrication, and exhaust hood systems to professional installation, testing, and responsive after-sales service.
+              </p>
+            </div>
+            <div className="turnkey-feature-right">
+              <button className="btn-turnkey-quote" onClick={onOpenQuote}>
+                <span>Consult Our Kitchen Specialists</span>
+                <ArrowRight size={18} />
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -524,7 +560,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
           padding: 0 48px;
         }
         .offer-header {
-          max-width: 640px;
+          max-width: 820px;
           margin-bottom: 48px;
         }
         .offer-title {
@@ -535,61 +571,186 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
           line-height: 1.2;
           margin-bottom: 12px;
         }
+        .offer-motto-quote {
+          font-family: var(--font-manrope), var(--font-inter), sans-serif;
+          font-size: 20px;
+          font-weight: 700;
+          color: var(--color-red-alt);
+          margin-bottom: 14px;
+          letter-spacing: -0.01em;
+        }
         .offer-desc {
           font-family: var(--font-inter);
           font-size: 18px;
+          line-height: 1.6;
           color: var(--color-text-body);
         }
         .offer-cards-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 32px;
+          gap: 28px;
+          margin-bottom: 48px;
         }
         .offer-card {
           background: #ffffff;
-          border-left: 3px solid var(--color-red-alt);
-          padding: 20px 24px;
-          border-radius: 4px;
+          border-left: 3.5px solid var(--color-red-alt);
+          padding: 24px 24px 26px;
+          border-radius: 6px;
           display: flex;
-          align-items: flex-start;
-          gap: 20px;
-          box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-          transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+          flex-direction: column;
+          gap: 14px;
+          box-shadow: 0 2px 14px rgba(0, 0, 0, 0.05);
+          transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+          position: relative;
         }
         .offer-card:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+          transform: translateY(-4px);
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.09);
+        }
+        .offer-card-highlight {
+          border-left: 4px solid var(--color-navy-deep);
+          background: linear-gradient(180deg, #fbfcfe 0%, #ffffff 100%);
+          box-shadow: 0 4px 18px rgba(2, 52, 141, 0.08);
+        }
+        .offer-card-top {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+        }
+        .offer-check-mark {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          background: rgba(217, 27, 42, 0.1);
+          color: var(--color-red-alt);
+          font-weight: 800;
+          font-size: 14px;
+          flex-shrink: 0;
+        }
+        .offer-card-highlight .offer-check-mark {
+          background: rgba(2, 52, 141, 0.12);
+          color: var(--color-navy-deep);
         }
         .offer-number-doodle {
           font-family: var(--font-doodle);
-          font-size: 48px;
+          font-size: 32px;
+          font-weight: 700;
           color: #1e1e1e;
           line-height: 1;
-          flex-shrink: 0;
+        }
+        .offer-badge-tag {
+          margin-left: auto;
+          font-family: var(--font-inter);
+          font-size: 11px;
+          font-weight: 800;
+          letter-spacing: 0.08em;
+          color: var(--color-navy-deep);
+          background: rgba(2, 52, 141, 0.08);
+          padding: 4px 10px;
+          border-radius: var(--radius-full);
+          text-transform: uppercase;
         }
         .offer-card-content {
           display: flex;
           flex-direction: column;
-          gap: 6px;
+          gap: 8px;
         }
         .offer-card-title {
           font-family: var(--font-inter);
           font-size: 18px;
           font-weight: 700;
           color: var(--color-navy-deep);
+          line-height: 1.35;
         }
         .offer-card-desc {
           font-family: var(--font-inter);
           font-size: 15px;
-          line-height: 1.55;
+          line-height: 1.6;
           color: var(--color-text-body);
         }
+
+        /* Turnkey Feature Banner */
+        .offer-turnkey-feature {
+          background: linear-gradient(135deg, #0c1c2e 0%, #152b45 100%);
+          border-radius: 12px;
+          padding: 40px 48px;
+          color: #ffffff;
+          display: grid;
+          grid-template-columns: 1.4fr 1fr;
+          gap: 40px;
+          align-items: center;
+          box-shadow: 0 8px 30px rgba(12, 28, 46, 0.18);
+        }
+        .turnkey-badge {
+          display: inline-block;
+          font-family: var(--font-inter);
+          font-size: 12px;
+          font-weight: 800;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          color: #fca5a5;
+          margin-bottom: 12px;
+        }
+        .turnkey-title {
+          font-family: var(--font-heading), var(--font-inter), sans-serif;
+          font-size: clamp(23px, 2.2vw, 30px);
+          font-weight: 800;
+          color: #ffffff;
+          line-height: 1.25;
+          margin-bottom: 14px;
+          letter-spacing: -0.015em;
+        }
+        .turnkey-text {
+          font-family: var(--font-inter);
+          font-size: 16px;
+          line-height: 1.65;
+          color: rgba(255, 255, 255, 0.82);
+          margin: 0;
+        }
+        .turnkey-feature-right {
+          display: flex;
+          justify-content: flex-end;
+        }
+        .btn-turnkey-quote {
+          display: inline-flex;
+          align-items: center;
+          gap: 12px;
+          background: var(--color-red-alt);
+          color: #ffffff;
+          font-family: var(--font-inter);
+          font-weight: 700;
+          font-size: 16px;
+          padding: 16px 28px;
+          border-radius: var(--radius-full);
+          transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+          box-shadow: 0 4px 16px rgba(217, 27, 42, 0.35);
+          cursor: pointer;
+          white-space: nowrap;
+          border: none;
+        }
+        .btn-turnkey-quote:hover {
+          background-color: #b51522;
+          transform: translateY(-2px);
+          box-shadow: 0 6px 22px rgba(217, 27, 42, 0.45);
+        }
+
         @media (max-width: 992px) {
           .our-story-container {
             grid-template-columns: 1fr;
           }
           .serve-cards-grid, .offer-cards-grid {
             grid-template-columns: 1fr;
+          }
+          .offer-turnkey-feature {
+            grid-template-columns: 1fr;
+            padding: 32px 28px;
+            gap: 24px;
+          }
+          .turnkey-feature-right {
+            justify-content: flex-start;
           }
         }
         @media (max-width: 600px) {

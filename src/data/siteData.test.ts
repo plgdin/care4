@@ -16,8 +16,15 @@ describe('siteData catalog integrity', () => {
   });
 
   it('ensures contact information is complete and free of outdated address markers', () => {
-    expect(CONTACT_INFO.landlines.length).toBeGreaterThanOrEqual(3);
-    expect(CONTACT_INFO.mobiles.length).toBeGreaterThanOrEqual(3);
+    expect(CONTACT_INFO.landlines.length).toBe(2);
+    expect(CONTACT_INFO.mobiles.length).toBe(4);
+    expect(CONTACT_INFO.landlines).toContain('+91 471 245 0977');
+    expect(CONTACT_INFO.landlines).toContain('+91 471 247 5111');
+    expect(CONTACT_INFO.landlines).not.toContain('+91 471 245 0978');
+    expect(CONTACT_INFO.mobiles[0]).toBe('+91 99954 65830');
+    expect(CONTACT_INFO.mobiles[1]).toBe('+91 98470 11830');
+    expect(CONTACT_INFO.mobiles[2]).toBe('+91 99959 11830');
+    expect(CONTACT_INFO.mobiles[3]).toBe('+91 93491 98950');
     expect(CONTACT_INFO.fullAddress.toLowerCase()).not.toContain('pulimoodu');
     expect(CONTACT_INFO.addressLine1.toLowerCase()).not.toContain('pulimoodu');
     expect(CONTACT_INFO.mapEmbedUrl.toLowerCase()).not.toContain('pulimoodu');

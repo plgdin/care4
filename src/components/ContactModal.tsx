@@ -350,7 +350,7 @@ ${formData.message || 'General hospitality inquiry'}`
                     <Phone size={18} />
                   </div>
                   <div className="detail-text-box">
-                    <span className="detail-label">Landline</span>
+                    <span className="detail-label">Phone</span>
                     <div className="modal-mobile-tags">
                       {CONTACT_INFO.landlines.map((ll, idx) => (
                         <a 
@@ -371,7 +371,7 @@ ${formData.message || 'General hospitality inquiry'}`
                     <Smartphone size={18} />
                   </div>
                   <div className="detail-text-box">
-                    <span className="detail-label">Mobile Support</span>
+                    <span className="detail-label">Mobile</span>
                     <div className="modal-mobile-tags">
                       {CONTACT_INFO.mobiles.map((mob, idx) => (
                         <a 
