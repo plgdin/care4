@@ -1,5 +1,26 @@
 import { describe, it, expect } from 'vitest';
-import { CATALOG_PRODUCTS, CATEGORY_FILTERS, CONTACT_INFO } from './siteData';
+import { existsSync } from 'node:fs';
+import { resolve } from 'node:path';
+import {
+  CATALOG_PRODUCTS,
+  CATEGORY_FILTERS,
+  CONTACT_INFO,
+  BRAND_BROCHURES,
+  BRAND_COLORS,
+  PRODUCT_SPECS_MAP,
+  buildCardDetail,
+  brandColor,
+  findBrochure
+} from './siteData';
+
+/** Brand names that must never appear anywhere on the site. */
+const FORBIDDEN_BRANDS = ['Inscape', 'Pinnacle'];
+
+/** Scoped brands (per client classifications): Cintra = Linen only, Victol = Guest Amenities only. */
+const SCOPED_BRANDS: Record<string, string> = {
+  Cintra: 'Linen',
+  Victol: 'Guest Amenities'
+};
 
 describe('siteData catalog integrity', () => {
   it('ensures all catalog products belong to declared category filters', () => {
@@ -13,6 +34,161 @@ describe('siteData catalog integrity', () => {
       expect(Array.isArray(product.industries)).toBe(true);
       expect(Array.isArray(product.factors)).toBe(true);
     }
+  });
+
+  it('keeps every card supplied with a visible description and brand-free title', () => {
+    for (const product of CATALOG_PRODUCTS) {
+      expect((product.subtitle || product.details).trim(), `${product.id} description`).toBeTruthy();
+      for (const brand of product.brands) {
+        // Brand badge carries this information; title should describe the item only.
+        expect(product.title.toLowerCase(), `${product.id} title`).not.toContain(brand.toLowerCase());
+      }
+    }
+    expect(CATALOG_PRODUCTS.find(p => p.id === 'housekeeping-kimberly')?.title)
+      .toBe('Professional Paper Products & Dispensers');
+  });
+
+  it('never exposes disallowed supplier brand names on any card', () => {
+    for (const product of CATALOG_PRODUCTS) {
+      const haystack = [
+        product.id,
+        product.title,
+        product.subtitle,
+        product.details,
+        ...product.brands
+      ].join(' ').toLowerCase();
+
+      for (const forbidden of FORBIDDEN_BRANDS) {
+        expect(haystack).not.toContain(forbidden.toLowerCase());
+      }
+    }
+  });
+
+  it('keeps scoped brands in their own classifications only', () => {
+    for (const [brand, category] of Object.entries(SCOPED_BRANDS)) {
+      const cards = CATALOG_PRODUCTS.filter(p => p.brands.includes(brand));
+      expect(cards.length, `${brand} must brand at least one listing`).toBeGreaterThan(0);
+      for (const product of cards) {
+        expect(product.category, `${brand} must only appear in ${category}`).toBe(category);
+      }
+    }
+  });
+
+  it('gives every listing a brand', () => {
+    for (const product of CATALOG_PRODUCTS) {
+      expect(
+        product.brands.length,
+        `${product.id} must carry exactly one brand`
+      ).toBe(1);
+    }
+  });
+
+  it('removed obsolete catalog cards entirely', () => {
+    const ids = new Set(CATALOG_PRODUCTS.map(p => p.id));
+    expect(ids.has('utensils-pinnacle-thermal')).toBe(false);
+    expect(ids.has('utensils-venus-kitchen')).toBe(false);
+    expect(ids.has('housekeeping-freshnfine')).toBe(false);
+  });
+
+  it('limits Fresh N Fine to paper & tissue supply lines', () => {
+    const freshCards = CATALOG_PRODUCTS.filter(p => p.brands.includes('Fresh N Fine'));
+    expect(freshCards.length).toBeGreaterThan(0);
+    for (const product of freshCards) {
+      const text = `${product.title} ${product.subtitle} ${product.details}`.toLowerCase();
+      expect(text).toMatch(/tissue|paper|napkin|disposable|toilet roll/);
+    }
+  });
+
+  it('only sells Venus brand under the Cutlery classification', () => {
+    const venusCards = CATALOG_PRODUCTS.filter(p => p.brands.includes('Venus'));
+    expect(venusCards.length).toBeGreaterThan(0);
+    for (const product of venusCards) {
+      expect(product.category).toBe('Cutlery');
+    }
+  });
+
+  it('keeps every brand list sorted alphabetically', () => {
+    for (const product of CATALOG_PRODUCTS) {
+      const sorted = [...product.brands].sort((a, b) => a.localeCompare(b));
+      expect(product.brands).toEqual(sorted);
+      expect(new Set(product.brands).size).toBe(product.brands.length);
+    }
+  });
+
+  it('lists one brand per listing — same product may appear under many brands', () => {
+    for (const product of CATALOG_PRODUCTS) {
+      expect(
+        product.brands.length,
+        `${product.id} must carry at most one brand`
+      ).toBeLessThanOrEqual(1);
+    }
+
+    // Same product across brands stays as separate listings
+    const stemwareBrands = CATALOG_PRODUCTS
+      .filter(p => p.title === 'Commercial Bar & Restaurant Stemware')
+      .map(p => p.brands[0]);
+    expect(stemwareBrands).toEqual(['Arcoroc', 'Borosil', 'Ocean']);
+  });
+
+  it('reuses photos responsibly: max 2 categories and 4 uses per category', () => {
+    const usesByImage = new Map<string, string[]>();
+    for (const product of CATALOG_PRODUCTS) {
+      const hits = usesByImage.get(product.image) ?? [];
+      hits.push(product.category);
+      usesByImage.set(product.image, hits);
+    }
+
+    for (const [image, categories] of usesByImage) {
+      const uniqueCategories = new Set(categories);
+      expect(uniqueCategories.size, `image ${image} spans too many categories`).toBeLessThanOrEqual(2);
+      for (const category of uniqueCategories) {
+        const usesInCategory = categories.filter(c => c === category).length;
+        expect(usesInCategory, `image ${image} repeats in ${category}`).toBeLessThanOrEqual(4);
+      }
+    }
+  });
+
+  it('ships a Product Catalogue PDF for every mapped brochure brand', () => {
+    const allBrands = new Set(CATALOG_PRODUCTS.flatMap(p => p.brands));
+
+    for (const [brand, brochurePath] of Object.entries(BRAND_BROCHURES)) {
+      expect(allBrands.has(brand), `${brand} must exist in the catalog`).toBe(true);
+      expect(
+        existsSync(resolve(process.cwd(), 'public', brochurePath.replace(/^\//, ''))),
+        `${brochurePath} must exist on disk`
+      ).toBe(true);
+    }
+
+    // Mapped brands really resolve through the helper
+    expect(findBrochure(['Claycraft Fine Tableware'])).toBe('/brochures/claycraft-catalogue.pdf');
+    expect(findBrochure(['Nobody Real'])).toBeNull();
+  });
+
+  it('alternates brand pill tones blue / red across the sorted brand roster', () => {
+    const sortedBrands = Array.from(new Set(CATALOG_PRODUCTS.flatMap(p => p.brands)))
+      .sort((a, b) => a.localeCompare(b));
+
+    for (const [index, brand] of sortedBrands.entries()) {
+      expect(BRAND_COLORS[brand]).toBe(index % 2 === 0 ? 'blue' : 'red');
+      expect(brandColor(brand)).toBe(index % 2 === 0 ? 'blue' : 'red');
+    }
+    expect(brandColor('Unknown Extra Brand')).toBe('blue');
+  });
+
+  it('provides specifications for all products', () => {
+    for (const product of CATALOG_PRODUCTS) {
+      const detail = PRODUCT_SPECS_MAP[product.id] || buildCardDetail(product);
+
+      for (const row of detail.highlights) {
+        expect(row.label.trim(), `${product.id} label`).toBeTruthy();
+        expect(row.value.trim(), `${product.id} value`).toBeTruthy();
+      }
+      expect(detail.highlights.map(row => row.label)).toEqual(
+        expect.arrayContaining(['Product', 'Classification'])
+      );
+    }
+
+    expect(Object.keys(PRODUCT_SPECS_MAP)).toHaveLength(CATALOG_PRODUCTS.length);
   });
 
   it('ensures contact information is complete and free of outdated address markers', () => {
@@ -37,54 +213,4 @@ describe('siteData catalog integrity', () => {
     }
   });
 
-  it('includes the 2026 guest amenities and engineering ranges', () => {
-    const guestAmenities = CATALOG_PRODUCTS
-      .filter(product => product.category === 'Guest Amenities')
-      .map(product => `${product.title} ${product.subtitle}`)
-      .join(' ')
-      .toLowerCase();
-    const engineering = CATALOG_PRODUCTS
-      .filter(product => product.category === 'Engineering Equipments')
-      .map(product => `${product.title} ${product.subtitle}`)
-      .join(' ')
-      .toLowerCase();
-
-    expect(guestAmenities).toContain('foam bath');
-    expect(guestAmenities).toContain('hygiene bags');
-    expect(guestAmenities).toContain('glass coasters');
-    expect(guestAmenities).toContain('shoe shine');
-    expect(engineering).toContain('induction cookers');
-    expect(engineering).toContain('undercounter chillers');
-    expect(engineering).toContain('shawarma machines');
-    expect(engineering).toContain('industrial hoods');
-  });
-
-  it('ensures all newly added 2026 classification brands and lines are covered in catalog', () => {
-    const allBrands = new Set(CATALOG_PRODUCTS.flatMap(p => p.brands));
-    
-    // Check 2026 brands
-    expect(allBrands.has('Victol Gold')).toBe(true);
-    expect(allBrands.has('Cintra Cottons')).toBe(true);
-    expect(allBrands.has('Yeraa')).toBe(true);
-    expect(allBrands.has('Inscape')).toBe(true);
-    expect(allBrands.has('All Time')).toBe(true);
-    expect(allBrands.has('Pinnacle')).toBe(true);
-    expect(allBrands.has('Reckitt')).toBe(true);
-    expect(allBrands.has('Skylark')).toBe(true);
-    expect(allBrands.has('SDB Biotic')).toBe(true);
-    expect(allBrands.has('Havells')).toBe(true);
-    expect(allBrands.has('Philips')).toBe(true);
-    expect(allBrands.has('Altek')).toBe(true);
-
-    // Verify key lines exist
-    expect(CATALOG_PRODUCTS.some(p => p.id === 'linen-table-dining')).toBe(true);
-    expect(CATALOG_PRODUCTS.some(p => p.id === 'linen-bathrobes-decor')).toBe(true);
-    expect(CATALOG_PRODUCTS.some(p => p.id === 'crockery-yeraa')).toBe(true);
-    expect(CATALOG_PRODUCTS.some(p => p.id === 'crockery-bar-stemware')).toBe(true);
-    expect(CATALOG_PRODUCTS.some(p => p.id === 'utensils-chafing-buffet')).toBe(true);
-    expect(CATALOG_PRODUCTS.some(p => p.id === 'utensils-haccp-chopping-boards')).toBe(true);
-    expect(CATALOG_PRODUCTS.some(p => p.id === 'engineering-guestroom-kettles')).toBe(true);
-    expect(CATALOG_PRODUCTS.some(p => p.id === 'engineering-hairdryers-handdryers')).toBe(true);
-    expect(CATALOG_PRODUCTS.some(p => p.id === 'engineering-insect-killers-aircurtains')).toBe(true);
-  });
 });

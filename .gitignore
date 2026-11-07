@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local tools and scratch files
+.opencode/
+*.cjs
+pdf_texts.txt
+

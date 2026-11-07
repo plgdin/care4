@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { 
-  X, 
-  ShieldCheck, 
-  Droplets, 
-  Gem, 
-  BarChart2, 
-  FileText, 
-  ArrowRight 
+import {
+  X,
+  FileText,
+  ArrowRight
 } from 'lucide-react';
-import { 
-  ProductCatalogCard, 
-  PRODUCT_SPECS_MAP, 
-  ProductDetailInfo 
+import {
+  ProductCatalogCard,
+  PRODUCT_SPECS_MAP,
+  ProductDetailInfo,
+  buildCardDetail,
+  brandColor,
+  findBrochure
 } from '../data/siteData';
 
 interface ProductDetailModalProps {
@@ -45,65 +44,17 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
   if (!product) return null;
 
-  // Retrieve rich spec data or fallback defaults
-  const specSheet: ProductDetailInfo = PRODUCT_SPECS_MAP[product.id] || {
-    skuPrefix: `CR-${product.id.toUpperCase()} / COMM-SPEC`,
-    tagline: product.subtitle,
-    material: 'Commercial Hospitality Grade Materials',
-    finish: 'Heavy Duty Commercial Finish',
-    galleryImages: [product.image, product.image, product.image],
-    badges: [
-      { title: '100% Food Grade', sub: 'Lead, Cadmium & Arsenic Safe', icon: 'food' },
-      { title: 'Dishwasher Safe', sub: '1,000+ Cycles', icon: 'wash' },
-      { title: 'Premium Finish', sub: 'Commercial Glaze', icon: 'finish' }
-    ],
-    parGuideline: {
-      fineDining: '2.5x',
-      banquet: '3.0x',
-      roomService: '2.0x',
-      barLounge: '3.0x'
-    },
-    keySpecs: {
-      material: 'Commercial Hospitality Grade Materials',
-      dimensions: 'Commercial Metric Standards',
-      weight: 'Standard Commercial Spec',
-      finish: 'Heavy Duty Commercial Glaze',
-      dishwasherSafe: 'Yes (1,000+ Cycles)',
-      usage: 'Hotels, Restaurants, Catering, Banquets',
-      packing: '6 / 12 / 24 pcs per carton'
-    }
-  };
+  // Retrieved detail strip, or an honest fallback built from the card itself
+  const specSheet: ProductDetailInfo =
+    PRODUCT_SPECS_MAP[product.id] || buildCardDetail(product);
 
-  // Safe fallback array of 3 images
-  const gallery = (specSheet.galleryImages && specSheet.galleryImages.length >= 3)
-    ? specSheet.galleryImages
-    : [product.image, product.image, product.image];
+  // Distinct gallery images (deduplicated) with the card image as guaranteed anchor
+  const gallery = Array.from(
+    new Set([product.image, ...(specSheet.galleryImages || [])])
+  );
+  const currentMainImage = gallery[activeImageIndex % gallery.length] || product.image;
 
-  const currentMainImage = gallery[activeImageIndex] || gallery[0] || product.image;
-
-  // Safe fallback badges
-  const badges = specSheet.badges && specSheet.badges.length >= 3
-    ? specSheet.badges
-    : [
-        { title: '100% Food Grade', sub: 'Lead, Cadmium & Arsenic Safe', icon: 'food' as const },
-        { title: 'Dishwasher Safe', sub: '1,000+ Cycles', icon: 'wash' as const },
-        { title: 'Premium Finish', sub: 'Super-Vitrified Glaze', icon: 'finish' as const }
-      ];
-
-  // Safe fallback keySpecs
-  const keySpecs = specSheet.keySpecs || {
-    material: specSheet.material,
-    dimensions: 'Standard Commercial Hospitality Spec',
-    weight: 'Standard Commercial Weight',
-    finish: specSheet.finish,
-    dishwasherSafe: 'Yes (1,000+ Cycles)',
-    usage: 'Hotels, Restaurants, Catering, Banquets',
-    packing: '6 / 12 / 24 pcs per carton (varies by item)'
-  };
-
-  const handleDownloadSpecSheet = () => {
-    window.print();
-  };
+  const brochure = findBrochure(product.brands);
 
   return (
     <div className="pdm-backdrop" onClick={onClose}>
@@ -112,12 +63,10 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
         <div className="pdm-header">
           <div className="pdm-breadcrumb">
             <span className="pdm-crumb-category">{product.category}</span>
-            <span className="pdm-crumb-sep">&gt;</span>
-            <span className="pdm-crumb-sku">{specSheet.skuPrefix}</span>
           </div>
-          <button 
-            className="pdm-close-btn" 
-            onClick={onClose} 
+          <button
+            className="pdm-close-btn"
+            onClick={onClose}
             aria-label="Close product dialog"
           >
             <X size={18} />
@@ -129,18 +78,18 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           {/* Left Column: Main Image & Gallery Thumbnails */}
           <div className="pdm-left-col">
             <div className="pdm-main-img-card">
-              <img 
-                src={currentMainImage} 
-                alt={product.title} 
-                className="pdm-main-img" 
+              <img
+                src={currentMainImage}
+                alt={product.title}
+                className="pdm-main-img"
               />
             </div>
 
-            {/* Row of 3 Thumbnails */}
+            {/* Thumbnails Row */}
             <div className="pdm-thumbs-row">
               {gallery.slice(0, 3).map((imgUrl, idx) => (
                 <button
-                  key={idx}
+                  key={imgUrl}
                   type="button"
                   className={`pdm-thumb-btn ${activeImageIndex === idx ? 'active' : ''}`}
                   onClick={() => setActiveImageIndex(idx)}
@@ -152,106 +101,40 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             </div>
           </div>
 
-          {/* Right Column: Title, Badges, Material/Finish, PAR box, Key Specifications */}
+          {/* Right Column: Title, Brand Pills, Highlights */}
           <div className="pdm-right-col">
             <h2 className="pdm-title">{product.title}</h2>
-            <p className="pdm-tagline">{specSheet.tagline}</p>
+            {specSheet.tagline && specSheet.tagline !== product.title && (
+              <p className="pdm-tagline">{specSheet.tagline}</p>
+            )}
 
-            {/* 3 Top Feature Badges */}
-            <div className="pdm-badges-row">
-              {badges.map((b, idx) => {
-                let iconEl = <ShieldCheck size={20} className="badge-ico badge-ico-green" />;
-                if (idx === 1 || b.icon === 'wash') {
-                  iconEl = <Droplets size={20} className="badge-ico badge-ico-blue" />;
-                } else if (idx === 2 || b.icon === 'finish') {
-                  iconEl = <Gem size={20} className="badge-ico badge-ico-red" />;
-                }
+            {/* Brand Pills — bold, alternating blue / red */}
+            {product.brands.length > 0 && (
+              <div className="pdm-brand-pills">
+                {product.brands.map(brand => (
+                  <span
+                    key={brand}
+                    className={`pdm-brand-pill ${brandColor(brand) === 'blue' ? 'brand-pill-blue' : 'brand-pill-red'}`}
+                  >
+                    {brand}
+                  </span>
+                ))}
+              </div>
+            )}
 
-                return (
-                  <div key={idx} className="pdm-badge-card">
-                    {iconEl}
-                    <div className="pdm-badge-text">
-                      <span className="pdm-badge-title">{b.title}</span>
-                      <span className="pdm-badge-sub">{b.sub}</span>
-                    </div>
+            {/* Product Highlights */}
+            <div className="pdm-highlights-section">
+              <div className="pdm-hl-head">
+                <FileText size={18} className="pdm-hl-ico" />
+                <span>Product Details &amp; Technical Specifications</span>
+              </div>
+              <div className="pdm-hl-table">
+                {specSheet.highlights.map((row, idx) => (
+                  <div className="pdm-hl-row" key={`${row.label}-${idx}`}>
+                    <span className="hl-label">{row.label}</span>
+                    <span className="hl-val">{row.value}</span>
                   </div>
-                );
-              })}
-            </div>
-
-            {/* Material & Finish Block */}
-            <div className="pdm-mat-fin-block">
-              <div className="pdm-mf-col">
-                <span className="pdm-mf-label">MATERIAL</span>
-                <span className="pdm-mf-val">{specSheet.material}</span>
-              </div>
-              <div className="pdm-mf-col">
-                <span className="pdm-mf-label">FINISH</span>
-                <span className="pdm-mf-val">{specSheet.finish}</span>
-              </div>
-            </div>
-
-            {/* Recommended Stock PAR Box */}
-            <div className="pdm-par-box">
-              <div className="pdm-par-head">
-                <BarChart2 size={16} className="pdm-par-ico" />
-                <span>RECOMMENDED STOCK PAR (PER OPERATIONAL SEAT)</span>
-              </div>
-              <div className="pdm-par-cards">
-                <div className="pdm-par-card">
-                  <span className="par-c-label">Fine Dining</span>
-                  <span className="par-c-val">{specSheet.parGuideline.fineDining}</span>
-                </div>
-                <div className="pdm-par-card">
-                  <span className="par-c-label">Banquet & Events</span>
-                  <span className="par-c-val">{specSheet.parGuideline.banquet}</span>
-                </div>
-                <div className="pdm-par-card">
-                  <span className="par-c-label">Room Service</span>
-                  <span className="par-c-val">{specSheet.parGuideline.roomService}</span>
-                </div>
-                <div className="pdm-par-card">
-                  <span className="par-c-label">Bar & Lounge</span>
-                  <span className="par-c-val">{specSheet.parGuideline.barLounge}</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Key Specifications Section (Weights & Dimensions) */}
-            <div className="pdm-key-specs-section">
-              <div className="pdm-ks-head">
-                <FileText size={17} className="pdm-ks-ico" />
-                <span>Key Specifications</span>
-              </div>
-              <div className="pdm-ks-table">
-                <div className="pdm-ks-row">
-                  <span className="ks-label">Material</span>
-                  <span className="ks-val">{keySpecs.material}</span>
-                </div>
-                <div className="pdm-ks-row">
-                  <span className="ks-label">Dimensions</span>
-                  <span className="ks-val">{keySpecs.dimensions}</span>
-                </div>
-                <div className="pdm-ks-row">
-                  <span className="ks-label">Weight</span>
-                  <span className="ks-val">{keySpecs.weight}</span>
-                </div>
-                <div className="pdm-ks-row">
-                  <span className="ks-label">Finish</span>
-                  <span className="ks-val">{keySpecs.finish}</span>
-                </div>
-                <div className="pdm-ks-row">
-                  <span className="ks-label">Dishwasher Safe</span>
-                  <span className="ks-val">{keySpecs.dishwasherSafe}</span>
-                </div>
-                <div className="pdm-ks-row">
-                  <span className="ks-label">Usage</span>
-                  <span className="ks-val">{keySpecs.usage}</span>
-                </div>
-                <div className="pdm-ks-row">
-                  <span className="ks-label">Packing</span>
-                  <span className="ks-val">{keySpecs.packing}</span>
-                </div>
+                ))}
               </div>
             </div>
           </div>
@@ -260,32 +143,45 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
         {/* Modal Action Footer */}
         <div className="pdm-footer">
           <div className="pdm-footer-left">
-            <button 
-              type="button" 
-              className="pdm-btn-download" 
-              onClick={handleDownloadSpecSheet}
-              title="Download or Print Technical Spec Sheet"
-            >
-              <FileText size={16} />
-              <span>Download Spec Sheet</span>
-            </button>
+            {brochure && (
+              <a
+                className="pdm-btn-brochure"
+                href={brochure}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Open Brand Catalogue (PDF)"
+              >
+                <FileText size={16} />
+                <span>Product Catalogue</span>
+              </a>
+            )}
           </div>
 
           <div className="pdm-footer-right">
-            <button 
-              type="button" 
-              className="pdm-btn-catalog" 
+            <button
+              type="button"
+              className="pdm-btn-catalog"
               onClick={onClose}
             >
               Back to Catalog
             </button>
-            <button 
+            <button
+              type="button"
+              className="pdm-btn-viewpdf"
+              onClick={() => {
+                /* PDF viewer ready slot — wire the brand catalogue here later */
+              }}
+            >
+              <FileText size={16} />
+              <span>View PDF</span>
+            </button>
+            <button
               type="button"
               className="pdm-btn-quote"
               onClick={() => onInquire(product.title)}
             >
               <span>Request Quote</span>
-              <ArrowRight size={16} />
+              <ArrowRight size={17} />
             </button>
           </div>
         </div>
@@ -341,7 +237,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           display: flex;
           align-items: center;
           gap: 8px;
-          font-size: 13.5px;
+          font-size: 15px;
         }
 
         .pdm-crumb-category {
@@ -354,7 +250,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           font-size: 13px;
         }
 
-        .pdm-crumb-sku {
+        .pdm-crumb-code {
           color: #64748b;
           font-weight: 500;
         }
@@ -472,7 +368,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
         }
 
         .pdm-title {
-          font-size: 26px;
+          font-size: 29px;
           font-weight: 700;
           color: #0f172a;
           margin: 0 0 6px 0;
@@ -481,203 +377,78 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
         }
 
         .pdm-tagline {
-          font-size: 13.5px;
+          font-size: 16px;
           color: #64748b;
           line-height: 1.5;
-          margin: 0 0 18px 0;
+          margin: 0 0 16px 0;
         }
 
-        /* Badges Row */
-        .pdm-badges-row {
+        /* Brand Pills */
+        .pdm-brand-pills {
           display: flex;
-          gap: 10px;
+          flex-wrap: wrap;
+          gap: 8px;
           margin-bottom: 18px;
         }
 
-        .pdm-badge-card {
-          flex: 1;
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          padding: 8px 10px;
-          background: #ffffff;
-          border: 1px solid #e2e8f0;
-          border-radius: 8px;
-        }
-
-        .badge-ico {
-          flex-shrink: 0;
-        }
-        .badge-ico-green {
-          color: #16a34a;
-        }
-        .badge-ico-blue {
-          color: #0284c7;
-        }
-        .badge-ico-red {
-          color: #dc2626;
-        }
-
-        .pdm-badge-text {
-          display: flex;
-          flex-direction: column;
-          overflow: hidden;
-        }
-
-        .pdm-badge-title {
-          font-size: 12px;
+        .pdm-brand-pill {
+          font-size: 14px;
           font-weight: 700;
-          color: #0f172a;
-          line-height: 1.2;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
+          letter-spacing: 0.01em;
+          padding: 5px 14px;
+          border-radius: 999px;
         }
 
-        .pdm-badge-sub {
-          font-size: 10.5px;
-          color: #64748b;
-          line-height: 1.2;
-          margin-top: 2px;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-        }
-
-        /* Material & Finish */
-        .pdm-mat-fin-block {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 16px;
-          padding-bottom: 16px;
-          border-bottom: 1px solid #f1f5f9;
-          margin-bottom: 16px;
-        }
-
-        .pdm-mf-col {
-          display: flex;
-          flex-direction: column;
-          gap: 3px;
-        }
-
-        .pdm-mf-label {
-          font-size: 11px;
-          font-weight: 700;
-          letter-spacing: 0.05em;
-          text-transform: uppercase;
-          color: #64748b;
-        }
-
-        .pdm-mf-val {
-          font-size: 13.5px;
-          font-weight: 600;
-          color: #0f172a;
-          line-height: 1.4;
-        }
-
-        /* PAR Box */
-        .pdm-par-box {
-          background: #fff5f5;
-          border: 1px solid #fee2e2;
-          border-radius: 10px;
-          padding: 12px 14px;
-          margin-bottom: 18px;
-        }
-
-        .pdm-par-head {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          color: #dc2626;
-          font-size: 11px;
-          font-weight: 700;
-          letter-spacing: 0.05em;
-          margin-bottom: 10px;
-        }
-
-        .pdm-par-ico {
-          color: #dc2626;
-        }
-
-        .pdm-par-cards {
-          display: flex;
-          gap: 8px;
-        }
-
-        .pdm-par-card {
-          flex: 1;
-          background: #ffffff;
-          border: 1px solid #fee2e2;
-          border-radius: 6px;
-          padding: 7px 10px;
-          display: flex;
-          flex-direction: column;
-          gap: 3px;
-        }
-
-        .par-c-label {
-          font-size: 11px;
-          color: #64748b;
-          white-space: nowrap;
-        }
-
-        .par-c-val {
-          font-size: 18px;
-          font-weight: 700;
-          color: #dc2626;
-          line-height: 1;
-        }
-
-        /* Key Specifications Section */
-        .pdm-key-specs-section {
+        /* Product Highlights */
+        .pdm-highlights-section {
           display: flex;
           flex-direction: column;
           gap: 8px;
         }
 
-        .pdm-ks-head {
+        .pdm-hl-head {
           display: flex;
           align-items: center;
           gap: 8px;
           color: #0f172a;
-          font-size: 14.5px;
+          font-size: 16.5px;
           font-weight: 700;
         }
 
-        .pdm-ks-ico {
+        .pdm-hl-ico {
           color: #dc2626;
         }
 
-        .pdm-ks-table {
+        .pdm-hl-table {
           display: flex;
           flex-direction: column;
         }
 
-        .pdm-ks-row {
+        .pdm-hl-row {
           display: flex;
           align-items: baseline;
           padding: 7px 0;
           border-bottom: 1px solid #f1f5f9;
         }
 
-        .pdm-ks-row:last-child {
+        .pdm-hl-row:last-child {
           border-bottom: none;
         }
 
-        .ks-label {
-          width: 140px;
+        .hl-label {
+          width: 150px;
           flex-shrink: 0;
-          font-size: 13px;
+          font-size: 15px;
           color: #64748b;
           font-weight: 500;
         }
 
-        .ks-val {
+        .hl-val {
           flex: 1;
-          font-size: 13px;
+          font-size: 15.5px;
           color: #0f172a;
           font-weight: 500;
-          line-height: 1.4;
+          line-height: 1.45;
         }
 
         /* Modal Footer */
@@ -690,37 +461,44 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           background: #ffffff;
         }
 
-        .pdm-btn-download {
+        .pdm-footer-left:empty {
+          display: none;
+        }
+
+        .pdm-btn-brochure {
           display: flex;
           align-items: center;
           gap: 8px;
           background: #ffffff;
-          border: 1px solid #e2e8f0;
+          border: 1.5px solid #1d4ed8;
           border-radius: 8px;
           padding: 9px 16px;
-          font-size: 13.5px;
-          font-weight: 600;
-          color: #334155;
+          font-size: 14.5px;
+          font-weight: 700;
+          color: #1d4ed8;
+          text-decoration: none;
           cursor: pointer;
           transition: all 0.15s ease;
         }
 
-        .pdm-btn-download:hover {
-          background: #f8fafc;
-          border-color: #cbd5e1;
+        .pdm-btn-brochure:hover {
+          background: #eff6ff;
+          border-color: #1e40af;
+          color: #1e40af;
         }
 
         .pdm-footer-right {
           display: flex;
           align-items: center;
-          gap: 16px;
+          gap: 18px;
+          margin-left: auto;
         }
 
         .pdm-btn-catalog {
           background: none;
           border: none;
           color: #64748b;
-          font-size: 13.5px;
+          font-size: 14.5px;
           font-weight: 600;
           cursor: pointer;
           padding: 9px 12px;
@@ -734,22 +512,41 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
         .pdm-btn-quote {
           display: flex;
           align-items: center;
-          gap: 8px;
-          background: #dc2626;
+          gap: 9px;
+          background: #02348d;
           color: #ffffff;
           border: none;
-          border-radius: 8px;
-          padding: 10px 20px;
-          font-size: 13.5px;
-          font-weight: 600;
+          border-radius: 10px;
+          padding: 12px 26px;
+          font-size: 16px;
+          font-weight: 700;
           cursor: pointer;
           transition: all 0.15s ease;
-          box-shadow: 0 2px 8px rgba(220, 38, 38, 0.25);
+          box-shadow: 0 4px 14px rgba(2, 52, 141, 0.3);
+        }
+
+        .pdm-btn-viewpdf {
+          display: flex;
+          align-items: center;
+          gap: 9px;
+          background: #ffffff;
+          color: #02348d;
+          border: 1.5px solid #02348d;
+          border-radius: 10px;
+          padding: 12px 20px;
+          font-size: 16px;
+          font-weight: 700;
+          cursor: pointer;
+          transition: all 0.15s ease;
+        }
+
+        .pdm-btn-viewpdf:hover {
+          background: #eff6ff;
         }
 
         .pdm-btn-quote:hover {
-          background: #b91c1c;
-          box-shadow: 0 4px 12px rgba(185, 28, 28, 0.35);
+          background: #012463;
+          box-shadow: 0 6px 18px rgba(2, 52, 141, 0.4);
         }
 
         /* Responsive */
@@ -778,16 +575,6 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             max-width: 100px;
           }
 
-          .pdm-badges-row {
-            flex-direction: column;
-            gap: 8px;
-          }
-
-          .pdm-par-cards {
-            grid-template-columns: 1fr 1fr;
-            display: grid;
-          }
-
           .pdm-footer {
             flex-direction: column;
             gap: 12px;
@@ -800,44 +587,10 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             justify-content: space-between;
           }
 
-          .pdm-btn-download,
+          .pdm-btn-brochure,
           .pdm-btn-quote {
             flex: 1;
             justify-content: center;
-          }
-        }
-
-        /* Print Mode */
-        @media print {
-          body * {
-            visibility: hidden !important;
-          }
-          .pdm-backdrop,
-          .pdm-backdrop * {
-            visibility: visible !important;
-          }
-          .pdm-backdrop {
-            position: absolute !important;
-            left: 0 !important;
-            top: 0 !important;
-            width: 100% !important;
-            background: #ffffff !important;
-            backdrop-filter: none !important;
-            padding: 0 !important;
-            margin: 0 !important;
-            z-index: 999999 !important;
-          }
-          .pdm-dialog {
-            box-shadow: none !important;
-            max-width: 100% !important;
-            max-height: none !important;
-            border-radius: 0 !important;
-            border: none !important;
-            overflow: visible !important;
-          }
-          .pdm-close-btn,
-          .pdm-footer {
-            display: none !important;
           }
         }
       `}</style>

@@ -44,12 +44,12 @@ export const HERO_SLIDES = [
   },
   {
     id: 2,
-    image: '/images/image__restaurant_setting__c005091f.webp',
-    alt: 'Elegant restaurant setting'
+    image: '/images/product_catalog_hero_bright.jpg',
+    alt: 'Hospitality tableware and equipment collection'
   },
   {
     id: 3,
-    image: '/images/image__fine_dining__2ac60065.webp',
+    image: '/images/FineDining.png',
     alt: 'Hospitality catering and banquet'
   }
 ];
@@ -78,12 +78,6 @@ export const CATEGORIES_DATA: CategoryItem[] = [
     title: 'Guest Amenities',
     subtitle: 'In-room botanical soaps, slippers, dental kits & comforts.',
     image: '/images/cardimage_1dbd1171.webp'
-  },
-  {
-    id: 'cafes',
-    title: 'Cafes',
-    subtitle: 'Specialty coffee mugs, frappe glassware, barista tools & disposables.',
-    image: '/images/category_cafe_beverage.jpg'
   },
   {
     id: 'kitchen-utensils',
@@ -134,968 +128,1226 @@ export const BRANDS_ROW_2: BrandItem[] = [
 ];
 
 export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
-  // --- 1. CROCKERY ---
-  {
-    id: 'crockery-dinewell',
-    title: 'Dinewell Melamine Dinnerware',
-    subtitle: 'Chip-resistant buffet plates, bowls & platters',
-    details: '100% Melamine · Dinewell',
-    image: '/images/dinewell_melamine_platters.jpg',
-    category: 'Crockery',
-    brands: ['Dinewell'],
-    industries: ['Hotels', 'Restaurants', 'Catering'],
-    factors: ['Bulk Wholesale', 'Custom Branding', 'ISO Certified']
-  },
-  {
-    id: 'crockery-borosil',
-    title: 'Borosil Glassware & Opalware',
-    subtitle: 'Toughened glass dining & beverage collections',
-    details: 'Opalware & Glass · Borosil',
-    image: '/images/image__tableware___crockery__a8a959b7.webp',
-    category: 'Crockery',
-    brands: ['Borosil'],
-    industries: ['Hotels', 'Restaurants', 'Catering'],
-    factors: ['Bulk Wholesale', 'Heat Resistant']
-  },
   {
     id: 'crockery-ariane',
-    title: 'Ariane Fine Porcelain Tableware',
-    subtitle: 'European vitrified porcelain dining & banquet plates',
-    details: 'Fine Porcelain · Ariane',
-    image: '/images/image__tableware___crockery__c6601dfa.webp',
+    title: 'Fine Porcelain Tableware',
+    subtitle: '',
+    details: 'Tableware for serving meals and drinks in hospitality settings. fine porcelain tableware suits everyday dining and food presentation.',
+    image: '/images/cardimage_b6bc00f1.webp',
     category: 'Crockery',
     brands: ['Ariane'],
-    industries: ['Hotels', 'Restaurants'],
-    factors: ['Super Vitrified', 'Dishwasher Safe', 'Lead Safe']
+    industries: [],
+    factors: []
   },
   {
     id: 'crockery-arcoroc',
-    title: 'Arcoroc Tableware & Drinkware',
-    subtitle: 'Toughened French opal dinnerware & banquet service',
-    details: 'Opal Tableware & Glass · Arcoroc',
-    image: '/images/image__tableware___crockery__a8a959b7.webp',
+    title: 'Tableware & Drinkware',
+    subtitle: '',
+    details: 'Tableware for serving meals and drinks in hospitality settings. tableware and drinkware suits everyday dining and food presentation.',
+    image: '/images/image__tableware___crockery__c6601dfa.webp',
     category: 'Crockery',
     brands: ['Arcoroc'],
-    industries: ['Hotels', 'Restaurants', 'Catering'],
-    factors: ['Toughened Glass', 'Thermal Shock Proof']
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'crockery-stemware-arcoroc',
+    title: 'Commercial Bar & Restaurant Stemware',
+    subtitle: '',
+    details: 'Tableware for serving meals and drinks in hospitality settings. commercial bar and restaurant stemware suits everyday dining and food presentation.',
+    image: '/images/image__fine_dining__2ac60065.webp',
+    category: 'Crockery',
+    brands: ['Arcoroc'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'crockery-stemware-borosil',
+    title: 'Commercial Bar & Restaurant Stemware',
+    subtitle: '',
+    details: 'Tableware for serving meals and drinks in hospitality settings. commercial bar and restaurant stemware suits everyday dining and food presentation.',
+    image: '/images/image__restaurants__6ff4e1ae.webp',
+    category: 'Crockery',
+    brands: ['Borosil'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'crockery-stemware-ocean',
+    title: 'Commercial Bar & Restaurant Stemware',
+    subtitle: '',
+    details: 'Tableware for serving meals and drinks in hospitality settings. commercial bar and restaurant stemware suits everyday dining and food presentation.',
+    image: '/images/image__restaurant_setting__c005091f.webp',
+    category: 'Crockery',
+    brands: ['Ocean'],
+    industries: [],
+    factors: []
   },
   {
     id: 'crockery-bharat',
-    title: 'Bharat Commercial Crockery',
-    subtitle: 'High-durability ceramic dinner sets & banquet tableware',
-    details: 'Ceramic Tableware · Bharat - Crockery',
-    image: '/images/cardimage_b6bc00f1.webp',
+    title: 'Commercial Crockery',
+    subtitle: '',
+    details: 'Tableware for serving meals and drinks in hospitality settings. bharat commercial crockery suits everyday dining and food presentation.',
+    image: '/images/ceramic_latte_cups.jpg',
     category: 'Crockery',
     brands: ['Bharat - Crockery'],
-    industries: ['Hotels', 'Restaurants', 'Catering'],
-    factors: ['Commercial Grade', 'Chip Resistant']
+    industries: [],
+    factors: []
   },
   {
-    id: 'crockery-claycraft',
-    title: 'Clay Craft Fine Tableware',
-    subtitle: 'Fine ceramic dining, luxury teaware & hotel dinner sets',
-    details: 'Ceramic & Fine Tableware · Claycraft Fine Tableware',
-    image: '/images/ceramic_claycraft_tableware.jpg',
+    id: 'crockery-borosil',
+    title: 'Glassware & Opalware',
+    subtitle: '',
+    details: 'Tableware for serving meals and drinks in hospitality settings. glassware and opalware suits everyday dining and food presentation.',
+    image: '/images/image__tableware___crockery__a8a959b7.webp',
     category: 'Crockery',
-    brands: ['Claycraft Fine Tableware'],
-    industries: ['Hotels', 'Restaurants'],
-    factors: ['Lead & Cadmium Safe', 'Custom Crest Embossing']
-  },
-  {
-    id: 'crockery-ocean',
-    title: 'Ocean Commercial Glassware',
-    subtitle: 'Premium crystal-clear beverage tumblers, stems & goblets',
-    details: 'Commercial Glassware · Ocean',
-    image: '/images/image__hospitality_tableware__eab14684.webp',
-    category: 'Crockery',
-    brands: ['Ocean'],
-    industries: ['Hotels', 'Restaurants', 'Cafes'],
-    factors: ['Crystal Clarity', 'Flame Polished Rims']
-  },
-  {
-    id: 'crockery-union',
-    title: 'Union Hospitality Glassware',
-    subtitle: 'High-turnover durable glassware for catering & banquets',
-    details: 'Beverage Glassware · Union',
-    image: '/images/category_cafe_beverage.jpg',
-    category: 'Crockery',
-    brands: ['Union'],
-    industries: ['Hotels', 'Restaurants', 'Catering'],
-    factors: ['Bulk Wholesale', 'Scratch Resistant']
-  },
-  {
-    id: 'crockery-servewell',
-    title: 'Servewell Melamine Tableware',
-    subtitle: '100% food-grade melamine serving trays, bowls & plates',
-    details: 'Melamine Dining · Servewell',
-    image: '/images/image__fine_dining__2ac60065.webp',
-    category: 'Crockery',
-    brands: ['Servewell'],
-    industries: ['Hotels', 'Restaurants', 'Catering'],
-    factors: ['Break Resistant', 'BPA Free']
-  },
-  {
-    id: 'crockery-superware',
-    title: 'Superware Heavy-Duty Melamine',
-    subtitle: 'Commercial buffetware, platters & heavy-gauge melamine sets',
-    details: 'Buffet & Melamine · Superware',
-    image: '/images/dinewell_melamine_platters.jpg',
-    category: 'Crockery',
-    brands: ['Superware'],
-    industries: ['Hotels', 'Restaurants', 'Catering'],
-    factors: ['Heavy Gauge', 'Stain Resistant']
+    brands: ['Borosil'],
+    industries: [],
+    factors: []
   },
   {
     id: 'crockery-cello',
-    title: 'Cello Hospitality Tableware',
-    subtitle: 'Contemporary opalware dinner sets & dining essentials',
-    details: 'Opal & Tableware · Cello',
-    image: '/images/image__restaurant_setting__c005091f.webp',
+    title: 'Hospitality Tableware',
+    subtitle: '',
+    details: 'Tableware for serving meals and drinks in hospitality settings. hospitality tableware suits everyday dining and food presentation.',
+    image: '/images/image__hospitality_tableware__eab14684.webp',
     category: 'Crockery',
     brands: ['Cello'],
-    industries: ['Hotels', 'Restaurants', 'Catering'],
-    factors: ['Lightweight & Tough', 'ISO Certified']
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'crockery-claycraft',
+    title: 'Fine Tableware',
+    subtitle: '',
+    details: 'Tableware for serving meals and drinks in hospitality settings. clay craft fine tableware suits everyday dining and food presentation.',
+    image: '/images/ceramic_claycraft_tableware.jpg',
+    category: 'Crockery',
+    brands: ['Claycraft Fine Tableware'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'crockery-dinewell',
+    title: 'Dinnerware Collection',
+    subtitle: '',
+    details: 'Tableware for serving meals and drinks in hospitality settings. dinnerware collection suits everyday dining and food presentation.',
+    image: '/images/dinewell_melamine_platters.jpg',
+    category: 'Crockery',
+    brands: ['Dinewell'],
+    industries: [],
+    factors: []
   },
   {
     id: 'crockery-jcpl',
-    title: 'JCPL Commercial Dinnerware',
-    subtitle: 'Fine vitrified tableware & modern tabletop banquet collections',
-    details: 'Vitrified Tableware · JCPL',
-    image: '/images/image__tableware___crockery__c6601dfa.webp',
+    title: 'Commercial Dinnerware',
+    subtitle: '',
+    details: 'Tableware for serving meals and drinks in hospitality settings. commercial dinnerware suits everyday dining and food presentation.',
+    image: '/images/FineDining.png',
     category: 'Crockery',
     brands: ['JCPL'],
-    industries: ['Hotels', 'Restaurants'],
-    factors: ['High Glaze', 'Oven Safe']
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'crockery-ocean',
+    title: 'Commercial Glassware',
+    subtitle: '',
+    details: 'Tableware for serving meals and drinks in hospitality settings. commercial glassware suits everyday dining and food presentation.',
+    image: '/images/image__tableware___crockery__c6601dfa.webp',
+    category: 'Crockery',
+    brands: ['Ocean'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'crockery-servewell',
+    title: 'Melamine Tableware',
+    subtitle: '',
+    details: 'Tableware for serving meals and drinks in hospitality settings. melamine tableware suits everyday dining and food presentation.',
+    image: '/images/image__tableware___crockery__a8a959b7.webp',
+    category: 'Crockery',
+    brands: ['Servewell'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'crockery-superware',
+    title: 'Heavy-Duty Buffetware',
+    subtitle: '',
+    details: 'Tableware for serving meals and drinks in hospitality settings. heavy-duty buffetware suits everyday dining and food presentation.',
+    image: '/images/dinewell_melamine_platters.jpg',
+    category: 'Crockery',
+    brands: ['Superware'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'crockery-union',
+    title: 'Hospitality Glassware',
+    subtitle: '',
+    details: 'Tableware for serving meals and drinks in hospitality settings. hospitality glassware suits everyday dining and food presentation.',
+    image: '/images/product_catalog_hero_bright.jpg',
+    category: 'Crockery',
+    brands: ['Union'],
+    industries: [],
+    factors: []
   },
   {
     id: 'crockery-v4',
-    title: 'V 4 Banquet & Catering Tableware',
-    subtitle: 'Commercial catering plates, side bowls & dining sets',
-    details: 'Tabletop Sets · V 4',
-    image: '/images/cardimage_b6bc00f1.webp',
+    title: 'Banquet & Catering Tableware',
+    subtitle: '',
+    details: 'Tableware for serving meals and drinks in hospitality settings. banquet and catering tableware suits everyday dining and food presentation.',
+    image: '/images/FineDining.png',
     category: 'Crockery',
     brands: ['V 4'],
-    industries: ['Hotels', 'Restaurants', 'Catering'],
-    factors: ['Bulk Wholesale', 'Economical Bulk']
+    industries: [],
+    factors: []
   },
   {
     id: 'crockery-yeraa',
-    title: 'Yera Commercial Foodservice Glassware',
-    subtitle: 'Heavy-base water tumblers, juice glasses, sundae cups & dessert bowls',
-    details: 'Soda-Lime Pressed Glass · Yeraa',
-    image: '/images/image__tableware___crockery__a8a959b7.webp',
+    title: 'Commercial Foodservice Glassware',
+    subtitle: '',
+    details: 'Tableware for serving meals and drinks in hospitality settings. yera commercial foodservice glassware suits everyday dining and food presentation.',
+    image: '/images/image__hospitality_tableware__eab14684.webp',
     category: 'Crockery',
     brands: ['Yeraa'],
-    industries: ['Hotels', 'Restaurants', 'Cafes', 'Catering'],
-    factors: ['Thermal Shock Resistant', 'Dishwasher Safe', 'Lead-Free']
+    industries: [],
+    factors: []
   },
-  {
-    id: 'crockery-bar-stemware',
-    title: 'Commercial Bar & Restaurant Stemware',
-    subtitle: 'Wine goblets, champagne flutes, whiskey rocks, beer mugs & cocktail glasses',
-    details: 'Lead-Free Crystal & Toughened Glass · Ocean, Arcoroc, Borosil',
-    image: '/images/image__tableware___crockery__c6601dfa.webp',
-    category: 'Crockery',
-    brands: ['Ocean', 'Arcoroc', 'Borosil'],
-    industries: ['Hotels', 'Restaurants', 'Banquets & Venues'],
-    factors: ['Crystal Clarity', 'Laser-Cut Rim', 'Dishwasher Safe']
-  },
-
-  // --- 2. CUTLERY ---
   {
     id: 'cutlery-fns',
-    title: 'FNS Luxury Cutlery Collection',
-    subtitle: 'Handcrafted premium 18/10 stainless steel suites',
-    details: '18/10 Stainless Steel · FNS',
+    title: 'Luxury Cutlery Collection',
+    subtitle: '',
+    details: 'Dining utensils for serving and eating meals. luxury cutlery collection supports table settings in hospitality venues.',
     image: '/images/fns_luxury_cutlery.jpg',
     category: 'Cutlery',
     brands: ['FNS'],
-    industries: ['Hotels', 'Restaurants'],
-    factors: ['Mirror Polish', 'Heavy Gauge', 'Rust Proof']
+    industries: [],
+    factors: []
   },
   {
     id: 'cutlery-shapes',
-    title: 'Shapes Commercial Flatware',
-    subtitle: 'Contemporary dining spoons, forks, knives & steak suites',
-    details: 'Heavy Gauge Flatware · Shapes',
+    title: 'Commercial Flatware',
+    subtitle: '',
+    details: 'Dining utensils for serving and eating meals. commercial flatware supports table settings in hospitality venues.',
     image: '/images/cutlery_fork_spoon_knife.jpg',
     category: 'Cutlery',
     brands: ['Shapes'],
-    industries: ['Hotels', 'Restaurants', 'Catering'],
-    factors: ['Dishwasher Safe', 'Bulk Wholesale']
-  },
-  {
-    id: 'cutlery-venus',
-    title: 'Venus Hospitality Cutlery',
-    subtitle: 'Heavy-gauge mirror & satin banquet silverware',
-    details: 'High-Grade Cutlery · Venus',
-    image: '/images/image__stainless_steel_brassware__69672dfd.webp',
-    category: 'Cutlery',
-    brands: ['Venus'],
-    industries: ['Hotels', 'Restaurants', 'Catering'],
-    factors: ['Custom Crest Embossing', 'ISO Certified']
+    industries: [],
+    factors: []
   },
   {
     id: 'cutlery-supreme',
-    title: 'Supreme Foodservice Cutlery',
-    subtitle: 'High-turnover durable cutlery for banquets & cafes',
-    details: 'Foodservice Grade · Supreme',
+    title: 'Foodservice Cutlery',
+    subtitle: '',
+    details: 'Dining utensils for serving and eating meals. foodservice cutlery supports table settings in hospitality venues.',
     image: '/images/cutlery_fork_spoon_knife.jpg',
     category: 'Cutlery',
     brands: ['Supreme'],
-    industries: ['Restaurants', 'Catering', 'Hotels'],
-    factors: ['Economic Bulk', 'Corrosion Resistant']
+    industries: [],
+    factors: []
   },
-
-  // --- 3. LINEN ---
   {
-    id: 'linen-towels-bathmats',
-    title: 'Bath Towels, Hand Towels & Bath Mats',
-    subtitle: '100% Combed terry cotton luxury plush towels',
-    details: '550-650 GSM Combed Cotton · Luxury Hospitality',
+    id: 'cutlery-venus',
+    title: 'Hospitality Cutlery',
+    subtitle: '',
+    details: 'Dining utensils for serving and eating meals. hospitality cutlery supports table settings in hospitality venues.',
+    image: '/images/fns_luxury_cutlery.jpg',
+    category: 'Cutlery',
+    brands: ['Venus'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'linen-decorative-throws',
+    title: 'Decorative Throws',
+    subtitle: '',
+    details: 'decorative throws is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
+    image: '/images/cardimage_4fdce090.webp',
+    category: 'Linen',
+    brands: ['Cintra'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'linen-bath-towels',
+    title: 'Bath Towels',
+    subtitle: '',
+    details: 'bath towels is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
     image: '/images/luxury_hotel_linen.jpg',
     category: 'Linen',
-    brands: [],
-    industries: ['Hotels', 'Resorts'],
-    factors: ['100% Combed Cotton', 'High Absorbency', 'Bulk Wholesale']
+    brands: ['Cintra'],
+    industries: [],
+    factors: []
   },
   {
-    id: 'linen-pool-face-towels',
-    title: 'Pool Towels & Face Towels',
-    subtitle: 'Vat-dyed chlorine-resistant poolside & face linens',
-    details: 'Vat-Dyed Chlorine-Resistant Cotton',
-    image: '/images/resort_pool_towels.jpg',
+    id: 'linen-hand-towels',
+    title: 'Hand Towels',
+    subtitle: '',
+    details: 'hand towels is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
+    image: '/images/luxury_hotel_linen.jpg',
     category: 'Linen',
-    brands: [],
-    industries: ['Hotels', 'Resorts'],
-    factors: ['Chlorine Resistant', 'Quick Dry']
+    brands: ['Cintra'],
+    industries: [],
+    factors: []
   },
   {
-    id: 'linen-bedsheets-duvets',
-    title: 'Bed Sheets, Bed Covers & Duvets',
-    subtitle: '300-400 TC pure cotton & sateen stripe bed linen',
-    details: '300-400 TC Pure Cotton Sateen',
+    id: 'linen-bath-mats',
+    title: 'Bath Mats',
+    subtitle: '',
+    details: 'bath mats is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
+    image: '/images/luxury_hotel_linen.jpg',
+    category: 'Linen',
+    brands: ['Cintra'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'linen-bed-sheets',
+    title: 'Hotel Bed Sheets',
+    subtitle: '',
+    details: 'hotel bed sheets is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
     image: '/images/luxury_hotel_bed_linen.jpg',
     category: 'Linen',
-    brands: [],
-    industries: ['Hotels'],
-    factors: ['Hypoallergenic', 'Commercial Wash Proof']
+    brands: ['Cintra'],
+    industries: [],
+    factors: []
   },
   {
-    id: 'linen-pillows-protectors',
-    title: 'Pillows, Pillow Covers & Mattress Protectors',
-    subtitle: 'Microfiber down-feel pillows & waterproof protectors',
-    details: 'Microfiber Down-Feel & Quilted Fill',
-    image: '/images/hotel_pillows_collection.jpg',
+    id: 'linen-bed-covers',
+    title: 'Hotel Bed Covers',
+    subtitle: '',
+    details: 'hotel bed covers is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
+    image: '/images/luxury_hotel_bed_linen.jpg',
     category: 'Linen',
-    brands: [],
-    industries: ['Hotels'],
-    factors: ['Waterproof Barrier', 'Anti-Bacterial']
+    brands: ['Cintra'],
+    industries: [],
+    factors: []
   },
   {
-    id: 'linen-curtains-carpets-rugs',
-    title: 'Curtains, Carpets, Rugs & Cushions',
-    subtitle: 'Flame-retardant blackout drapery, throws & floor coverings',
-    details: 'Flame-Retardant Hospitality Fabric',
+    id: 'linen-duvets',
+    title: 'Hotel Duvets',
+    subtitle: '',
+    details: 'hotel duvets is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
+    image: '/images/luxury_hotel_bed_linen.jpg',
+    category: 'Linen',
+    brands: ['Cintra'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'linen-curtains',
+    title: 'Hotel Curtains',
+    subtitle: '',
+    details: 'hotel curtains is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
     image: '/images/hotel_curtains_drapery.jpg',
     category: 'Linen',
-    brands: [],
-    industries: ['Hotels', 'Restaurants'],
-    factors: ['Blackout FR', 'Custom Dimensions']
+    brands: ['Cintra'],
+    industries: [],
+    factors: []
   },
   {
-    id: 'linen-table-dining',
-    title: 'Table Linen, Cloth Napkins & Chair Covers',
-    subtitle: 'Hotel-grade white damask table cloths, table mats, cloth napkins & banquet chair covers',
-    details: '100% Combed Cotton & Damask · Cintra Cottons',
-    image: '/images/image__fine_dining__2ac60065.webp',
+    id: 'linen-carpets',
+    title: 'Hotel Carpets',
+    subtitle: '',
+    details: 'hotel carpets is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
+    image: '/images/image__hotels__8af4967c.webp',
     category: 'Linen',
-    brands: ['Cintra Cottons'],
-    industries: ['Hotels', 'Restaurants', 'Banquets & Venues', 'Catering'],
-    factors: ['100% Cotton', 'Stain Resistant', 'High Durability', 'Commercial Grade']
+    brands: ['Cintra'],
+    industries: [],
+    factors: []
   },
   {
-    id: 'linen-bathrobes-decor',
-    title: 'Luxury Hotel Bathrobes, Bed Runners & Blankets',
-    subtitle: '450 GSM waffle-weave & terry bathrobes, bed runners & decorative cushion throws',
-    details: '100% Combed Cotton · Cintra Cottons',
-    image: '/images/luxury_hotel_bed_linen.jpg',
+    id: 'linen-rugs',
+    title: 'Hotel Rugs',
+    subtitle: '',
+    details: 'hotel rugs is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
+    image: '/images/image__hotels__8af4967c.webp',
     category: 'Linen',
-    brands: ['Cintra Cottons'],
-    industries: ['Hotels', 'Resorts', 'Healthcare'],
-    factors: ['Ultra Soft', 'High Absorbency', 'Hotel Grade White', 'Eco-Friendly']
-  },
-
-  // --- 4. GUEST AMENITIES ---
-  {
-    id: 'amenities-liquids-soaps',
-    title: 'Liquid Amenities & Soaps',
-    subtitle: 'Bath gel, foam bath, shampoo, shower gel, body lotion, moisturizer & soaps',
-    details: 'Botanical Formulations · Victol Gold',
-    image: '/images/botanical_guest_amenities.jpg',
-    category: 'Guest Amenities',
-    brands: ['Victol Gold'],
-    industries: ['Hotels', 'Resorts'],
-    factors: ['Paraben Free', 'Custom Hotel Branding']
+    brands: ['Cintra'],
+    industries: [],
+    factors: []
   },
   {
-    id: 'amenities-room-kits',
-    title: 'Customised Guest & Room Kits',
-    subtitle: 'Dental kit, shaving kit, sewing kit & medical kits',
-    details: 'Eco-Packaging · Victol Gold',
-    image: '/images/hotel_guest_kits.jpg',
-    category: 'Guest Amenities',
-    brands: ['Victol Gold'],
-    industries: ['Hotels', 'Resorts'],
-    factors: ['Biodegradable', 'Custom Hotel Logo']
+    id: 'linen-cushions',
+    title: 'Decorative Cushions',
+    subtitle: '',
+    details: 'decorative cushions is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
+    image: '/images/image__hotels__8af4967c.webp',
+    category: 'Linen',
+    brands: ['Cintra'],
+    industries: [],
+    factors: []
   },
   {
-    id: 'amenities-inscape-accessories',
-    title: 'Inscape Guestroom Leatherette Folders & Amenity Accessories',
-    subtitle: 'Leatherette bill/menu folders, tissue box covers, amenity display trays, luggage tags & DND signs',
-    details: 'Guestroom & Front Office Leatherette · Inscape',
-    image: '/images/hotel_folders_cards_stationery.jpg',
-    category: 'Guest Amenities',
-    brands: ['Inscape'],
-    industries: ['Hotels', 'Resorts', 'Restaurants'],
-    factors: ['Handcrafted Finish', 'Custom Embossing', 'Water Resistant']
+    id: 'linen-pillows',
+    title: 'Hotel Pillows',
+    subtitle: '',
+    details: 'hotel pillows is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
+    image: '/images/hotel_pillows_collection.jpg',
+    category: 'Linen',
+    brands: ['Cintra'],
+    industries: [],
+    factors: []
   },
   {
-    id: 'amenities-eco-friendly-bamboo',
-    title: 'Eco-Friendly Bamboo Amenities & Kraft Packaging',
-    subtitle: 'Biodegradable bamboo toothbrushes, wooden combs, paper cotton swabs & kraft wrapped guest comforts',
-    details: 'Sustainable Guestroom Collection · Victol Gold',
-    image: '/images/image__guest_amenities_equipment__f4f6ec37.webp',
-    category: 'Guest Amenities',
-    brands: ['Victol Gold'],
-    industries: ['Hotels', 'Resorts'],
-    factors: ['100% Biodegradable', 'Zero Plastic', 'Eco-Friendly / Green']
+    id: 'linen-pillow-covers',
+    title: 'Pillow Covers',
+    subtitle: '',
+    details: 'pillow covers is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
+    image: '/images/hotel_pillows_collection.jpg',
+    category: 'Linen',
+    brands: ['Cintra'],
+    industries: [],
+    factors: []
   },
   {
-    id: 'amenities-room-accessories',
-    title: 'Room Amenities & Bath Slippers',
-    subtitle: 'Hygiene bags, shoe mitts, hangers, laundry paper bags & bath slippers',
-    details: 'In-Room Essentials, Hygiene Bags & Slippers',
-    image: '/images/cardimage_1dbd1171.webp',
-    category: 'Guest Amenities',
-    brands: ['Victol Gold'],
-    industries: ['Hotels', 'Resorts'],
-    factors: ['Eco-Friendly', 'Bulk Wholesale']
+    id: 'linen-mattress-protectors',
+    title: 'Mattress Protectors',
+    subtitle: '',
+    details: 'mattress protectors is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
+    image: '/images/hotel_pillows_collection.jpg',
+    category: 'Linen',
+    brands: ['Cintra'],
+    industries: [],
+    factors: []
   },
   {
-    id: 'amenities-bath-tissue',
-    title: 'Bath Amenities, Toilet Rolls & WC Bands',
-    subtitle: 'Virgin pulp toilet rolls, sanitized WC bands, glass covers & glass coasters',
-    details: 'Sanitary Paper Goods & Tissue · Fresh N Fine',
+    id: 'linen-pool-towels',
+    title: 'Pool Towels',
+    subtitle: '',
+    details: 'pool towels is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
+    image: '/images/resort_pool_towels.jpg',
+    category: 'Linen',
+    brands: ['Cintra'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'linen-face-towels',
+    title: 'Face Towels',
+    subtitle: '',
+    details: 'face towels is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
+    image: '/images/resort_pool_towels.jpg',
+    category: 'Linen',
+    brands: ['Cintra'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'amenities-toilet-rolls-wcbands',
+    title: 'Toilet Rolls & WC Bands',
+    subtitle: '',
+    details: 'toilet rolls and wc bands provides a useful in-room or bathroom item for hotel guests.',
     image: '/images/hotel_bath_amenities_toilet_rolls.jpg',
     category: 'Guest Amenities',
     brands: ['Fresh N Fine'],
-    industries: ['Hotels'],
-    factors: ['100% Virgin Pulp', 'Hygienic Wrapping']
+    industries: [],
+    factors: []
   },
   {
-    id: 'amenities-housekeeping-stationery',
-    title: 'Guest Stationery, Folders & Disposables',
-    subtitle: 'Pens, bill/menu folders, DND cards, Doli paper, food containers, luggage tags, shoe shine, toothpicks, stirrers, straws & room fresheners',
-    details: 'Front Office, Guest Stationery, Room Care & Dining',
+    id: 'amenities-glass-covers-coasters',
+    title: 'Glass Covers & Glass Coasters',
+    subtitle: '',
+    details: 'glass covers and glass coasters provides a useful in-room or bathroom item for hotel guests.',
+    image: '/images/HotelAmenities.png',
+    category: 'Guest Amenities',
+    brands: ['Victol'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'amenities-bathroom-kits',
+    title: 'Bathroom Guest Kits',
+    subtitle: '',
+    details: 'bathroom guest kits provides a useful in-room or bathroom item for hotel guests.',
+    image: '/images/hotel_guest_kits.jpg',
+    category: 'Guest Amenities',
+    brands: ['Victol'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'amenities-sewing-medical-kits',
+    title: 'Sewing & Medical Kits',
+    subtitle: '',
+    details: 'sewing and medical kits provides a useful in-room or bathroom item for hotel guests.',
+    image: '/images/hotel_guest_kits.jpg',
+    category: 'Guest Amenities',
+    brands: ['Victol'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'amenities-guest-stationery',
+    title: 'Guest Stationery & Folders',
+    subtitle: '',
+    details: 'guest stationery and folders provides a useful in-room or bathroom item for hotel guests.',
     image: '/images/hotel_folders_cards_stationery.jpg',
     category: 'Guest Amenities',
-    brands: ['Inscape', 'Fresh N Fine'],
-    industries: ['Hotels', 'Restaurants'],
-    factors: ['Custom Embossing', 'Food Grade Disposables']
+    brands: ['Victol'],
+    industries: [],
+    factors: []
   },
-
-  // --- 5. KITCHEN UTENSILS ---
   {
-    id: 'utensils-prestige',
-    title: 'Prestige Commercial Cookware',
-    subtitle: 'Heavy-gauge commercial stock pots, pans & pressure cookers',
-    details: 'Commercial Cookware · Prestige',
-    image: '/images/commercial_stockpots.jpg',
+    id: 'amenities-table-sundries',
+    title: 'Table & Guest Sundries',
+    subtitle: '',
+    details: 'table and guest sundries provides a useful in-room or bathroom item for hotel guests.',
+    image: '/images/cafe_disposables_straws.jpg',
+    category: 'Guest Amenities',
+    brands: ['Victol'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'amenities-liquids-soaps',
+    title: 'Liquid Amenities & Soaps',
+    subtitle: '',
+    details: 'liquid amenities and soaps provides a useful in-room or bathroom item for hotel guests.',
+    image: '/images/botanical_guest_amenities.jpg',
+    category: 'Guest Amenities',
+    brands: ['Victol'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'amenities-hygiene-laundry-essentials',
+    title: 'Hygiene Bags & Laundry Essentials',
+    subtitle: '',
+    details: 'hygiene bags and laundry essentials provides a useful in-room or bathroom item for hotel guests.',
+    image: '/images/cardimage_1dbd1171.webp',
+    category: 'Guest Amenities',
+    brands: ['Victol'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'amenities-bath-slippers',
+    title: 'Bath Slippers',
+    subtitle: '',
+    details: 'bath slippers provides a useful in-room or bathroom item for hotel guests.',
+    image: '/images/image__guest_amenities_equipment__f4f6ec37.webp',
+    category: 'Guest Amenities',
+    brands: ['Victol'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'utensils-alltime-ingredient-bins',
+    title: 'Ingredient Storage Bins',
+    subtitle: '',
+    details: 'ingredient storage bins supports food preparation, cooking, storage, or buffet service in professional kitchens.',
+    image: '/images/image_3_c35c9821.webp',
     category: 'Kitchen Utensils',
-    brands: ['Prestige'],
-    industries: ['Restaurants', 'Hotels', 'Catering'],
-    factors: ['Heavy Gauge SS', 'Induction & Gas Compatible']
+    brands: ['All Time'],
+    industries: [],
+    factors: []
   },
   {
-    id: 'utensils-milton',
-    title: 'Milton Commercial Kitchenware',
-    subtitle: 'Insulated casseroles, beverage dispensers & stainless prepware',
-    details: 'Kitchenware & Thermal Ware · Milton',
-    image: '/images/commercial_stockpots.jpg',
-    category: 'Kitchen Utensils',
-    brands: ['Milton'],
-    industries: ['Hotels', 'Restaurants', 'Catering'],
-    factors: ['Thermal Retention', 'Commercial Grade']
-  },
-  {
-    id: 'utensils-godrej-cartini',
-    title: 'Godrej - Cartini Professional Knives',
-    subtitle: 'High-carbon chef knives, carving tools & prep accessories',
-    details: 'Culinary Knives · Godrej - Cartini',
-    image: '/images/image__stainless_steel_brassware__69672dfd.webp',
-    category: 'Kitchen Utensils',
-    brands: ['Godrej - Cartini'],
-    industries: ['Hotels', 'Restaurants', 'Catering'],
-    factors: ['High-Carbon Steel', 'Ergonomic Grip']
-  },
-  {
-    id: 'utensils-bakers',
-    title: 'Bakers Culinary Prep & Pastry Tools',
-    subtitle: 'Baking pans, scrapers, piping tips & commercial prepware',
-    details: 'Bakery & Prep Equipment · Bakers',
-    image: '/images/image__stainless_steel_brassware__69672dfd.webp',
-    category: 'Kitchen Utensils',
-    brands: ['Bakers'],
-    industries: ['Hotels', 'Restaurants', 'Cafes'],
-    factors: ['Commercial Grade', 'Food Safe Non-Stick']
-  },
-  {
-    id: 'utensils-cambro',
-    title: 'Cambro Nilkamal NSF Food Storage',
-    subtitle: 'GN polycarbonate food pans, airtight ingredient bins & measuring jugs',
-    details: 'NSF Certified Storage · Cambro Nilkamal',
+    id: 'utensils-alltime-storage',
+    title: 'Food Storage Containers',
+    subtitle: '',
+    details: 'food storage containers supports food preparation, cooking, storage, or buffet service in professional kitchens.',
     image: '/images/cambro_food_pans.jpg',
     category: 'Kitchen Utensils',
-    brands: ['Cambro Nilkamal'],
-    industries: ['Hotels', 'Restaurants', 'Catering'],
-    factors: ['NSF Certified', 'Stackable']
-  },
-  {
-    id: 'utensils-polyguard',
-    title: 'Polygaurd Storage Containers & Bins',
-    subtitle: 'Heavy-duty food grade ingredient bins & prep vessels',
-    details: 'Commercial Storage · Polygaurd',
-    image: '/images/cambro_food_pans.jpg',
-    category: 'Kitchen Utensils',
-    brands: ['Polygaurd'],
-    industries: ['Hotels', 'Restaurants', 'Catering'],
-    factors: ['BPA Free Polymers', 'High Impact Strength']
-  },
-  {
-    id: 'utensils-pradeep',
-    title: 'Pradeep Catering Degchis & Vessels',
-    subtitle: 'Stainless steel heavy catering degchis, topes & handis',
-    details: 'Catering Vessels · Pradeep',
-    image: '/images/cardimage_ac51211f.webp',
-    category: 'Kitchen Utensils',
-    brands: ['Pradeep'],
-    industries: ['Catering', 'Restaurants', 'Hotels'],
-    factors: ['Commercial Tri-Ply', 'High Volume']
+    brands: ['All Time'],
+    industries: [],
+    factors: []
   },
   {
     id: 'utensils-anchor',
     title: 'Anchor Commercial Kitchen Utensils',
-    subtitle: 'Heavy catering stock pots, colanders & banquet cooking ware',
-    details: 'Catering Utensils · Anchor Utensils',
-    image: '/images/cardimage_ac51211f.webp',
+    subtitle: '',
+    details: 'anchor commercial kitchen utensils supports food preparation, cooking, storage, or buffet service in professional kitchens.',
+    image: '/images/commercial_stockpots.jpg',
     category: 'Kitchen Utensils',
     brands: ['Anchor Utensils'],
-    industries: ['Catering', 'Restaurants'],
-    factors: ['Seamless Welds', 'Heavy Gauge']
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'utensils-bakers',
+    title: 'Culinary Prep & Pastry Tools',
+    subtitle: '',
+    details: 'culinary prep and pastry tools supports food preparation, cooking, storage, or buffet service in professional kitchens.',
+    image: '/images/image__stainless_steel_brassware__69672dfd.webp',
+    category: 'Kitchen Utensils',
+    brands: ['Bakers'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'utensils-cambro-gn-pans',
+    title: 'GN Food Pans',
+    subtitle: '',
+    details: 'gn food pans supports food preparation, cooking, storage, or buffet service in professional kitchens.',
+    image: '/images/cambro_food_pans.jpg',
+    category: 'Kitchen Utensils',
+    brands: ['Cambro Nilkamal'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'utensils-cambro-ingredient-bins',
+    title: 'Ingredient Bins',
+    subtitle: '',
+    details: 'ingredient bins supports food preparation, cooking, storage, or buffet service in professional kitchens.',
+    image: '/images/cardimage_ac51211f.webp',
+    category: 'Kitchen Utensils',
+    brands: ['Cambro Nilkamal'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'utensils-chafing-bakers',
+    title: 'Commercial Roll-Top Chafing Dishes & Buffet Stations',
+    subtitle: '',
+    details: 'commercial roll-top chafing dishes and buffet stations supports food preparation, cooking, storage, or buffet service in professional kitchens.',
+    image: '/images/cardimage_ac51211f.webp',
+    category: 'Kitchen Utensils',
+    brands: ['Bakers'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'utensils-chafing-mosaic',
+    title: 'Commercial Roll-Top Chafing Dishes & Buffet Stations',
+    subtitle: '',
+    details: 'commercial roll-top chafing dishes and buffet stations supports food preparation, cooking, storage, or buffet service in professional kitchens.',
+    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.webp',
+    category: 'Kitchen Utensils',
+    brands: ['Mosaic'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'utensils-chafing-pradeep',
+    title: 'Commercial Roll-Top Chafing Dishes & Buffet Stations',
+    subtitle: '',
+    details: 'commercial roll-top chafing dishes and buffet stations supports food preparation, cooking, storage, or buffet service in professional kitchens.',
+    image: '/images/commercial_stockpots.jpg',
+    category: 'Kitchen Utensils',
+    brands: ['Pradeep'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'utensils-godrej-cartini',
+    title: 'Professional Knives',
+    subtitle: '',
+    details: 'professional knives supports food preparation, cooking, storage, or buffet service in professional kitchens.',
+    image: '/images/image__stainless_steel_brassware__69672dfd.webp',
+    category: 'Kitchen Utensils',
+    brands: ['Godrej - Cartini'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'utensils-haccp-boards-alltime',
+    title: 'HACCP Color-Coded Commercial Cutting Boards',
+    subtitle: '',
+    details: 'haccp color-coded commercial cutting boards supports food preparation, cooking, storage, or buffet service in professional kitchens.',
+    image: '/images/image_3_c35c9821.webp',
+    category: 'Kitchen Utensils',
+    brands: ['All Time'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'utensils-haccp-boards-cambro',
+    title: 'HACCP Color-Coded Commercial Cutting Boards',
+    subtitle: '',
+    details: 'haccp color-coded commercial cutting boards supports food preparation, cooking, storage, or buffet service in professional kitchens.',
+    image: '/images/cambro_food_pans.jpg',
+    category: 'Kitchen Utensils',
+    brands: ['Cambro'],
+    industries: [],
+    factors: []
   },
   {
     id: 'utensils-hem',
-    title: 'Hem Commercial Ladles & Tools',
-    subtitle: 'One-piece stainless steel skimmers, ladles & cooking spoons',
-    details: 'Kitchen Prep Tools · Hem',
-    image: '/images/image__fine_dining__2ac60065.webp',
+    title: 'Commercial Ladles & Tools',
+    subtitle: '',
+    details: 'commercial ladles and tools supports food preparation, cooking, storage, or buffet service in professional kitchens.',
+    image: '/images/cardimage_ac51211f.webp',
     category: 'Kitchen Utensils',
     brands: ['Hem'],
-    industries: ['Hotels', 'Restaurants', 'Catering'],
-    factors: ['Seamless Stainless', 'Dishwasher Safe']
+    industries: [],
+    factors: []
   },
   {
     id: 'utensils-indigo',
-    title: 'Indigo Commercial Kitchenware',
-    subtitle: 'Heavy-gauge commercial whisks, turners & buffet serving tongs',
-    details: 'Kitchen Prep Tools · Indigo',
-    image: '/images/image__fine_dining__2ac60065.webp',
+    title: 'Commercial Kitchenware',
+    subtitle: '',
+    details: 'commercial kitchenware supports food preparation, cooking, storage, or buffet service in professional kitchens.',
+    image: '/images/cardimage_ac51211f.webp',
     category: 'Kitchen Utensils',
     brands: ['Indigo'],
-    industries: ['Hotels', 'Restaurants', 'Catering'],
-    factors: ['Rust Proof SS', 'Commercial Grade']
+    industries: [],
+    factors: []
   },
   {
     id: 'utensils-kenford',
-    title: 'Kenford Kitchen Prep Accessories',
-    subtitle: 'Professional chefs strainers, graters & kitchen accessories',
-    details: 'Prep Accessories · Kenford',
-    image: '/images/image__fine_dining__2ac60065.webp',
+    title: 'Kitchen Prep Accessories',
+    subtitle: '',
+    details: 'kitchen prep accessories supports food preparation, cooking, storage, or buffet service in professional kitchens.',
+    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.webp',
     category: 'Kitchen Utensils',
     brands: ['Kenford'],
-    industries: ['Hotels', 'Restaurants', 'Catering'],
-    factors: ['Precision Edges', 'Dishwasher Safe']
-  },
-  {
-    id: 'utensils-mosaic',
-    title: 'Mosaic Commercial Kitchen Vessels',
-    subtitle: 'Stainless steel gastronorm food containers & holloware',
-    details: 'Commercial Vessels · Mosaic',
-    image: '/images/image__restaurant_setting__c005091f.webp',
-    category: 'Kitchen Utensils',
-    brands: ['Mosaic'],
-    industries: ['Hotels', 'Restaurants', 'Catering'],
-    factors: ['Commercial Gauge', 'ISO Certified']
-  },
-  {
-    id: 'utensils-rena',
-    title: 'Rena Gastronorm Pans & Holloware',
-    subtitle: 'Steam table pans, buffet inserts & kitchen prep containers',
-    details: 'Gastronorm Containers · Rena',
-    image: '/images/image__restaurant_setting__c005091f.webp',
-    category: 'Kitchen Utensils',
-    brands: ['Rena'],
-    industries: ['Hotels', 'Restaurants', 'Catering'],
-    factors: ['Standard GN Sizing', 'High Temp Resistant']
-  },
-  {
-    id: 'utensils-rudra',
-    title: 'Rudra Commercial Kitchenware',
-    subtitle: 'Heavy-duty stainless serving dishes & back-of-house holloware',
-    details: 'Kitchen Holloware · Rudra',
-    image: '/images/image__restaurant_setting__c005091f.webp',
-    category: 'Kitchen Utensils',
-    brands: ['Rudra'],
-    industries: ['Hotels', 'Restaurants', 'Catering'],
-    factors: ['Heavy Gauge', 'Rust Proof']
-  },
-  {
-    id: 'utensils-venus-kitchen',
-    title: 'Venus Commercial Stainless Vessels',
-    subtitle: 'Mirror-polished buffet inserts & commercial food prep containers',
-    details: 'Commercial Vessels · Venus',
-    image: '/images/image__restaurant_setting__c005091f.webp',
-    category: 'Kitchen Utensils',
-    brands: ['Venus'],
-    industries: ['Hotels', 'Restaurants', 'Catering'],
-    factors: ['Commercial Gauge', 'ISO Certified']
+    industries: [],
+    factors: []
   },
   {
     id: 'utensils-kmw',
-    title: 'KMW Kitchen Prep Appliances',
-    subtitle: 'Commercial planetary mixers, dough kneaders & slicers',
-    details: 'Commercial Machinery · KMW',
-    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.webp',
+    title: 'Kitchen Prep Appliances',
+    subtitle: '',
+    details: 'kitchen prep appliances supports food preparation, cooking, storage, or buffet service in professional kitchens.',
+    image: '/images/commercial_kitchen_equipment.jpg',
     category: 'Kitchen Utensils',
     brands: ['KMW'],
-    industries: ['Restaurants', 'Catering', 'Hotels'],
-    factors: ['Heavy Duty Motor', 'Commercial Grade']
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'utensils-milton',
+    title: 'Commercial Kitchenware',
+    subtitle: '',
+    details: 'commercial kitchenware supports food preparation, cooking, storage, or buffet service in professional kitchens.',
+    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.webp',
+    category: 'Kitchen Utensils',
+    brands: ['Milton'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'utensils-mosaic',
+    title: 'Commercial Kitchen Vessels',
+    subtitle: '',
+    details: 'commercial kitchen vessels supports food preparation, cooking, storage, or buffet service in professional kitchens.',
+    image: '/images/image_3_c35c9821.webp',
+    category: 'Kitchen Utensils',
+    brands: ['Mosaic'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'utensils-polyguard-containers',
+    title: 'Food Containers',
+    subtitle: '',
+    details: 'food containers supports food preparation, cooking, storage, or buffet service in professional kitchens.',
+    image: '/images/image_3_c35c9821.webp',
+    category: 'Kitchen Utensils',
+    brands: ['Polygaurd'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'utensils-polyguard-bins',
+    title: 'Ingredient Bins',
+    subtitle: '',
+    details: 'ingredient bins supports food preparation, cooking, storage, or buffet service in professional kitchens.',
+    image: '/images/image__stainless_steel_brassware__69672dfd.webp',
+    category: 'Kitchen Utensils',
+    brands: ['Polygaurd'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'utensils-pradeep',
+    title: 'Catering Degchis & Vessels',
+    subtitle: '',
+    details: 'catering degchis and vessels supports food preparation, cooking, storage, or buffet service in professional kitchens.',
+    image: '/images/commercial_stockpots.jpg',
+    category: 'Kitchen Utensils',
+    brands: ['Pradeep'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'utensils-prestige',
+    title: 'Commercial Cookware',
+    subtitle: '',
+    details: 'commercial cookware supports food preparation, cooking, storage, or buffet service in professional kitchens.',
+    image: '/images/commercial_stockpots.jpg',
+    category: 'Kitchen Utensils',
+    brands: ['Prestige'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'utensils-rena',
+    title: 'Gastronorm Pans & Holloware',
+    subtitle: '',
+    details: 'gastronorm pans and holloware supports food preparation, cooking, storage, or buffet service in professional kitchens.',
+    image: '/images/cambro_food_pans.jpg',
+    category: 'Kitchen Utensils',
+    brands: ['Rena'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'utensils-rudra',
+    title: 'Commercial Kitchenware',
+    subtitle: '',
+    details: 'commercial kitchenware supports food preparation, cooking, storage, or buffet service in professional kitchens.',
+    image: '/images/image__stainless_steel_brassware__69672dfd.webp',
+    category: 'Kitchen Utensils',
+    brands: ['Rudra'],
+    industries: [],
+    factors: []
   },
   {
     id: 'utensils-sujatha',
-    title: 'Sujatha Commercial Mixers & Blenders',
-    subtitle: 'High-torque heavy duty mixer grinders for busy commercial kitchens',
-    details: 'High-Torque Prep · Sujatha',
-    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.webp',
+    title: 'Commercial Mixers & Blenders',
+    subtitle: '',
+    details: 'commercial mixers and blenders supports food preparation, cooking, storage, or buffet service in professional kitchens.',
+    image: '/images/commercial_kitchen_equipment.jpg',
     category: 'Kitchen Utensils',
     brands: ['Sujatha'],
-    industries: ['Hotels', 'Restaurants', 'Catering'],
-    factors: ['Continuous Run Motors', 'Stainless Steel Jars']
+    industries: [],
+    factors: []
   },
   {
     id: 'utensils-zanuff',
-    title: 'Zanuff Corvus Commercial Equipment',
-    subtitle: 'Back-of-house utility accessories, heat lamps & food warmers',
-    details: 'Commercial Utility · Zanuff Corvus',
+    title: 'Commercial Equipment',
+    subtitle: '',
+    details: 'commercial equipment supports food preparation, cooking, storage, or buffet service in professional kitchens.',
     image: '/images/image__buffet___beverage_equipment__f2c7e5ac.webp',
     category: 'Kitchen Utensils',
     brands: ['Zanuff Corvus'],
-    industries: ['Hotels', 'Restaurants', 'Catering'],
-    factors: ['Industrial Build', 'CE Certified']
-  },
-  {
-    id: 'utensils-alltime-plastics',
-    title: 'All Time Commercial Food Storage & Ingredient Bins',
-    subtitle: 'Airtight ingredient storage containers, dough trays, bussing tubs & food crates',
-    details: 'BPA-Free Food Grade Plastic · All Time',
-    image: '/images/cambro_food_pans.jpg',
-    category: 'Kitchen Utensils',
-    brands: ['All Time'],
-    industries: ['Hotels', 'Restaurants', 'Catering', 'Cloud Kitchens'],
-    factors: ['Food Grade Certified', 'Stackable', 'Freezer Safe']
-  },
-  {
-    id: 'utensils-pinnacle-thermal',
-    title: 'Pinnacle Thermal Food Carriers & Buffet Warmers',
-    subtitle: 'Insulated thermo casserole warmers, food transport carriers & banquet ice chests',
-    details: 'Polyurethane Insulated · Pinnacle',
-    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.webp',
-    category: 'Kitchen Utensils',
-    brands: ['Pinnacle'],
-    industries: ['Catering', 'Hotels', 'Banquets & Venues'],
-    factors: ['6+ Hour Heat Retention', 'Rugged Outer Shell', 'Food Safe']
-  },
-  {
-    id: 'utensils-chafing-buffet',
-    title: 'Commercial Roll-Top Chafing Dishes & Buffet Stations',
-    subtitle: 'Hydraulic roll-top chafers, induction chafing dishes, soup urns & food display risers',
-    details: 'AISI 304 Stainless Steel · Pradeep, Bakers, Mosaic',
-    image: '/images/image__stainless_steel_brassware__69672dfd.webp',
-    category: 'Kitchen Utensils',
-    brands: ['Pradeep', 'Bakers', 'Mosaic'],
-    industries: ['Hotels', 'Banquets & Venues', 'Catering'],
-    factors: ['Hydraulic Soft-Close', 'Induction & Sterno Ready', 'Corrosion Resistant']
-  },
-  {
-    id: 'utensils-haccp-chopping-boards',
-    title: 'HACCP Color-Coded Commercial Cutting Boards',
-    subtitle: 'High-density polyethylene color-coded food prep boards preventing cross-contamination',
-    details: 'High-Density Polyethylene (HDPE) · All Time, Cambro',
-    image: '/images/cambro_food_pans.jpg',
-    category: 'Kitchen Utensils',
-    brands: ['All Time', 'Cambro'],
-    industries: ['Hotels', 'Restaurants', 'Cloud Kitchens', 'Healthcare'],
-    factors: ['HACCP Compliant', 'Non-Porous', 'Knife-Friendly']
-  },
-
-  // --- 6. HOUSE KEEPING ---
-  {
-    id: 'housekeeping-gala',
-    title: 'Gala Professional Cleaning Tools',
-    subtitle: 'Heavy-duty microfiber wet mops, floor squeegees & scrub pads',
-    details: 'Janitorial Tools · Gala',
-    image: '/images/image__cleaning_equipment___janitorial__b009223f.webp',
-    category: 'House Keeping',
-    brands: ['Gala'],
-    industries: ['Hotels', 'Facilities & Janitorial', 'Restaurants'],
-    factors: ['Heavy Duty Durability', 'Ergonomic Handles']
-  },
-  {
-    id: 'housekeeping-roots',
-    title: 'Roots Commercial Floor Machines & Tools',
-    subtitle: 'Industrial floor scrubbers, vacuum accessories & janitorial hardware',
-    details: 'Floor & Machine Care · Roots',
-    image: '/images/image__cleaning_equipment___janitorial__b009223f.webp',
-    category: 'House Keeping',
-    brands: ['Roots'],
-    industries: ['Hotels', 'Facilities & Janitorial', 'Restaurants'],
-    factors: ['Commercial Grade', 'High Efficiency']
+    industries: [],
+    factors: []
   },
   {
     id: 'housekeeping-cambro',
-    title: 'Cambro Nilkamal Housekeeping Trolleys',
-    subtitle: 'Heavy-duty multi-shelf room attendant carts & linen hampers',
-    details: 'Janitorial Trolleys · Cambro Nilkamal',
+    title: 'Housekeeping Trolleys',
+    subtitle: '',
+    details: 'housekeeping trolleys helps staff clean, maintain, and restock guest and shared areas.',
     image: '/images/housekeeping_service_cart.jpg',
     category: 'House Keeping',
     brands: ['Cambro Nilkamal'],
-    industries: ['Hotels', 'Facilities & Janitorial', 'Restaurants'],
-    factors: ['Non-Marking Wheels', 'High Load Capacity']
+    industries: [],
+    factors: []
   },
   {
     id: 'housekeeping-conta',
-    title: 'Conta Utility Bins & Segregation',
-    subtitle: 'Pedal waste bins, recycling bins & color-coded waste segregation',
-    details: 'Waste Management · Conta',
-    image: '/images/housekeeping_service_cart.jpg',
+    title: 'Utility Bins & Segregation',
+    subtitle: '',
+    details: 'utility bins and segregation helps staff clean, maintain, and restock guest and shared areas.',
+    image: '/images/image_3_c35c9821.webp',
     category: 'House Keeping',
     brands: ['Conta'],
-    industries: ['Hotels', 'Facilities & Janitorial', 'Restaurants'],
-    factors: ['Hands-Free Pedal', 'Heavy Duty HDPE']
-  },
-  {
-    id: 'housekeeping-kimberly',
-    title: 'Kimberly-Clark Professional Paper & Dispensers',
-    subtitle: 'Touchless hand roll towel dispensers & multi-fold washroom tissues',
-    details: 'Washroom Solutions · Kimberly',
-    image: '/images/paper_products_dispensers.jpg',
-    category: 'House Keeping',
-    brands: ['Kimberly'],
-    industries: ['Hotels', 'Facilities & Janitorial', 'Restaurants'],
-    factors: ['High Absorbency', 'Touchless Dispensing']
-  },
-  {
-    id: 'housekeeping-premier',
-    title: 'Premier Commercial Tissues & Dispensers',
-    subtitle: 'Jumbo roll toilet tissue, facial tissue boxes & c-fold refills',
-    details: 'Washroom Paper · Premier',
-    image: '/images/paper_products_dispensers.jpg',
-    category: 'House Keeping',
-    brands: ['Premier'],
-    industries: ['Hotels', 'Facilities & Janitorial', 'Restaurants'],
-    factors: ['100% Virgin Pulp', 'Soft & Strong']
-  },
-  {
-    id: 'housekeeping-freshnfine',
-    title: 'Fresh N Fine Guestroom Supplies & Plastics',
-    subtitle: 'Heavy-duty bin liners, guestroom laundry baskets & plasticware',
-    details: 'Room Plastics · Fresh N Fine',
-    image: '/images/image_3_c35c9821.webp',
-    category: 'House Keeping',
-    brands: ['Fresh N Fine'],
-    industries: ['Hotels', 'Facilities & Janitorial'],
-    factors: ['Recyclable Polymers', 'Tear Resistant']
-  },
-  {
-    id: 'housekeeping-familyplastic',
-    title: 'Family Plastic Hospitality Bins & Carts',
-    subtitle: 'Durable plastic utility tubs, laundry hampers & cleaning buckets',
-    details: 'Hospitality Plastics · Family Plastic',
-    image: '/images/image_3_c35c9821.webp',
-    category: 'House Keeping',
-    brands: ['Family Plastic'],
-    industries: ['Hotels', 'Facilities & Janitorial'],
-    factors: ['Heavy Duty Mold', 'Chemical Resistant']
+    industries: [],
+    factors: []
   },
   {
     id: 'housekeeping-dabur',
-    title: 'Dabur Facility Hygiene & Air Fresheners',
-    subtitle: 'Odonil room freshener blocks, sprays & institutional odor control',
-    details: 'Air Care & Hygiene · Dabur',
-    image: '/images/image__guest_amenities_equipment__f4f6ec37.webp',
+    title: 'Facility Hygiene & Air Fresheners',
+    subtitle: '',
+    details: 'facility hygiene and air fresheners helps staff clean, maintain, and restock guest and shared areas.',
+    image: '/images/image_2_f90fe997.webp',
     category: 'House Keeping',
     brands: ['Dabur'],
-    industries: ['Hotels', 'Restaurants', 'Facilities & Janitorial'],
-    factors: ['Long Lasting Fragrance', 'Institutional Packs']
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'housekeeping-familyplastic',
+    title: 'Hospitality Bins & Carts',
+    subtitle: '',
+    details: 'hospitality bins and carts helps staff clean, maintain, and restock guest and shared areas.',
+    image: '/images/housekeeping_service_cart.jpg',
+    category: 'House Keeping',
+    brands: ['Family Plastic'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'housekeeping-gala',
+    title: 'Professional Cleaning Tools',
+    subtitle: '',
+    details: 'professional cleaning tools helps staff clean, maintain, and restock guest and shared areas.',
+    image: '/images/image__cleaning_equipment___janitorial__b009223f.webp',
+    category: 'House Keeping',
+    brands: ['Gala'],
+    industries: [],
+    factors: []
   },
   {
     id: 'housekeeping-hit',
-    title: 'Hit Commercial Pest & Insect Solutions',
-    subtitle: 'Institutional insect sprays, fly catchers & perimeter pest control',
-    details: 'Pest Solutions · Hit',
-    image: '/images/image__guest_amenities_equipment__f4f6ec37.webp',
+    title: 'Commercial Pest & Insect Solutions',
+    subtitle: '',
+    details: 'commercial pest and insect solutions helps staff clean, maintain, and restock guest and shared areas.',
+    image: '/images/image_2_f90fe997.webp',
     category: 'House Keeping',
     brands: ['Hit'],
-    industries: ['Hotels', 'Restaurants', 'Facilities & Janitorial'],
-    factors: ['Instant Kill Formulation', 'Fast Acting']
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'housekeeping-kimberly',
+    title: 'Professional Paper Products & Dispensers',
+    subtitle: '',
+    details: 'clark professional paper and dispensers helps staff clean, maintain, and restock guest and shared areas.',
+    image: '/images/paper_products_dispensers.jpg',
+    category: 'House Keeping',
+    brands: ['Kimberly'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'housekeeping-premier',
+    title: 'Commercial Tissues & Dispensers',
+    subtitle: '',
+    details: 'commercial tissues and dispensers helps staff clean, maintain, and restock guest and shared areas.',
+    image: '/images/centerimage_f8709305.webp',
+    category: 'House Keeping',
+    brands: ['Premier'],
+    industries: [],
+    factors: []
   },
   {
     id: 'housekeeping-reckitt-sanitation',
-    title: 'Reckitt Professional Infection Control & Disinfection',
-    subtitle: 'Hospital-grade Dettol antiseptic, Lizol floor disinfectants, Harpic & Colin surface cleaners',
-    details: 'Hospital-Grade Infection Control · Reckitt',
-    image: '/images/image__cleaning_equipment___janitorial__b009223f.webp',
+    title: 'Professional Infection Control & Disinfection',
+    subtitle: '',
+    details: 'professional infection control and disinfection helps staff clean, maintain, and restock guest and shared areas.',
+    image: '/images/image_2_f90fe997.webp',
     category: 'House Keeping',
     brands: ['Reckitt'],
-    industries: ['Hotels', 'Healthcare & Hospitals', 'Facilities & Janitorial'],
-    factors: ['99.9% Pathogen Kill', 'NABH Approved', 'Medical Grade']
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'housekeeping-roots',
+    title: 'Commercial Floor Machines & Tools',
+    subtitle: '',
+    details: 'commercial floor machines and tools helps staff clean, maintain, and restock guest and shared areas.',
+    image: '/images/image__cleaning_equipment___janitorial__b009223f.webp',
+    category: 'House Keeping',
+    brands: ['Roots'],
+    industries: [],
+    factors: []
   },
   {
     id: 'housekeeping-skylark-floorcare',
-    title: 'Skylark Professional Mops, Squeegees & Floor Care',
-    subtitle: 'Kentucky wet mops, dry dust mops, flat microfiber mop systems & floor squeegees',
-    details: 'Commercial Floor Maintenance · Skylark',
-    image: '/images/housekeeping_service_cart.jpg',
+    title: 'Professional Mops, Squeegees & Floor Care',
+    subtitle: '',
+    details: 'professional mops, squeegees and floor care helps staff clean, maintain, and restock guest and shared areas.',
+    image: '/images/image__cleaning_equipment___janitorial__b009223f.webp',
     category: 'House Keeping',
     brands: ['Skylark'],
-    industries: ['Hotels', 'Hospitals', 'Facilities & Janitorial'],
-    factors: ['High Absorption', 'Lint Free', 'Commercial Grade']
+    industries: [],
+    factors: []
   },
-
-  // --- 7. CLEANING CHEMICALS ---
   {
     id: 'chemicals-diversey',
-    title: 'Diversey Professional Cleaning Concentrates',
-    subtitle: 'Taski floor care, kitchen degreasers, sanitizers & dishwash',
-    details: 'Concentrated Chemicals · Diversey',
+    title: 'Professional Cleaning Concentrates',
+    subtitle: '',
+    details: 'professional cleaning concentrates is used for routine cleaning and hygiene tasks in hospitality and food-service spaces.',
     image: '/images/commercial_cleaning_chemicals.jpg',
     category: 'Cleaning Chemicals',
     brands: ['Diversey'],
-    industries: ['Hotels', 'Restaurants', 'Facilities & Janitorial', 'Catering'],
-    factors: ['ISO Certified', 'Automated Dilution Safe', 'Eco-Friendly']
+    industries: [],
+    factors: []
   },
   {
     id: 'chemicals-sac',
-    title: 'SAC Commercial Hygiene Chemicals',
-    subtitle: 'Surface cleaners, glass cleaners, descalers & multi-purpose liquids',
-    details: 'Surface & Multi-Clean · SAC',
+    title: 'Commercial Hygiene Chemicals',
+    subtitle: '',
+    details: 'commercial hygiene chemicals is used for routine cleaning and hygiene tasks in hospitality and food-service spaces.',
     image: '/images/image__cleaning_chemicals__b85bdd2d.webp',
     category: 'Cleaning Chemicals',
     brands: ['SAC'],
-    industries: ['Hotels', 'Restaurants', 'Facilities & Janitorial'],
-    factors: ['High Potency', 'Bulk 5L / 20L Packs']
+    industries: [],
+    factors: []
   },
   {
     id: 'chemicals-sdb-biotic',
-    title: 'SDB Biotic Eco-Enzyme & Kitchen Hygiene Concentrates',
-    subtitle: 'Biological drain maintainers, eco grease cutters & probiotic washroom cleaners',
-    details: 'Eco-Enzyme Green Formulations · SDB Biotic',
+    title: 'Eco-Enzyme & Kitchen Hygiene Concentrates',
+    subtitle: '',
+    details: 'eco-enzyme and kitchen hygiene concentrates is used for routine cleaning and hygiene tasks in hospitality and food-service spaces.',
     image: '/images/commercial_cleaning_chemicals.jpg',
     category: 'Cleaning Chemicals',
     brands: ['SDB Biotic'],
-    industries: ['Hotels', 'Restaurants', 'Facilities & Janitorial'],
-    factors: ['100% Eco-Friendly', 'Non-Corrosive', 'Septic Safe']
-  },
-
-  // --- 8. ENGINEERING EQUIPMENTS ---
-  {
-    id: 'engineering-kitchen-equipments',
-    title: 'Commercial Cooking Ranges & Hot Equipment',
-    subtitle: 'Induction cookers, dosa plates, griddles, fryers, commercial gas ranges & hot bain-maries',
-    details: 'Commercial Cooking Units · Kitchen Equipments',
-    image: '/images/commercial_kitchen_equipment.jpg',
-    category: 'Engineering Equipments',
-    brands: ['Kitchen Equipments'],
-    industries: ['Hotels', 'Restaurants', 'Catering'],
-    factors: ['Heavy Commercial Power', 'ISI / CE Certified']
+    industries: [],
+    factors: []
   },
   {
-    id: 'engineering-serman',
-    title: 'Commercial Refrigeration & Warewashing',
-    subtitle: 'Commercial refrigerators, deep freezers, undercounter chillers, display counters & dishwashers',
-    details: 'Refrigeration, Warewashing & Systems · Serman',
+    id: 'engineering-commercial-gas-ranges',
+    title: 'Commercial Gas Ranges',
+    subtitle: '',
+    details: 'commercial gas ranges is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
     image: '/images/commercial_kitchen_equipment.jpg',
     category: 'Engineering Equipments',
     brands: ['Serman'],
-    industries: ['Hotels', 'Restaurants', 'Facilities & Janitorial'],
-    factors: ['Energy Efficient', 'Heavy Duty Performance']
+    industries: [],
+    factors: []
   },
   {
-    id: 'engineering-food-prep-machinery',
-    title: 'Food Preparation Machinery',
-    subtitle: 'Chicken grills, dough kneaders, vegetable cutters, pulverizers, meat mincers, planetary mixers & shawarma machines',
-    details: 'Heavy-Duty Food Prep Machinery · Serman',
+    id: 'engineering-induction-cookers',
+    title: 'Induction Cookers',
+    subtitle: '',
+    details: 'induction cookers is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
     image: '/images/commercial_kitchen_equipment.jpg',
     category: 'Engineering Equipments',
     brands: ['Serman'],
-    industries: ['Hotels', 'Restaurants', 'Catering'],
-    factors: ['Heavy Duty Motor', 'Commercial Grade', 'Service Support']
+    industries: [],
+    factors: []
   },
   {
-    id: 'engineering-bakery-ovens',
-    title: 'Bakery & Service Ovens',
-    subtitle: 'Deck ovens, convection ovens, pizza ovens and professional bakery service equipment',
-    details: 'Commercial Baking Equipment · Serman',
+    id: 'engineering-dosa-plates',
+    title: 'Dosa Plates',
+    subtitle: '',
+    details: 'dosa plates is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
     image: '/images/commercial_kitchen_equipment.jpg',
     category: 'Engineering Equipments',
     brands: ['Serman'],
-    industries: ['Hotels', 'Restaurants', 'Cafes', 'Catering'],
-    factors: ['Even Heat Distribution', 'Commercial Grade', 'Energy Efficient']
+    industries: [],
+    factors: []
   },
   {
-    id: 'engineering-water-ice',
-    title: 'Water Coolers & Ice Cube Machines',
-    subtitle: 'Commercial water coolers and ice cube machines for kitchen, banquet and beverage operations',
-    details: 'Water & Ice Systems · Serman',
+    id: 'engineering-griddles',
+    title: 'Griddles',
+    subtitle: '',
+    details: 'griddles is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
     image: '/images/commercial_kitchen_equipment.jpg',
     category: 'Engineering Equipments',
     brands: ['Serman'],
-    industries: ['Hotels', 'Restaurants', 'Cafes', 'Catering'],
-    factors: ['High Output', 'Hygienic Operation', 'Commercial Grade']
+    industries: [],
+    factors: []
   },
   {
-    id: 'engineering-ventilation',
-    title: 'Kitchen Exhaust & Ventilation Systems',
-    subtitle: 'Industrial hoods, fresh-air systems and exhaust systems for commercial kitchens',
-    details: 'Commercial Ventilation Systems · Serman',
-    image: '/images/commercial_kitchen_equipment.jpg',
+    id: 'engineering-commercial-refrigerators',
+    title: 'Commercial Refrigerators',
+    subtitle: '',
+    details: 'commercial refrigerators is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
+    image: '/images/KitchenEquipment.png',
     category: 'Engineering Equipments',
     brands: ['Serman'],
-    industries: ['Hotels', 'Restaurants', 'Catering'],
-    factors: ['Site-Specific Design', 'Heavy Duty', 'Installation Support']
+    industries: [],
+    factors: []
   },
   {
-    id: 'engineering-ss-fabrication',
-    title: 'Stainless Steel Tables & Sinks',
-    subtitle: 'Commercial SS tables, sinks and utility stations for housekeeping, linen and hygiene operations',
-    details: 'Custom Stainless Steel Fabrication · Serman',
-    image: '/images/commercial_kitchen_equipment.jpg',
+    id: 'engineering-deep-freezers',
+    title: 'Deep Freezers',
+    subtitle: '',
+    details: 'deep freezers is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
+    image: '/images/KitchenEquipment.png',
     category: 'Engineering Equipments',
     brands: ['Serman'],
-    industries: ['Hotels', 'Restaurants', 'Facilities & Janitorial', 'Catering'],
-    factors: ['Custom Dimensions', 'Corrosion Resistant', 'Commercial Grade']
+    industries: [],
+    factors: []
   },
   {
-    id: 'engineering-guestroom-kettles',
-    title: 'Havells & Philips Commercial Hotel Kettles',
-    subtitle: '0.8L to 1.2L 304 SS cordless electric kettles with auto-shutoff & boil-dry safety',
-    details: 'Commercial Hospitality Electricals · Havells, Philips',
-    image: '/images/commercial_kitchen_equipment.jpg',
+    id: 'engineering-undercounter-chillers',
+    title: 'Undercounter Chillers',
+    subtitle: '',
+    details: 'undercounter chillers is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
+    image: '/images/KitchenEquipment.png',
     category: 'Engineering Equipments',
-    brands: ['Havells', 'Philips'],
-    industries: ['Hotels', 'Resorts', 'Healthcare'],
-    factors: ['304 Stainless Steel', 'Auto-Shutoff Safety', 'Concealed Heating Element']
+    brands: ['Serman'],
+    industries: [],
+    factors: []
   },
   {
-    id: 'engineering-hairdryers-handdryers',
-    title: 'Hospitality Wall Hair Dryers & Sensor Hand Dryers',
-    subtitle: 'Wall-mounted bathroom hair dryers with shaver sockets & automatic high-speed hand dryers',
-    details: 'Bathroom Safety Appliances · Havells, Altek',
-    image: '/images/image__guest_amenities_equipment__f4f6ec37.webp',
+    id: 'engineering-display-counters',
+    title: 'Display Counters',
+    subtitle: '',
+    details: 'display counters is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
+    image: '/images/KitchenEquipment.png',
     category: 'Engineering Equipments',
-    brands: ['Havells', 'Altek'],
-    industries: ['Hotels', 'Resorts', 'Facilities & Janitorial'],
-    factors: ['Overheat Protection', 'Dual Voltage Socket', 'Touchless Sensor']
+    brands: ['Serman'],
+    industries: [],
+    factors: []
   },
   {
-    id: 'engineering-insect-killers-aircurtains',
-    title: 'Altek Electronic Fly Killers & Air Curtains',
-    subtitle: 'High-attraction UV insect killers and commercial entrance air curtains for hygiene control',
-    details: 'Commercial Pest & Climate Barriers · Altek, Havells',
-    image: '/images/commercial_kitchen_equipment.jpg',
+    id: 'engineering-shawarma-machine',
+    title: 'Shawarma Machine',
+    subtitle: '',
+    details: 'shawarma machine is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
+    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.webp',
     category: 'Engineering Equipments',
-    brands: ['Altek', 'Havells'],
-    industries: ['Hotels', 'Restaurants', 'Cafes', 'Food Processing'],
-    factors: ['HACCP Kitchen Compliant', 'High UV Output', 'Energy Efficient']
-  },
-
-  // --- 9. CAFES ---
-  {
-    id: 'cafes-borosil-mugs-glassware',
-    title: 'Borosil Specialty Coffee Mugs & Tumblers',
-    subtitle: 'Heat-resistant borosilicate latte cups, espresso shots & tumblers',
-    details: 'Borosilicate Glassware · Borosil',
-    image: '/images/ceramic_latte_cups.jpg',
-    category: 'Cafes',
-    brands: ['Borosil'],
-    industries: ['Cafes', 'Restaurants', 'Hotels'],
-    factors: ['Thermal Shock Proof', 'Commercial Grade', 'Dishwasher Safe']
+    brands: ['Serman'],
+    industries: [],
+    factors: []
   },
   {
-    id: 'cafes-ocean-drinkware-beverage',
-    title: 'Ocean Cafe Beverage & Frappe Glassware',
-    subtitle: 'Cold brew glasses, smoothie goblets & iced tea carafes',
-    details: 'Clear Soda-Lime Glass · Ocean',
-    image: '/images/image__tableware___crockery__a8a959b7.webp',
-    category: 'Cafes',
-    brands: ['Ocean'],
-    industries: ['Cafes', 'Restaurants', 'Hotels'],
-    factors: ['Crystal Clarity', 'High Durability', 'Bulk Wholesale']
+    id: 'engineering-chicken-grill-machine',
+    title: 'Chicken Grill Machine',
+    subtitle: '',
+    details: 'chicken grill machine is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
+    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.webp',
+    category: 'Engineering Equipments',
+    brands: ['Serman'],
+    industries: [],
+    factors: []
   },
   {
-    id: 'cafes-dinewell-bakery-display',
-    title: 'Dinewell Melamine Pastry & Display Platters',
-    subtitle: 'Countertop bakery trays, dessert pedestals & cake stands',
-    details: '100% Melamine · Dinewell',
-    image: '/images/dinewell_melamine_platters.jpg',
-    category: 'Cafes',
-    brands: ['Dinewell'],
-    industries: ['Cafes', 'Restaurants'],
-    factors: ['Chip Resistant', 'Stain Resistant', 'Easy Clean']
+    id: 'engineering-dough-kneader',
+    title: 'Dough Kneader',
+    subtitle: '',
+    details: 'dough kneader is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
+    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.webp',
+    category: 'Engineering Equipments',
+    brands: ['Serman'],
+    industries: [],
+    factors: []
   },
   {
-    id: 'cafes-shapes-fns-cutlery',
-    title: 'Shapes & FNS Cafe Flatware & Dessert Spoons',
-    subtitle: 'Long sundae spoons, pastry forks, tea spoons & butter spreaders',
-    details: '18/10 Stainless Steel · Shapes, FNS',
-    image: '/images/cutlery_fork_spoon_knife.jpg',
-    category: 'Cafes',
-    brands: ['Shapes', 'FNS'],
-    industries: ['Cafes', 'Restaurants'],
-    factors: ['Mirror Finish', 'Ergonomic Handle']
+    id: 'engineering-vegetable-cutter',
+    title: 'Vegetable Cutter',
+    subtitle: '',
+    details: 'vegetable cutter is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
+    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.webp',
+    category: 'Engineering Equipments',
+    brands: ['Serman'],
+    industries: [],
+    factors: []
   },
   {
-    id: 'cafes-beverage-blenders-dispensers',
-    title: 'Commercial Barista Blenders & Beverage Dispensers',
-    subtitle: 'Heavy-duty smoothie blenders, hot water urns & juice dispensers',
-    details: 'Commercial Machinery · Serman, Kitchen Equipments',
-    image: '/images/commercial_kitchen_equipment.jpg',
-    category: 'Cafes',
-    brands: ['Serman', 'Kitchen Equipments'],
-    industries: ['Cafes', 'Hotels', 'Restaurants'],
-    factors: ['Heavy Duty Performance', 'Energy Efficient']
+    id: 'engineering-pulverizer',
+    title: 'Pulverizer',
+    subtitle: '',
+    details: 'pulverizer is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
+    image: '/images/image__restaurant_setting__c005091f.webp',
+    category: 'Engineering Equipments',
+    brands: ['Serman'],
+    industries: [],
+    factors: []
   },
   {
-    id: 'cafes-paper-disposables-straws',
-    title: 'Cafe Disposables, Straws & Wooden Stirrers',
-    subtitle: 'Kraft coffee sleeves, PLA biodegradable straws, stirrers & paper napkins',
-    details: 'Eco-Friendly Paper & Wood · Fresh N Fine, Kimberly',
-    image: '/images/cafe_disposables_straws.jpg',
-    category: 'Cafes',
-    brands: ['Fresh N Fine', 'Kimberly'],
-    industries: ['Cafes', 'Restaurants', 'Catering'],
-    factors: ['Eco-Friendly / Green', 'Food Grade Certified', 'Biodegradable']
+    id: 'engineering-meat-mincer',
+    title: 'Meat Mincer',
+    subtitle: '',
+    details: 'meat mincer is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
+    image: '/images/image__restaurant_setting__c005091f.webp',
+    category: 'Engineering Equipments',
+    brands: ['Serman'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'engineering-planetary-mixer',
+    title: 'Planetary Mixer',
+    subtitle: '',
+    details: 'planetary mixer is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
+    image: '/images/image__restaurant_setting__c005091f.webp',
+    category: 'Engineering Equipments',
+    brands: ['Serman'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'engineering-deck-oven',
+    title: 'Deck Oven',
+    subtitle: '',
+    details: 'deck oven is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
+    image: '/images/image__restaurant_setting__c005091f.webp',
+    category: 'Engineering Equipments',
+    brands: ['Serman'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'engineering-convection-oven',
+    title: 'Convection Oven',
+    subtitle: '',
+    details: 'convection oven is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
+    image: '/images/image__restaurants__6ff4e1ae.webp',
+    category: 'Engineering Equipments',
+    brands: ['Serman'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'engineering-pizza-oven',
+    title: 'Pizza Oven',
+    subtitle: '',
+    details: 'pizza oven is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
+    image: '/images/image__restaurants__6ff4e1ae.webp',
+    category: 'Engineering Equipments',
+    brands: ['Serman'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'engineering-dishwasher',
+    title: 'Dishwasher',
+    subtitle: '',
+    details: 'dishwasher is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
+    image: '/images/image__stainless_steel_brassware__69672dfd.webp',
+    category: 'Engineering Equipments',
+    brands: ['Serman'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'engineering-water-cooler',
+    title: 'Water Cooler',
+    subtitle: '',
+    details: 'water cooler is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
+    image: '/images/image__restaurants__6ff4e1ae.webp',
+    category: 'Engineering Equipments',
+    brands: ['Serman'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'engineering-ice-cube-machine',
+    title: 'Ice Cube Machine',
+    subtitle: '',
+    details: 'ice cube machine is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
+    image: '/images/image__restaurants__6ff4e1ae.webp',
+    category: 'Engineering Equipments',
+    brands: ['Serman'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'engineering-industrial-hood',
+    title: 'Industrial Hood',
+    subtitle: '',
+    details: 'industrial hood is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
+    image: '/images/category_cafe_beverage.jpg',
+    category: 'Engineering Equipments',
+    brands: ['Serman'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'engineering-fresh-air-exhaust',
+    title: 'Fresh Air & Exhaust Systems',
+    subtitle: '',
+    details: 'fresh air and exhaust systems is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
+    image: '/images/category_cafe_beverage.jpg',
+    category: 'Engineering Equipments',
+    brands: ['Serman'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'engineering-ss-tables-sinks',
+    title: 'SS Tables & Sinks',
+    subtitle: '',
+    details: 'ss tables and sinks is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
+    image: '/images/category_cafe_beverage.jpg',
+    category: 'Engineering Equipments',
+    brands: ['Serman'],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'engineering-fryers',
+    title: 'Fryers',
+    subtitle: '',
+    details: 'fryers is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
+    image: '/images/category_cafe_beverage.jpg',
+    category: 'Engineering Equipments',
+    brands: ['Serman'],
+    industries: [],
+    factors: []
   }
 ];
 
@@ -1107,8 +1359,7 @@ export const CATEGORY_FILTERS = [
   'Kitchen Utensils',
   'House Keeping',
   'Cleaning Chemicals',
-  'Engineering Equipments',
-  'Cafes'
+  'Engineering Equipments'
 ];
 
 export const ABOUT_STATS = [
@@ -1170,214 +1421,167 @@ export const WHAT_WE_OFFER: OfferItem[] = [
 
 export const OFFER_TAGLINE = "We Don't Just Supply Equipment, We Build Kitchens that Perform.";
 
-export interface ProductSpecRow {
-  code: string;
-  name: string;
-  capacity: string;
-  dimensions: string; // TD x BD x H in mm
-  packing: string;    // Inner / Carton pcs
-  weight: string;     // Gross wt per master carton
-}
-
-export interface KeySpecsInfo {
-  material: string;
-  dimensions: string;
-  weight: string;
-  finish: string;
-  dishwasherSafe: string;
-  usage: string;
-  packing: string;
-}
-
-export interface FeatureBadgeItem {
-  title: string;
-  sub: string;
-  icon: 'food' | 'wash' | 'finish';
+export interface ProductHighlight {
+  label: string;
+  value: string;
 }
 
 export interface ProductDetailInfo {
-  skuPrefix: string;
   tagline: string;
-  material: string;
-  finish: string;
   galleryImages: string[];
-  badges: FeatureBadgeItem[];
-  parGuideline: {
-    fineDining: string;
-    banquet: string;
-    roomService: string;
-    barLounge: string;
-  };
-  keySpecs: KeySpecsInfo;
-  certifications?: string[];
-  description?: string;
-  packagingDetails?: {
-    innerBox: string;
-    masterCarton: string;
-    partition: string;
-    customBranding: string;
-  };
-  specs?: ProductSpecRow[];
+  highlights: ProductHighlight[];
 }
 
-export const PRODUCT_SPECS_MAP: Record<string, ProductDetailInfo> = {
-  'crockery-dinewell': {
-    skuPrefix: 'CR-DW / Dinewell Melamine',
-    tagline: '100% pure food-grade melamine banquet & buffet dinnerware.',
-    material: '100% Food-Grade Melamine Resin',
-    finish: 'Glazed Porcelain-Like Scratch-Resistant Finish',
-    galleryImages: [
-      '/images/cardimage_b6bc00f1.webp',
-      '/images/image__tableware___crockery__c6601dfa.webp',
-      '/images/image__fine_dining__2ac60065.webp'
-    ],
-    badges: [
-      { title: '100% Melamine', sub: 'BPA Free & Food Contact Safe', icon: 'food' },
-      { title: 'Dishwasher Safe', sub: 'Commercial Pan Wash Safe', icon: 'wash' },
-      { title: 'Break Resistant', sub: 'High Durability for Buffets', icon: 'finish' }
-    ],
-    parGuideline: { fineDining: '2.5x', banquet: '3.5x', roomService: '2.0x', barLounge: '2.5x' },
-    keySpecs: {
-      material: '100% Pure Food-Grade Melamine',
-      dimensions: 'Buffet Plates: 260–310 mm · Bowls: 120–180 mm · Platters: 350 mm',
-      weight: '0.28 kg – 0.65 kg / pc',
-      finish: 'Glazed High-Gloss Scratch Resistant',
-      dishwasherSafe: 'Yes (Top rack & commercial dishwasher safe up to 120°C)',
-      usage: 'Hotel Buffets, Banquets, Restaurants, Outdoor Catering',
-      packing: '12 / 24 pcs per export corrugated carton'
+/**
+ * Plausible draft specifications for layout/content review. These are not
+ * supplier-confirmed product data; the modal keeps a visible verification notice.
+ */
+export const PRODUCT_SPECS_MAP: Record<string, ProductDetailInfo> = Object.fromEntries(
+  CATALOG_PRODUCTS.map(product => {
+    const title = product.title.toLowerCase();
+    let specs: ProductHighlight[];
+    if (product.category === 'Crockery') {
+      specs = /glass|stemware|drinkware/.test(title)
+        ? [{ label: 'Material', value: 'Clear soda-lime glass' }, { label: 'Capacity', value: '300 ml wine glass; 350 ml tumbler' }, { label: 'Dimensions', value: 'Approx. 7.5 cm rim × 21 cm height (wine glass)' }, { label: 'Packing', value: '6 pieces per inner box; 24 per outer carton' }]
+        : [{ label: 'Material', value: 'Vitrified ceramic, glazed finish' }, { label: 'Typical pieces', value: '27 cm dinner plate, 20 cm side plate, 15 cm bowl' }, { label: 'Temperature', value: 'Suitable for hot food service; avoid direct flame' }, { label: 'Packing', value: '6 pieces per inner box; 24 per outer carton' }];
+    } else if (product.category === 'Cutlery') {
+      specs = [{ label: 'Material', value: '18/0 stainless steel (nominal chromium/nickel grade)' }, { label: 'Thickness', value: 'Approx. 2.0 mm spoon/fork; knife blade varies by pattern' }, { label: 'Finish', value: 'Polished mirror finish' }, { label: 'Packing', value: '12 pieces per item' }];
+    } else if (product.category === 'Linen') {
+      if (/bath towels/.test(title)) specs = [{ label: 'Material', value: '100% cotton terry' }, { label: 'Size', value: '70 × 140 cm' }, { label: 'Fabric weight', value: '500 GSM' }, { label: 'Packing', value: '10 pieces per bale' }];
+      else if (/hand towels/.test(title)) specs = [{ label: 'Material', value: '100% cotton terry' }, { label: 'Size', value: '40 × 70 cm' }, { label: 'Fabric weight', value: '450 GSM' }, { label: 'Packing', value: '20 pieces per bale' }];
+      else if (/face towels/.test(title)) specs = [{ label: 'Material', value: '100% cotton terry' }, { label: 'Size', value: '30 × 30 cm' }, { label: 'Fabric weight', value: '450 GSM' }, { label: 'Packing', value: '50 pieces per bale' }];
+      else if (/pool towels/.test(title)) specs = [{ label: 'Material', value: 'Cotton terry' }, { label: 'Size', value: '90 × 180 cm' }, { label: 'Fabric weight', value: '550 GSM' }, { label: 'Packing', value: '10 pieces per bale' }];
+      else if (/bath mats/.test(title)) specs = [{ label: 'Material', value: 'Cotton terry with non-slip backing option' }, { label: 'Size', value: '50 × 80 cm' }, { label: 'Fabric weight', value: '800 GSM' }, { label: 'Packing', value: '10 pieces per bale' }];
+      else if (/bed sheets/.test(title)) specs = [{ label: 'Material', value: 'Polycotton percale,  T-250 thread count' }, { label: 'Size', value: 'Flat sheet: 275 × 300 cm' }, { label: 'Construction', value: 'Plain weave, white' }, { label: 'Packing', value: '10 pieces per bale' }];
+      else if (/duvets/.test(title)) specs = [{ label: 'Cover', value: 'Cotton-rich shell with polyester fill' }, { label: 'Size', value: 'King: 240 × 260 cm' }, { label: 'Fill weight', value: '300 GSM' }, { label: 'Packing', value: '1 piece per bag' }];
+      else if (/pillows/.test(title)) specs = [{ label: 'Fill', value: 'Hollow conjugated polyester fibre' }, { label: 'Size', value: '50 × 75 cm' }, { label: 'Fill weight', value: '900 g' }, { label: 'Packing', value: '1 piece per bag' }];
+      else if (/curtains/.test(title)) specs = [{ label: 'Material', value: 'Polyester blackout fabric' }, { label: 'Panel size', value: '140 × 240 cm' }, { label: 'Header', value: 'Eyelet or pinch-pleat option' }, { label: 'Packing', value: '1 panel per bag' }];
+      else if (/mattress protectors/.test(title)) specs = [{ label: 'Top fabric', value: 'Quilted polycotton' }, { label: 'Size', value: 'King: 180 × 200 cm' }, { label: 'Skirt depth', value: 'Approx. 30 cm' }, { label: 'Packing', value: '1 piece per bag' }];
+      else specs = [{ label: 'Material', value: 'Polyester-cotton upholstery fabric' }, { label: 'Typical size', value: /carpet|rug/.test(title) ? 'Area sizes: 120 × 180 cm and 160 × 230 cm' : 'Throw: 130 × 180 cm; cushion: 45 × 45 cm' }, { label: 'Fabric weight', value: 'Approx. 250 GSM' }, { label: 'Packing', value: '1 piece per bag' }];
+    } else if (product.category === 'Guest Amenities') {
+      if (/toilet rolls/.test(title)) specs = [{ label: 'Paper', value: '2-ply tissue, 17 GSM per ply' }, { label: 'Roll length', value: '100 m' }, { label: 'Roll width', value: '9 cm' }, { label: 'Packing', value: '48 rolls per case' }];
+      else if (/bathroom guest kits/.test(title)) specs = [{ label: 'Soap', value: '15 g wrapped guest soap' }, { label: 'Shampoo', value: '30 ml sachet or bottle' }, { label: 'Contents', value: 'Soap, shampoo, dental kit and shower cap' }, { label: 'Packing', value: '100 guest kits per carton' }];
+      else if (/sewing/.test(title)) specs = [{ label: 'Sewing kit', value: 'Needle, 6 thread colours, 2 buttons and safety pin' }, { label: 'Medical kit', value: 'Cotton swabs, adhesive strips and antiseptic wipe' }, { label: 'Pack format', value: 'Individually sealed paper pouch' }, { label: 'Packing', value: '500 pouches per carton' }];
+      else if (/stationery/.test(title)) specs = [{ label: 'Folder', value: 'Approx. 23 × 32 cm, leatherette finish' }, { label: 'Contents', value: 'Writing pad, 2 sheets hotel stationery, envelope and pen' }, { label: 'Pad size', value: 'A4' }, { label: 'Packing', value: '25 sets per carton' }];
+      else if (/slippers/.test(title)) specs = [{ label: 'Upper', value: 'Terry cloth' }, { label: 'Sole', value: '5 mm EVA foam' }, { label: 'Size', value: 'Universal adult size, approx. 28 cm' }, { label: 'Packing', value: '100 pairs per carton' }];
+      else if (/liquid amenities/.test(title)) specs = [{ label: 'Products', value: 'Shampoo, conditioner, body wash and lotion' }, { label: 'Pack size', value: '30 ml guest bottle' }, { label: 'Container', value: 'PET bottle with flip-top cap' }, { label: 'Packing', value: '100 bottles per carton' }];
+      else if (/glass covers/.test(title)) specs = [{ label: 'Cover diameter', value: '9 cm' }, { label: 'Coaster diameter', value: '9 cm' }, { label: 'Material', value: 'Clear reusable plastic' }, { label: 'Packing', value: '100 pieces per pack' }];
+      else if (/hygiene bags/.test(title)) specs = [{ label: 'Laundry bag', value: '50 × 70 cm, non-woven fabric' }, { label: 'Hygiene bag', value: 'Approx. 12 × 20 cm, disposable' }, { label: 'Pack format', value: 'Individually folded guest-room supply' }, { label: 'Packing', value: '100 pieces per inner pack' }];
+      else specs = [{ label: 'Item size', value: 'Drinking straw: 20 cm; coaster: 9 cm diameter' }, { label: 'Material', value: 'Paper or food-contact plastic, by item' }, { label: 'Pack quantity', value: '100 pieces per retail pack' }, { label: 'Carton quantity', value: '20 retail packs per carton' }];
+    } else if (product.category === 'Kitchen Utensils') {
+      if (/ingredient.*bin/.test(title)) specs = [{ label: 'Material', value: 'Food-grade polyethylene' }, { label: 'Capacity', value: '81 L' }, { label: 'Dimensions', value: 'Approx. 33 × 74 × 71 cm' }, { label: 'Packing', value: '1 bin per carton' }];
+      else if (/storage containers|food containers/.test(title)) specs = [{ label: 'Material', value: 'Polypropylene, translucent' }, { label: 'Capacities', value: '1.5 L, 3.8 L and 7.6 L' }, { label: 'Temperature range', value: '-20°C to 100°C' }, { label: 'Packing', value: '12 containers per case' }];
+      else if (/gn food pans|gastronorm pans/.test(title)) specs = [{ label: 'Material', value: 'Stainless steel, 0.7 mm nominal thickness' }, { label: 'Size', value: 'GN 1/1, 530 × 325 mm' }, { label: 'Depth / capacity', value: '65 mm / approx. 8.5 L' }, { label: 'Packing', value: '6 pans per carton' }];
+      else if (/cutting boards/.test(title)) specs = [{ label: 'Material', value: 'High-density polyethylene (HDPE)' }, { label: 'Size', value: '450 × 300 × 12 mm' }, { label: 'Colour options', value: 'Red, blue, green, yellow, white and brown' }, { label: 'Packing', value: '1 board per sleeve' }];
+      else if (/chafing/.test(title)) specs = [{ label: 'Body', value: '18/8 stainless steel' }, { label: 'Food pan', value: 'GN 1/1, 9 L' }, { label: 'Heat source', value: 'Fuel-holder compatible' }, { label: 'Packing', value: '1 complete set per carton' }];
+      else if (/knives/.test(title)) specs = [{ label: 'Blade', value: 'Stainless steel, 8-inch chef knife' }, { label: 'Handle', value: 'Riveted polymer, 5-inch grip' }, { label: 'Overall length', value: 'Approx. 33 cm' }, { label: 'Packing', value: '6 knives per carton' }];
+      else if (/ladles/.test(title)) specs = [{ label: 'Material', value: 'Stainless steel, 1.2 mm nominal thickness' }, { label: 'Capacity', value: '120 ml ladle' }, { label: 'Overall length', value: 'Approx. 35 cm' }, { label: 'Packing', value: '12 pieces per carton' }];
+      else if (/degchis|vessels|cookware/.test(title)) specs = [{ label: 'Material', value: 'Stainless steel, 0.8 mm nominal thickness' }, { label: 'Capacity range', value: '5 L, 10 L and 20 L' }, { label: 'Lid', value: 'Matching stainless-steel lid' }, { label: 'Packing', value: '1 vessel per carton' }];
+      else if (/mixer|blender/.test(title)) specs = [{ label: 'Motor', value: '750 W, single-phase' }, { label: 'Jar / bowl', value: '2 L stainless-steel jar' }, { label: 'Speed', value: '2 speeds plus pulse' }, { label: 'Supply', value: '230 V AC, 50 Hz' }];
+      else if (/knives|tools|accessories/.test(title)) specs = [{ label: 'Material', value: 'Stainless steel working parts with polymer handles' }, { label: 'Typical size', value: 'Handle 12 cm; working length 20 cm' }, { label: 'Use', value: 'Food preparation and portioning' }, { label: 'Packing', value: '12 pieces per carton' }];
+      else specs = [{ label: 'Material', value: 'Stainless steel, 0.8 mm nominal thickness' }, { label: 'Size', value: 'Approx. 30 cm diameter × 15 cm deep' }, { label: 'Capacity', value: 'Approx. 10 L' }, { label: 'Packing', value: '1 piece per carton' }];
+    } else if (product.category === 'House Keeping') {
+      if (/trolley/.test(title)) specs = [{ label: 'Frame', value: 'Polypropylene body with coated-steel support' }, { label: 'Configuration', value: '3 shelves, 2 × 100 L waste bags' }, { label: 'Dimensions', value: 'Approx. 150 × 55 × 100 cm' }, { label: 'Packing', value: '1 trolley, flat-packed' }];
+      else if (/bins|segregation/.test(title)) specs = [{ label: 'Material', value: 'Injection-moulded polypropylene' }, { label: 'Capacity', value: '60 L per bin' }, { label: 'Dimensions', value: 'Approx. 40 × 35 × 70 cm' }, { label: 'Packing', value: '1 bin per carton' }];
+      else if (/paper|tissue/.test(title)) specs = [{ label: 'Tissue', value: '2-ply, 150 sheets per box' }, { label: 'Sheet size', value: '20 × 20 cm' }, { label: 'Dispenser', value: 'Wall-mount ABS plastic' }, { label: 'Packing', value: '30 boxes per case' }];
+      else if (/mops|squeegees|cleaning tools/.test(title)) specs = [{ label: 'Mop head', value: '450 g cotton blend' }, { label: 'Handle', value: 'Aluminium, 135 cm' }, { label: 'Squeegee width', value: '45 cm' }, { label: 'Packing', value: '12 mop heads per carton' }];
+      else if (/air fresheners/.test(title)) specs = [{ label: 'Format', value: 'Aerosol spray' }, { label: 'Net volume', value: '300 ml' }, { label: 'Fragrance', value: 'Citrus or floral variant' }, { label: 'Packing', value: '12 cans per case' }];
+      else if (/pest|insect/.test(title)) specs = [{ label: 'Format', value: 'Aerosol insect-control spray' }, { label: 'Net volume', value: '300 ml' }, { label: 'Application', value: 'Indoor spot use; follow label precautions' }, { label: 'Packing', value: '12 cans per case' }];
+      else if (/floor machines/.test(title)) specs = [{ label: 'Motor', value: '1.5 HP single-disc motor' }, { label: 'Brush diameter', value: '17 in (430 mm)' }, { label: 'Speed', value: '175 rpm' }, { label: 'Supply', value: '230 V AC, 50 Hz' }];
+      else specs = [{ label: 'Material', value: 'ABS plastic housing' }, { label: 'Power', value: '1,200 W' }, { label: 'Supply', value: '230 V AC, 50 Hz' }, { label: 'Packing', value: '1 unit per carton' }];
+    } else if (product.category === 'Cleaning Chemicals') {
+      const cleaner = /biotic/.test(title) ? 'Enzyme-based kitchen degreaser' : /sac/.test(title) ? 'Neutral floor and surface cleaner' : 'Multi-purpose detergent cleaner';
+      specs = [{ label: 'Product type', value: cleaner }, { label: 'Appearance', value: 'Liquid concentrate' }, { label: 'Pack size', value: '5 L HDPE can' }, { label: 'Dilution (draft)', value: 'General cleaning: 1:100; heavy soil: 1:20' }, { label: 'Safety', value: 'Use PPE and follow the manufacturer label' }];
+    } else {
+      const engineeringSpecs: Record<string, ProductHighlight[]> = {
+        'engineering-commercial-gas-ranges': [{ label: 'Burners', value: '4 × 6 kW open burners' }, { label: 'Gas input', value: '24 kW total; LPG/PNG jet options' }, { label: 'Dimensions', value: '800 × 700 × 850 mm' }, { label: 'Construction', value: '304 stainless-steel worktop' }],
+        'engineering-induction-cookers': [{ label: 'Rated power', value: '3.5 kW' }, { label: 'Supply', value: '230 V AC, 50 Hz, 16 A' }, { label: 'Temperature range', value: '60–240°C' }, { label: 'Cookware', value: 'Magnetic-base pans, 12–26 cm' }],
+        'engineering-dosa-plates': [{ label: 'Plate size', value: '600 × 600 mm' }, { label: 'Heating', value: '9 kW LPG burner assembly' }, { label: 'Plate', value: '12 mm mild-steel cooking surface' }, { label: 'Dimensions', value: '750 × 800 × 850 mm' }],
+        'engineering-griddles': [{ label: 'Cooking surface', value: '600 × 600 mm' }, { label: 'Heating', value: '9 kW gas burner' }, { label: 'Plate thickness', value: '12 mm mild steel' }, { label: 'Dimensions', value: '750 × 800 × 850 mm' }],
+        'engineering-commercial-refrigerators': [{ label: 'Gross capacity', value: '600 L' }, { label: 'Temperature', value: '+2°C to +8°C' }, { label: 'Cooling', value: 'Fan-assisted; digital controller' }, { label: 'Supply', value: '230 V AC, 50 Hz' }],
+        'engineering-deep-freezers': [{ label: 'Gross capacity', value: '500 L' }, { label: 'Temperature', value: '-18°C to -22°C' }, { label: 'Defrost', value: 'Manual defrost' }, { label: 'Supply', value: '230 V AC, 50 Hz' }],
+        'engineering-undercounter-chillers': [{ label: 'Gross capacity', value: '300 L' }, { label: 'Temperature', value: '+2°C to +8°C' }, { label: 'Doors', value: '2 hinged doors' }, { label: 'Dimensions', value: '1360 × 700 × 850 mm' }],
+        'engineering-display-counters': [{ label: 'Display length', value: '1,200 mm' }, { label: 'Temperature', value: '+2°C to +8°C' }, { label: 'Refrigerant', value: 'R290 system' }, { label: 'Supply', value: '230 V AC, 50 Hz' }],
+        'engineering-shawarma-machine': [{ label: 'Meat capacity', value: '25 kg' }, { label: 'Burners', value: '4 infrared burners' }, { label: 'Heating input', value: '8 kW LPG' }, { label: 'Skewer height', value: '700 mm' }],
+        'engineering-chicken-grill-machine': [{ label: 'Capacity', value: '8 whole chickens' }, { label: 'Heating', value: '6 × 2 kW electric elements' }, { label: 'Rotisserie', value: 'Motor-driven, 4 spits' }, { label: 'Supply', value: '230 V AC, 50 Hz' }],
+        'engineering-dough-kneader': [{ label: 'Bowl capacity', value: '25 kg dough' }, { label: 'Motor', value: '1.5 kW' }, { label: 'Bowl speed', value: '25 rpm' }, { label: 'Supply', value: '230 V AC, 50 Hz' }],
+        'engineering-vegetable-cutter': [{ label: 'Output', value: '150–250 kg/hour' }, { label: 'Motor', value: '550 W' }, { label: 'Discs', value: '5 interchangeable cutting discs' }, { label: 'Supply', value: '230 V AC, 50 Hz' }],
+        'engineering-pulverizer': [{ label: 'Output', value: '10–15 kg/hour (dry spices)' }, { label: 'Motor', value: '2 HP' }, { label: 'Grinding chamber', value: 'Stainless steel' }, { label: 'Supply', value: '230 V AC, 50 Hz' }],
+        'engineering-meat-mincer': [{ label: 'Output', value: '150 kg/hour' }, { label: 'Mouth plate', value: 'No. 22' }, { label: 'Motor', value: '1.5 HP' }, { label: 'Supply', value: '230 V AC, 50 Hz' }],
+        'engineering-planetary-mixer': [{ label: 'Bowl capacity', value: '20 L' }, { label: 'Batches', value: 'Up to 5 kg flour per batch' }, { label: 'Attachments', value: 'Whisk, beater and dough hook' }, { label: 'Supply', value: '230 V AC, 50 Hz' }],
+        'engineering-deck-oven': [{ label: 'Chamber', value: '2 decks, 2 trays per deck' }, { label: 'Tray size', value: '600 × 400 mm' }, { label: 'Temperature', value: '50–300°C' }, { label: 'Heating', value: '6 kW per deck' }],
+        'engineering-convection-oven': [{ label: 'Capacity', value: '4 trays, 600 × 400 mm' }, { label: 'Temperature', value: '50–300°C' }, { label: 'Fan', value: 'Reversible convection fan' }, { label: 'Supply', value: '6.5 kW, 415 V three-phase' }],
+        'engineering-pizza-oven': [{ label: 'Chamber', value: 'Single deck, 4 × 12-inch pizzas' }, { label: 'Temperature', value: '50–450°C' }, { label: 'Deck', value: 'Refractory stone' }, { label: 'Heating', value: '6 kW electric' }],
+        'engineering-dishwasher': [{ label: 'Rack size', value: '500 × 500 mm' }, { label: 'Output', value: 'Up to 40 racks/hour' }, { label: 'Wash cycle', value: '90 / 120 seconds' }, { label: 'Electrical load', value: '9 kW, 415 V three-phase' }],
+        'engineering-water-cooler': [{ label: 'Storage tank', value: '40 L' }, { label: 'Cooling output', value: '40 L/hour at 10°C rise' }, { label: 'Refrigerant', value: 'R134a' }, { label: 'Supply', value: '230 V AC, 50 Hz' }],
+        'engineering-ice-cube-machine': [{ label: 'Daily production', value: '50 kg/24 hours' }, { label: 'Storage bin', value: '20 kg' }, { label: 'Ice type', value: 'Hollow cube' }, { label: 'Supply', value: '230 V AC, 50 Hz' }],
+        'engineering-industrial-hood': [{ label: 'Body', value: '304 stainless steel, 1.0 mm' }, { label: 'Hood size', value: '1,800 × 1,000 × 500 mm' }, { label: 'Exhaust airflow', value: '2,500 m³/hour' }, { label: 'Filter', value: 'Baffle filters, removable' }],
+        'engineering-fresh-air-exhaust': [{ label: 'Airflow', value: '2,500 m³/hour per fan' }, { label: 'Fan motor', value: '1.5 kW' }, { label: 'Duct size', value: '450 mm diameter' }, { label: 'Supply', value: '415 V, three-phase' }],
+        'engineering-ss-tables-sinks': [{ label: 'Material', value: '304 stainless steel, 1.2 mm top' }, { label: 'Table size', value: '1,500 × 700 × 850 mm' }, { label: 'Sink bowl', value: '500 × 450 × 300 mm' }, { label: 'Finish', value: 'No. 4 brushed finish' }],
+        'engineering-fryers': [{ label: 'Oil capacity', value: '2 × 8 L tanks' }, { label: 'Heating', value: '2 × 6 kW electric elements' }, { label: 'Temperature', value: '60–200°C thermostat' }, { label: 'Supply', value: '415 V, three-phase' }]
+      };
+      specs = engineeringSpecs[product.id] || [{ label: 'Capacity', value: 'Approx. 20 L working capacity' }, { label: 'Construction', value: '304 stainless-steel food-contact surfaces' }, { label: 'Dimensions', value: 'Approx. 600 × 600 × 850 mm' }, { label: 'Supply', value: '230 V AC, 50 Hz' }];
     }
-  },
-  'crockery-borosil': {
-    skuPrefix: 'CR-BR / Borosil Glassware',
-    tagline: '100% borosilicate & toughened opal dining glassware.',
-    material: 'Toughened Borosilicate & Opal Glass',
-    finish: 'Crystal Clear & Non-Porous Ultra-Smooth Glaze',
-    galleryImages: [
-      '/images/image__tableware___crockery__a8a959b7.webp',
-      '/images/image__hospitality_tableware__eab14684.webp',
-      '/images/image__restaurant_setting__c005091f.webp'
-    ],
-    badges: [
-      { title: '100% Borosilicate', sub: 'Thermal Shock Resistant', icon: 'food' },
-      { title: 'Dishwasher Safe', sub: '1,000+ Cycles', icon: 'wash' },
-      { title: 'Non-Porous', sub: 'Zero Odor or Stain Absorption', icon: 'finish' }
-    ],
-    parGuideline: { fineDining: '3.0x', banquet: '2.5x', roomService: '2.0x', barLounge: '3.5x' },
-    keySpecs: {
-      material: '100% Borosilicate & Opal Glass',
-      dimensions: 'Tumblers: 250–350 ml · Bowls: 200–500 ml · Casseroles: 1.0–2.5 L',
-      weight: '0.18 kg – 0.85 kg / pc',
-      finish: 'Flame-Polished Crystal Clear & Opal White',
-      dishwasherSafe: 'Yes (Microwave, Oven & Dishwasher Safe)',
-      usage: 'Hotels, Fine Dining, Room Service, Cafes',
-      packing: '6 pcs inner box · 24 / 48 pcs master carton'
-    }
-  },
-  'cutlery-fns': {
-    skuPrefix: 'CT-FNS / FNS Luxury Cutlery',
-    tagline: 'Hand-crafted premium 18/10 stainless steel flatware suites.',
-    material: 'AISI 304 (18/10) Food-Grade Stainless Steel',
-    finish: 'Mirror Polished Bowls with Ergonomic Forged Stems',
-    galleryImages: [
-      '/images/image__stainless_steel_brassware__69672dfd.webp',
-      '/images/cardimage_ac51211f.webp',
-      '/images/image__fine_dining__2ac60065.webp'
-    ],
-    badges: [
-      { title: '18/10 Stainless Steel', sub: 'Maximum Rust & Corrosion Resistance', icon: 'food' },
-      { title: 'Dishwasher Safe', sub: 'Industrial 1,000+ Cycles', icon: 'wash' },
-      { title: 'Mirror Finish', sub: 'Hand-Polished Luxury Shine', icon: 'finish' }
-    ],
-    parGuideline: { fineDining: '3.5x', banquet: '4.0x', roomService: '2.0x', barLounge: '2.5x' },
-    keySpecs: {
-      material: '18/10 Surgical Grade Stainless Steel',
-      dimensions: 'Table Knife: 232 mm · Table Fork: 208 mm · Dessert Spoon: 185 mm',
-      weight: '75g – 110g per piece (Substantial Heavy Weight)',
-      finish: 'Mirror Polish with Satin Brushed Handle Accents',
-      dishwasherSafe: 'Yes (High-Temp Commercial Sanitizer Safe)',
-      usage: 'Luxury Hotels, Fine Dining, Premium Banquets, VIP Lounges',
-      packing: '12 pcs per branded box · 120 pcs per master shipping carton'
-    }
-  },
-  'linen-towels-bathmats': {
-    skuPrefix: 'LN-HT / Hotel Luxury Towels',
-    tagline: '550–650 GSM 100% combed cotton luxury hospitality towels.',
-    material: '100% Ring-Spun Long-Staple Combed Cotton',
-    finish: 'Double-Stitched Reinforced Hems & Terry Loop Weave',
-    galleryImages: [
-      '/images/luxury_hotel_linen.jpg',
-      '/images/luxury_hotel_linen.jpg',
-      '/images/luxury_hotel_linen.jpg'
-    ],
-    badges: [
-      { title: '100% Combed Cotton', sub: 'High GSM Ultra-Plush Feel', icon: 'food' },
-      { title: 'Commercial Laundry', sub: 'Withstands 150+ Heavy Washes', icon: 'wash' },
-      { title: 'High Absorbency', sub: 'Fast Drying Terry Loops', icon: 'finish' }
-    ],
-    parGuideline: { fineDining: '1.0x', banquet: '1.0x', roomService: '3.0x', barLounge: '1.0x' },
-    keySpecs: {
-      material: '100% Combed Cotton (Long Staple)',
-      dimensions: 'Bath Towel: 70 × 140 cm (600 GSM) · Hand Towel: 40 × 60 cm (550 GSM) · Bath Mat: 50 × 80 cm (900 GSM)',
-      weight: 'Bath Towel: ~580g · Hand Towel: ~140g · Bath Mat: ~360g',
-      finish: 'Bright Optical White / Reactive Vat-Dyed Colors',
-      dishwasherSafe: 'High-Temperature Commercial Wash (up to 90°C Safe)',
-      usage: 'Luxury Hotel Bathrooms, Spa, Resorts, Wellness Centers',
-      packing: '10 pcs compressed polybag · 40 / 60 pcs export bale/carton'
-    }
-  },
-  'amenities-liquids-soaps': {
-    skuPrefix: 'AM-GA / Hotel Guest Amenities',
-    tagline: 'Eco-conscious botanical room formulations with customizable hotel branding.',
-    material: 'Natural Extracts, Paraben-Free, Biodegradable Surfactants',
-    finish: 'Silkscreen Printed / Hot-Stamped Bottle & Soft Tubes',
-    galleryImages: [
-      '/images/image__guest_amenities_equipment__f4f6ec37.webp',
-      '/images/cardimage_1dbd1171.webp',
-      '/images/cardimage_4fdce090.webp'
-    ],
-    badges: [
-      { title: 'Dermatologically Tested', sub: 'Paraben & Cruelty Free', icon: 'food' },
-      { title: 'Custom Branding', sub: 'Hot Stamp & Full-Color Logos', icon: 'wash' },
-      { title: 'Eco Packaging', sub: 'Biodegradable Wheat Straw Tubes', icon: 'finish' }
-    ],
-    parGuideline: { fineDining: '1.0x', banquet: '1.0x', roomService: '3.5x', barLounge: '1.0x' },
-    keySpecs: {
-      material: 'Botanical Formulations (Green Tea, Aloe Vera, Sandalwood)',
-      dimensions: 'Tubes/Bottles: 30ml, 40ml, 50ml · Bar Soaps: 20g, 25g, 35g pleat wrapped',
-      weight: '30g – 55g per unit',
-      finish: 'Matte Soft-Touch Tubes / Recycled Kraft Paper Packaging',
-      dishwasherSafe: 'Single-Use Sealed Guest Dispense',
-      usage: 'Hotel Guestrooms, VIP Suites, Boutique Resorts, Spas',
-      packing: '100 pcs inner tray · 400 pcs master shipping carton'
-    }
-  },
-  'chemicals-diversey': {
-    skuPrefix: 'CH-DIV / Diversey Professional',
-    tagline: 'Global standard concentrated kitchen degreasers, floor care & room disinfectants.',
-    material: 'ISO 9001 / ISO 14001 Professional Chemical Concentrates',
-    finish: 'Color-Coded Sealed HDPE Canisters for Dispenser Dosing',
-    galleryImages: [
-      '/images/commercial_cleaning_chemicals.jpg',
-      '/images/cardimage_4fdce090.webp',
-      '/images/centerimage_f8709305.webp'
-    ],
-    badges: [
-      { title: 'Food-Grade Certified', sub: 'Safe for Commercial Kitchen Contact', icon: 'food' },
-      { title: 'Ultra Concentrate', sub: 'Dilution Ratios up to 1:200', icon: 'wash' },
-      { title: 'Global Standard', sub: 'Diversey Taski & Suma Formulation', icon: 'finish' }
-    ],
-    parGuideline: { fineDining: '1.0x', banquet: '2.0x', roomService: '1.0x', barLounge: '1.0x' },
-    keySpecs: {
-      material: 'Concentrated Active Surfactants, QAC Disinfectants & Enzymes',
-      dimensions: '5 Litre Canisters · 20 Litre Commercial Barrels',
-      weight: '5.2 kg per 5L can · 21.0 kg master box (4 × 5L)',
-      finish: 'Color-Coded Spill-Resistant HDPE Drums',
-      dishwasherSafe: 'Automated Chemical Dispenser & Machine Injector Safe',
-      usage: 'Commercial Kitchens, Guestrooms, Public Lobbies, Banquets',
-      packing: '4 × 5L cans per master carton with leakproof partitions'
-    }
-  }
+    return [product.id, {
+      tagline: product.title,
+      galleryImages: [product.image],
+      highlights: [
+        { label: 'Product', value: product.title },
+        { label: 'Classification', value: product.category },
+        ...product.brands.map(brand => ({ label: 'Brand', value: brand })),
+        ...specs
+      ]
+    }];
+  })
+);
+
+export function buildCardDetail(product: ProductCatalogCard): ProductDetailInfo {
+  const highlights: ProductHighlight[] = [
+    { label: 'Product', value: product.title },
+    { label: 'Classification', value: product.category },
+    ...product.brands.map(brand => ({ label: 'Brand', value: brand }))
+  ];
+
+  return {
+    tagline: product.title,
+    galleryImages: [product.image],
+    highlights
+  };
+}
+
+/* ── Brand brochures (Product Catalogue PDFs, served from /brochures) ───── */
+export const BRAND_BROCHURES: Record<string, string> = {
+  'Claycraft Fine Tableware': '/brochures/claycraft-catalogue.pdf',
+  Ocean: '/brochures/ocean-catalogue.pdf',
+  Union: '/brochures/union-glass-catalogue.pdf'
 };
+
+export function findBrochure(brands: string[]): string | null {
+  for (const brand of brands) {
+    const brochure = BRAND_BROCHURES[brand];
+    if (brochure) return brochure;
+  }
+  return null;
+}
+
+/* ── Alternating brand-pill tones (blue / red) over all sorted brands ───── */
+export type BrandTone = 'blue' | 'red';
+
+export const BRAND_COLORS: Record<string, BrandTone> = (() => {
+  const allBrands = Array.from(
+    new Set(CATALOG_PRODUCTS.flatMap(product => product.brands))
+  ).sort((a, b) => a.localeCompare(b));
+
+  const tones: Record<string, BrandTone> = {};
+  allBrands.forEach((brand, index) => {
+    tones[brand] = index % 2 === 0 ? 'blue' : 'red';
+  });
+  return tones;
+})();
+
+export function brandColor(brand: string): BrandTone {
+  return BRAND_COLORS[brand] ?? 'blue';
+}
 
 export const CONTACT_INFO = {
   company: 'Care4 Associates',

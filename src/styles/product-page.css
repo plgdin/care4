@@ -575,7 +575,7 @@
 }
 
 .filter-row-label {
-  font-size: 12px;
+  font-size: 13.5px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -589,9 +589,9 @@
   border: 1.5px solid #cbd5e1;
   background: #ffffff;
   color: #334155;
-  padding: 7px 14px;
+  padding: 8px 16px;
   border-radius: 9999px;
-  font-size: 13.5px;
+  font-size: 15px;
   font-weight: 600;
   font-family: var(--font-body);
   cursor: pointer;
@@ -617,9 +617,9 @@
 }
 
 .dept-pill-badge {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
-  padding: 1px 6px;
+  padding: 2px 7px;
   border-radius: 9999px;
   background: #e2e8f0;
   color: #475569;
@@ -647,7 +647,7 @@
   color: #1e293b;
   padding: 9px 18px;
   border-radius: 10px;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
@@ -665,7 +665,7 @@
   box-shadow: 0 4px 12px rgba(2, 52, 141, 0.25);
 }
 .subcat-count {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   padding: 2px 7px;
   border-radius: 9999px;
@@ -694,7 +694,7 @@
   width: 100%;
   height: 44px;
   padding: 0 36px 0 42px;
-  font-size: 14px;
+  font-size: 15.5px;
   font-family: var(--font-body);
   border: 1.5px solid #cbd5e1;
   border-radius: 10px;
@@ -753,7 +753,7 @@
   gap: 8px;
   padding: 8px 14px;
   border-radius: 7px;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   color: #475569;
   border: none;
@@ -792,7 +792,7 @@
 }
 
 .lookbook-results-count {
-  font-size: 16px;
+  font-size: 17.5px;
   color: #334155;
   font-weight: 500;
 }
@@ -811,7 +811,7 @@
   border: 1px solid #cbd5e1;
   padding: 8px 14px;
   border-radius: 8px;
-  font-size: 13px;
+  font-size: 14.5px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.15s ease;
@@ -882,9 +882,9 @@
   background: rgba(12, 22, 36, 0.92);
   color: #ffffff;
   backdrop-filter: blur(8px);
-  padding: 6px 12px;
+  padding: 6px 13px;
   border-radius: 8px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   display: inline-flex;
   align-items: center;
@@ -899,7 +899,7 @@
   z-index: 2;
   background: #ffffff;
   color: #0f1c2d;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 800;
   padding: 6px 14px;
   border-radius: 8px;
@@ -916,7 +916,7 @@
 
 .lb-card-title {
   font-family: var(--font-heading);
-  font-size: 22px;
+  font-size: 25px;
   font-weight: 800;
   color: #0f1c2d;
   line-height: 1.3;
@@ -930,81 +930,220 @@
 }
 
 .lb-card-desc {
-  font-size: 15px;
+  font-size: 16.5px;
   color: #475569;
   line-height: 1.5;
   margin-bottom: 18px;
 }
 
-/* On-Card Commercial Specs Panel (Immediate Legibility) */
-.lb-card-specs-panel {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 14px 16px;
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.lb-spec-line {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  font-size: 13.5px;
-  color: #334155;
-  line-height: 1.4;
-}
-
-.lb-spec-line-icon {
-  color: #02348d;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.lb-spec-line-content {
-  flex: 1;
-}
-
-.lb-spec-line-label {
-  color: #64748b;
-  font-weight: 500;
-  margin-right: 4px;
-}
-
-.lb-spec-line-value {
-  color: #0f1c2d;
-  font-weight: 700;
-}
-
-/* Quality & Certification Badges Strip */
-.lb-badges-strip {
+/* Verified Brand Pills — bold, alternating blue / red */
+.lb-brand-pills {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 6px;
-  padding-top: 10px;
-  border-top: 1px solid #e2e8f0;
+  margin-bottom: 18px;
 }
 
-.lb-spec-pill {
-  background: #eff6ff;
-  border: 1px solid #bfdbfe;
-  color: #1e40af;
-  font-size: 12px;
+/* Brand badges on card image — top-right */
+.lb-card-brand-pills {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  margin-bottom: 0;
+  justify-content: flex-end;
+  max-width: calc(100% - 28px);
+}
+
+.lb-card-brand-pills .lb-brand-pill {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  font-weight: 800;
+}
+
+.lb-brand-pill {
+  font-size: 14px;
   font-weight: 700;
-  padding: 4px 10px;
-  border-radius: 6px;
+  letter-spacing: 0.01em;
+  padding: 5px 13px;
+  border-radius: 999px;
+}
+
+/* Shared brand-pill tones (cards, ledger table & detail dialog) */
+.brand-pill-blue {
+  color: #1d4ed8;
+  background: #eff6ff;
+  border: 1.5px solid #bfdbfe;
+}
+
+.brand-pill-red {
+  color: #b91c1c;
+  background: #fef2f2;
+  border: 1.5px solid #fecaca;
+}
+
+/* Brand Dropdown next to search */
+.lookbook-search-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.lb-brand-select-wrap {
+  position: relative;
+}
+
+.lb-brand-select-btn {
+  height: 44px;
+  min-width: 190px;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 9px;
+  padding: 0 14px;
+  font-size: 15px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 10px;
+  background: #f8fafc;
+  color: #0f1c2d;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.lb-spec-pill.pill-verified {
-  background: #f0fdf4;
-  border-color: #bbf7d0;
-  color: #15803d;
+.lb-brand-select-btn:hover,
+.lb-brand-select-btn:focus-visible {
+  border-color: #02348d;
+  background: #ffffff;
+  outline: none;
+}
+
+.lb-brand-select-ico {
+  color: #02348d;
+  flex-shrink: 0;
+}
+
+.lb-brand-select-value {
+  flex: 1;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lb-brand-select-value.picked {
+  color: #02348d;
+  font-weight: 700;
+}
+
+.lb-brand-select-chev {
+  color: #64748b;
+  flex-shrink: 0;
+  transition: transform 0.18s ease;
+}
+
+.lb-brand-select-chev.open {
+  transform: rotate(180deg);
+}
+
+/* Dropdown panel */
+.lb-brand-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 280px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 18px 40px -10px rgba(15, 28, 45, 0.28);
+  padding: 6px;
+  z-index: 70;
+}
+
+.lb-brand-menu-list {
+  max-height: 320px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.lb-brand-menu-list::-webkit-scrollbar {
+  display: none;
+}
+
+.lb-brand-option {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  border: none;
+  background: transparent;
+  color: #334155;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: left;
+  padding: 9px 11px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.12s ease;
+}
+
+.lb-brand-option:hover {
+  background: #f1f5f9;
+}
+
+.lb-brand-option.active {
+  background: #eff6ff;
+  color: #02348d;
+}
+
+.lb-brand-option-all {
+  color: #64748b;
+  font-weight: 700;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #f1f5f9;
+  border-radius: 8px 8px 0 0;
+  padding-bottom: 10px;
+}
+
+.lb-brand-option-all:hover {
+  color: #0f1c2d;
+  background: #f8fafc;
+}
+
+.lb-brand-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.lb-brand-dot.dot-blue {
+  background: #2563eb;
+}
+
+.lb-brand-dot.dot-red {
+  background: #dc2626;
+}
+
+.lb-brand-name {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lb-brand-check {
+  color: #02348d;
+  flex-shrink: 0;
+}
+
+.lb-brand-none {
+  padding: 14px 12px;
+  font-size: 13px;
+  color: #94a3b8;
+  text-align: center;
 }
 
 /* Card Actions */
@@ -1017,24 +1156,26 @@
   border-top: 1px solid #f1f5f9;
 }
 
-.btn-lb-specs {
+.btn-lb-catalog {
   appearance: none;
   background: #ffffff;
   color: #0f1c2d;
   border: 1.5px solid #cbd5e1;
-  border-radius: 10px;
-  padding: 11px 16px;
-  font-size: 14px;
+  border-radius: 9px;
+  padding: 9px 12px;
+  font-size: 15px;
   font-weight: 700;
+  white-space: nowrap;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 7px;
+  min-width: 0;
   transition: all 0.15s ease;
 }
 
-.btn-lb-specs:hover {
+.btn-lb-catalog:hover {
   background: #f1f5f9;
   border-color: #0f1c2d;
   color: #02348d;
@@ -1045,15 +1186,17 @@
   background: #02348d;
   color: #ffffff;
   border: 1.5px solid #02348d;
-  border-radius: 10px;
-  padding: 11px 16px;
-  font-size: 14px;
+  border-radius: 9px;
+  padding: 9px 14px;
+  font-size: 15px;
   font-weight: 700;
+  white-space: nowrap;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 7px;
+  min-width: 0;
   transition: all 0.15s ease;
   box-shadow: 0 4px 12px rgba(2, 52, 141, 0.25);
 }
@@ -1084,7 +1227,7 @@
 .catalog-table th {
   background: #0c1624;
   color: #ffffff;
-  font-size: 13px;
+  font-size: 14.5px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -1124,7 +1267,7 @@
 
 .table-prod-name {
   font-family: var(--font-heading);
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
   color: #0f1c2d;
   cursor: pointer;
@@ -1136,34 +1279,18 @@
 }
 
 .table-prod-cat {
-  font-size: 13px;
+  font-size: 14.5px;
   color: #64748b;
   font-weight: 500;
 }
 
 .table-brand-pill {
   display: inline-block;
-  background: #f1f5f9;
-  border: 1px solid #cbd5e1;
-  color: #1e293b;
-  font-size: 12.5px;
-  font-weight: 700;
-  padding: 3px 9px;
-  border-radius: 6px;
-  margin: 2px 4px 2px 0;
-}
-
-.table-spec-text {
-  font-size: 14px;
-  color: #1e293b;
-  font-weight: 600;
-  max-width: 280px;
-}
-
-.table-packing-text {
   font-size: 13.5px;
-  color: #475569;
-  font-weight: 600;
+  font-weight: 700;
+  padding: 4px 11px;
+  border-radius: 999px;
+  margin: 2px 4px 2px 0;
 }
 
 .table-actions-cell {
@@ -1177,8 +1304,9 @@
   border: 1px solid #cbd5e1;
   border-radius: 8px;
   padding: 8px 14px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
+  white-space: nowrap;
   cursor: pointer;
   margin-right: 8px;
   transition: all 0.15s ease;
@@ -1196,8 +1324,9 @@
   border: 1px solid #02348d;
   border-radius: 8px;
   padding: 8px 14px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
+  white-space: nowrap;
   cursor: pointer;
   transition: all 0.15s ease;
 }
@@ -1242,6 +1371,33 @@
   max-width: 440px;
   margin: 0 auto 24px auto;
   line-height: 1.5;
+}
+
+.empty-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn-contact-sales-cta {
+  background: #ffffff;
+  color: #02348d;
+  border: 1.5px solid #02348d;
+  padding: 11px 22px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.15s ease;
+}
+
+.btn-contact-sales-cta:hover {
+  background: #eff6ff;
 }
 
 .btn-reset-filters-cta {
@@ -1350,8 +1506,22 @@
     width: 100%;
     gap: 12px;
   }
+  .lookbook-search-controls {
+    flex-direction: column;
+    gap: 10px;
+  }
   .lookbook-search-input-wrap {
     width: 100%;
+  }
+  .lb-brand-select-btn {
+    flex: 1 1 100%;
+    min-width: 0;
+    width: 100%;
+  }
+  .lb-brand-menu {
+    left: 0;
+    right: 0;
+    width: auto;
   }
   .lookbook-view-switcher {
     position: static;
