@@ -83,7 +83,7 @@ export const CATEGORIES_DATA: CategoryItem[] = [
     id: 'kitchen-utensils',
     title: 'Kitchen Utensils',
     subtitle: 'Heavy-gauge commercial cookware, chef knives & prep tools.',
-    image: '/images/cardimage_ac51211f.webp'
+    image: '/images/commercial_stockpots.jpg'
   },
   {
     id: 'housekeeping',
@@ -98,9 +98,9 @@ export const CATEGORIES_DATA: CategoryItem[] = [
     image: '/images/commercial_cleaning_chemicals.jpg'
   },
   {
-    id: 'engineering-equipments',
-    title: 'Engineering Equipments',
-    subtitle: 'Heavy-duty commercial kitchen ranges, chillers & machines.',
+    id: 'kitchen-equipments',
+    title: 'Kitchen Equipments',
+    subtitle: 'Heavy duty commercial cooking ranges, chillers, ovens, fresh air & exhaust systems, industrial hood, griddles, fryers etc.',
     image: '/images/commercial_kitchen_equipment.jpg'
   }
 ];
@@ -230,7 +230,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
   {
     id: 'crockery-dinewell',
     title: 'Dinnerware Collection',
-    subtitle: '',
+    subtitle: 'Melamine Dinnerware',
     details: 'Tableware for serving meals and drinks in hospitality settings. dinnerware collection suits everyday dining and food presentation.',
     image: '/images/dinewell_melamine_platters.jpg',
     category: 'Crockery',
@@ -386,7 +386,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Hand Towels',
     subtitle: '',
     details: 'hand towels is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
-    image: '/images/luxury_hotel_linen.jpg',
+    image: '/images/linen_hand_towels.jpg',
     category: 'Linen',
     brands: ['Cintra'],
     industries: [],
@@ -639,7 +639,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Ingredient Storage Bins',
     subtitle: '',
     details: 'ingredient storage bins supports food preparation, cooking, storage, or buffet service in professional kitchens.',
-    image: '/images/image_3_c35c9821.webp',
+    image: '/images/commercial_kitchen_prep_tools.jpg',
     category: 'Kitchen Utensils',
     brands: ['All Time'],
     industries: [],
@@ -749,7 +749,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'HACCP Color-Coded Commercial Cutting Boards',
     subtitle: '',
     details: 'haccp color-coded commercial cutting boards supports food preparation, cooking, storage, or buffet service in professional kitchens.',
-    image: '/images/image_3_c35c9821.webp',
+    image: '/images/commercial_cutting_boards.jpg',
     category: 'Kitchen Utensils',
     brands: ['All Time'],
     industries: [],
@@ -760,7 +760,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'HACCP Color-Coded Commercial Cutting Boards',
     subtitle: '',
     details: 'haccp color-coded commercial cutting boards supports food preparation, cooking, storage, or buffet service in professional kitchens.',
-    image: '/images/cambro_food_pans.jpg',
+    image: '/images/commercial_cutting_boards.jpg',
     category: 'Kitchen Utensils',
     brands: ['Cambro'],
     industries: [],
@@ -804,7 +804,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Kitchen Prep Appliances',
     subtitle: '',
     details: 'kitchen prep appliances supports food preparation, cooking, storage, or buffet service in professional kitchens.',
-    image: '/images/commercial_kitchen_equipment.jpg',
+    image: '/images/commercial_kitchen_prep_tools.jpg',
     category: 'Kitchen Utensils',
     brands: ['KMW'],
     industries: [],
@@ -826,7 +826,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Commercial Kitchen Vessels',
     subtitle: '',
     details: 'commercial kitchen vessels supports food preparation, cooking, storage, or buffet service in professional kitchens.',
-    image: '/images/image_3_c35c9821.webp',
+    image: '/images/commercial_kitchen_prep_tools.jpg',
     category: 'Kitchen Utensils',
     brands: ['Mosaic'],
     industries: [],
@@ -837,7 +837,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Food Containers',
     subtitle: '',
     details: 'food containers supports food preparation, cooking, storage, or buffet service in professional kitchens.',
-    image: '/images/image_3_c35c9821.webp',
+    image: '/images/commercial_cutting_boards.jpg',
     category: 'Kitchen Utensils',
     brands: ['Polygaurd'],
     industries: [],
@@ -903,7 +903,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Commercial Mixers & Blenders',
     subtitle: '',
     details: 'commercial mixers and blenders supports food preparation, cooking, storage, or buffet service in professional kitchens.',
-    image: '/images/commercial_kitchen_equipment.jpg',
+    image: '/images/commercial_kitchen_prep_tools.jpg',
     category: 'Kitchen Utensils',
     brands: ['Sujatha'],
     industries: [],
@@ -1080,7 +1080,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     subtitle: '',
     details: 'commercial gas ranges is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
     image: '/images/commercial_kitchen_equipment.jpg',
-    category: 'Engineering Equipments',
+    category: 'Kitchen Equipments',
     brands: ['Serman'],
     industries: [],
     factors: []
@@ -1090,8 +1090,8 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Induction Cookers',
     subtitle: '',
     details: 'induction cookers is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
-    image: '/images/commercial_kitchen_equipment.jpg',
-    category: 'Engineering Equipments',
+    image: '/images/commercial_induction_cookers.jpg',
+    category: 'Kitchen Equipments',
     brands: ['Serman'],
     industries: [],
     factors: []
@@ -1101,8 +1101,8 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Dosa Plates',
     subtitle: '',
     details: 'dosa plates is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
-    image: '/images/commercial_kitchen_equipment.jpg',
-    category: 'Engineering Equipments',
+    image: '/images/commercial_dosa_plates.jpg',
+    category: 'Kitchen Equipments',
     brands: ['Serman'],
     industries: [],
     factors: []
@@ -1112,8 +1112,8 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Griddles',
     subtitle: '',
     details: 'griddles is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
-    image: '/images/commercial_kitchen_equipment.jpg',
-    category: 'Engineering Equipments',
+    image: '/images/commercial_flat_griddles.jpg',
+    category: 'Kitchen Equipments',
     brands: ['Serman'],
     industries: [],
     factors: []
@@ -1123,8 +1123,8 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Commercial Refrigerators',
     subtitle: '',
     details: 'commercial refrigerators is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
-    image: '/images/KitchenEquipment.png',
-    category: 'Engineering Equipments',
+    image: '/images/commercial_refrigeration_units.jpg',
+    category: 'Kitchen Equipments',
     brands: ['Serman'],
     industries: [],
     factors: []
@@ -1134,8 +1134,8 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Deep Freezers',
     subtitle: '',
     details: 'deep freezers is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
-    image: '/images/KitchenEquipment.png',
-    category: 'Engineering Equipments',
+    image: '/images/commercial_refrigeration_units.jpg',
+    category: 'Kitchen Equipments',
     brands: ['Serman'],
     industries: [],
     factors: []
@@ -1145,8 +1145,8 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Undercounter Chillers',
     subtitle: '',
     details: 'undercounter chillers is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
-    image: '/images/KitchenEquipment.png',
-    category: 'Engineering Equipments',
+    image: '/images/commercial_refrigeration_units.jpg',
+    category: 'Kitchen Equipments',
     brands: ['Serman'],
     industries: [],
     factors: []
@@ -1156,8 +1156,8 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Display Counters',
     subtitle: '',
     details: 'display counters is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
-    image: '/images/KitchenEquipment.png',
-    category: 'Engineering Equipments',
+    image: '/images/commercial_display_counters.jpg',
+    category: 'Kitchen Equipments',
     brands: ['Serman'],
     industries: [],
     factors: []
@@ -1167,8 +1167,8 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Shawarma Machine',
     subtitle: '',
     details: 'shawarma machine is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
-    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.webp',
-    category: 'Engineering Equipments',
+    image: '/images/commercial_shawarma_machine.jpg',
+    category: 'Kitchen Equipments',
     brands: ['Serman'],
     industries: [],
     factors: []
@@ -1178,8 +1178,8 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Chicken Grill Machine',
     subtitle: '',
     details: 'chicken grill machine is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
-    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.webp',
-    category: 'Engineering Equipments',
+    image: '/images/commercial_chicken_grill_machine.jpg',
+    category: 'Kitchen Equipments',
     brands: ['Serman'],
     industries: [],
     factors: []
@@ -1189,8 +1189,8 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Dough Kneader',
     subtitle: '',
     details: 'dough kneader is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
-    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.webp',
-    category: 'Engineering Equipments',
+    image: '/images/commercial_food_prep_machines.jpg',
+    category: 'Kitchen Equipments',
     brands: ['Serman'],
     industries: [],
     factors: []
@@ -1200,8 +1200,8 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Vegetable Cutter',
     subtitle: '',
     details: 'vegetable cutter is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
-    image: '/images/image__buffet___beverage_equipment__f2c7e5ac.webp',
-    category: 'Engineering Equipments',
+    image: '/images/KitchenEquipment.png',
+    category: 'Kitchen Equipments',
     brands: ['Serman'],
     industries: [],
     factors: []
@@ -1211,8 +1211,8 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Pulverizer',
     subtitle: '',
     details: 'pulverizer is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
-    image: '/images/image__restaurant_setting__c005091f.webp',
-    category: 'Engineering Equipments',
+    image: '/images/commercial_food_prep_machines.jpg',
+    category: 'Kitchen Equipments',
     brands: ['Serman'],
     industries: [],
     factors: []
@@ -1222,8 +1222,8 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Meat Mincer',
     subtitle: '',
     details: 'meat mincer is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
-    image: '/images/image__restaurant_setting__c005091f.webp',
-    category: 'Engineering Equipments',
+    image: '/images/commercial_meat_mincer.jpg',
+    category: 'Kitchen Equipments',
     brands: ['Serman'],
     industries: [],
     factors: []
@@ -1233,8 +1233,8 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Planetary Mixer',
     subtitle: '',
     details: 'planetary mixer is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
-    image: '/images/image__restaurant_setting__c005091f.webp',
-    category: 'Engineering Equipments',
+    image: '/images/commercial_planetary_mixer.jpg',
+    category: 'Kitchen Equipments',
     brands: ['Serman'],
     industries: [],
     factors: []
@@ -1244,8 +1244,8 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Deck Oven',
     subtitle: '',
     details: 'deck oven is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
-    image: '/images/image__restaurant_setting__c005091f.webp',
-    category: 'Engineering Equipments',
+    image: '/images/commercial_deck_ovens.jpg',
+    category: 'Kitchen Equipments',
     brands: ['Serman'],
     industries: [],
     factors: []
@@ -1255,8 +1255,8 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Convection Oven',
     subtitle: '',
     details: 'convection oven is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
-    image: '/images/image__restaurants__6ff4e1ae.webp',
-    category: 'Engineering Equipments',
+    image: '/images/commercial_deck_ovens.jpg',
+    category: 'Kitchen Equipments',
     brands: ['Serman'],
     industries: [],
     factors: []
@@ -1266,8 +1266,8 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Pizza Oven',
     subtitle: '',
     details: 'pizza oven is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
-    image: '/images/image__restaurants__6ff4e1ae.webp',
-    category: 'Engineering Equipments',
+    image: '/images/commercial_pizza_oven.jpg',
+    category: 'Kitchen Equipments',
     brands: ['Serman'],
     industries: [],
     factors: []
@@ -1277,8 +1277,8 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Dishwasher',
     subtitle: '',
     details: 'dishwasher is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
-    image: '/images/image__stainless_steel_brassware__69672dfd.webp',
-    category: 'Engineering Equipments',
+    image: '/images/commercial_dishwasher.jpg',
+    category: 'Kitchen Equipments',
     brands: ['Serman'],
     industries: [],
     factors: []
@@ -1288,8 +1288,8 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Water Cooler',
     subtitle: '',
     details: 'water cooler is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
-    image: '/images/image__restaurants__6ff4e1ae.webp',
-    category: 'Engineering Equipments',
+    image: '/images/commercial_ice_cube_machine.jpg',
+    category: 'Kitchen Equipments',
     brands: ['Serman'],
     industries: [],
     factors: []
@@ -1299,8 +1299,8 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Ice Cube Machine',
     subtitle: '',
     details: 'ice cube machine is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
-    image: '/images/image__restaurants__6ff4e1ae.webp',
-    category: 'Engineering Equipments',
+    image: '/images/commercial_ice_cube_machine.jpg',
+    category: 'Kitchen Equipments',
     brands: ['Serman'],
     industries: [],
     factors: []
@@ -1310,8 +1310,8 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Industrial Hood',
     subtitle: '',
     details: 'industrial hood is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
-    image: '/images/category_cafe_beverage.jpg',
-    category: 'Engineering Equipments',
+    image: '/images/commercial_exhaust_hood.jpg',
+    category: 'Kitchen Equipments',
     brands: ['Serman'],
     industries: [],
     factors: []
@@ -1321,8 +1321,8 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Fresh Air & Exhaust Systems',
     subtitle: '',
     details: 'fresh air and exhaust systems is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
-    image: '/images/category_cafe_beverage.jpg',
-    category: 'Engineering Equipments',
+    image: '/images/commercial_exhaust_hood.jpg',
+    category: 'Kitchen Equipments',
     brands: ['Serman'],
     industries: [],
     factors: []
@@ -1332,8 +1332,8 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'SS Tables & Sinks',
     subtitle: '',
     details: 'ss tables and sinks is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
-    image: '/images/category_cafe_beverage.jpg',
-    category: 'Engineering Equipments',
+    image: '/images/KitchenEquipment.png',
+    category: 'Kitchen Equipments',
     brands: ['Serman'],
     industries: [],
     factors: []
@@ -1343,8 +1343,8 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Fryers',
     subtitle: '',
     details: 'fryers is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
-    image: '/images/category_cafe_beverage.jpg',
-    category: 'Engineering Equipments',
+    image: '/images/commercial_deep_fryers.jpg',
+    category: 'Kitchen Equipments',
     brands: ['Serman'],
     industries: [],
     factors: []
@@ -1359,7 +1359,7 @@ export const CATEGORY_FILTERS = [
   'Kitchen Utensils',
   'House Keeping',
   'Cleaning Chemicals',
-  'Engineering Equipments'
+  'Kitchen Equipments'
 ];
 
 export const ABOUT_STATS = [
@@ -1421,137 +1421,10 @@ export const WHAT_WE_OFFER: OfferItem[] = [
 
 export const OFFER_TAGLINE = "We Don't Just Supply Equipment, We Build Kitchens that Perform.";
 
-export interface ProductHighlight {
-  label: string;
-  value: string;
-}
-
-export interface ProductDetailInfo {
-  tagline: string;
-  galleryImages: string[];
-  highlights: ProductHighlight[];
-}
-
-/**
- * Plausible draft specifications for layout/content review. These are not
- * supplier-confirmed product data; the modal keeps a visible verification notice.
- */
-export const PRODUCT_SPECS_MAP: Record<string, ProductDetailInfo> = Object.fromEntries(
-  CATALOG_PRODUCTS.map(product => {
-    const title = product.title.toLowerCase();
-    let specs: ProductHighlight[];
-    if (product.category === 'Crockery') {
-      specs = /glass|stemware|drinkware/.test(title)
-        ? [{ label: 'Material', value: 'Clear soda-lime glass' }, { label: 'Capacity', value: '300 ml wine glass; 350 ml tumbler' }, { label: 'Dimensions', value: 'Approx. 7.5 cm rim × 21 cm height (wine glass)' }, { label: 'Packing', value: '6 pieces per inner box; 24 per outer carton' }]
-        : [{ label: 'Material', value: 'Vitrified ceramic, glazed finish' }, { label: 'Typical pieces', value: '27 cm dinner plate, 20 cm side plate, 15 cm bowl' }, { label: 'Temperature', value: 'Suitable for hot food service; avoid direct flame' }, { label: 'Packing', value: '6 pieces per inner box; 24 per outer carton' }];
-    } else if (product.category === 'Cutlery') {
-      specs = [{ label: 'Material', value: '18/0 stainless steel (nominal chromium/nickel grade)' }, { label: 'Thickness', value: 'Approx. 2.0 mm spoon/fork; knife blade varies by pattern' }, { label: 'Finish', value: 'Polished mirror finish' }, { label: 'Packing', value: '12 pieces per item' }];
-    } else if (product.category === 'Linen') {
-      if (/bath towels/.test(title)) specs = [{ label: 'Material', value: '100% cotton terry' }, { label: 'Size', value: '70 × 140 cm' }, { label: 'Fabric weight', value: '500 GSM' }, { label: 'Packing', value: '10 pieces per bale' }];
-      else if (/hand towels/.test(title)) specs = [{ label: 'Material', value: '100% cotton terry' }, { label: 'Size', value: '40 × 70 cm' }, { label: 'Fabric weight', value: '450 GSM' }, { label: 'Packing', value: '20 pieces per bale' }];
-      else if (/face towels/.test(title)) specs = [{ label: 'Material', value: '100% cotton terry' }, { label: 'Size', value: '30 × 30 cm' }, { label: 'Fabric weight', value: '450 GSM' }, { label: 'Packing', value: '50 pieces per bale' }];
-      else if (/pool towels/.test(title)) specs = [{ label: 'Material', value: 'Cotton terry' }, { label: 'Size', value: '90 × 180 cm' }, { label: 'Fabric weight', value: '550 GSM' }, { label: 'Packing', value: '10 pieces per bale' }];
-      else if (/bath mats/.test(title)) specs = [{ label: 'Material', value: 'Cotton terry with non-slip backing option' }, { label: 'Size', value: '50 × 80 cm' }, { label: 'Fabric weight', value: '800 GSM' }, { label: 'Packing', value: '10 pieces per bale' }];
-      else if (/bed sheets/.test(title)) specs = [{ label: 'Material', value: 'Polycotton percale,  T-250 thread count' }, { label: 'Size', value: 'Flat sheet: 275 × 300 cm' }, { label: 'Construction', value: 'Plain weave, white' }, { label: 'Packing', value: '10 pieces per bale' }];
-      else if (/duvets/.test(title)) specs = [{ label: 'Cover', value: 'Cotton-rich shell with polyester fill' }, { label: 'Size', value: 'King: 240 × 260 cm' }, { label: 'Fill weight', value: '300 GSM' }, { label: 'Packing', value: '1 piece per bag' }];
-      else if (/pillows/.test(title)) specs = [{ label: 'Fill', value: 'Hollow conjugated polyester fibre' }, { label: 'Size', value: '50 × 75 cm' }, { label: 'Fill weight', value: '900 g' }, { label: 'Packing', value: '1 piece per bag' }];
-      else if (/curtains/.test(title)) specs = [{ label: 'Material', value: 'Polyester blackout fabric' }, { label: 'Panel size', value: '140 × 240 cm' }, { label: 'Header', value: 'Eyelet or pinch-pleat option' }, { label: 'Packing', value: '1 panel per bag' }];
-      else if (/mattress protectors/.test(title)) specs = [{ label: 'Top fabric', value: 'Quilted polycotton' }, { label: 'Size', value: 'King: 180 × 200 cm' }, { label: 'Skirt depth', value: 'Approx. 30 cm' }, { label: 'Packing', value: '1 piece per bag' }];
-      else specs = [{ label: 'Material', value: 'Polyester-cotton upholstery fabric' }, { label: 'Typical size', value: /carpet|rug/.test(title) ? 'Area sizes: 120 × 180 cm and 160 × 230 cm' : 'Throw: 130 × 180 cm; cushion: 45 × 45 cm' }, { label: 'Fabric weight', value: 'Approx. 250 GSM' }, { label: 'Packing', value: '1 piece per bag' }];
-    } else if (product.category === 'Guest Amenities') {
-      if (/toilet rolls/.test(title)) specs = [{ label: 'Paper', value: '2-ply tissue, 17 GSM per ply' }, { label: 'Roll length', value: '100 m' }, { label: 'Roll width', value: '9 cm' }, { label: 'Packing', value: '48 rolls per case' }];
-      else if (/bathroom guest kits/.test(title)) specs = [{ label: 'Soap', value: '15 g wrapped guest soap' }, { label: 'Shampoo', value: '30 ml sachet or bottle' }, { label: 'Contents', value: 'Soap, shampoo, dental kit and shower cap' }, { label: 'Packing', value: '100 guest kits per carton' }];
-      else if (/sewing/.test(title)) specs = [{ label: 'Sewing kit', value: 'Needle, 6 thread colours, 2 buttons and safety pin' }, { label: 'Medical kit', value: 'Cotton swabs, adhesive strips and antiseptic wipe' }, { label: 'Pack format', value: 'Individually sealed paper pouch' }, { label: 'Packing', value: '500 pouches per carton' }];
-      else if (/stationery/.test(title)) specs = [{ label: 'Folder', value: 'Approx. 23 × 32 cm, leatherette finish' }, { label: 'Contents', value: 'Writing pad, 2 sheets hotel stationery, envelope and pen' }, { label: 'Pad size', value: 'A4' }, { label: 'Packing', value: '25 sets per carton' }];
-      else if (/slippers/.test(title)) specs = [{ label: 'Upper', value: 'Terry cloth' }, { label: 'Sole', value: '5 mm EVA foam' }, { label: 'Size', value: 'Universal adult size, approx. 28 cm' }, { label: 'Packing', value: '100 pairs per carton' }];
-      else if (/liquid amenities/.test(title)) specs = [{ label: 'Products', value: 'Shampoo, conditioner, body wash and lotion' }, { label: 'Pack size', value: '30 ml guest bottle' }, { label: 'Container', value: 'PET bottle with flip-top cap' }, { label: 'Packing', value: '100 bottles per carton' }];
-      else if (/glass covers/.test(title)) specs = [{ label: 'Cover diameter', value: '9 cm' }, { label: 'Coaster diameter', value: '9 cm' }, { label: 'Material', value: 'Clear reusable plastic' }, { label: 'Packing', value: '100 pieces per pack' }];
-      else if (/hygiene bags/.test(title)) specs = [{ label: 'Laundry bag', value: '50 × 70 cm, non-woven fabric' }, { label: 'Hygiene bag', value: 'Approx. 12 × 20 cm, disposable' }, { label: 'Pack format', value: 'Individually folded guest-room supply' }, { label: 'Packing', value: '100 pieces per inner pack' }];
-      else specs = [{ label: 'Item size', value: 'Drinking straw: 20 cm; coaster: 9 cm diameter' }, { label: 'Material', value: 'Paper or food-contact plastic, by item' }, { label: 'Pack quantity', value: '100 pieces per retail pack' }, { label: 'Carton quantity', value: '20 retail packs per carton' }];
-    } else if (product.category === 'Kitchen Utensils') {
-      if (/ingredient.*bin/.test(title)) specs = [{ label: 'Material', value: 'Food-grade polyethylene' }, { label: 'Capacity', value: '81 L' }, { label: 'Dimensions', value: 'Approx. 33 × 74 × 71 cm' }, { label: 'Packing', value: '1 bin per carton' }];
-      else if (/storage containers|food containers/.test(title)) specs = [{ label: 'Material', value: 'Polypropylene, translucent' }, { label: 'Capacities', value: '1.5 L, 3.8 L and 7.6 L' }, { label: 'Temperature range', value: '-20°C to 100°C' }, { label: 'Packing', value: '12 containers per case' }];
-      else if (/gn food pans|gastronorm pans/.test(title)) specs = [{ label: 'Material', value: 'Stainless steel, 0.7 mm nominal thickness' }, { label: 'Size', value: 'GN 1/1, 530 × 325 mm' }, { label: 'Depth / capacity', value: '65 mm / approx. 8.5 L' }, { label: 'Packing', value: '6 pans per carton' }];
-      else if (/cutting boards/.test(title)) specs = [{ label: 'Material', value: 'High-density polyethylene (HDPE)' }, { label: 'Size', value: '450 × 300 × 12 mm' }, { label: 'Colour options', value: 'Red, blue, green, yellow, white and brown' }, { label: 'Packing', value: '1 board per sleeve' }];
-      else if (/chafing/.test(title)) specs = [{ label: 'Body', value: '18/8 stainless steel' }, { label: 'Food pan', value: 'GN 1/1, 9 L' }, { label: 'Heat source', value: 'Fuel-holder compatible' }, { label: 'Packing', value: '1 complete set per carton' }];
-      else if (/knives/.test(title)) specs = [{ label: 'Blade', value: 'Stainless steel, 8-inch chef knife' }, { label: 'Handle', value: 'Riveted polymer, 5-inch grip' }, { label: 'Overall length', value: 'Approx. 33 cm' }, { label: 'Packing', value: '6 knives per carton' }];
-      else if (/ladles/.test(title)) specs = [{ label: 'Material', value: 'Stainless steel, 1.2 mm nominal thickness' }, { label: 'Capacity', value: '120 ml ladle' }, { label: 'Overall length', value: 'Approx. 35 cm' }, { label: 'Packing', value: '12 pieces per carton' }];
-      else if (/degchis|vessels|cookware/.test(title)) specs = [{ label: 'Material', value: 'Stainless steel, 0.8 mm nominal thickness' }, { label: 'Capacity range', value: '5 L, 10 L and 20 L' }, { label: 'Lid', value: 'Matching stainless-steel lid' }, { label: 'Packing', value: '1 vessel per carton' }];
-      else if (/mixer|blender/.test(title)) specs = [{ label: 'Motor', value: '750 W, single-phase' }, { label: 'Jar / bowl', value: '2 L stainless-steel jar' }, { label: 'Speed', value: '2 speeds plus pulse' }, { label: 'Supply', value: '230 V AC, 50 Hz' }];
-      else if (/knives|tools|accessories/.test(title)) specs = [{ label: 'Material', value: 'Stainless steel working parts with polymer handles' }, { label: 'Typical size', value: 'Handle 12 cm; working length 20 cm' }, { label: 'Use', value: 'Food preparation and portioning' }, { label: 'Packing', value: '12 pieces per carton' }];
-      else specs = [{ label: 'Material', value: 'Stainless steel, 0.8 mm nominal thickness' }, { label: 'Size', value: 'Approx. 30 cm diameter × 15 cm deep' }, { label: 'Capacity', value: 'Approx. 10 L' }, { label: 'Packing', value: '1 piece per carton' }];
-    } else if (product.category === 'House Keeping') {
-      if (/trolley/.test(title)) specs = [{ label: 'Frame', value: 'Polypropylene body with coated-steel support' }, { label: 'Configuration', value: '3 shelves, 2 × 100 L waste bags' }, { label: 'Dimensions', value: 'Approx. 150 × 55 × 100 cm' }, { label: 'Packing', value: '1 trolley, flat-packed' }];
-      else if (/bins|segregation/.test(title)) specs = [{ label: 'Material', value: 'Injection-moulded polypropylene' }, { label: 'Capacity', value: '60 L per bin' }, { label: 'Dimensions', value: 'Approx. 40 × 35 × 70 cm' }, { label: 'Packing', value: '1 bin per carton' }];
-      else if (/paper|tissue/.test(title)) specs = [{ label: 'Tissue', value: '2-ply, 150 sheets per box' }, { label: 'Sheet size', value: '20 × 20 cm' }, { label: 'Dispenser', value: 'Wall-mount ABS plastic' }, { label: 'Packing', value: '30 boxes per case' }];
-      else if (/mops|squeegees|cleaning tools/.test(title)) specs = [{ label: 'Mop head', value: '450 g cotton blend' }, { label: 'Handle', value: 'Aluminium, 135 cm' }, { label: 'Squeegee width', value: '45 cm' }, { label: 'Packing', value: '12 mop heads per carton' }];
-      else if (/air fresheners/.test(title)) specs = [{ label: 'Format', value: 'Aerosol spray' }, { label: 'Net volume', value: '300 ml' }, { label: 'Fragrance', value: 'Citrus or floral variant' }, { label: 'Packing', value: '12 cans per case' }];
-      else if (/pest|insect/.test(title)) specs = [{ label: 'Format', value: 'Aerosol insect-control spray' }, { label: 'Net volume', value: '300 ml' }, { label: 'Application', value: 'Indoor spot use; follow label precautions' }, { label: 'Packing', value: '12 cans per case' }];
-      else if (/floor machines/.test(title)) specs = [{ label: 'Motor', value: '1.5 HP single-disc motor' }, { label: 'Brush diameter', value: '17 in (430 mm)' }, { label: 'Speed', value: '175 rpm' }, { label: 'Supply', value: '230 V AC, 50 Hz' }];
-      else specs = [{ label: 'Material', value: 'ABS plastic housing' }, { label: 'Power', value: '1,200 W' }, { label: 'Supply', value: '230 V AC, 50 Hz' }, { label: 'Packing', value: '1 unit per carton' }];
-    } else if (product.category === 'Cleaning Chemicals') {
-      const cleaner = /biotic/.test(title) ? 'Enzyme-based kitchen degreaser' : /sac/.test(title) ? 'Neutral floor and surface cleaner' : 'Multi-purpose detergent cleaner';
-      specs = [{ label: 'Product type', value: cleaner }, { label: 'Appearance', value: 'Liquid concentrate' }, { label: 'Pack size', value: '5 L HDPE can' }, { label: 'Dilution (draft)', value: 'General cleaning: 1:100; heavy soil: 1:20' }, { label: 'Safety', value: 'Use PPE and follow the manufacturer label' }];
-    } else {
-      const engineeringSpecs: Record<string, ProductHighlight[]> = {
-        'engineering-commercial-gas-ranges': [{ label: 'Burners', value: '4 × 6 kW open burners' }, { label: 'Gas input', value: '24 kW total; LPG/PNG jet options' }, { label: 'Dimensions', value: '800 × 700 × 850 mm' }, { label: 'Construction', value: '304 stainless-steel worktop' }],
-        'engineering-induction-cookers': [{ label: 'Rated power', value: '3.5 kW' }, { label: 'Supply', value: '230 V AC, 50 Hz, 16 A' }, { label: 'Temperature range', value: '60–240°C' }, { label: 'Cookware', value: 'Magnetic-base pans, 12–26 cm' }],
-        'engineering-dosa-plates': [{ label: 'Plate size', value: '600 × 600 mm' }, { label: 'Heating', value: '9 kW LPG burner assembly' }, { label: 'Plate', value: '12 mm mild-steel cooking surface' }, { label: 'Dimensions', value: '750 × 800 × 850 mm' }],
-        'engineering-griddles': [{ label: 'Cooking surface', value: '600 × 600 mm' }, { label: 'Heating', value: '9 kW gas burner' }, { label: 'Plate thickness', value: '12 mm mild steel' }, { label: 'Dimensions', value: '750 × 800 × 850 mm' }],
-        'engineering-commercial-refrigerators': [{ label: 'Gross capacity', value: '600 L' }, { label: 'Temperature', value: '+2°C to +8°C' }, { label: 'Cooling', value: 'Fan-assisted; digital controller' }, { label: 'Supply', value: '230 V AC, 50 Hz' }],
-        'engineering-deep-freezers': [{ label: 'Gross capacity', value: '500 L' }, { label: 'Temperature', value: '-18°C to -22°C' }, { label: 'Defrost', value: 'Manual defrost' }, { label: 'Supply', value: '230 V AC, 50 Hz' }],
-        'engineering-undercounter-chillers': [{ label: 'Gross capacity', value: '300 L' }, { label: 'Temperature', value: '+2°C to +8°C' }, { label: 'Doors', value: '2 hinged doors' }, { label: 'Dimensions', value: '1360 × 700 × 850 mm' }],
-        'engineering-display-counters': [{ label: 'Display length', value: '1,200 mm' }, { label: 'Temperature', value: '+2°C to +8°C' }, { label: 'Refrigerant', value: 'R290 system' }, { label: 'Supply', value: '230 V AC, 50 Hz' }],
-        'engineering-shawarma-machine': [{ label: 'Meat capacity', value: '25 kg' }, { label: 'Burners', value: '4 infrared burners' }, { label: 'Heating input', value: '8 kW LPG' }, { label: 'Skewer height', value: '700 mm' }],
-        'engineering-chicken-grill-machine': [{ label: 'Capacity', value: '8 whole chickens' }, { label: 'Heating', value: '6 × 2 kW electric elements' }, { label: 'Rotisserie', value: 'Motor-driven, 4 spits' }, { label: 'Supply', value: '230 V AC, 50 Hz' }],
-        'engineering-dough-kneader': [{ label: 'Bowl capacity', value: '25 kg dough' }, { label: 'Motor', value: '1.5 kW' }, { label: 'Bowl speed', value: '25 rpm' }, { label: 'Supply', value: '230 V AC, 50 Hz' }],
-        'engineering-vegetable-cutter': [{ label: 'Output', value: '150–250 kg/hour' }, { label: 'Motor', value: '550 W' }, { label: 'Discs', value: '5 interchangeable cutting discs' }, { label: 'Supply', value: '230 V AC, 50 Hz' }],
-        'engineering-pulverizer': [{ label: 'Output', value: '10–15 kg/hour (dry spices)' }, { label: 'Motor', value: '2 HP' }, { label: 'Grinding chamber', value: 'Stainless steel' }, { label: 'Supply', value: '230 V AC, 50 Hz' }],
-        'engineering-meat-mincer': [{ label: 'Output', value: '150 kg/hour' }, { label: 'Mouth plate', value: 'No. 22' }, { label: 'Motor', value: '1.5 HP' }, { label: 'Supply', value: '230 V AC, 50 Hz' }],
-        'engineering-planetary-mixer': [{ label: 'Bowl capacity', value: '20 L' }, { label: 'Batches', value: 'Up to 5 kg flour per batch' }, { label: 'Attachments', value: 'Whisk, beater and dough hook' }, { label: 'Supply', value: '230 V AC, 50 Hz' }],
-        'engineering-deck-oven': [{ label: 'Chamber', value: '2 decks, 2 trays per deck' }, { label: 'Tray size', value: '600 × 400 mm' }, { label: 'Temperature', value: '50–300°C' }, { label: 'Heating', value: '6 kW per deck' }],
-        'engineering-convection-oven': [{ label: 'Capacity', value: '4 trays, 600 × 400 mm' }, { label: 'Temperature', value: '50–300°C' }, { label: 'Fan', value: 'Reversible convection fan' }, { label: 'Supply', value: '6.5 kW, 415 V three-phase' }],
-        'engineering-pizza-oven': [{ label: 'Chamber', value: 'Single deck, 4 × 12-inch pizzas' }, { label: 'Temperature', value: '50–450°C' }, { label: 'Deck', value: 'Refractory stone' }, { label: 'Heating', value: '6 kW electric' }],
-        'engineering-dishwasher': [{ label: 'Rack size', value: '500 × 500 mm' }, { label: 'Output', value: 'Up to 40 racks/hour' }, { label: 'Wash cycle', value: '90 / 120 seconds' }, { label: 'Electrical load', value: '9 kW, 415 V three-phase' }],
-        'engineering-water-cooler': [{ label: 'Storage tank', value: '40 L' }, { label: 'Cooling output', value: '40 L/hour at 10°C rise' }, { label: 'Refrigerant', value: 'R134a' }, { label: 'Supply', value: '230 V AC, 50 Hz' }],
-        'engineering-ice-cube-machine': [{ label: 'Daily production', value: '50 kg/24 hours' }, { label: 'Storage bin', value: '20 kg' }, { label: 'Ice type', value: 'Hollow cube' }, { label: 'Supply', value: '230 V AC, 50 Hz' }],
-        'engineering-industrial-hood': [{ label: 'Body', value: '304 stainless steel, 1.0 mm' }, { label: 'Hood size', value: '1,800 × 1,000 × 500 mm' }, { label: 'Exhaust airflow', value: '2,500 m³/hour' }, { label: 'Filter', value: 'Baffle filters, removable' }],
-        'engineering-fresh-air-exhaust': [{ label: 'Airflow', value: '2,500 m³/hour per fan' }, { label: 'Fan motor', value: '1.5 kW' }, { label: 'Duct size', value: '450 mm diameter' }, { label: 'Supply', value: '415 V, three-phase' }],
-        'engineering-ss-tables-sinks': [{ label: 'Material', value: '304 stainless steel, 1.2 mm top' }, { label: 'Table size', value: '1,500 × 700 × 850 mm' }, { label: 'Sink bowl', value: '500 × 450 × 300 mm' }, { label: 'Finish', value: 'No. 4 brushed finish' }],
-        'engineering-fryers': [{ label: 'Oil capacity', value: '2 × 8 L tanks' }, { label: 'Heating', value: '2 × 6 kW electric elements' }, { label: 'Temperature', value: '60–200°C thermostat' }, { label: 'Supply', value: '415 V, three-phase' }]
-      };
-      specs = engineeringSpecs[product.id] || [{ label: 'Capacity', value: 'Approx. 20 L working capacity' }, { label: 'Construction', value: '304 stainless-steel food-contact surfaces' }, { label: 'Dimensions', value: 'Approx. 600 × 600 × 850 mm' }, { label: 'Supply', value: '230 V AC, 50 Hz' }];
-    }
-    return [product.id, {
-      tagline: product.title,
-      galleryImages: [product.image],
-      highlights: [
-        { label: 'Product', value: product.title },
-        { label: 'Classification', value: product.category },
-        ...product.brands.map(brand => ({ label: 'Brand', value: brand })),
-        ...specs
-      ]
-    }];
-  })
-);
-
-export function buildCardDetail(product: ProductCatalogCard): ProductDetailInfo {
-  const highlights: ProductHighlight[] = [
-    { label: 'Product', value: product.title },
-    { label: 'Classification', value: product.category },
-    ...product.brands.map(brand => ({ label: 'Brand', value: brand }))
-  ];
-
-  return {
-    tagline: product.title,
-    galleryImages: [product.image],
-    highlights
-  };
-}
-
 /* ── Brand brochures (Product Catalogue PDFs, served from /brochures) ───── */
 export const BRAND_BROCHURES: Record<string, string> = {
   'Claycraft Fine Tableware': '/brochures/claycraft-catalogue.pdf',
+  Dinewell: '/brochures/dinewell-catalogue.pdf',
   Ocean: '/brochures/ocean-catalogue.pdf',
   Union: '/brochures/union-glass-catalogue.pdf'
 };

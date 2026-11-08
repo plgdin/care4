@@ -142,7 +142,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote, onOpenC
             <ul className="footer-links-list">
               <li><button onClick={() => onNavigate('home')}>Home</button></li>
               <li><button onClick={() => onNavigate('products')}>Product Catalogue</button></li>
-              <li><button onClick={() => onNavigate('products', undefined, 'Cafes')}>Cafes</button></li>
               <li><button onClick={() => onNavigate('home', 'categories-section')}>Industries</button></li>
               <li><button onClick={() => onNavigate('about')}>About Us</button></li>
               <li><button onClick={onOpenContact ? onOpenContact : () => onNavigate('contact')}>Contact Us</button></li>

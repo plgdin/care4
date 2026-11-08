@@ -9,7 +9,6 @@ import {
   UtensilsCrossed,
   Utensils,
   Layers,
-  Coffee,
   Droplets,
   CookingPot,
   SprayCan,
@@ -41,12 +40,11 @@ const CATEGORY_ICON_MAP: Record<string, LucideIcon> = {
   'Crockery': UtensilsCrossed,
   'Cutlery': Utensils,
   'Linen': Layers,
-  'Cafes': Coffee,
   'Guest Amenities': Droplets,
   'Kitchen Utensils': CookingPot,
   'House Keeping': SprayCan,
   'Cleaning Chemicals': FlaskConical,
-  'Engineering Equipments': Wrench
+  'Kitchen Equipments': Wrench
 };
 
 const CategoryIcon: React.FC<{ category: string; size?: number }> = ({ category, size = 14 }) => {
@@ -235,9 +233,11 @@ export const ProductPage: React.FC<ProductPageProps> = ({
   useEffect(() => {
     if (initialFilter) {
       const normalizedFilter = initialFilter.toLowerCase().replace(/-/g, ' ');
+      const clean = (s: string) => s.toLowerCase().replace(/[-\s]+/g, '');
       const matchedCat = CATEGORY_FILTERS.find(c =>
         c.toLowerCase() === initialFilter.toLowerCase() ||
-        c.toLowerCase() === normalizedFilter
+        c.toLowerCase() === normalizedFilter ||
+        clean(c) === clean(initialFilter)
       );
       if (matchedCat) {
         setActiveCategory(matchedCat);
@@ -261,7 +261,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
     return Array.from(new Set(brands)).sort((a, b) => a.localeCompare(b));
   }, [activeCategory]);
 
-  // Filter by classification, brand pill & search, then sort A→Z
+  // Filter by classification, brand pill & search, then group brands A→Z
   const filteredProducts = useMemo(() => {
     return CATALOG_PRODUCTS
       .filter(product => {
@@ -290,7 +290,10 @@ export const ProductPage: React.FC<ProductPageProps> = ({
 
         return true;
       })
-      .sort((a, b) => a.title.localeCompare(b.title));
+      .sort((a, b) => {
+        const byBrand = (a.brands[0] ?? '').localeCompare(b.brands[0] ?? '');
+        return byBrand !== 0 ? byBrand : a.title.localeCompare(b.title);
+      });
   }, [activeCategory, selectedBrand, searchQuery]);
 
   return (
@@ -436,7 +439,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
             {activeCategory !== 'All' ? (
               <span> in <strong>{activeCategory}</strong></span>
             ) : (
-              <span> across <strong>All 9 Classifications</strong></span>
+              <span> across <strong>All {CATEGORY_FILTERS.length} Classifications</strong></span>
             )}
             {selectedBrand && <span> · Brand: <strong>{selectedBrand}</strong></span>}
             {searchQuery && <span> · Matching "<strong>{searchQuery}</strong>"</span>}
@@ -496,7 +499,9 @@ export const ProductPage: React.FC<ProductPageProps> = ({
           </div>
         ) : viewMode === 'grid' ? (
           <div className="lookbook-cards-grid">
-            {filteredProducts.map(product => (
+            {filteredProducts.map(product => {
+              const hasBrochure = Boolean(findBrochure(product.brands));
+              return (
               <article key={product.id} className="lb-product-card">
                 <div
                   className="lb-card-media"
@@ -543,7 +548,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                       onClick={() => openBrochureOrDetails(product, () => setSelectedDetailProduct(product))}
                     >
                       <FileText size={15} />
-                      <span>Product Catalogue</span>
+                      <span>{hasBrochure ? 'Product Catalogue' : 'View Details'}</span>
                     </button>
 
                     <button
@@ -557,7 +562,8 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                   </div>
                 </div>
               </article>
-            ))}
+              );
+            })}
           </div>
         ) : (
           <div className="catalog-table-wrapper">
@@ -571,7 +577,9 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                 </tr>
               </thead>
               <tbody>
-                {filteredProducts.map(product => (
+                {filteredProducts.map(product => {
+                  const hasBrochure = Boolean(findBrochure(product.brands));
+                  return (
                   <tr key={product.id}>
                     <td>
                       <div
@@ -606,7 +614,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                         className="btn-table-specs"
                         onClick={() => openBrochureOrDetails(product, () => setSelectedDetailProduct(product))}
                       >
-                        Catalogue
+                        {hasBrochure ? 'Catalogue' : 'Details'}
                       </button>
                       <button
                         type="button"
@@ -617,7 +625,8 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                       </button>
                     </td>
                   </tr>
-                ))}
+                  );
+                })}
               </tbody>
             </table>
           </div>

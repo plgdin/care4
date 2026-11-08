@@ -7,8 +7,6 @@ import {
   CONTACT_INFO,
   BRAND_BROCHURES,
   BRAND_COLORS,
-  PRODUCT_SPECS_MAP,
-  buildCardDetail,
   brandColor,
   findBrochure
 } from './siteData';
@@ -175,20 +173,17 @@ describe('siteData catalog integrity', () => {
     expect(brandColor('Unknown Extra Brand')).toBe('blue');
   });
 
-  it('provides specifications for all products', () => {
-    for (const product of CATALOG_PRODUCTS) {
-      const detail = PRODUCT_SPECS_MAP[product.id] || buildCardDetail(product);
+  it('groups commercial kitchen equipment under the Kitchen Equipments classification', () => {
+    expect(CATEGORY_FILTERS).toContain('Kitchen Equipments');
+    expect(CATEGORY_FILTERS).not.toContain('Engineering Equipments');
 
-      for (const row of detail.highlights) {
-        expect(row.label.trim(), `${product.id} label`).toBeTruthy();
-        expect(row.value.trim(), `${product.id} value`).toBeTruthy();
-      }
-      expect(detail.highlights.map(row => row.label)).toEqual(
-        expect.arrayContaining(['Product', 'Classification'])
-      );
+    const equipment = CATALOG_PRODUCTS.filter(p => p.category === 'Kitchen Equipments');
+    expect(equipment.length).toBeGreaterThan(0);
+    expect(equipment.some(p => /range|oven|chiller|hood|exhaust|griddle|fryer/i.test(p.title))).toBe(true);
+    for (const product of equipment) {
+      expect(`${product.title} ${product.subtitle} ${product.details}`.toLowerCase())
+        .not.toContain('engineering');
     }
-
-    expect(Object.keys(PRODUCT_SPECS_MAP)).toHaveLength(CATALOG_PRODUCTS.length);
   });
 
   it('ensures contact information is complete and free of outdated address markers', () => {
