@@ -8,7 +8,9 @@ import {
   BRAND_BROCHURES,
   BRAND_COLORS,
   brandColor,
-  findBrochure
+  findBrochure,
+  PRODUCT_SPECS_MAP,
+  buildCardDetail
 } from './siteData';
 
 /** Brand names that must never appear anywhere on the site. */
@@ -184,6 +186,22 @@ describe('siteData catalog integrity', () => {
       expect(`${product.title} ${product.subtitle} ${product.details}`.toLowerCase())
         .not.toContain('engineering');
     }
+  });
+
+  it('provides specifications for all products', () => {
+    for (const product of CATALOG_PRODUCTS) {
+      const detail = PRODUCT_SPECS_MAP[product.id] || buildCardDetail(product);
+
+      for (const row of detail.highlights) {
+        expect(row.label.trim(), `${product.id} label`).toBeTruthy();
+        expect(row.value.trim(), `${product.id} value`).toBeTruthy();
+      }
+      expect(detail.highlights.map(row => row.label)).toEqual(
+        expect.arrayContaining(['Product', 'Classification'])
+      );
+    }
+
+    expect(Object.keys(PRODUCT_SPECS_MAP)).toHaveLength(CATALOG_PRODUCTS.length);
   });
 
   it('ensures contact information is complete and free of outdated address markers', () => {

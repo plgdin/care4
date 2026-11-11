@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   X,
   FileText,
@@ -6,6 +6,9 @@ import {
 } from 'lucide-react';
 import {
   ProductCatalogCard,
+  PRODUCT_SPECS_MAP,
+  ProductDetailInfo,
+  buildCardDetail,
   brandColor,
   findBrochure
 } from '../data/siteData';
@@ -21,8 +24,11 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
   onClose,
   onInquire
 }) => {
-  // Close on ESC key
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+
+  // Close on ESC key & reset index on product change
   useEffect(() => {
+    setActiveImageIndex(0);
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
     };
@@ -38,8 +44,16 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
   if (!product) return null;
 
-  const tagline = product.subtitle.trim();
-  const description = product.details.trim();
+  // Retrieved detail strip, or an honest fallback built from the card itself
+  const specSheet: ProductDetailInfo =
+    PRODUCT_SPECS_MAP[product.id] || buildCardDetail(product);
+
+  // Distinct gallery images (deduplicated) with the card image as guaranteed anchor
+  const gallery = Array.from(
+    new Set([product.image, ...(specSheet.galleryImages || [])])
+  );
+  const currentMainImage = gallery[activeImageIndex % gallery.length] || product.image;
+
   const brochure = findBrochure(product.brands);
 
   return (
@@ -61,21 +75,38 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
         {/* Modal Main Body */}
         <div className="pdm-body">
-          {/* Left Column: Main Image */}
+          {/* Left Column: Main Image & Gallery Thumbnails */}
           <div className="pdm-left-col">
             <div className="pdm-main-img-card">
               <img
-                src={product.image}
+                src={currentMainImage}
                 alt={product.title}
                 className="pdm-main-img"
               />
             </div>
+
+            {/* Thumbnails Row */}
+            <div className="pdm-thumbs-row">
+              {gallery.slice(0, 3).map((imgUrl, idx) => (
+                <button
+                  key={imgUrl}
+                  type="button"
+                  className={`pdm-thumb-btn ${activeImageIndex === idx ? 'active' : ''}`}
+                  onClick={() => setActiveImageIndex(idx)}
+                  aria-label={`View image ${idx + 1}`}
+                >
+                  <img src={imgUrl} alt={`${product.title} view ${idx + 1}`} />
+                </button>
+              ))}
+            </div>
           </div>
 
-          {/* Right Column: Title, Brand Pills, Description */}
+          {/* Right Column: Title, Brand Pills, Highlights */}
           <div className="pdm-right-col">
             <h2 className="pdm-title">{product.title}</h2>
-            {tagline && <p className="pdm-tagline">{tagline}</p>}
+            {specSheet.tagline && specSheet.tagline !== product.title && (
+              <p className="pdm-tagline">{specSheet.tagline}</p>
+            )}
 
             {/* Brand Pills — bold, alternating blue / red */}
             {product.brands.length > 0 && (
@@ -91,8 +122,23 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               </div>
             )}
 
-            {description && <p className="pdm-desc">{description}</p>}
+            {/* Product Highlights */}
+            <div className="pdm-highlights-section">
+              <div className="pdm-hl-head">
+                <FileText size={18} className="pdm-hl-ico" />
+                <span>Product Details &amp; Technical Specifications</span>
+              </div>
+              <div className="pdm-hl-table">
+                {specSheet.highlights.map((row, idx) => (
+                  <div className="pdm-hl-row" key={`${row.label}-${idx}`}>
+                    <span className="hl-label">{row.label}</span>
+                    <span className="hl-val">{row.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
 
+            {/* Brand Catalogue */}
             <div className="pdm-catalogue-box">
               <div className="pdm-catalogue-head">
                 <FileText size={18} className="pdm-hl-ico" />
@@ -296,6 +342,39 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           transform: scale(1.02);
         }
 
+        .pdm-thumbs-row {
+          display: flex;
+          gap: 12px;
+        }
+
+        .pdm-thumb-btn {
+          flex: 1;
+          height: 94px;
+          border-radius: 10px;
+          overflow: hidden;
+          padding: 0;
+          background: #f8fafc;
+          border: 2px solid transparent;
+          cursor: pointer;
+          transition: all 0.2s ease;
+        }
+
+        .pdm-thumb-btn img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+
+        .pdm-thumb-btn:hover {
+          border-color: #cbd5e1;
+        }
+
+        .pdm-thumb-btn.active {
+          border-color: #dc2626;
+          box-shadow: 0 0 0 1px #dc2626;
+        }
+
         /* Right Column */
         .pdm-right-col {
           display: flex;
@@ -334,55 +413,56 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           border-radius: 999px;
         }
 
-        .pdm-desc {
-          font-size: 16.5px;
-          color: #475569;
-          line-height: 1.6;
-          margin: 0 0 24px 0;
+        /* Product Highlights */
+        .pdm-highlights-section {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
         }
 
-        /* Product Catalogue */
-        .pdm-catalogue-box {
-          margin-top: auto;
-          padding: 18px;
-          border: 1px solid #e2e8f0;
-          border-radius: 12px;
-          background: #f8fafc;
-        }
-
-        .pdm-catalogue-head {
+        .pdm-hl-head {
           display: flex;
           align-items: center;
           gap: 8px;
           color: #0f172a;
           font-size: 16.5px;
           font-weight: 700;
-          margin-bottom: 10px;
         }
 
         .pdm-hl-ico {
           color: #dc2626;
         }
 
-        .pdm-catalogue-link {
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          color: #1d4ed8;
-          font-size: 15.5px;
-          font-weight: 700;
-          text-decoration: none;
+        .pdm-hl-table {
+          display: flex;
+          flex-direction: column;
         }
 
-        .pdm-catalogue-link:hover {
-          text-decoration: underline;
+        .pdm-hl-row {
+          display: flex;
+          align-items: baseline;
+          padding: 7px 0;
+          border-bottom: 1px solid #f1f5f9;
         }
 
-        .pdm-catalogue-note {
+        .pdm-hl-row:last-child {
+          border-bottom: none;
+        }
+
+        .hl-label {
+          width: 150px;
+          flex-shrink: 0;
           font-size: 15px;
-          line-height: 1.55;
           color: #64748b;
-          margin: 0;
+          font-weight: 500;
+        }
+
+        .hl-val {
+          flex: 1;
+          font-size: 15.5px;
+          color: #0f172a;
+          font-weight: 500;
+          line-height: 1.45;
         }
 
         /* Modal Footer */
@@ -459,6 +539,46 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           box-shadow: 0 4px 14px rgba(2, 52, 141, 0.3);
         }
 
+        /* Brand Catalogue */
+        .pdm-catalogue-box {
+          margin-top: 16px;
+          padding: 18px;
+          border: 1px solid #e2e8f0;
+          border-radius: 12px;
+          background: #f8fafc;
+        }
+
+        .pdm-catalogue-head {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 15px;
+          font-weight: 700;
+          color: #0f172a;
+          margin-bottom: 10px;
+        }
+
+        .pdm-catalogue-link {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          color: #1d4ed8;
+          font-size: 15.5px;
+          font-weight: 700;
+          text-decoration: none;
+        }
+
+        .pdm-catalogue-link:hover {
+          text-decoration: underline;
+        }
+
+        .pdm-catalogue-note {
+          font-size: 14.5px;
+          color: #475569;
+          line-height: 1.55;
+          margin: 0;
+        }
+
         .pdm-btn-quote:hover {
           background: #012463;
           box-shadow: 0 6px 18px rgba(2, 52, 141, 0.4);
@@ -480,6 +600,14 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             height: 260px;
             min-height: unset;
             flex: initial;
+          }
+
+          .pdm-thumbs-row {
+            justify-content: center;
+          }
+
+          .pdm-thumb-btn {
+            max-width: 100px;
           }
 
           .pdm-footer {
