@@ -31,7 +31,7 @@ export const AboutSnippet: React.FC<AboutSnippetProps> = ({ onLearnMore }) => {
               With a customer-focused approach, we provide tailored products and services for every unique requirement.
             </p>
             <p className="about-serve-highlight">
-              We proudly serve Hotels, Resorts, Retreat Centres, Restaurants, Cafes, Cloud Kitchens, Hospitals, Catering Companies, Industrial Canteens &amp; Homestays across Kerala and neighbouring states.
+              Care4 Associates is a hospitality supplies company based in Thiruvananthapuram, Kerala. We supply hotels, resorts, restaurants, cafes and hospitals with commercial kitchen equipment, crockery, housekeeping supplies and professional cleaning products across Kerala and neighbouring states.
             </p>
           </div>
 

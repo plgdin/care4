@@ -23,7 +23,8 @@
   background-position: center;
   padding: 72px 0 0 0;
   color: #ffffff;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  /* Tabs sit flush on the section edge, so no seam line here */
+  border-bottom: none;
 }
 
 .product-hero-bg-overlay {
@@ -198,8 +199,7 @@
 .product-hero-tabs-wrap {
   position: relative;
   z-index: 2;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 10px;
+  padding: 6px 0 16px;
 }
 
 .product-hero-tabs-container {
@@ -209,43 +209,97 @@
 }
 
 /* 2026 Product Classification Master Navigation Bar */
-.classification-tabs-bar {
-  display: flex;
-  align-items: stretch;
-  gap: 6px;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
+.classification-tabs-viewport {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  padding: 4px 0 12px;
 }
 
-.classification-tabs-bar::-webkit-scrollbar {
-  display: none;
+.classification-tabs-bar {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+/* Ghost layer of the outgoing page while pages cross-fade */
+.classification-tabs-bar.tabs-ghost {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  right: 0;
+  z-index: 0;
+}
+
+/* Measurement mode: every pill visible at its natural width */
+.classification-tabs-bar.measuring .classification-tab-btn {
+  display: flex !important;
+  flex: 0 0 auto !important;
 }
 
 .classification-tab-btn {
   appearance: none;
-  border: 1px solid rgba(15, 28, 45, 0.1);
-  border-bottom: none;
-  border-radius: 12px 12px 0 0;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 9999px;
   background: #ffffff;
   color: #0f1c2d;
-  padding: 13px 18px;
-  font-size: 14px;
+  padding: 11px 18px;
+  font-size: 13.5px;
   font-weight: 600;
   font-family: var(--font-body);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 9px;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  flex: 1 0 auto;
+  transition: background 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   white-space: nowrap;
-  flex-shrink: 0;
+  box-shadow: 0 8px 20px -10px rgba(2, 8, 20, 0.65);
+}
+
+/* Page slide animations: the outgoing page slides away while the incoming
+   page slides in from the same direction, like a real carousel track. */
+@keyframes tabs-slide-out-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+@keyframes tabs-slide-out-right {
+  from { transform: translateX(0); }
+  to { transform: translateX(100%); }
+}
+@keyframes tabs-slide-in-right {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+@keyframes tabs-slide-in-left {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+.classification-tabs-bar.tabs-exit-next {
+  animation: tabs-slide-out-left 0.45s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+.classification-tabs-bar.tabs-exit-prev {
+  animation: tabs-slide-out-right 0.45s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+.classification-tabs-bar.tabs-enter-next {
+  animation: tabs-slide-in-right 0.45s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+.classification-tabs-bar.tabs-enter-prev {
+  animation: tabs-slide-in-left 0.45s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
 .classification-tab-btn:hover {
   background: #eef3fa;
   color: #0f1c2d;
-  border-color: rgba(15, 28, 45, 0.18);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px -10px rgba(2, 8, 20, 0.7);
 }
 
 .classification-tab-btn.active {
@@ -253,10 +307,7 @@
   color: #ffffff;
   font-weight: 700;
   border-color: #02348d;
-  border-top: 3px solid var(--color-accent-red);
-  box-shadow: 0 -4px 18px rgba(2, 52, 141, 0.28);
-  position: relative;
-  z-index: 3;
+  box-shadow: 0 10px 24px -8px rgba(2, 52, 141, 0.75);
 }
 
 .classification-tab-btn .tab-count-badge {
@@ -272,6 +323,28 @@
 .classification-tab-btn.active .tab-count-badge {
   background: rgba(255, 255, 255, 0.22);
   color: #ffffff;
+}
+
+/* Navigation arrows for the scrollable classification pill row */
+.product-hero-tabs-container .scroll-arrow-btn {
+  width: 30px;
+  height: 30px;
+  margin: 0 3px;
+  flex-shrink: 0;
+  opacity: 1;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+}
+
+.product-hero-tabs-container .scroll-arrow-btn:hover {
+  background: rgba(255, 255, 255, 0.32);
+}
+
+.product-hero-tabs-container .scroll-arrow-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
 }
 
 /* Legacy department tab aliases for seamless backward compatibility */
@@ -537,7 +610,7 @@
    ========================================================================== */
 .lookbook-subnav-bar {
   position: sticky;
-  top: 76px;
+  top: 98px;
   z-index: 55;
   background: #ffffff;
   border-bottom: 1px solid #e2e8f0;
@@ -778,7 +851,7 @@
 .lookbook-content-layout {
   max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 36px 36px;
+  padding: 52px 36px 36px;
 }
 
 .lookbook-results-header {
@@ -1031,7 +1104,7 @@
 
 .lb-brand-select-btn {
   height: 44px;
-  min-width: 190px;
+  min-width: 210px;
   display: inline-flex;
   align-items: center;
   gap: 9px;
@@ -1057,6 +1130,8 @@
 .lb-brand-select-ico {
   color: #02348d;
   flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
 }
 
 .lb-brand-select-value {
@@ -1519,8 +1594,11 @@
   .bundle-includes-grid {
     grid-template-columns: 1fr;
   }
+  .product-hero-tabs-wrap {
+    padding: 4px 0 12px;
+  }
   .classification-tab-btn {
-    padding: 10px 14px;
+    padding: 10px 15px;
     font-size: 13px;
   }
   .lookbook-subnav-inner {
@@ -1542,11 +1620,16 @@
     gap: 12px;
   }
   .lookbook-search-controls {
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 10px;
   }
   .lookbook-search-input-wrap {
     width: 100%;
+    grid-column: 1 / -1;
+  }
+  .lb-brand-select-wrap {
+    min-width: 0;
   }
   .lb-brand-select-btn {
     flex: 1 1 100%;
@@ -1569,7 +1652,7 @@
     justify-content: center;
   }
   .lookbook-content-layout {
-    padding: 24px 20px;
+    padding: 36px 20px 24px;
   }
   .lookbook-cards-grid {
     grid-template-columns: 1fr;

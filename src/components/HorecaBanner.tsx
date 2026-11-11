@@ -24,7 +24,6 @@ export const HorecaBanner: React.FC = () => {
 
               {/* Sector Tagline */}
               <div className="horeca-sectors-inline">
-                <span className="sectors-sep">|</span>
                 <span>HOTELS</span>
                 <span className="sectors-sep">|</span>
                 <span>RESTAURANTS</span>

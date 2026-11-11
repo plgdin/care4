@@ -1013,7 +1013,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Tissues & Dispensers',
     subtitle: '',
     details: 'fresh n fine supplies facial tissues, toilet tissue, napkins and tissue dispensers for guest rooms, washrooms and shared spaces.',
-    image: '/images/image__paper_products___dispensers__1a5dc51e.webp',
+    image: '/images/paper_products_dispensers.jpg',
     category: 'House Keeping',
     brands: ['Fresh N Fine'],
     industries: [],

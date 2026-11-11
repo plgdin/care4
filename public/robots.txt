@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://care4associates.com/sitemap.xml
+Sitemap: https://care4associates.com/sitemap.txt

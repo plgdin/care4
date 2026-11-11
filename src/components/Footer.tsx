@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight, MapPin, Mail, Phone, Smartphone } from 'lucide-react';
-import { CONTACT_INFO } from '../data/siteData';
+import { CATEGORY_FILTERS, CONTACT_INFO } from '../data/siteData';
 
 interface FooterProps {
   onNavigate: (tab: string, anchorId?: string, categoryOrSector?: string) => void;
@@ -47,14 +47,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote, onOpenC
           <div className="footer-col col-brand">
             <div className="footer-brand-header">
               <img 
-                src="/images/footer_brand_logo_clean.webp" 
-                alt="Care4 Associates - HoReCa Supplies & Solutions" 
+                src="/images/care4_logo.webp"
+                alt="Care4 Associates"
                 className="footer-brand-logo-img" 
               />
             </div>
-            <p className="footer-tagline">
-              Supplying the essentials behind exceptional hospitality.
-            </p>
             <div className="footer-contact-info-block">
               <div className="footer-info-row footer-addr-row">
                 <MapPin size={16} className="footer-row-icon" />
@@ -140,10 +137,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote, onOpenC
           <div className="footer-col">
             <h4 className="footer-col-title">Quick Links</h4>
             <ul className="footer-links-list">
-              <li><button onClick={() => onNavigate('home')}>Home</button></li>
-              <li><button onClick={() => onNavigate('products')}>Product Catalogue</button></li>
-              <li><button onClick={() => onNavigate('home', 'categories-section')}>Industries</button></li>
-              <li><button onClick={() => onNavigate('about')}>About Us</button></li>
+              <li><a href="/">Home</a></li>
+              <li><a href="/products/">Product Catalogue</a></li>
+              <li><a href="/#categories-section">Industries</a></li>
+              <li><a href="/about/">About Us</a></li>
               <li><button onClick={onOpenContact ? onOpenContact : () => onNavigate('contact')}>Contact Us</button></li>
             </ul>
           </div>
@@ -163,12 +160,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote, onOpenC
           <div className="footer-col">
             <h4 className="footer-col-title">Products</h4>
             <ul className="footer-links-list">
-              <li><button onClick={() => onNavigate('products')}>Tableware & Crockery</button></li>
-              <li><button onClick={() => onNavigate('products')}>Buffet & Banquet</button></li>
-              <li><button onClick={() => onNavigate('products')}>Cleaning & Janitorial</button></li>
-              <li><button onClick={() => onNavigate('products')}>Guest Amenities</button></li>
-              <li><button onClick={() => onNavigate('products')}>Paper & Disposables</button></li>
-              <li><button onClick={() => onNavigate('products')}>Housekeeping</button></li>
+              {CATEGORY_FILTERS.map(category => (
+                <li key={category}>
+                  <button onClick={() => onNavigate('products', undefined, category)}>
+                    {category}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -190,11 +188,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote, onOpenC
             © 2025 Care4 Associates. All rights reserved.
           </p>
           <div className="legal-links">
-            <a href="#privacy">Privacy Policy</a>
+            <a href="/privacy-policy/">Privacy Policy</a>
             <span className="legal-sep">|</span>
-            <a href="#terms">Terms</a>
+            <a href="/terms/">Terms</a>
             <span className="legal-sep">|</span>
-            <a href="#sitemap">Sitemap</a>
+            <a href="/sitemap.xml">Sitemap</a>
           </div>
         </div>
       </div>
@@ -290,8 +288,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote, onOpenC
         }
         .footer-nav-grid {
           display: grid;
-          grid-template-columns: 1.5fr 1fr 1fr 1.25fr 1.4fr;
-          gap: 32px;
+          grid-template-columns: minmax(220px, 1.45fr) minmax(125px, 0.8fr) minmax(145px, 0.9fr) minmax(170px, 1.05fr) minmax(190px, 1.2fr);
+          gap: clamp(20px, 2.2vw, 32px);
           padding-bottom: 28px;
           border-bottom: 1px solid #e5e7eb;
           align-items: flex-start;
@@ -302,7 +300,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote, onOpenC
           margin-bottom: 12px;
         }
         .footer-brand-logo-img {
-          height: 38px;
+          height: 56px;
           width: auto;
           object-fit: contain;
         }
@@ -423,7 +421,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote, onOpenC
           flex-direction: column;
           gap: 7px;
         }
-        .footer-links-list button {
+        .footer-links-list button,
+        .footer-links-list a {
           font-family: var(--font-body);
           font-size: 15px;
           color: #64748b;
@@ -431,8 +430,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote, onOpenC
           transition: color var(--transition-fast);
           padding: 0;
           line-height: 1.4;
+          text-decoration: none;
         }
-        .footer-links-list button:hover {
+        .footer-links-list button:hover,
+        .footer-links-list a:hover {
           color: var(--color-accent-red);
         }
         .col-motto {

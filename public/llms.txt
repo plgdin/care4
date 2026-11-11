@@ -1,0 +1,18 @@
+# Care4 Associates
+
+> Care4 Associates is a hospitality and commercial supplies company based in Thiruvananthapuram, Kerala, India.
+
+Care4 Associates supplies hotels, resorts, restaurants, cafes, hospitals, catering companies, and institutional facilities across Kerala and neighbouring states. The catalogue includes commercial kitchen equipment, crockery, cutlery, linen, guest amenities, housekeeping supplies, and professional cleaning products.
+
+## Website
+
+- [Home](https://care4associates.com/): Company overview, industries served, client organizations, and brands.
+- [Product catalogue](https://care4associates.com/products/): Hospitality products and supply categories.
+- [About Care4 Associates](https://care4associates.com/about/): Company and service information.
+- [Privacy policy](https://care4associates.com/privacy-policy/): Website privacy and analytics information.
+- [Terms of use](https://care4associates.com/terms/): Website terms.
+
+## Contact
+
+- Email: info@care4associates.com
+- Location: Thiruvananthapuram, Kerala, India

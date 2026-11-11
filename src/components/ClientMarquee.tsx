@@ -1,4 +1,17 @@
 import React from 'react';
+import {
+  ChefHat,
+  Coffee,
+  CookingPot,
+  Factory,
+  Hospital,
+  House,
+  Umbrella,
+  BedDouble,
+  UtensilsCrossed,
+  type LucideIcon,
+  type LucideProps
+} from 'lucide-react';
 
 /* ─── curated client logo manifest (only authentic, high-resolution brand logos) ─── */
 interface ClientLogo {
@@ -73,101 +86,59 @@ const half = Math.ceil(CLIENT_LOGOS.length / 2);
 const ROW_1 = CLIENT_LOGOS.slice(0, half);
 const ROW_2 = CLIENT_LOGOS.slice(half);
 
-/* Sectors that flip inside the "We proudly serve ..." sentence (Gorod-style flipper) */
-const SERVE_SECTORS = [
-  'Hotels',
-  'Resorts',
-  'Retreat Centres',
-  'Restaurants',
-  'Cafes',
-  'Cloud Kitchens',
-  'Hospitals',
-  'Catering Companies',
-  'Industrial Canteens',
-  'Homestays',
-];
+const LotusIcon: LucideIcon = React.forwardRef<SVGSVGElement, LucideProps>(
+  ({ size = 24, strokeWidth = 2, ...props }, ref) => (
+    <svg
+      ref={ref}
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="M12 19c-1.8-4.8-.7-9.3 0-12 2.8 3.4 4.3 7.5 0 12Z" />
+      <path d="M12 19c-4.6-1.2-7.2-4.4-8.7-7.1 4.1.2 7.6 2 8.7 7.1Z" />
+      <path d="M12 19c4.6-1.2 7.2-4.4 8.7-7.1-4.1.2-7.6 2-8.7 7.1Z" />
+      <path d="M5 21h14" />
+    </svg>
+  )
+);
+LotusIcon.displayName = 'LotusIcon';
 
-/* Longest sector word — reserves flipper width so the sentence never jumps */
-const FLIPPER_SPACER = 'Industrial Canteens';
+const SERVED_SECTORS: { label: string; icon: LucideIcon }[] = [
+  { label: 'Hotels', icon: BedDouble },
+  { label: 'Resorts', icon: Umbrella },
+  { label: 'Retreat Centres', icon: LotusIcon },
+  { label: 'Restaurants', icon: UtensilsCrossed },
+  { label: 'Cafes', icon: Coffee },
+  { label: 'Cloud Kitchens', icon: CookingPot },
+  { label: 'Hospitals', icon: Hospital },
+  { label: 'Catering Companies', icon: ChefHat },
+  { label: 'Industrial Canteens', icon: Factory },
+  { label: 'Homestays', icon: House },
+];
 
 /* ─── component ─── */
 export const ClientMarquee: React.FC = () => {
-  const [sectorIndex, setSectorIndex] = React.useState(0);
-  const [leavingIndex, setLeavingIndex] = React.useState<number | null>(
-    null,
-  );
-  const [isPaused, setIsPaused] = React.useState(false);
-  const sectorIndexRef = React.useRef(0);
-  const sector = SERVE_SECTORS[sectorIndex];
-  const leavingSector =
-    leavingIndex !== null ? SERVE_SECTORS[leavingIndex] : null;
-
-  const goToSector = React.useCallback((next: number) => {
-    const target =
-      ((next % SERVE_SECTORS.length) + SERVE_SECTORS.length) %
-      SERVE_SECTORS.length;
-    const prev = sectorIndexRef.current;
-    if (prev === target) return;
-    sectorIndexRef.current = target;
-    setLeavingIndex(prev);
-    setSectorIndex(target);
-  }, []);
-
-  /* Clear the exiting word once its flip-out has finished. */
-  React.useEffect(() => {
-    if (leavingIndex === null) return;
-    const id = window.setTimeout(() => setLeavingIndex(null), 420);
-    return () => window.clearTimeout(id);
-  }, [leavingIndex]);
-
-  /* Auto-rotate the flipping word — pauses on hover/focus or reduced motion. */
-  React.useEffect(() => {
-    if (isPaused) return;
-    if (
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    )
-      return;
-    const id = window.setInterval(() => {
-      goToSector(sectorIndexRef.current + 1);
-    }, 3200);
-    return () => window.clearInterval(id);
-  }, [isPaused, goToSector]);
-
   return (
     <section className="client-marquee-section" id="client-marquee">
       {/* Section heading */}
       <div className="client-marquee-header">
-        <div className="section-eyebrow client-marquee-eyebrow">
-          <span className="section-eyebrow-line" />
-          <span>OUR CLIENT NETWORK</span>
+        <h2 className="client-marquee-title">
+          <span>Proudly</span> <span>Serving</span>
+        </h2>
+        <div className="served-sector-grid" aria-label="Industries served">
+          {SERVED_SECTORS.map(({ label, icon: Icon }) => (
+            <div className="served-sector-tile" key={label}>
+              <Icon size={20} strokeWidth={1.8} aria-hidden="true" />
+              <span>{label}</span>
+            </div>
+          ))}
         </div>
-        <p
-          className="client-marquee-serve-statement"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-          onFocus={() => setIsPaused(true)}
-          onBlur={() => setIsPaused(false)}
-        >
-          We proudly serve{' '}
-          <span className="serve-flipper" aria-live="polite">
-            <span className="serve-flipper-spacer" aria-hidden="true">
-              {FLIPPER_SPACER}
-            </span>
-            {leavingSector && (
-              <span
-                key={`leaving-${leavingSector}`}
-                className="serve-flipper-word serve-flipper-word--leaving"
-                aria-hidden="true"
-              >
-                {leavingSector}
-              </span>
-            )}
-            <span key={sector} className="serve-flipper-word">
-              {sector}
-            </span>
-          </span>{' '}
-          across Kerala and neighbouring states.
-        </p>
       </div>
 
       {/* Row 1 — scrolls left */}
@@ -208,13 +179,6 @@ export const ClientMarquee: React.FC = () => {
         </div>
       </div>
 
-      {/* Caption below customer logos (Items 12 & 13) */}
-      <div className="client-marquee-footer">
-        <p className="client-marquee-subtitle">
-          Trusted by leading organizations across luxury resorts, artisan cafes, premier hotels, healthcare &amp; enterprise sectors.
-        </p>
-      </div>
-
       <style>{`
         /* ── section ── */
         .client-marquee-section {
@@ -230,78 +194,55 @@ export const ClientMarquee: React.FC = () => {
           margin-bottom: 24px;
           padding: 0 24px;
         }
-        .client-marquee-eyebrow {
-          justify-content: center;
-          margin-bottom: 14px;
-        }
-        .client-marquee-serve-statement {
-          font-family: var(--font-manrope), var(--font-heading), sans-serif;
-          font-size: clamp(16px, 1.35vw, 20px);
-          font-weight: 600;
-          color: var(--color-navy-dark);
-          line-height: 1.55;
-          max-width: 980px;
-          margin: 0 auto;
-          letter-spacing: -0.01em;
-        }
-        /* ── Gorod-style flipper: spacer reserves the longest word, words flip in 3D ── */
-        .serve-flipper {
-          perspective: 1000px;
-          transform-style: preserve-3d;
-          display: inline-block;
-          position: relative;
-          text-align: left;
-          text-transform: uppercase;
-          font-weight: 700;
-          color: #02348d;
-        }
-        .serve-flipper-spacer {
-          white-space: nowrap;
-          visibility: hidden;
-          opacity: 0;
-          pointer-events: none;
-          user-select: none;
-          display: inline-block;
-          line-height: 1.55;
-        }
-        .serve-flipper-word {
-          white-space: nowrap;
-          will-change: transform, opacity;
-          transform-style: preserve-3d;
-          backface-visibility: hidden;
-          -webkit-backface-visibility: hidden;
-          transform-origin: 50% 50% -12px;
-          display: inline-block;
-          position: absolute;
-          top: 0;
-          left: 0;
-          animation: serveWordIn 0.45s cubic-bezier(0.34, 1.3, 0.64, 1);
-        }
-        .serve-flipper-word--leaving {
-          animation: serveWordOut 0.35s cubic-bezier(0.55, 0, 0.7, 0.4) forwards;
-        }
-        @keyframes serveWordIn {
-          from { opacity: 0; transform: rotateX(-90deg) translateY(8px); }
-          to { opacity: 1; transform: rotateX(0deg) translateY(0); }
-        }
-        @keyframes serveWordOut {
-          from { opacity: 1; transform: rotateX(0deg) translateY(0); }
-          to { opacity: 0; transform: rotateX(90deg) translateY(-8px); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .serve-flipper-word,
-          .serve-flipper-word--leaving {
-            animation: none;
-          }
-        }
         .client-marquee-title {
-          font-family: var(--font-heading);
-          font-size: clamp(30px, 3.6vw, 42px);
-          font-weight: 700;
-          color: var(--color-navy-dark);
-          line-height: 1.2;
-          margin: 0 auto 14px;
-          letter-spacing: -0.01em;
+          font-family: Georgia, 'Times New Roman', serif;
+          font-size: clamp(52px, 6vw, 82px);
+          font-weight: 500;
+          font-style: italic;
+          color: var(--color-primary);
+          line-height: 1.12;
+          margin: 0 auto 22px;
+          letter-spacing: -0.035em;
+          display: table;
+        }
+        .client-marquee-title span:first-child { color: var(--color-accent-red); }
+        .client-marquee-title span:last-child {
+          color: var(--color-primary);
+          margin-left: 0.18em;
+        }
+        .served-sector-grid {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 10px;
+          max-width: 1080px;
+          margin: 0 auto;
+        }
+        .served-sector-tile {
+          display: inline-flex;
+          align-items: center;
+          gap: 9px;
+          padding: 11px 17px;
+          border: 1px solid #e2e8f0;
+          border-radius: 999px;
+          background: linear-gradient(145deg, #ffffff, #f5f8fc);
+          color: #183550;
+          font: 600 14px/1.2 var(--font-body);
+          white-space: nowrap;
+          box-shadow: 0 2px 8px rgba(15, 40, 67, 0.04);
+          transition: transform 180ms ease, box-shadow 180ms ease;
+        }
+        .served-sector-tile:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 5px 14px rgba(15, 40, 67, 0.1);
+        }
+        .served-sector-tile:nth-child(odd) svg {
+          color: #e02d36;
+          flex: 0 0 auto;
+        }
+        .served-sector-tile:nth-child(even) svg {
+          color: #174994;
+          flex: 0 0 auto;
         }
         .client-marquee-footer {
           text-align: center;
@@ -391,9 +332,11 @@ export const ClientMarquee: React.FC = () => {
             margin-bottom: 30px;
           }
           .client-marquee-title {
-            font-size: 28px;
-            margin-bottom: 10px;
+            font-size: 42px;
+            margin-bottom: 18px;
           }
+          .served-sector-grid { gap: 8px; padding: 0 18px; }
+          .served-sector-tile { padding: 9px 12px; font-size: 13px; }
           .client-marquee-subtitle {
             font-size: 15px;
           }
@@ -420,7 +363,7 @@ export const ClientMarquee: React.FC = () => {
 
         @media (max-width: 480px) {
           .client-marquee-title {
-            font-size: 24px;
+            font-size: 38px;
           }
           .marquee-logo-card {
             width: 124px;

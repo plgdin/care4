@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useMemo, useEffect, useLayoutEffect, useRef, useCallback } from 'react';
 import {
   Search,
   X,
@@ -31,7 +31,6 @@ import {
   findBrochure
 } from '../data/siteData';
 import { ProductDetailModal } from '../components/ProductDetailModal';
-import { ClientMarquee } from '../components/ClientMarquee';
 import '../styles/product-page.css';
 
 
@@ -52,54 +51,128 @@ const CategoryIcon: React.FC<{ category: string; size?: number }> = ({ category,
   return <IconComponent size={size} />;
 };
 
-// Hook to track scroll overflow and provide scroll actions
-function useScrollArrows(deps: unknown[] = []) {
-  const ref = useRef<HTMLElement | null>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(false);
+// Hero classification tabs (counts are static catalogue data)
+const CATEGORY_TABS = [
+  {
+    key: 'All',
+    label: 'All Products',
+    count: CATALOG_PRODUCTS.length,
+    icon: <Grid3X3 size={15} />
+  },
+  ...CATEGORY_FILTERS.map(category => ({
+    key: category,
+    label: category,
+    count: CATALOG_PRODUCTS.filter(product => product.category === category).length,
+    icon: <CategoryIcon category={category} size={15} />
+  }))
+];
 
-  const checkScroll = useCallback(() => {
-    const el = ref.current;
-    if (!el) return;
-    setCanScrollLeft(el.scrollLeft > 2);
-    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 2);
-  }, []);
+// Paged pill carousel: shows only whole pills, stretches them to fill the row
+// exactly (no dead space), and cross-fades pages when the arrows are used.
+interface TabPage {
+  start: number;
+  end: number;
+}
 
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    checkScroll();
-    el.addEventListener('scroll', checkScroll, { passive: true });
-    window.addEventListener('resize', checkScroll);
+function usePagedTabs(count: number) {
+  const viewportRef = useRef<HTMLDivElement | null>(null);
+  const trackRef = useRef<HTMLElement | null>(null);
+  const [anchor, setAnchor] = useState(0);
+  const [page, setPage] = useState<TabPage>({ start: 0, end: count });
+  const [ghost, setGhost] = useState<TabPage | null>(null);
+  const [direction, setDirection] = useState<'next' | 'prev'>('next');
+  const animTimer = useRef<number | undefined>(undefined);
+
+  const measure = useCallback(() => {
+    const viewport = viewportRef.current;
+    const track = trackRef.current;
+    if (!viewport || !track) return;
+    const items = Array.from(track.children) as HTMLElement[];
+    if (!items.length) return;
+
+    // Suspend stretching + page hiding so every pill reports its natural width
+    track.classList.add('measuring');
+    const naturals = items.map(item => item.offsetWidth);
+    track.classList.remove('measuring');
+
+    const gap = parseFloat(getComputedStyle(track).columnGap || '0') || 0;
+    const avail = viewport.clientWidth;
+
+    // Fit whole pills forward from the anchor, then extend backwards so the
+    // row is always completely full (no empty space at either end).
+    let used = 0;
+    let end = Math.min(anchor, items.length);
+    for (let i = anchor; i < items.length; i++) {
+      const next = used === 0 ? naturals[i] : used + gap + naturals[i];
+      if (next > avail + 0.5 && used > 0) break;
+      used = next;
+      end = i + 1;
+    }
+
+    let start = anchor;
+    while (start > 0) {
+      const next = used + gap + naturals[start - 1];
+      if (next > avail + 0.5) break;
+      used = next;
+      start -= 1;
+    }
+
+    setPage({ start, end });
+  }, [anchor, count]);
+
+  useLayoutEffect(() => {
+    measure();
+    const viewport = viewportRef.current;
+    if (!viewport) return;
+    const observer = new ResizeObserver(measure);
+    observer.observe(viewport);
+    window.addEventListener('resize', measure);
+    document.fonts?.ready.then(measure).catch(() => {});
     return () => {
-      el.removeEventListener('scroll', checkScroll);
-      window.removeEventListener('resize', checkScroll);
+      observer.disconnect();
+      window.removeEventListener('resize', measure);
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [checkScroll, ...deps]);
+  }, [measure]);
 
-  const scrollBy = useCallback((dir: 'left' | 'right') => {
-    const el = ref.current;
-    if (!el) return;
-    el.scrollBy({ left: dir === 'left' ? -200 : 200, behavior: 'smooth' });
-  }, []);
+  useEffect(() => () => window.clearTimeout(animTimer.current), []);
 
-  return { ref, canScrollLeft, canScrollRight, scrollBy };
+  const canPrev = page.start > 0;
+  const canNext = page.end < count;
+
+  const goPrev = useCallback(() => {
+    if (page.start <= 0) return;
+    window.clearTimeout(animTimer.current);
+    setDirection('prev');
+    setGhost(page);
+    setAnchor(Math.max(page.start - 1, 0));
+    animTimer.current = window.setTimeout(() => setGhost(null), 480);
+  }, [page]);
+
+  const goNext = useCallback(() => {
+    if (page.end >= count) return;
+    window.clearTimeout(animTimer.current);
+    setDirection('next');
+    setGhost(page);
+    setAnchor(page.end);
+    animTimer.current = window.setTimeout(() => setGhost(null), 480);
+  }, [page, count]);
+
+  return { viewportRef, trackRef, page, ghost, direction, canPrev, canNext, goPrev, goNext };
 }
 
 // Scroll arrow button component
 const ScrollArrow: React.FC<{
   direction: 'left' | 'right';
-  visible: boolean;
+  disabled: boolean;
   onClick: () => void;
   variant?: 'light' | 'dark';
-}> = ({ direction, visible, onClick, variant = 'dark' }) => {
-  if (!visible) return null;
+}> = ({ direction, disabled, onClick, variant = 'dark' }) => {
   return (
     <button
       type="button"
       className={`scroll-arrow-btn scroll-arrow-${direction} scroll-arrow-${variant}`}
       onClick={onClick}
+      disabled={disabled}
       aria-label={`Scroll ${direction}`}
     >
       {direction === 'left' ? <ChevronLeft size={18} /> : <ChevronRight size={18} />}
@@ -107,12 +180,28 @@ const ScrollArrow: React.FC<{
   );
 };
 
-// Custom Brand Dropdown — styled alternative to a native select
-const BrandSelect: React.FC<{
-  brands: string[];
+// Shared dropdown used by the sticky filter bar (category + brand pickers)
+interface FilterDropdownProps {
+  icon: React.ReactNode;
+  allLabel: string;
+  menuLabel: string;
+  options: string[];
   value: string | null;
-  onChange: (brand: string | null) => void;
-}> = ({ brands, value, onChange }) => {
+  onChange: (value: string | null) => void;
+  renderOptionIcon?: (option: string) => React.ReactNode;
+  emptyLabel?: string;
+}
+
+const FilterDropdown: React.FC<FilterDropdownProps> = ({
+  icon,
+  allLabel,
+  menuLabel,
+  options,
+  value,
+  onChange,
+  renderOptionIcon,
+  emptyLabel
+}) => {
   const [open, setOpen] = useState(false);
   const wrapRef = useRef<HTMLDivElement | null>(null);
 
@@ -144,15 +233,15 @@ const BrandSelect: React.FC<{
         aria-haspopup="listbox"
         aria-expanded={open}
       >
-        <TagIcon size={15} className="lb-brand-select-ico" />
+        <span className="lb-brand-select-ico">{icon}</span>
         <span className={`lb-brand-select-value ${value ? 'picked' : ''}`}>
-          {value ?? 'All Brands'}
+          {value ?? allLabel}
         </span>
         <ChevronDown size={14} className={`lb-brand-select-chev ${open ? 'open' : ''}`} />
       </button>
 
       {open && (
-        <div className="lb-brand-menu" role="listbox" aria-label="Brands">
+        <div className="lb-brand-menu" role="listbox" aria-label={menuLabel}>
           <button
             type="button"
             role="option"
@@ -164,30 +253,32 @@ const BrandSelect: React.FC<{
             }}
           >
             <Grid3X3 size={14} />
-            <span>All Brands</span>
+            <span>{allLabel}</span>
             {value === null && <Check size={14} className="lb-brand-check" />}
           </button>
 
           <div className="lb-brand-menu-list">
-            {brands.map(brand => (
+            {options.map(option => (
               <button
-                key={brand}
+                key={option}
                 type="button"
                 role="option"
-                aria-selected={value === brand}
-                className={`lb-brand-option ${value === brand ? 'active' : ''}`}
+                aria-selected={value === option}
+                className={`lb-brand-option ${value === option ? 'active' : ''}`}
                 onClick={() => {
-                  onChange(brand);
+                  onChange(option);
                   setOpen(false);
                 }}
               >
-                <span className={`lb-brand-dot ${brandColor(brand) === 'blue' ? 'dot-blue' : 'dot-red'}`} />
-                <span className="lb-brand-name" title={brand}>{brand}</span>
-                {value === brand && <Check size={14} className="lb-brand-check" />}
+                {renderOptionIcon
+                  ? renderOptionIcon(option)
+                  : <span className={`lb-brand-dot ${brandColor(option) === 'blue' ? 'dot-blue' : 'dot-red'}`} />}
+                <span className="lb-brand-name" title={option}>{option}</span>
+                {value === option && <Check size={14} className="lb-brand-check" />}
               </button>
             ))}
-            {brands.length === 0 && (
-              <div className="lb-brand-none">No brands in this classification</div>
+            {options.length === 0 && (
+              <div className="lb-brand-none">{emptyLabel ?? 'No options available'}</div>
             )}
           </div>
         </div>
@@ -195,6 +286,40 @@ const BrandSelect: React.FC<{
     </div>
   );
 };
+
+// Category dropdown — keeps classification filters reachable from the sticky bar
+const CategorySelect: React.FC<{
+  value: string;
+  onChange: (category: string) => void;
+}> = ({ value, onChange }) => (
+  <FilterDropdown
+    icon={<Grid3X3 size={15} />}
+    allLabel="All Categories"
+    menuLabel="Product classifications"
+    options={CATEGORY_FILTERS}
+    value={value === 'All' ? null : value}
+    onChange={category => onChange(category ?? 'All')}
+    renderOptionIcon={category => <CategoryIcon category={category} size={14} />}
+    emptyLabel="No classifications available"
+  />
+);
+
+// Brand dropdown — scoped to the active classification
+const BrandSelect: React.FC<{
+  brands: string[];
+  value: string | null;
+  onChange: (brand: string | null) => void;
+}> = ({ brands, value, onChange }) => (
+  <FilterDropdown
+    icon={<TagIcon size={15} />}
+    allLabel="All Brands"
+    menuLabel="Brands"
+    options={brands}
+    value={value}
+    onChange={onChange}
+    emptyLabel="No brands in this classification"
+  />
+);
 
 interface ProductPageProps {
   onOpenQuote: (productName?: string) => void;
@@ -226,8 +351,8 @@ export const ProductPage: React.FC<ProductPageProps> = ({
   const [viewMode, setViewMode] = useState<'grid' | 'table'>('grid');
   const [selectedDetailProduct, setSelectedDetailProduct] = useState<ProductCatalogCard | null>(null);
 
-  // Scroll arrows for classification tabs
-  const classificationScroll = useScrollArrows([activeCategory]);
+  // Paged pill carousel state (arrows + smooth slide)
+  const tabs = usePagedTabs(CATEGORY_TABS.length);
 
   // Sync initial filter from navigation
   useEffect(() => {
@@ -361,36 +486,60 @@ export const ProductPage: React.FC<ProductPageProps> = ({
         {/* 2026 Product Classification Master Navigation Bar */}
         <div className="product-hero-tabs-wrap">
           <div className="product-hero-tabs-container scroll-arrow-wrapper">
-            <ScrollArrow direction="left" visible={classificationScroll.canScrollLeft} onClick={() => classificationScroll.scrollBy('left')} variant="light" />
-            <nav className="classification-tabs-bar" ref={classificationScroll.ref as React.RefObject<HTMLElement>} aria-label="Official Product Classifications">
-              <button
-                type="button"
-                className={`classification-tab-btn ${activeCategory === 'All' ? 'active' : ''}`}
-                onClick={() => handleSelectCategory('All')}
-              >
-                <Grid3X3 size={15} />
-                <span>All Products</span>
-                <span className="tab-count-badge">{CATALOG_PRODUCTS.length}</span>
-              </button>
-
-              {CATEGORY_FILTERS.map(cat => {
-                const count = CATALOG_PRODUCTS.filter(p => p.category === cat).length;
-                const isActive = activeCategory === cat;
+            <ScrollArrow direction="left" disabled={!tabs.canPrev} onClick={tabs.goPrev} variant="light" />
+            <div className="classification-tabs-viewport" ref={tabs.viewportRef}>
+              {tabs.ghost && (() => {
+                const ghostPage = tabs.ghost;
                 return (
-                  <button
-                    key={cat}
-                    type="button"
-                    className={`classification-tab-btn ${isActive ? 'active' : ''}`}
-                    onClick={() => handleSelectCategory(cat)}
-                  >
-                    <CategoryIcon category={cat} size={15} />
-                    <span>{cat}</span>
-                    <span className="tab-count-badge">{count}</span>
-                  </button>
+                <nav
+                  className={`classification-tabs-bar tabs-ghost tabs-exit-${tabs.direction}`}
+                  aria-hidden="true"
+                >
+                  {CATEGORY_TABS.map((tab, index) => {
+                    const inGhost = index >= ghostPage.start && index < ghostPage.end;
+                    return (
+                      <button
+                        key={tab.key}
+                        type="button"
+                        tabIndex={-1}
+                        className="classification-tab-btn"
+                        style={{ display: inGhost ? undefined : 'none' }}
+                      >
+                        {tab.icon}
+                        <span>{tab.label}</span>
+                        <span className="tab-count-badge">{tab.count}</span>
+                      </button>
+                    );
+                  })}
+                </nav>
                 );
-              })}
-            </nav>
-            <ScrollArrow direction="right" visible={classificationScroll.canScrollRight} onClick={() => classificationScroll.scrollBy('right')} variant="light" />
+              })()}
+              <nav
+                className={`classification-tabs-bar${tabs.ghost ? ` tabs-enter-${tabs.direction}` : ''}`}
+                ref={tabs.trackRef as React.RefObject<HTMLElement>}
+                aria-label="Official Product Classifications"
+              >
+                {CATEGORY_TABS.map((tab, index) => {
+                  const inPage = index >= tabs.page.start && index < tabs.page.end;
+                  return (
+                    <button
+                      key={tab.key}
+                      type="button"
+                      className={`classification-tab-btn ${activeCategory === tab.key ? 'active' : ''}`}
+                      onClick={() => handleSelectCategory(tab.key)}
+                      style={{ display: inPage ? undefined : 'none' }}
+                      aria-hidden={!inPage}
+                      tabIndex={inPage ? undefined : -1}
+                    >
+                      {tab.icon}
+                      <span>{tab.label}</span>
+                      <span className="tab-count-badge">{tab.count}</span>
+                    </button>
+                  );
+                })}
+              </nav>
+            </div>
+            <ScrollArrow direction="right" disabled={!tabs.canNext} onClick={tabs.goNext} variant="light" />
           </div>
         </div>
       </section>
@@ -419,6 +568,12 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                   </button>
                 )}
               </div>
+
+              {/* Category Dropdown — change classification without scrolling back to the hero */}
+              <CategorySelect
+                value={activeCategory}
+                onChange={handleSelectCategory}
+              />
 
               {/* Brand Dropdown — pick the brand inside the selected classification */}
               <BrandSelect
@@ -669,10 +824,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
         )}
       </main>
 
-      {/* ==================== 5. OUR CLIENTS ==================== */}
-      <ClientMarquee />
-
-      {/* ==================== 6. PRODUCT DETAIL MODAL ==================== */}
+      {/* ==================== 5. PRODUCT DETAIL MODAL ==================== */}
       <ProductDetailModal
         product={selectedDetailProduct}
         onClose={() => setSelectedDetailProduct(null)}

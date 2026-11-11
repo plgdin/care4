@@ -55,38 +55,43 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Desktop Nav Items */}
         <nav className="navbar-nav-desktop">
-          <button 
-            className={`nav-link ${activeTab === 'home' ? 'active' : ''}`}
-            onClick={() => handleLinkClick('home')}
+          <a
+            href="/"
+            className={`nav-link nav-home ${activeTab === 'home' ? 'active' : ''}`}
+            onClick={(event) => { event.preventDefault(); handleLinkClick('home'); }}
           >
             Home
-          </button>
-          <button 
-            className={`nav-link ${activeTab === 'about' ? 'active' : ''}`}
-            onClick={() => handleLinkClick('about')}
+          </a>
+          <a
+            href="/about/"
+            className={`nav-link nav-about ${activeTab === 'about' ? 'active' : ''}`}
+            onClick={(event) => { event.preventDefault(); handleLinkClick('about'); }}
           >
             About Us
-          </button>
-          <button 
-            className={`nav-link ${activeTab === 'categories' ? 'active' : ''}`}
-            onClick={() => handleLinkClick('home', 'categories-section')}
+          </a>
+          <a
+            href="/#categories-section"
+            className={`nav-link nav-categories ${activeTab === 'categories' ? 'active' : ''}`}
+            onClick={(event) => { event.preventDefault(); handleLinkClick('home', 'categories-section'); }}
           >
             Categories
-          </button>
-          <button 
-            className={`nav-link ${activeTab === 'brands' ? 'active' : ''}`}
-            onClick={() => handleLinkClick('home', 'brands-section')}
+          </a>
+          <a
+            href="/#brands-section"
+            className={`nav-link nav-brands ${activeTab === 'brands' ? 'active' : ''}`}
+            onClick={(event) => { event.preventDefault(); handleLinkClick('home', 'brands-section'); }}
           >
             Brands
-          </button>
-          <button 
-            className={`nav-link ${activeTab === 'products' ? 'active' : ''}`}
-            onClick={() => handleLinkClick('products')}
+          </a>
+          <a
+            href="/products/"
+            className={`nav-link nav-products ${activeTab === 'products' ? 'active' : ''}`}
+            onClick={(event) => { event.preventDefault(); handleLinkClick('products'); }}
           >
             Product Catalogue
-          </button>
+          </a>
           <button 
-            className="btn-quote"
+            className="btn-quote nav-contact"
             onClick={handleContactClick}
           >
             Contact Us
@@ -106,36 +111,41 @@ export const Navbar: React.FC<NavbarProps> = ({
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="mobile-drawer">
-          <button 
+          <a
+            href="/"
             className="mobile-nav-link"
-            onClick={() => handleLinkClick('home')}
+            onClick={(event) => { event.preventDefault(); handleLinkClick('home'); }}
           >
             Home
-          </button>
-          <button 
+          </a>
+          <a
+            href="/about/"
             className="mobile-nav-link"
-            onClick={() => handleLinkClick('about')}
+            onClick={(event) => { event.preventDefault(); handleLinkClick('about'); }}
           >
             About Us
-          </button>
-          <button 
+          </a>
+          <a
+            href="/#categories-section"
             className="mobile-nav-link"
-            onClick={() => handleLinkClick('home', 'categories-section')}
+            onClick={(event) => { event.preventDefault(); handleLinkClick('home', 'categories-section'); }}
           >
             Categories
-          </button>
-          <button 
+          </a>
+          <a
+            href="/#brands-section"
             className="mobile-nav-link"
-            onClick={() => handleLinkClick('home', 'brands-section')}
+            onClick={(event) => { event.preventDefault(); handleLinkClick('home', 'brands-section'); }}
           >
             Brands
-          </button>
-          <button 
+          </a>
+          <a
+            href="/products/"
             className="mobile-nav-link"
-            onClick={() => handleLinkClick('products')}
+            onClick={(event) => { event.preventDefault(); handleLinkClick('products'); }}
           >
             Product Catalogue
-          </button>
+          </a>
           <button 
             className="btn-quote mobile-quote-btn"
             onClick={handleContactClick}
@@ -154,6 +164,8 @@ export const Navbar: React.FC<NavbarProps> = ({
           height: 98px;
           background: #ffffff;
           border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+          border-radius: 0 0 18px 18px;
+          box-shadow: 0 8px 22px rgba(15, 28, 45, 0.06);
           z-index: 1000;
           display: flex;
           align-items: center;
@@ -166,6 +178,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           display: flex;
           align-items: center;
           justify-content: space-between;
+          gap: 32px;
         }
         .navbar-brand {
           display: flex;
@@ -185,9 +198,18 @@ export const Navbar: React.FC<NavbarProps> = ({
         .navbar-nav-desktop {
           display: flex;
           align-items: center;
-          gap: 38px;
+          justify-content: flex-end;
+          gap: clamp(18px, 2.4vw, 38px);
         }
+        .navbar-nav-desktop .nav-home { order: 1; }
+        .navbar-nav-desktop .nav-categories { order: 2; }
+        .navbar-nav-desktop .nav-brands { order: 3; }
+        .navbar-nav-desktop .nav-products { order: 4; }
+        .navbar-nav-desktop .nav-about { order: 5; }
+        .navbar-nav-desktop .nav-contact { order: 6; }
         .nav-link {
+          display: inline-flex;
+          text-decoration: none;
           font-family: var(--font-body);
           font-weight: 600;
           font-size: 18px;
@@ -216,6 +238,13 @@ export const Navbar: React.FC<NavbarProps> = ({
           transform: translateY(-1px);
           box-shadow: 0 4px 14px rgba(201, 42, 42, 0.3);
         }
+        @media (min-width: 901px) and (max-width: 1120px) {
+          .navbar-container { padding: 0 24px; gap: 20px; }
+          .navbar-logo-img { height: 66px; }
+          .navbar-nav-desktop { gap: 18px; }
+          .nav-link { font-size: 16px; }
+          .btn-quote { padding: 12px 20px; font-size: 15px; }
+        }
         .mobile-menu-btn {
           display: none;
           color: var(--color-navy-dark);
@@ -234,11 +263,13 @@ export const Navbar: React.FC<NavbarProps> = ({
           border-bottom: 1px solid var(--color-border);
         }
         .mobile-nav-link {
+          display: block;
           text-align: left;
           font-size: 18px;
           font-weight: 600;
           color: var(--color-navy-dark);
           padding: 8px 0;
+          text-decoration: none;
         }
         .mobile-quote-btn {
           text-align: center;
