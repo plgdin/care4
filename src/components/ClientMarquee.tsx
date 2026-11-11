@@ -87,9 +87,6 @@ const SERVE_SECTORS = [
   'Homestays',
 ];
 
-/* Longest sector word — reserves flipper width so the sentence never jumps */
-const FLIPPER_SPACER = 'Industrial Canteens';
-
 /* ─── component ─── */
 export const ClientMarquee: React.FC = () => {
   const [sectorIndex, setSectorIndex] = React.useState(0);
@@ -151,7 +148,7 @@ export const ClientMarquee: React.FC = () => {
           We proudly serve{' '}
           <span className="serve-flipper" aria-live="polite">
             <span className="serve-flipper-spacer" aria-hidden="true">
-              {FLIPPER_SPACER}
+              {sector}
             </span>
             {leavingSector && (
               <span
