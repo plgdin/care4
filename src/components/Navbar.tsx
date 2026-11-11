@@ -160,7 +160,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         }
         .navbar-container {
           width: 100%;
-          max-width: var(--container-max-width);
+          max-width: 1680px;
           margin: 0 auto;
           padding: 0 40px;
           display: flex;
