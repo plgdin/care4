@@ -160,9 +160,9 @@ export const Navbar: React.FC<NavbarProps> = ({
         }
         .navbar-container {
           width: 100%;
-          max-width: 1680px;
+          max-width: 100%;
           margin: 0 auto;
-          padding: 0 40px;
+          padding: 0 20px;
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -243,6 +243,11 @@ export const Navbar: React.FC<NavbarProps> = ({
         .mobile-quote-btn {
           text-align: center;
           margin-top: 8px;
+        }
+        @media (max-width: 1100px) {
+          .navbar-nav-desktop {
+            gap: 22px;
+          }
         }
         @media (max-width: 900px) {
           .navbar-container {
