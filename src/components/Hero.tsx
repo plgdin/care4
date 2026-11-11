@@ -146,13 +146,6 @@ export const Hero: React.FC<HeroProps> = ({
               <span className="industry-label">Catering</span>
             </div>
           </div>
-
-          {/* Bottom Tagline */}
-          <div className="hero-tagline-wrapper">
-            <span className="tagline-text">
-              PEOPLE · PRODUCTS · A BETTER HOSPITALITY TOMORROW
-            </span>
-          </div>
         </div>
       </div>
 
@@ -525,7 +518,7 @@ export const Hero: React.FC<HeroProps> = ({
           display: flex;
           align-items: center;
           gap: clamp(14px, 1.6vw, 22px);
-          margin-bottom: clamp(12px, 2vh, 22px);
+          margin-bottom: 0;
           flex-wrap: wrap;
         }
         .industry-item {
@@ -547,20 +540,6 @@ export const Hero: React.FC<HeroProps> = ({
           font-weight: 700;
           color: var(--color-navy-dark);
           white-space: nowrap;
-        }
-
-        /* Bottom Tagline */
-        .hero-tagline-wrapper {
-          display: flex;
-          align-items: center;
-        }
-        .tagline-text {
-          font-family: var(--font-manrope), sans-serif;
-          font-size: clamp(10.5px, 0.9vw, 12px);
-          font-weight: 700;
-          letter-spacing: 0.1em;
-          color: #8b99a9;
-          text-transform: uppercase;
         }
 
         /* Responsive Breakpoints */
