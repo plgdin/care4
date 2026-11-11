@@ -316,6 +316,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
           color: rgba(255, 255, 255, 0.8);
           max-width: 600px;
           margin-bottom: 36px;
+          text-align: justify;
         }
         .about-feature-badges {
           display: flex;
@@ -388,6 +389,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
           line-height: 1.7;
           color: var(--color-text-body);
           margin-bottom: 32px;
+          text-align: justify;
         }
         .btn-our-journey {
           background-color: var(--color-red-alt);
@@ -478,6 +480,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
           font-family: var(--font-inter);
           font-size: 18px;
           color: var(--color-text-body);
+          text-align: justify;
         }
         .serve-cards-grid {
           display: grid;
@@ -537,6 +540,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
           font-size: 16px;
           line-height: 1.6;
           color: var(--color-text-body);
+          text-align: justify;
         }
         .serve-card-btn {
           width: 32px;
@@ -584,6 +588,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
           font-size: 18px;
           line-height: 1.6;
           color: var(--color-text-body);
+          text-align: justify;
         }
         .offer-cards-grid {
           display: grid;
@@ -670,6 +675,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
           font-size: 15px;
           line-height: 1.6;
           color: var(--color-text-body);
+          text-align: justify;
         }
 
         /* Turnkey Feature Banner */
@@ -709,6 +715,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
           line-height: 1.65;
           color: rgba(255, 255, 255, 0.82);
           margin: 0;
+          text-align: justify;
         }
         .turnkey-feature-right {
           display: flex;

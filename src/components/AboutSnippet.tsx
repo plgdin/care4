@@ -99,6 +99,7 @@ export const AboutSnippet: React.FC<AboutSnippetProps> = ({ onLearnMore }) => {
         }
         .about-snippet-body p {
           margin: 0;
+          text-align: justify;
         }
         .about-serve-highlight {
           font-weight: 600 !important;

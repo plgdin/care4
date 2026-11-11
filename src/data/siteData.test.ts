@@ -16,11 +16,8 @@ import {
 /** Brand names that must never appear anywhere on the site. */
 const FORBIDDEN_BRANDS = ['Inscape', 'Pinnacle'];
 
-/** Scoped brands (per client classifications): Cintra = Linen only, Victol = Guest Amenities only. */
-const SCOPED_BRANDS: Record<string, string> = {
-  Cintra: 'Linen',
-  Victol: 'Guest Amenities'
-};
+/** Classifications the client asked to keep free of supplier brand names. */
+const UNBRANDED_CATEGORIES = ['Linen', 'Guest Amenities', 'Kitchen Equipments'];
 
 describe('siteData catalog integrity', () => {
   it('ensures all catalog products belong to declared category filters', () => {
@@ -64,18 +61,16 @@ describe('siteData catalog integrity', () => {
     }
   });
 
-  it('keeps scoped brands in their own classifications only', () => {
-    for (const [brand, category] of Object.entries(SCOPED_BRANDS)) {
-      const cards = CATALOG_PRODUCTS.filter(p => p.brands.includes(brand));
-      expect(cards.length, `${brand} must brand at least one listing`).toBeGreaterThan(0);
-      for (const product of cards) {
-        expect(product.category, `${brand} must only appear in ${category}`).toBe(category);
+  it('keeps brand names off Linen, Guest Amenities and Kitchen Equipments listings', () => {
+    for (const product of CATALOG_PRODUCTS) {
+      if (UNBRANDED_CATEGORIES.includes(product.category)) {
+        expect(product.brands, `${product.id} must not carry a brand`).toEqual([]);
       }
     }
   });
 
-  it('gives every listing a brand', () => {
-    for (const product of CATALOG_PRODUCTS) {
+  it('gives every listing outside the unbranded classifications a brand', () => {
+    for (const product of CATALOG_PRODUCTS.filter(p => !UNBRANDED_CATEGORIES.includes(p.category))) {
       expect(
         product.brands.length,
         `${product.id} must carry exactly one brand`
@@ -88,15 +83,6 @@ describe('siteData catalog integrity', () => {
     expect(ids.has('utensils-pinnacle-thermal')).toBe(false);
     expect(ids.has('utensils-venus-kitchen')).toBe(false);
     expect(ids.has('housekeeping-freshnfine')).toBe(false);
-  });
-
-  it('limits Fresh N Fine to paper & tissue supply lines', () => {
-    const freshCards = CATALOG_PRODUCTS.filter(p => p.brands.includes('Fresh N Fine'));
-    expect(freshCards.length).toBeGreaterThan(0);
-    for (const product of freshCards) {
-      const text = `${product.title} ${product.subtitle} ${product.details}`.toLowerCase();
-      expect(text).toMatch(/tissue|paper|napkin|disposable|toilet roll/);
-    }
   });
 
   it('only sells Venus brand under the Cutlery classification', () => {

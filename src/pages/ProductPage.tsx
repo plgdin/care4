@@ -291,10 +291,32 @@ export const ProductPage: React.FC<ProductPageProps> = ({
         return true;
       })
       .sort((a, b) => {
-        const byBrand = (a.brands[0] ?? '').localeCompare(b.brands[0] ?? '');
-        return byBrand !== 0 ? byBrand : a.title.localeCompare(b.title);
+        const aName = a.brands[0] ?? a.title;
+        const bName = b.brands[0] ?? b.title;
+        const byName = aName.localeCompare(bName);
+        return byName !== 0 ? byName : a.title.localeCompare(b.title);
       });
   }, [activeCategory, selectedBrand, searchQuery]);
+
+  // One card per brand: merge repeated brand listings into a single card whose
+  // description lists everything the brand supplies.
+  const displayProducts = useMemo(() => {
+    const groups = new Map<string, ProductCatalogCard[]>();
+    for (const product of filteredProducts) {
+      const key = product.brands[0]
+        ? `brand:${product.brands[0].toLowerCase()}`
+        : `item:${product.id}`;
+      const group = groups.get(key);
+      if (group) group.push(product);
+      else groups.set(key, [product]);
+    }
+
+    return Array.from(groups.values()).map(group => {
+      if (group.length === 1) return { product: group[0], suppliedItems: [] as string[] };
+      const suppliedItems = Array.from(new Set(group.map(item => item.title)));
+      return { product: group[0], suppliedItems };
+    });
+  }, [filteredProducts]);
 
   return (
     <div className="lookbook-page-root">
@@ -499,7 +521,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
           </div>
         ) : viewMode === 'grid' ? (
           <div className="lookbook-cards-grid">
-            {filteredProducts.map(product => {
+            {displayProducts.map(({ product, suppliedItems }) => {
               const hasBrochure = Boolean(findBrochure(product.brands));
               return (
               <article key={product.id} className="lb-product-card">
@@ -517,29 +539,43 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                     <CategoryIcon category={product.category} size={13} />
                     <span>{product.category}</span>
                   </div>
-                  {/* Brand badges — top-left of the image */}
-                  {product.brands.length > 0 && (
-                    <div className="lb-brand-pills lb-card-brand-pills">
-                      {product.brands.map(brand => (
-                        <span
-                          key={brand}
-                          className={`lb-brand-pill ${brandColor(brand) === 'blue' ? 'brand-pill-blue' : 'brand-pill-red'}`}
-                        >
-                          {brand}
-                        </span>
-                      ))}
-                    </div>
-                  )}
                 </div>
 
                 <div className="lb-card-body">
-                  <h3
-                    className="lb-card-title"
-                    onClick={() => setSelectedDetailProduct(product)}
-                  >
-                    {product.title}
-                  </h3>
-                  <p className="lb-card-desc">{product.subtitle || product.details}</p>
+                  {product.brands[0] ? (
+                    <>
+                      <h3
+                        className="lb-card-brand"
+                        onClick={() => setSelectedDetailProduct(product)}
+                      >
+                        {product.brands[0]}
+                      </h3>
+                      {suppliedItems.length > 0 ? (
+                        <p className="lb-card-desc">{suppliedItems.join(' • ')}</p>
+                      ) : (
+                        <>
+                          <p
+                            className="lb-card-product-name"
+                            onClick={() => setSelectedDetailProduct(product)}
+                          >
+                            {product.title}
+                            {product.subtitle && <span className="lb-card-product-sub"> · {product.subtitle}</span>}
+                          </p>
+                          <p className="lb-card-desc">{product.details}</p>
+                        </>
+                      )}
+                    </>
+                  ) : (
+                    <>
+                      <h3
+                        className="lb-card-title"
+                        onClick={() => setSelectedDetailProduct(product)}
+                      >
+                        {product.title}
+                      </h3>
+                      <p className="lb-card-desc">{product.subtitle || product.details}</p>
+                    </>
+                  )}
 
                   <div className="lb-card-actions">
                     <button

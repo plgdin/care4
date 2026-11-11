@@ -166,21 +166,6 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
         {/* Modal Action Footer */}
         <div className="pdm-footer">
-          <div className="pdm-footer-left">
-            {brochure && (
-              <a
-                className="pdm-btn-brochure"
-                href={brochure}
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Open Brand Catalogue (PDF)"
-              >
-                <FileText size={16} />
-                <span>Product Catalogue</span>
-              </a>
-            )}
-          </div>
-
           <div className="pdm-footer-right">
             <button
               type="button"
@@ -189,6 +174,28 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             >
               Back to Catalog
             </button>
+            {brochure ? (
+              <a
+                className="pdm-btn-viewpdf"
+                href={brochure}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="View brand catalogue (PDF)"
+              >
+                <FileText size={16} />
+                <span>View PDF</span>
+              </a>
+            ) : (
+              <button
+                type="button"
+                className="pdm-btn-viewpdf pdm-btn-viewpdf--pending"
+                disabled
+                title="PDF catalogue coming soon"
+              >
+                <FileText size={16} />
+                <span>View PDF</span>
+              </button>
+            )}
             <button
               type="button"
               className="pdm-btn-quote"
@@ -479,7 +486,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           display: none;
         }
 
-        .pdm-btn-brochure {
+        .pdm-btn-viewpdf {
           display: flex;
           align-items: center;
           gap: 8px;
@@ -495,10 +502,18 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           transition: all 0.15s ease;
         }
 
-        .pdm-btn-brochure:hover {
+        .pdm-btn-viewpdf:hover {
           background: #eff6ff;
           border-color: #1e40af;
           color: #1e40af;
+        }
+
+        .pdm-btn-viewpdf--pending,
+        .pdm-btn-viewpdf--pending:hover {
+          background: #f8fafc;
+          border-color: #cbd5e1;
+          color: #94a3b8;
+          cursor: not-allowed;
         }
 
         .pdm-footer-right {
@@ -622,7 +637,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             justify-content: space-between;
           }
 
-          .pdm-btn-brochure,
+          .pdm-btn-viewpdf,
           .pdm-btn-quote {
             flex: 1;
             justify-content: center;

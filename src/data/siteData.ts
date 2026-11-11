@@ -366,7 +366,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'decorative throws is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
     image: '/images/cardimage_4fdce090.webp',
     category: 'Linen',
-    brands: ['Cintra'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -377,7 +377,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'bath towels is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
     image: '/images/luxury_hotel_linen.jpg',
     category: 'Linen',
-    brands: ['Cintra'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -388,7 +388,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'hand towels is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
     image: '/images/linen_hand_towels.jpg',
     category: 'Linen',
-    brands: ['Cintra'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -399,7 +399,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'bath mats is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
     image: '/images/luxury_hotel_linen.jpg',
     category: 'Linen',
-    brands: ['Cintra'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -410,7 +410,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'hotel bed sheets is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
     image: '/images/luxury_hotel_bed_linen.jpg',
     category: 'Linen',
-    brands: ['Cintra'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -421,7 +421,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'hotel bed covers is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
     image: '/images/luxury_hotel_bed_linen.jpg',
     category: 'Linen',
-    brands: ['Cintra'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -432,7 +432,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'hotel duvets is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
     image: '/images/luxury_hotel_bed_linen.jpg',
     category: 'Linen',
-    brands: ['Cintra'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -443,7 +443,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'hotel curtains is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
     image: '/images/hotel_curtains_drapery.jpg',
     category: 'Linen',
-    brands: ['Cintra'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -454,7 +454,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'hotel carpets is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
     image: '/images/image__hotels__8af4967c.webp',
     category: 'Linen',
-    brands: ['Cintra'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -465,7 +465,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'hotel rugs is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
     image: '/images/image__hotels__8af4967c.webp',
     category: 'Linen',
-    brands: ['Cintra'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -476,7 +476,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'decorative cushions is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
     image: '/images/image__hotels__8af4967c.webp',
     category: 'Linen',
-    brands: ['Cintra'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -487,7 +487,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'hotel pillows is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
     image: '/images/hotel_pillows_collection.jpg',
     category: 'Linen',
-    brands: ['Cintra'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -498,7 +498,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'pillow covers is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
     image: '/images/hotel_pillows_collection.jpg',
     category: 'Linen',
-    brands: ['Cintra'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -509,7 +509,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'mattress protectors is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
     image: '/images/hotel_pillows_collection.jpg',
     category: 'Linen',
-    brands: ['Cintra'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -520,7 +520,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'pool towels is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
     image: '/images/resort_pool_towels.jpg',
     category: 'Linen',
-    brands: ['Cintra'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -531,7 +531,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'face towels is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
     image: '/images/resort_pool_towels.jpg',
     category: 'Linen',
-    brands: ['Cintra'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -542,7 +542,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'toilet rolls and wc bands provides a useful in-room or bathroom item for hotel guests.',
     image: '/images/hotel_bath_amenities_toilet_rolls.jpg',
     category: 'Guest Amenities',
-    brands: ['Fresh N Fine'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -553,7 +553,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'glass covers and glass coasters provides a useful in-room or bathroom item for hotel guests.',
     image: '/images/HotelAmenities.png',
     category: 'Guest Amenities',
-    brands: ['Victol'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -564,7 +564,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'bathroom guest kits provides a useful in-room or bathroom item for hotel guests.',
     image: '/images/hotel_guest_kits.jpg',
     category: 'Guest Amenities',
-    brands: ['Victol'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -575,7 +575,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'sewing and medical kits provides a useful in-room or bathroom item for hotel guests.',
     image: '/images/hotel_guest_kits.jpg',
     category: 'Guest Amenities',
-    brands: ['Victol'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -586,7 +586,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'guest stationery and folders provides a useful in-room or bathroom item for hotel guests.',
     image: '/images/hotel_folders_cards_stationery.jpg',
     category: 'Guest Amenities',
-    brands: ['Victol'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -597,7 +597,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'table and guest sundries provides a useful in-room or bathroom item for hotel guests.',
     image: '/images/cafe_disposables_straws.jpg',
     category: 'Guest Amenities',
-    brands: ['Victol'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -608,7 +608,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'liquid amenities and soaps provides a useful in-room or bathroom item for hotel guests.',
     image: '/images/botanical_guest_amenities.jpg',
     category: 'Guest Amenities',
-    brands: ['Victol'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -619,7 +619,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'hygiene bags and laundry essentials provides a useful in-room or bathroom item for hotel guests.',
     image: '/images/cardimage_1dbd1171.webp',
     category: 'Guest Amenities',
-    brands: ['Victol'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -630,7 +630,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'bath slippers provides a useful in-room or bathroom item for hotel guests.',
     image: '/images/image__guest_amenities_equipment__f4f6ec37.webp',
     category: 'Guest Amenities',
-    brands: ['Victol'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -1009,6 +1009,17 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     factors: []
   },
   {
+    id: 'housekeeping-fresh-n-fine',
+    title: 'Tissues & Dispensers',
+    subtitle: '',
+    details: 'fresh n fine supplies facial tissues, toilet tissue, napkins and tissue dispensers for guest rooms, washrooms and shared spaces.',
+    image: '/images/image__paper_products___dispensers__1a5dc51e.webp',
+    category: 'House Keeping',
+    brands: ['Fresh N Fine'],
+    industries: [],
+    factors: []
+  },
+  {
     id: 'housekeeping-reckitt-sanitation',
     title: 'Professional Infection Control & Disinfection',
     subtitle: '',
@@ -1081,7 +1092,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'commercial gas ranges is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
     image: '/images/commercial_kitchen_equipment.jpg',
     category: 'Kitchen Equipments',
-    brands: ['Serman'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -1092,7 +1103,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'induction cookers is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
     image: '/images/commercial_induction_cookers.jpg',
     category: 'Kitchen Equipments',
-    brands: ['Serman'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -1103,7 +1114,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'dosa plates is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
     image: '/images/commercial_dosa_plates.jpg',
     category: 'Kitchen Equipments',
-    brands: ['Serman'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -1114,7 +1125,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'griddles is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
     image: '/images/commercial_flat_griddles.jpg',
     category: 'Kitchen Equipments',
-    brands: ['Serman'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -1125,7 +1136,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'commercial refrigerators is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
     image: '/images/commercial_refrigeration_units.jpg',
     category: 'Kitchen Equipments',
-    brands: ['Serman'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -1136,7 +1147,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'deep freezers is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
     image: '/images/commercial_refrigeration_units.jpg',
     category: 'Kitchen Equipments',
-    brands: ['Serman'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -1147,7 +1158,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'undercounter chillers is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
     image: '/images/commercial_refrigeration_units.jpg',
     category: 'Kitchen Equipments',
-    brands: ['Serman'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -1158,7 +1169,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'display counters is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
     image: '/images/commercial_display_counters.jpg',
     category: 'Kitchen Equipments',
-    brands: ['Serman'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -1169,7 +1180,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'shawarma machine is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
     image: '/images/commercial_shawarma_machine.jpg',
     category: 'Kitchen Equipments',
-    brands: ['Serman'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -1180,7 +1191,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'chicken grill machine is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
     image: '/images/commercial_chicken_grill_machine.jpg',
     category: 'Kitchen Equipments',
-    brands: ['Serman'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -1191,7 +1202,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'dough kneader is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
     image: '/images/commercial_food_prep_machines.jpg',
     category: 'Kitchen Equipments',
-    brands: ['Serman'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -1202,7 +1213,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'vegetable cutter is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
     image: '/images/KitchenEquipment.png',
     category: 'Kitchen Equipments',
-    brands: ['Serman'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -1213,7 +1224,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'pulverizer is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
     image: '/images/commercial_food_prep_machines.jpg',
     category: 'Kitchen Equipments',
-    brands: ['Serman'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -1224,7 +1235,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'meat mincer is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
     image: '/images/commercial_meat_mincer.jpg',
     category: 'Kitchen Equipments',
-    brands: ['Serman'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -1235,7 +1246,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'planetary mixer is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
     image: '/images/commercial_planetary_mixer.jpg',
     category: 'Kitchen Equipments',
-    brands: ['Serman'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -1246,7 +1257,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'deck oven is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
     image: '/images/commercial_deck_ovens.jpg',
     category: 'Kitchen Equipments',
-    brands: ['Serman'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -1257,7 +1268,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'convection oven is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
     image: '/images/commercial_deck_ovens.jpg',
     category: 'Kitchen Equipments',
-    brands: ['Serman'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -1268,7 +1279,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'pizza oven is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
     image: '/images/commercial_pizza_oven.jpg',
     category: 'Kitchen Equipments',
-    brands: ['Serman'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -1279,7 +1290,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'dishwasher is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
     image: '/images/commercial_dishwasher.jpg',
     category: 'Kitchen Equipments',
-    brands: ['Serman'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -1290,7 +1301,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'water cooler is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
     image: '/images/commercial_ice_cube_machine.jpg',
     category: 'Kitchen Equipments',
-    brands: ['Serman'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -1301,7 +1312,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'ice cube machine is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
     image: '/images/commercial_ice_cube_machine.jpg',
     category: 'Kitchen Equipments',
-    brands: ['Serman'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -1312,7 +1323,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'industrial hood is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
     image: '/images/commercial_exhaust_hood.jpg',
     category: 'Kitchen Equipments',
-    brands: ['Serman'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -1323,7 +1334,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'fresh air and exhaust systems is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
     image: '/images/commercial_exhaust_hood.jpg',
     category: 'Kitchen Equipments',
-    brands: ['Serman'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -1334,7 +1345,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'ss tables and sinks is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
     image: '/images/KitchenEquipment.png',
     category: 'Kitchen Equipments',
-    brands: ['Serman'],
+    brands: [],
     industries: [],
     factors: []
   },
@@ -1345,7 +1356,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'fryers is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
     image: '/images/commercial_deep_fryers.jpg',
     category: 'Kitchen Equipments',
-    brands: ['Serman'],
+    brands: [],
     industries: [],
     factors: []
   }
