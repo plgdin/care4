@@ -161,8 +161,9 @@ export const Hero: React.FC<HeroProps> = ({
           position: relative;
           background-color: #ffffff;
           width: 100%;
-          min-height: 740px;
-          height: clamp(720px, 80vh, 820px);
+          min-height: 540px;
+          height: calc(100vh - 84px);
+          max-height: 840px;
           display: flex;
           align-items: center;
           overflow: hidden;
@@ -339,7 +340,7 @@ export const Hero: React.FC<HeroProps> = ({
         }
         .panel-caption {
           position: absolute;
-          bottom: 58px;
+          bottom: clamp(18px, 3.2vh, 40px);
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -402,7 +403,7 @@ export const Hero: React.FC<HeroProps> = ({
           width: 100%;
           max-width: 1680px;
           margin: 0 auto;
-          padding: 60px clamp(24px, 3.5vw, 64px);
+          padding: clamp(16px, 2.5vh, 38px) clamp(24px, 3.5vw, 64px);
           display: flex;
           pointer-events: none;
         }
@@ -416,20 +417,20 @@ export const Hero: React.FC<HeroProps> = ({
 
         .hero-eyebrow {
           font-family: var(--font-manrope), sans-serif;
-          font-size: 13px;
+          font-size: 12.5px;
           font-weight: 700;
           letter-spacing: 0.14em;
           text-transform: uppercase;
           color: #7b889b;
-          margin-bottom: 22px;
+          margin-bottom: clamp(8px, 1.4vh, 16px);
         }
 
         .hero-headline {
           font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
-          font-size: clamp(52px, 5.5vw, 82px);
-          line-height: 1.04;
+          font-size: clamp(40px, 4.2vw, 68px);
+          line-height: 1.05;
           letter-spacing: -0.02em;
-          margin-bottom: 20px;
+          margin-bottom: clamp(8px, 1.4vh, 16px);
           font-weight: 700;
         }
         .headline-blue {
@@ -446,21 +447,21 @@ export const Hero: React.FC<HeroProps> = ({
 
         .hero-subhead {
           font-family: var(--font-manrope), sans-serif;
-          font-size: 25px;
+          font-size: clamp(18px, 1.6vw, 23px);
           font-weight: 800;
           color: #10263f;
-          margin-bottom: 16px;
+          margin-bottom: clamp(8px, 1.2vh, 13px);
           letter-spacing: -0.015em;
           line-height: 1.3;
         }
 
         .hero-body {
           font-family: var(--font-manrope), sans-serif;
-          font-size: 17px;
-          line-height: 1.65;
+          font-size: clamp(14px, 1.1vw, 16px);
+          line-height: 1.55;
           color: #64748b;
-          max-width: 510px;
-          margin-bottom: 34px;
+          max-width: 500px;
+          margin-bottom: clamp(14px, 2.2vh, 26px);
           font-weight: 500;
         }
 
@@ -468,8 +469,8 @@ export const Hero: React.FC<HeroProps> = ({
         .hero-cta-buttons {
           display: flex;
           align-items: center;
-          gap: 16px;
-          margin-bottom: 38px;
+          gap: 14px;
+          margin-bottom: clamp(14px, 2.2vh, 26px);
           flex-wrap: wrap;
         }
         .btn-primary-explore {
@@ -477,8 +478,8 @@ export const Hero: React.FC<HeroProps> = ({
           color: #ffffff;
           font-family: var(--font-manrope), sans-serif;
           font-weight: 700;
-          font-size: 16.5px;
-          padding: 15px 34px;
+          font-size: 15.5px;
+          padding: clamp(10px, 1.3vh, 13px) clamp(22px, 1.8vw, 30px);
           border-radius: var(--radius-full);
           display: inline-flex;
           align-items: center;
@@ -493,7 +494,7 @@ export const Hero: React.FC<HeroProps> = ({
           box-shadow: 0 6px 18px rgba(214, 32, 42, 0.35);
         }
         .btn-arrow {
-          font-size: 18px;
+          font-size: 17px;
           transition: transform var(--transition-fast);
         }
         .btn-primary-explore:hover .btn-arrow {
@@ -506,8 +507,8 @@ export const Hero: React.FC<HeroProps> = ({
           border: 1.5px solid #10263f;
           font-family: var(--font-manrope), sans-serif;
           font-weight: 700;
-          font-size: 16.5px;
-          padding: 14px 32px;
+          font-size: 15.5px;
+          padding: clamp(9px, 1.2vh, 12px) clamp(20px, 1.6vw, 28px);
           border-radius: var(--radius-full);
           transition: all var(--transition-fast);
           cursor: pointer;
@@ -523,26 +524,26 @@ export const Hero: React.FC<HeroProps> = ({
         .hero-industries-row {
           display: flex;
           align-items: center;
-          gap: 22px;
-          margin-bottom: 32px;
+          gap: clamp(14px, 1.6vw, 22px);
+          margin-bottom: clamp(12px, 2vh, 22px);
           flex-wrap: wrap;
         }
         .industry-item {
           display: flex;
           align-items: center;
-          gap: 9px;
+          gap: 8px;
           flex-shrink: 0;
           white-space: nowrap;
         }
         .industry-icon-img {
-          width: 36px;
-          height: 36px;
+          width: clamp(28px, 3vh, 34px);
+          height: clamp(28px, 3vh, 34px);
           object-fit: contain;
           flex-shrink: 0;
         }
         .industry-label {
           font-family: var(--font-manrope), sans-serif;
-          font-size: 15.5px;
+          font-size: clamp(13.5px, 1.1vw, 15px);
           font-weight: 700;
           color: var(--color-navy-dark);
           white-space: nowrap;
@@ -555,7 +556,7 @@ export const Hero: React.FC<HeroProps> = ({
         }
         .tagline-text {
           font-family: var(--font-manrope), sans-serif;
-          font-size: 12px;
+          font-size: clamp(10.5px, 0.9vw, 12px);
           font-weight: 700;
           letter-spacing: 0.1em;
           color: #8b99a9;

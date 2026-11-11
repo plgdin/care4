@@ -151,7 +151,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           top: 0;
           left: 0;
           right: 0;
-          height: 98px;
+          height: 84px;
           background: #ffffff;
           border-bottom: 1px solid rgba(0, 0, 0, 0.06);
           z-index: 1000;
@@ -174,7 +174,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           background: transparent;
         }
         .navbar-logo-img {
-          height: 76px;
+          height: 64px;
           width: auto;
           object-fit: contain;
           transition: transform var(--transition-fast);
@@ -222,7 +222,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         }
         .mobile-drawer {
           position: absolute;
-          top: 98px;
+          top: 84px;
           left: 0;
           right: 0;
           background: #ffffff;
