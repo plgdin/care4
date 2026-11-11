@@ -153,7 +153,6 @@ export const Hero: React.FC<HeroProps> = ({
 
           {/* Bottom Tagline */}
           <div className="hero-tagline-wrapper">
-            <div className="tagline-red-bar" aria-hidden="true" />
             <span className="tagline-text">
               PEOPLE · PRODUCTS · A BETTER HOSPITALITY TOMORROW
             </span>
@@ -565,14 +564,6 @@ export const Hero: React.FC<HeroProps> = ({
         .hero-tagline-wrapper {
           display: flex;
           align-items: center;
-          gap: 12px;
-        }
-        .tagline-red-bar {
-          width: 32px;
-          height: 2px;
-          background-color: #d6202a;
-          border-radius: 2px;
-          flex-shrink: 0;
         }
         .tagline-text {
           font-family: var(--font-manrope), sans-serif;
