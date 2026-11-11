@@ -119,35 +119,31 @@ export const Hero: React.FC<HeroProps> = ({
             </button>
           </div>
 
-          {/* Industry Icons with Catering brought down to ensure crystal-clear visibility */}
-          <div className="hero-industries-block">
-            <div className="hero-industries-row">
-              <div className="industry-item">
-                <img 
-                  src="/images/icon_hotel_lg.webp" 
-                  alt="Hotels" 
-                  className="industry-icon-img" 
-                />
-                <span className="industry-label">Hotels</span>
-              </div>
-              <div className="industry-item">
-                <img 
-                  src="/images/icon_restaurant_lg.webp" 
-                  alt="Restaurants & Cafes" 
-                  className="industry-icon-img" 
-                />
-                <span className="industry-label">Restaurants &amp; Cafes</span>
-              </div>
+          {/* Industry Icons in one single line */}
+          <div className="hero-industries-row">
+            <div className="industry-item">
+              <img 
+                src="/images/icon_hotel_lg.webp" 
+                alt="Hotels" 
+                className="industry-icon-img" 
+              />
+              <span className="industry-label">Hotels</span>
             </div>
-            <div className="hero-industries-row hero-industries-row-catering">
-              <div className="industry-item">
-                <img 
-                  src="/images/icon_catering_lg.webp" 
-                  alt="Catering" 
-                  className="industry-icon-img" 
-                />
-                <span className="industry-label">Catering</span>
-              </div>
+            <div className="industry-item">
+              <img 
+                src="/images/icon_restaurant_lg.webp" 
+                alt="Restaurants & Cafes" 
+                className="industry-icon-img" 
+              />
+              <span className="industry-label">Restaurants &amp; Cafes</span>
+            </div>
+            <div className="industry-item">
+              <img 
+                src="/images/icon_catering_lg.webp" 
+                alt="Catering" 
+                className="industry-icon-img" 
+              />
+              <span className="industry-label">Catering</span>
             </div>
           </div>
 
@@ -523,38 +519,30 @@ export const Hero: React.FC<HeroProps> = ({
           box-shadow: 0 4px 12px rgba(16, 38, 63, 0.15);
         }
 
-        /* Industry Icons Block (Catering brought down for crystal-clear visibility) */
-        .hero-industries-block {
-          display: flex;
-          flex-direction: column;
-          gap: 12px;
-          margin-bottom: 30px;
-        }
+        /* Industry Icons Row (Hotels, Restaurants & Cafes, Catering in one line) */
         .hero-industries-row {
           display: flex;
           align-items: center;
-          gap: 26px;
+          gap: 22px;
+          margin-bottom: 32px;
           flex-wrap: wrap;
-        }
-        .hero-industries-row-catering {
-          margin-top: 2px;
         }
         .industry-item {
           display: flex;
           align-items: center;
-          gap: 12px;
+          gap: 9px;
           flex-shrink: 0;
           white-space: nowrap;
         }
         .industry-icon-img {
-          width: 50px;
-          height: 50px;
+          width: 36px;
+          height: 36px;
           object-fit: contain;
           flex-shrink: 0;
         }
         .industry-label {
           font-family: var(--font-manrope), sans-serif;
-          font-size: 18.5px;
+          font-size: 15.5px;
           font-weight: 700;
           color: var(--color-navy-dark);
           white-space: nowrap;
@@ -642,14 +630,14 @@ export const Hero: React.FC<HeroProps> = ({
             font-size: 19px;
           }
           .hero-industries-row {
-            gap: 16px;
+            gap: 14px;
           }
           .industry-icon-img {
-            width: 38px;
-            height: 38px;
+            width: 30px;
+            height: 30px;
           }
           .industry-label {
-            font-size: 15px;
+            font-size: 14px;
           }
           .hero-cta-buttons {
             flex-direction: column;
