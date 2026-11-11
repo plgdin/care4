@@ -121,7 +121,6 @@ const SERVED_SECTORS: { label: string; icon: LucideIcon }[] = [
   { label: 'Industrial Canteens', icon: Factory },
   { label: 'Homestays', icon: House },
 ];
-
 /* ─── component ─── */
 export const ClientMarquee: React.FC = () => {
   return (

@@ -161,7 +161,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           top: 0;
           left: 0;
           right: 0;
-          height: 98px;
+          height: 84px;
           background: #ffffff;
           border-bottom: 1px solid rgba(0, 0, 0, 0.06);
           border-radius: 0 0 18px 18px;
@@ -172,9 +172,9 @@ export const Navbar: React.FC<NavbarProps> = ({
         }
         .navbar-container {
           width: 100%;
-          max-width: var(--container-max-width);
+          max-width: 100%;
           margin: 0 auto;
-          padding: 0 40px;
+          padding: 0 20px;
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -187,7 +187,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           background: transparent;
         }
         .navbar-logo-img {
-          height: 76px;
+          height: 64px;
           width: auto;
           object-fit: contain;
           transition: transform var(--transition-fast);
@@ -239,8 +239,8 @@ export const Navbar: React.FC<NavbarProps> = ({
           box-shadow: 0 4px 14px rgba(201, 42, 42, 0.3);
         }
         @media (min-width: 901px) and (max-width: 1120px) {
-          .navbar-container { padding: 0 24px; gap: 20px; }
-          .navbar-logo-img { height: 66px; }
+          .navbar-container { padding: 0 20px; gap: 20px; }
+          .navbar-logo-img { height: 58px; }
           .navbar-nav-desktop { gap: 18px; }
           .nav-link { font-size: 16px; }
           .btn-quote { padding: 12px 20px; font-size: 15px; }
@@ -251,7 +251,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         }
         .mobile-drawer {
           position: absolute;
-          top: 98px;
+          top: 84px;
           left: 0;
           right: 0;
           background: #ffffff;
