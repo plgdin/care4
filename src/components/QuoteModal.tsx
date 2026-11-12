@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, CheckCircle, Send } from 'lucide-react';
-import { CONTACT_INFO } from '../data/siteData';
+import { CONTACT_INFO, INDUSTRY_OPTIONS } from '../data/siteData';
+import FormSelect from './FormSelect';
 
 interface QuoteModalProps {
   isOpen: boolean;
@@ -15,7 +16,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({ isOpen, onClose, initial
     business: '',
     email: '',
     phone: '',
-    industry: 'Hotels',
+    industry: 'Hotels & Resorts',
     message: ''
   });
 
@@ -198,16 +199,12 @@ ${formData.message || 'General catalog quotation'}`
 
             <div className="form-group full-width">
               <label>Industry Segment</label>
-              <select 
+              <FormSelect
                 value={formData.industry}
-                onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
-              >
-                <option value="Hotels">Hotels & Resorts</option>
-                <option value="Restaurants">Restaurants & Cafes</option>
-                <option value="Catering">Catering & Banquets</option>
-                <option value="Healthcare">Healthcare & Hospitals</option>
-                <option value="Commercial">Commercial / Facilities</option>
-              </select>
+                onChange={(industry) => setFormData({ ...formData, industry })}
+                options={INDUSTRY_OPTIONS}
+                ariaLabel="Industry Segment"
+              />
             </div>
 
             <div className="form-group full-width">
@@ -263,20 +260,22 @@ ${formData.message || 'General catalog quotation'}`
         }
         .modal-close-btn {
           position: absolute;
-          top: 20px;
-          right: 20px;
-          width: 32px;
-          height: 32px;
-          border-radius: 50%;
-          background: var(--color-bg-alt);
+          top: 10px;
+          right: 10px;
+          width: 34px;
+          height: 34px;
+          border: none;
+          background: transparent;
           color: var(--color-navy-dark);
           display: flex;
           align-items: center;
           justify-content: center;
-          transition: background var(--transition-fast);
+          cursor: pointer;
+          transition: color var(--transition-fast), transform var(--transition-fast);
         }
         .modal-close-btn:hover {
-          background: var(--color-border);
+          color: var(--color-accent-red);
+          transform: rotate(90deg);
         }
         .modal-badge {
           display: inline-block;

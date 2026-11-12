@@ -10,7 +10,8 @@ import {
   CheckCircle, 
   ExternalLink 
 } from 'lucide-react';
-import { CONTACT_INFO } from '../data/siteData';
+import { CONTACT_INFO, INDUSTRY_OPTIONS } from '../data/siteData';
+import FormSelect from './FormSelect';
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -24,7 +25,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
     business: '',
     email: '',
     phone: '',
-    industry: 'Hotels',
+    industry: 'Hotels & Resorts',
     message: ''
   });
 
@@ -107,7 +108,7 @@ ${formData.message || 'General hospitality inquiry'}`
       business: '',
       email: '',
       phone: '',
-      industry: 'Hotels',
+      industry: 'Hotels & Resorts',
       message: ''
     });
   };
@@ -222,18 +223,13 @@ ${formData.message || 'General hospitality inquiry'}`
 
                 <div className="form-field-group full-width">
                   <label htmlFor="modal-industry">Industry Segment</label>
-                  <select 
+                  <FormSelect
                     id="modal-industry"
                     value={formData.industry}
-                    onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
-                  >
-                    <option value="Hotels">Hotels &amp; Resorts</option>
-                    <option value="Restaurants">Restaurants &amp; Cafes</option>
-                    <option value="Catering">Catering &amp; Banquets</option>
-                    <option value="Healthcare">Healthcare &amp; Hospitals</option>
-                    <option value="Commercial">Commercial &amp; Facility Management</option>
-                    <option value="Other">Other Hospitality Services</option>
-                  </select>
+                    onChange={(industry) => setFormData({ ...formData, industry })}
+                    options={INDUSTRY_OPTIONS}
+                    ariaLabel="Industry Segment"
+                  />
                 </div>
 
                 <div className="form-field-group full-width">
@@ -437,23 +433,21 @@ ${formData.message || 'General hospitality inquiry'}`
 
         .contact-modal-close-btn {
           position: absolute;
-          top: 20px;
-          right: 20px;
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          background: #f1f5f9;
-          border: 1px solid rgba(0, 0, 0, 0.06);
-          color: #475569;
+          top: 10px;
+          right: 10px;
+          width: 34px;
+          height: 34px;
+          border: none;
+          background: transparent;
+          color: #64748b;
           display: flex;
           align-items: center;
           justify-content: center;
           cursor: pointer;
           z-index: 10;
-          transition: all 0.2s ease;
+          transition: color 0.2s ease, transform 0.2s ease;
         }
         .contact-modal-close-btn:hover {
-          background: #e2e8f0;
           color: #0f172a;
           transform: rotate(90deg);
         }

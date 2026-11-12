@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
   ArrowRight, 
-  ChevronRight, 
   Truck, 
   Users,
   Award
@@ -14,7 +13,6 @@ import {
 
 interface AboutPageProps {
   onOpenQuote: () => void;
-  onNavigateHome: () => void;
 }
 
 const StatCountUp: React.FC<{ value: string; duration?: number }> = ({ value, duration = 1800 }) => {
@@ -74,21 +72,15 @@ const StatCountUp: React.FC<{ value: string; duration?: number }> = ({ value, du
   return <span ref={ref} className="stat-val">{displayValue}</span>;
 };
 
-export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHome }) => {
+export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote }) => {
   return (
     <div className="about-page">
       {/* Hero Banner Section */}
       <section className="about-hero-section">
         <div className="about-hero-bg-overlay" />
         <div className="about-hero-container">
-          {/* Breadcrumb */}
-          <div className="about-breadcrumb">
-            <button onClick={onNavigateHome} className="breadcrumb-link">Home</button>
-            <ChevronRight size={12} className="breadcrumb-sep" />
-            <span className="breadcrumb-current">About Us</span>
-          </div>
-
           <h1 className="about-hero-title">About Us</h1>
+          <div className="about-hero-bar" />
           <p className="about-hero-desc">
             Care4 Associates, India is a leading distributor of hospitality operating supplies, tableware and hygiene solutions serving hotels, restaurants, cafes and catering establishments across Kerala and beyond.
           </p>
@@ -126,11 +118,6 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
             <p className="story-body">
               With years of experience in the distribution of hospitality essentials and operating supplies, Care4 Associates has grown to become a trusted partner for the hospitality industry. We are committed to delivering quality products, efficient supply chain solutions and exceptional service to hotels, restaurants, cafes, caterers and institutions across Kerala.
             </p>
-
-            <button className="btn-our-journey" onClick={onOpenQuote}>
-              <span>Our Journey</span>
-              <ArrowRight size={16} />
-            </button>
           </div>
 
           {/* Right Column Image & Floating Stats */}
@@ -203,7 +190,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
               “We Don't Just Supply Equipment, We Build Kitchens that Perform.”
             </p>
             <p className="offer-desc">
-              From a single teaspoon to complete turnkey commercial kitchens, we deliver premium quality, bulk wholesale value, and end-to-end support across Kerala and neighbouring states.
+              From a single teaspoon to a complete commercial kitchen, we deliver premium quality, bulk wholesale value, and end-to-end support across Kerala and neighbouring states.
             </p>
           </div>
 
@@ -220,7 +207,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
                     <span className="offer-number-doodle">{item.number}</span>
                     {isHighlight && (
                       <span className="offer-badge-tag">
-                        {item.number === '5' ? 'TURNKEY PROJECT' : 'EXPERT CONSULTATION'}
+                        {item.number === '5' ? 'PROJECT SUPPLY' : 'EXPERT CONSULTATION'}
                       </span>
                     )}
                   </div>
@@ -236,12 +223,12 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
           {/* Featured Turnkey Kitchens & Consultation Banner */}
           <div className="offer-turnkey-feature">
             <div className="turnkey-feature-left">
-              <div className="turnkey-badge">TURNKEY PROJECTS &amp; CONSULTATION</div>
+              <div className="turnkey-badge">PROJECT SUPPLY &amp; CONSULTATION</div>
               <h3 className="turnkey-title">
                 We Don't Just Supply Equipment, We Build Kitchens that Perform.
               </h3>
               <p className="turnkey-text">
-                Planning a new hotel, resort, cloud kitchen, or restaurant? Our dedicated commercial kitchen team manages everything from CAD workflow planning, stainless steel fabrication, and exhaust hood systems to professional installation, testing, and responsive after-sales service.
+                Planning a new hotel, resort, cloud kitchen, or restaurant? Our team helps you get it right — layout planning, equipment sizing, and budgeting for your space — then supplies everything from a single teaspoon to a complete commercial kitchen, backed by dependable after-sales support.
               </p>
             </div>
             <div className="turnkey-feature-right">
@@ -261,11 +248,15 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
         /* Hero Banner */
         .about-hero-section {
           position: relative;
+          display: flex;
+          align-items: center;
+          min-height: 476px;
+          box-sizing: border-box;
           background-color: var(--color-navy-deep);
           background-image: url('/images/image__fine_dining__2ac60065.webp');
           background-size: cover;
           background-position: center;
-          padding: 80px 0 72px 0;
+          padding: 72px 0 44px 0;
           color: #ffffff;
         }
         .about-hero-bg-overlay {
@@ -281,41 +272,29 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
           margin: 0 auto;
           padding: 0 48px;
         }
-        .about-breadcrumb {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          margin-bottom: 24px;
-          font-family: var(--font-inter);
-          font-size: 13px;
-        }
-        .breadcrumb-link {
-          color: rgba(255, 255, 255, 0.6);
-          transition: color var(--transition-fast);
-        }
-        .breadcrumb-link:hover {
-          color: #ffffff;
-        }
-        .breadcrumb-sep {
-          color: rgba(255, 255, 255, 0.4);
-        }
-        .breadcrumb-current {
-          color: rgba(255, 255, 255, 0.85);
-        }
         .about-hero-title {
           font-family: var(--font-display);
-          font-size: 60px;
+          font-size: 72px;
           font-weight: 800;
-          line-height: 1.1;
-          margin-bottom: 20px;
+          line-height: 1.08;
+          letter-spacing: -0.02em;
+          margin-bottom: 16px;
+        }
+        .about-hero-bar {
+          width: 340px;
+          max-width: 100%;
+          height: 4px;
+          background-color: var(--color-accent-red);
+          border-radius: 2px;
+          margin-bottom: 24px;
         }
         .about-hero-desc {
           font-family: var(--font-inter);
-          font-size: 18px;
+          font-size: 21px;
           line-height: 1.6;
-          color: rgba(255, 255, 255, 0.8);
-          max-width: 600px;
-          margin-bottom: 36px;
+          color: rgba(255, 255, 255, 0.85);
+          max-width: 580px;
+          margin-bottom: 32px;
           text-align: justify;
         }
         .about-feature-badges {
@@ -390,22 +369,6 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
           color: var(--color-text-body);
           margin-bottom: 32px;
           text-align: justify;
-        }
-        .btn-our-journey {
-          background-color: var(--color-red-alt);
-          color: #ffffff;
-          font-family: var(--font-inter);
-          font-weight: 600;
-          font-size: 14px;
-          padding: 12px 28px;
-          border-radius: var(--radius-xs);
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          transition: background-color var(--transition-fast);
-        }
-        .btn-our-journey:hover {
-          background-color: #b31a20;
         }
         .our-story-right {
           position: relative;
@@ -612,10 +575,13 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
           transform: translateY(-4px);
           box-shadow: 0 8px 24px rgba(0, 0, 0, 0.09);
         }
+        .offer-card-highlight:hover {
+          box-shadow: 0 8px 24px rgba(217, 27, 42, 0.2);
+        }
         .offer-card-highlight {
-          border-left: 4px solid var(--color-navy-deep);
-          background: linear-gradient(180deg, #fbfcfe 0%, #ffffff 100%);
-          box-shadow: 0 4px 18px rgba(2, 52, 141, 0.08);
+          border-left: 4px solid var(--color-red-alt);
+          background: linear-gradient(180deg, #fffafa 0%, #ffffff 100%);
+          box-shadow: 0 4px 18px rgba(217, 27, 42, 0.14);
         }
         .offer-card-top {
           display: flex;
@@ -636,8 +602,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
           flex-shrink: 0;
         }
         .offer-card-highlight .offer-check-mark {
-          background: rgba(2, 52, 141, 0.12);
-          color: var(--color-navy-deep);
+          background: rgba(217, 27, 42, 0.1);
+          color: var(--color-red-alt);
         }
         .offer-number-doodle {
           font-family: var(--font-doodle);
@@ -761,11 +727,23 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenQuote, onNavigateHom
           }
         }
         @media (max-width: 600px) {
+          .about-hero-section {
+            min-height: 0;
+            padding: 48px 0 28px 0;
+          }
           .about-hero-container, .our-story-container, .who-we-serve-container, .what-we-offer-container {
             padding: 0 20px;
           }
           .about-hero-title {
             font-size: 42px;
+          }
+          .about-hero-bar {
+            width: 220px;
+            margin-bottom: 18px;
+          }
+          .about-hero-desc {
+            font-size: 16px;
+            margin-bottom: 24px;
           }
         }
       `}</style>

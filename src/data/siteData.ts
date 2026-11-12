@@ -1425,8 +1425,8 @@ export const WHAT_WE_OFFER: OfferItem[] = [
   },
   {
     number: '5',
-    title: 'Turnkey Kitchen Projects',
-    description: 'Complete commercial kitchen solutions: Design, Supply, Installation & Service from blueprint to operational handover.'
+    title: 'Complete Project Supply',
+    description: 'Full commercial kitchen equipment packages for new hotels, resorts, restaurants, and cloud kitchens — supplied, delivered, and backed by after-sales support.'
   },
   {
     number: '6',
@@ -1436,6 +1436,19 @@ export const WHAT_WE_OFFER: OfferItem[] = [
 ];
 
 export const OFFER_TAGLINE = "We Don't Just Supply Equipment, We Build Kitchens that Perform.";
+
+/** Industry segment choices shared by the contact + quote form dropdowns.
+ *  Mirrors the served sectors shown in ClientMarquee (SERVED_SECTORS). */
+export const INDUSTRY_OPTIONS: { value: string; label: string }[] = [
+  { value: 'Hotels & Resorts', label: 'Hotels & Resorts' },
+  { value: 'Restaurants & Cafes', label: 'Restaurants & Cafes' },
+  { value: 'Cloud Kitchens', label: 'Cloud Kitchens' },
+  { value: 'Catering', label: 'Catering Companies & Banquets' },
+  { value: 'Hospitals', label: 'Hospitals & Healthcare' },
+  { value: 'Industrial Canteens', label: 'Industrial & Institutional Canteens' },
+  { value: 'Homestays & Retreats', label: 'Homestays & Retreat Centres' },
+  { value: 'Other', label: 'Other' }
+];
 
 export interface ProductHighlight {
   label: string;

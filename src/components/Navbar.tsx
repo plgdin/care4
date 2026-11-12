@@ -195,7 +195,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           left: 0;
           right: 0;
           height: 84px;
-          background: #f0f4f9;
+          background: #ffffff;
           border-bottom: 1px solid rgba(2, 52, 141, 0.08);
           box-shadow: 0 8px 22px rgba(15, 28, 45, 0.06);
           z-index: 1000;
@@ -286,7 +286,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           top: 84px;
           left: 0;
           right: 0;
-          background: #f0f4f9;
+          background: #ffffff;
           padding: 24px;
           display: flex;
           flex-direction: column;

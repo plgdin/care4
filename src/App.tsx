@@ -180,7 +180,6 @@ export const App: React.FC = () => {
       {activeTab === 'about' && (
         <AboutPage 
           onOpenQuote={() => handleOpenQuote()} 
-          onNavigateHome={() => handleNavigate('home')} 
         />
       )}
 

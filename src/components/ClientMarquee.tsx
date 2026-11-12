@@ -6,11 +6,11 @@ import {
   Factory,
   Hospital,
   House,
+  Palmtree,
   Umbrella,
   BedDouble,
   UtensilsCrossed,
-  type LucideIcon,
-  type LucideProps
+  type LucideIcon
 } from 'lucide-react';
 
 /* ─── curated client logo manifest (only authentic, high-resolution brand logos) ─── */
@@ -86,33 +86,10 @@ const half = Math.ceil(CLIENT_LOGOS.length / 2);
 const ROW_1 = CLIENT_LOGOS.slice(0, half);
 const ROW_2 = CLIENT_LOGOS.slice(half);
 
-const LotusIcon: LucideIcon = React.forwardRef<SVGSVGElement, LucideProps>(
-  ({ size = 24, strokeWidth = 2, ...props }, ref) => (
-    <svg
-      ref={ref}
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={strokeWidth}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      {...props}
-    >
-      <path d="M12 19c-1.8-4.8-.7-9.3 0-12 2.8 3.4 4.3 7.5 0 12Z" />
-      <path d="M12 19c-4.6-1.2-7.2-4.4-8.7-7.1 4.1.2 7.6 2 8.7 7.1Z" />
-      <path d="M12 19c4.6-1.2 7.2-4.4 8.7-7.1-4.1.2-7.6 2-8.7 7.1Z" />
-      <path d="M5 21h14" />
-    </svg>
-  )
-);
-LotusIcon.displayName = 'LotusIcon';
-
 const SERVED_SECTORS: { label: string; icon: LucideIcon }[] = [
   { label: 'Hotels', icon: BedDouble },
   { label: 'Resorts', icon: Umbrella },
-  { label: 'Retreat Centres', icon: LotusIcon },
+  { label: 'Retreat Centres', icon: Palmtree },
   { label: 'Restaurants', icon: UtensilsCrossed },
   { label: 'Cafes', icon: Coffee },
   { label: 'Cloud Kitchens', icon: CookingPot },
