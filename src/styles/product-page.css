@@ -610,12 +610,12 @@
    ========================================================================== */
 .lookbook-subnav-bar {
   position: sticky;
-  top: 98px;
+  top: 84px;
   z-index: 55;
   background: #ffffff;
   border-bottom: 1px solid #e2e8f0;
-  padding: 16px 0;
-  box-shadow: 0 4px 20px -2px rgba(15, 28, 45, 0.06);
+  padding: 14px 0;
+  box-shadow: 0 4px 16px -2px rgba(15, 28, 45, 0.07);
 }
 
 .lookbook-subnav-inner {
@@ -759,20 +759,26 @@
 .lookbook-search-input-wrap {
   position: relative;
   width: 100%;
-  max-width: 520px;
+  max-width: 480px;
 }
 
 .lookbook-search-input-wrap input {
   width: 100%;
   height: 44px;
-  padding: 0 36px 0 42px;
-  font-size: 15.5px;
+  padding: 0 38px 0 44px;
+  font-size: 15px;
   font-family: var(--font-body);
   border: 1.5px solid #cbd5e1;
-  border-radius: 10px;
-  background: #f8fafc;
+  border-radius: 9999px;
+  background: #ffffff;
   color: #0f1c2d;
+  box-shadow: 0 2px 6px rgba(15, 28, 45, 0.04);
   transition: all 0.2s ease;
+}
+
+.lookbook-search-input-wrap input:hover {
+  border-color: #94a3b8;
+  box-shadow: 0 3px 10px rgba(15, 28, 45, 0.07);
 }
 
 .lookbook-search-input-wrap input:focus {
@@ -784,7 +790,7 @@
 
 .lookbook-search-icon {
   position: absolute;
-  left: 14px;
+  left: 16px;
   top: 50%;
   transform: translateY(-50%);
   color: #64748b;
@@ -793,7 +799,7 @@
 
 .lookbook-search-clear {
   position: absolute;
-  right: 12px;
+  right: 14px;
   top: 50%;
   transform: translateY(-50%);
   background: none;
@@ -803,6 +809,7 @@
   padding: 4px;
   display: flex;
   align-items: center;
+  border-radius: 50%;
 }
 
 .lookbook-search-clear:hover {
@@ -813,19 +820,20 @@
 .lookbook-view-switcher {
   display: inline-flex;
   background: #f1f5f9;
-  border-radius: 10px;
+  border-radius: 9999px;
   padding: 4px;
   border: 1.5px solid #cbd5e1;
   flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(15, 28, 45, 0.04);
 }
 
 .lb-view-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 14px;
-  border-radius: 7px;
-  font-size: 15px;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  font-size: 14.5px;
   font-weight: 600;
   color: #475569;
   border: none;
@@ -842,7 +850,7 @@
   background: #ffffff;
   color: #02348d;
   font-weight: 700;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(15, 28, 45, 0.12);
 }
 
 /* ==========================================================================
@@ -880,18 +888,21 @@
   gap: 8px;
   background: #f1f5f9;
   color: #1e293b;
-  border: 1px solid #cbd5e1;
-  padding: 8px 14px;
-  border-radius: 8px;
+  border: 1.5px solid #cbd5e1;
+  padding: 8px 18px;
+  border-radius: 9999px;
   font-size: 14.5px;
   font-weight: 600;
   cursor: pointer;
+  box-shadow: 0 2px 6px rgba(15, 28, 45, 0.04);
   transition: all 0.15s ease;
 }
 
 .btn-clear-all-filters:hover {
   background: #e2e8f0;
   color: #0f1c2d;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(15, 28, 45, 0.08);
 }
 
 /* HIGH-IMPACT SHOWCASE CARDS GRID ("Legible and Big") */
@@ -1104,27 +1115,57 @@
 
 .lb-brand-select-btn {
   height: 44px;
-  min-width: 210px;
+  min-width: 200px;
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  padding: 0 14px;
-  font-size: 15px;
+  padding: 0 16px 0 18px;
+  font-size: 14.5px;
   font-family: var(--font-body);
   font-weight: 600;
   border: 1.5px solid #cbd5e1;
-  border-radius: 10px;
-  background: #f8fafc;
+  border-radius: 9999px;
+  background: #ffffff;
   color: #0f1c2d;
   cursor: pointer;
-  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(15, 28, 45, 0.04);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .lb-brand-select-btn:hover,
 .lb-brand-select-btn:focus-visible {
   border-color: #02348d;
-  background: #ffffff;
+  background: #f8fafc;
+  box-shadow: 0 4px 12px rgba(15, 28, 45, 0.08);
   outline: none;
+}
+
+.lb-brand-select-btn.is-active {
+  border-color: #02348d;
+  background: #ffffff;
+  color: #02348d;
+}
+
+.lb-brand-select-badge {
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  background: #e8eef8;
+  color: #0f1c2d;
+  flex-shrink: 0;
+  margin-left: 2px;
+  transition: all 0.2s ease;
+}
+
+.lb-brand-select-btn:hover .lb-brand-select-badge {
+  background: #dbeafe;
+  color: #02348d;
+}
+
+.lb-brand-select-btn.is-active .lb-brand-select-badge {
+  background: #02348d;
+  color: #ffffff;
 }
 
 .lb-brand-select-ico {
@@ -1162,12 +1203,12 @@
   position: absolute;
   top: calc(100% + 8px);
   left: 0;
-  width: 280px;
+  width: 290px;
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  box-shadow: 0 18px 40px -10px rgba(15, 28, 45, 0.28);
-  padding: 6px;
+  border-radius: 16px;
+  box-shadow: 0 18px 40px -10px rgba(15, 28, 45, 0.22);
+  padding: 8px;
   z-index: 70;
 }
 
@@ -1190,11 +1231,11 @@
   border: none;
   background: transparent;
   color: #334155;
-  font-size: 15px;
+  font-size: 14.5px;
   font-weight: 600;
   text-align: left;
-  padding: 9px 11px;
-  border-radius: 8px;
+  padding: 8px 12px;
+  border-radius: 9999px;
   cursor: pointer;
   transition: background 0.12s ease;
 }
@@ -1208,13 +1249,29 @@
   color: #02348d;
 }
 
+.lb-brand-option-count {
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 9999px;
+  background: #e8eef8;
+  color: #475569;
+  margin-left: auto;
+  margin-right: 4px;
+}
+
+.lb-brand-option.active .lb-brand-option-count {
+  background: #02348d;
+  color: #ffffff;
+}
+
 .lb-brand-option-all {
   color: #64748b;
   font-weight: 700;
   margin-bottom: 4px;
   border-bottom: 1px solid #f1f5f9;
-  border-radius: 8px 8px 0 0;
-  padding-bottom: 10px;
+  border-radius: 10px;
+  padding-bottom: 8px;
 }
 
 .lb-brand-option-all:hover {

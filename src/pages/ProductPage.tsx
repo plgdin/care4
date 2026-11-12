@@ -190,6 +190,8 @@ interface FilterDropdownProps {
   onChange: (value: string | null) => void;
   renderOptionIcon?: (option: string) => React.ReactNode;
   emptyLabel?: string;
+  badge?: number | string;
+  getOptionBadge?: (option: string) => number | string | undefined;
 }
 
 const FilterDropdown: React.FC<FilterDropdownProps> = ({
@@ -200,7 +202,9 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
   value,
   onChange,
   renderOptionIcon,
-  emptyLabel
+  emptyLabel,
+  badge,
+  getOptionBadge
 }) => {
   const [open, setOpen] = useState(false);
   const wrapRef = useRef<HTMLDivElement | null>(null);
@@ -228,7 +232,7 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
     <div className="lb-brand-select-wrap" ref={wrapRef}>
       <button
         type="button"
-        className="lb-brand-select-btn"
+        className={`lb-brand-select-btn ${value ? 'is-active' : ''}`}
         onClick={() => setOpen(o => !o)}
         aria-haspopup="listbox"
         aria-expanded={open}
@@ -237,6 +241,9 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
         <span className={`lb-brand-select-value ${value ? 'picked' : ''}`}>
           {value ?? allLabel}
         </span>
+        {badge !== undefined && (
+          <span className="lb-brand-select-badge">{badge}</span>
+        )}
         <ChevronDown size={14} className={`lb-brand-select-chev ${open ? 'open' : ''}`} />
       </button>
 
@@ -246,7 +253,7 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
             type="button"
             role="option"
             aria-selected={value === null}
-            className="lb-brand-option lb-brand-option-all"
+            className={`lb-brand-option lb-brand-option-all ${value === null ? 'active' : ''}`}
             onClick={() => {
               onChange(null);
               setOpen(false);
@@ -254,6 +261,9 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
           >
             <Grid3X3 size={14} />
             <span>{allLabel}</span>
+            {getOptionBadge && (
+              <span className="lb-brand-option-count">{getOptionBadge('All')}</span>
+            )}
             {value === null && <Check size={14} className="lb-brand-check" />}
           </button>
 
@@ -274,6 +284,9 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
                   ? renderOptionIcon(option)
                   : <span className={`lb-brand-dot ${brandColor(option) === 'blue' ? 'dot-blue' : 'dot-red'}`} />}
                 <span className="lb-brand-name" title={option}>{option}</span>
+                {getOptionBadge && (
+                  <span className="lb-brand-option-count">{getOptionBadge(option)}</span>
+                )}
                 {value === option && <Check size={14} className="lb-brand-check" />}
               </button>
             ))}
@@ -291,35 +304,65 @@ const FilterDropdown: React.FC<FilterDropdownProps> = ({
 const CategorySelect: React.FC<{
   value: string;
   onChange: (category: string) => void;
-}> = ({ value, onChange }) => (
-  <FilterDropdown
-    icon={<Grid3X3 size={15} />}
-    allLabel="All Categories"
-    menuLabel="Product classifications"
-    options={CATEGORY_FILTERS}
-    value={value === 'All' ? null : value}
-    onChange={category => onChange(category ?? 'All')}
-    renderOptionIcon={category => <CategoryIcon category={category} size={14} />}
-    emptyLabel="No classifications available"
-  />
-);
+}> = ({ value, onChange }) => {
+  const isAll = value === 'All';
+  const activeCount = useMemo(() => {
+    if (isAll) return CATALOG_PRODUCTS.length;
+    return CATALOG_PRODUCTS.filter(p => p.category === value).length;
+  }, [isAll, value]);
+
+  return (
+    <FilterDropdown
+      icon={isAll ? <Grid3X3 size={15} /> : <CategoryIcon category={value} size={15} />}
+      allLabel="All Categories"
+      menuLabel="Product classifications"
+      options={CATEGORY_FILTERS}
+      value={isAll ? null : value}
+      onChange={category => onChange(category ?? 'All')}
+      renderOptionIcon={category => <CategoryIcon category={category} size={14} />}
+      emptyLabel="No classifications available"
+      badge={activeCount}
+      getOptionBadge={cat => {
+        if (cat === 'All') return CATALOG_PRODUCTS.length;
+        return CATALOG_PRODUCTS.filter(p => p.category === cat).length;
+      }}
+    />
+  );
+};
 
 // Brand dropdown — scoped to the active classification
 const BrandSelect: React.FC<{
   brands: string[];
   value: string | null;
   onChange: (brand: string | null) => void;
-}> = ({ brands, value, onChange }) => (
-  <FilterDropdown
-    icon={<TagIcon size={15} />}
-    allLabel="All Brands"
-    menuLabel="Brands"
-    options={brands}
-    value={value}
-    onChange={onChange}
-    emptyLabel="No brands in this classification"
-  />
-);
+  activeCategory: string;
+}> = ({ brands, value, onChange, activeCategory }) => {
+  const badgeCount = useMemo(() => {
+    if (!value) return brands.length;
+    return CATALOG_PRODUCTS.filter(p =>
+      p.brands.includes(value) && (activeCategory === 'All' || p.category === activeCategory)
+    ).length;
+  }, [brands.length, value, activeCategory]);
+
+  return (
+    <FilterDropdown
+      icon={<TagIcon size={15} />}
+      allLabel="All Brands"
+      menuLabel="Brands"
+      options={brands}
+      value={value}
+      onChange={onChange}
+      emptyLabel="No brands in this classification"
+      badge={badgeCount}
+      getOptionBadge={brand => {
+        if (brand === 'All') return brands.length;
+        return CATALOG_PRODUCTS.filter(p =>
+          p.brands.includes(brand) && (activeCategory === 'All' || p.category === activeCategory)
+        ).length;
+      }}
+    />
+  );
+};
 
 interface ProductPageProps {
   onOpenQuote: (productName?: string) => void;
@@ -580,6 +623,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                 brands={availableBrands}
                 value={selectedBrand}
                 onChange={setSelectedBrand}
+                activeCategory={activeCategory}
               />
             </div>
 
