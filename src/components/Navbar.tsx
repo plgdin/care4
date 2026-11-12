@@ -13,9 +13,42 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenContact 
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>(activeTab);
+
+  React.useEffect(() => {
+    setActiveSection(activeTab);
+  }, [activeTab]);
+
+  React.useEffect(() => {
+    if (activeTab !== 'home') return;
+
+    const handleScroll = () => {
+      const categoriesEl = document.getElementById('categories-section');
+      const brandsEl = document.getElementById('brands-section');
+      const scrollY = window.scrollY;
+
+      if (brandsEl && scrollY >= brandsEl.offsetTop - 200) {
+        setActiveSection('brands');
+      } else if (categoriesEl && scrollY >= categoriesEl.offsetTop - 200) {
+        setActiveSection('categories');
+      } else {
+        setActiveSection('home');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [activeTab]);
 
   const handleLinkClick = (tab: string, anchorId?: string) => {
     setMobileMenuOpen(false);
+    if (anchorId === 'categories-section') {
+      setActiveSection('categories');
+    } else if (anchorId === 'brands-section') {
+      setActiveSection('brands');
+    } else {
+      setActiveSection(tab);
+    }
     if (anchorId && activeTab === 'home') {
       const el = document.getElementById(anchorId);
       if (el) {
@@ -57,35 +90,35 @@ export const Navbar: React.FC<NavbarProps> = ({
         <nav className="navbar-nav-desktop">
           <a
             href="/"
-            className={`nav-link nav-home ${activeTab === 'home' ? 'active' : ''}`}
+            className={`nav-link nav-home ${activeSection === 'home' ? 'active' : ''}`}
             onClick={(event) => { event.preventDefault(); handleLinkClick('home'); }}
           >
             Home
           </a>
           <a
             href="/about/"
-            className={`nav-link nav-about ${activeTab === 'about' ? 'active' : ''}`}
+            className={`nav-link nav-about ${activeSection === 'about' ? 'active' : ''}`}
             onClick={(event) => { event.preventDefault(); handleLinkClick('about'); }}
           >
             About Us
           </a>
           <a
             href="/#categories-section"
-            className={`nav-link nav-categories ${activeTab === 'categories' ? 'active' : ''}`}
+            className={`nav-link nav-categories ${activeSection === 'categories' ? 'active' : ''}`}
             onClick={(event) => { event.preventDefault(); handleLinkClick('home', 'categories-section'); }}
           >
             Categories
           </a>
           <a
             href="/#brands-section"
-            className={`nav-link nav-brands ${activeTab === 'brands' ? 'active' : ''}`}
+            className={`nav-link nav-brands ${activeSection === 'brands' ? 'active' : ''}`}
             onClick={(event) => { event.preventDefault(); handleLinkClick('home', 'brands-section'); }}
           >
             Brands
           </a>
           <a
             href="/products/"
-            className={`nav-link nav-products ${activeTab === 'products' ? 'active' : ''}`}
+            className={`nav-link nav-products ${activeSection === 'products' ? 'active' : ''}`}
             onClick={(event) => { event.preventDefault(); handleLinkClick('products'); }}
           >
             Product Catalogue
@@ -113,35 +146,35 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="mobile-drawer">
           <a
             href="/"
-            className="mobile-nav-link"
+            className={`mobile-nav-link ${activeSection === 'home' ? 'active' : ''}`}
             onClick={(event) => { event.preventDefault(); handleLinkClick('home'); }}
           >
             Home
           </a>
           <a
             href="/about/"
-            className="mobile-nav-link"
+            className={`mobile-nav-link ${activeSection === 'about' ? 'active' : ''}`}
             onClick={(event) => { event.preventDefault(); handleLinkClick('about'); }}
           >
             About Us
           </a>
           <a
             href="/#categories-section"
-            className="mobile-nav-link"
+            className={`mobile-nav-link ${activeSection === 'categories' ? 'active' : ''}`}
             onClick={(event) => { event.preventDefault(); handleLinkClick('home', 'categories-section'); }}
           >
             Categories
           </a>
           <a
             href="/#brands-section"
-            className="mobile-nav-link"
+            className={`mobile-nav-link ${activeSection === 'brands' ? 'active' : ''}`}
             onClick={(event) => { event.preventDefault(); handleLinkClick('home', 'brands-section'); }}
           >
             Brands
           </a>
           <a
             href="/products/"
-            className="mobile-nav-link"
+            className={`mobile-nav-link ${activeSection === 'products' ? 'active' : ''}`}
             onClick={(event) => { event.preventDefault(); handleLinkClick('products'); }}
           >
             Product Catalogue
@@ -270,6 +303,9 @@ export const Navbar: React.FC<NavbarProps> = ({
           color: var(--color-navy-dark);
           padding: 8px 0;
           text-decoration: none;
+        }
+        .mobile-nav-link.active {
+          color: var(--color-accent-red);
         }
         .mobile-quote-btn {
           text-align: center;
