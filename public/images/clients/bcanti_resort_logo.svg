@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="13 33 395 134" width="395" height="134" role="img" aria-label="B'Canti Beach Resort">
+  <g transform="translate(80,100)">
+    <circle cx="0" cy="0" r="28" fill="#fbbf24"/>
+    <g stroke="#ef4444" stroke-width="5" stroke-linecap="round">
+      <line x1="0" y1="-42" x2="0" y2="-58"/>
+      <line x1="0" y1="42" x2="0" y2="58"/>
+      <line x1="-42" y1="0" x2="-58" y2="0"/>
+      <line x1="42" y1="0" x2="58" y2="0"/>
+      <line x1="-30" y1="-30" x2="-41" y2="-41"/>
+      <line x1="30" y1="-30" x2="41" y2="-41"/>
+      <line x1="-30" y1="30" x2="-41" y2="41"/>
+      <line x1="30" y1="30" x2="41" y2="41"/>
+    </g>
+  </g>
+  <text x="160" y="110" font-family="Georgia, 'Times New Roman', serif" font-size="64" font-weight="700" fill="#0f766e">B'Canti</text>
+  <text x="165" y="152" font-family="'Helvetica Neue', Arial, sans-serif" font-size="18" font-weight="600" fill="#f59e0b" letter-spacing="6">BEACH RESORT</text>
+</svg>

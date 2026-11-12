@@ -105,26 +105,31 @@ export const CATEGORIES_DATA: CategoryItem[] = [
   }
 ];
 
-export const BRANDS_ROW_1: BrandItem[] = [
-  { name: 'Dinewell', logo: '/images/dinewell_logo_clean.webp', scale: 0.92 },
-  { name: 'Borosil', logo: '/images/borosil_logo_clean.svg', scale: 0.95 },
-  { name: 'Ariane', logo: '/images/ariane_logo_clean.svg', scale: 1.0 },
-  { name: 'Bharath Potteries', logo: '/images/bharath_potteries_logo_clean.webp', scale: 1.05 },
-  { name: 'MILTON', logo: '/images/milton_logo_clean.webp', scale: 0.9 },
-  { name: 'Prestige', logo: '/images/prestige_logo_clean.svg', scale: 0.95 },
-  { name: 'H&H', logo: '/images/h_h_logo_clean.webp', scale: 0.88 }
-];
-
-export const BRANDS_ROW_2: BrandItem[] = [
-  { name: 'Diversey', logo: '/images/diversey_logo_clean.svg', scale: 1.0 },
-  { name: 'Ocean', logo: '/images/ocean_logo_clean.svg', scale: 0.95 },
-  { name: 'Cambro Nilkamal', logo: '/images/cambro_logo_clean.svg', scale: 0.92 },
-  { name: 'FRESH N FINE', logo: '/images/fresh_n_fine_clean.webp', scale: 0.92 },
-  { name: 'SAC Chemicals', logo: '/images/sac_chemicals_logo_clean.webp', scale: 0.95 },
-  { name: 'CONTA', logo: '/images/conta_logo_clean.webp', scale: 0.92 },
-  { name: 'Kimberly-Clark', logo: '/images/kimberly_clark_logo_clean.webp', scale: 0.92 },
-  { name: '3M', logo: '/images/3m_logo_clean.webp', scale: 0.85 },
-  { name: 'Rubbermaid', logo: '/images/rubbermaid_logo_3d_clean.webp', scale: 0.88 }
+export const BRANDS_ROWS: BrandItem[][] = [
+  [
+    { name: 'Dinewell', logo: '/images/dinewell_logo_clean.webp', scale: 0.92 },
+    { name: 'Borosil', logo: '/images/borosil_logo_clean.svg', scale: 0.95 },
+    { name: 'Ariane', logo: '/images/ariane_logo_clean.svg', scale: 1.0 },
+    { name: 'Bharath Potteries', logo: '/images/bharath_potteries_logo_clean.webp', scale: 1.05 },
+    { name: 'MILTON', logo: '/images/milton_logo_clean.webp', scale: 0.9 },
+    { name: 'Prestige', logo: '/images/prestige_logo_clean.svg', scale: 0.95 }
+  ],
+  [
+    { name: 'H&H', logo: '/images/h_h_logo_clean.webp', scale: 0.88 },
+    { name: 'Diversey', logo: '/images/diversey_logo_clean.svg', scale: 1.0 },
+    { name: 'Ocean', logo: '/images/ocean_logo_clean.svg', scale: 0.95 },
+    { name: 'Cambro Nilkamal', logo: '/images/cambro_logo_clean.svg', scale: 0.92 },
+    { name: 'FRESH N FINE', logo: '/images/fresh_n_fine_clean.webp', scale: 0.92 },
+    { name: 'SAC Chemicals', logo: '/images/sac_chemicals_logo_clean.webp', scale: 0.95 }
+  ],
+  [
+    { name: 'CONTA', logo: '/images/conta_logo_clean.webp', scale: 0.92 },
+    { name: 'Kimberly-Clark', logo: '/images/kimberly_clark_logo_clean.webp', scale: 0.92 },
+    { name: '3M', logo: '/images/3m_logo_clean.webp', scale: 0.85 },
+    { name: 'Rubbermaid', logo: '/images/rubbermaid_logo_3d_clean.webp', scale: 0.88 },
+    { name: 'Tork', logo: '/images/tork_logo_clean.webp', scale: 0.9 },
+    { name: 'Betco', logo: '/images/betco_logo_clean.webp', scale: 0.9 }
+  ]
 ];
 
 export const CATALOG_PRODUCTS: ProductCatalogCard[] = [

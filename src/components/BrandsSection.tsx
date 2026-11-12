@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
-import { BRANDS_ROW_1, BRANDS_ROW_2 } from '../data/siteData';
+import { BRANDS_ROWS } from '../data/siteData';
 
 interface BrandsSectionProps {
   onViewAllBrands?: () => void;
@@ -25,41 +25,26 @@ export const BrandsSection: React.FC<BrandsSectionProps> = ({ onViewAllBrands })
 
         {/* Brand Grid Container */}
         <div className="brands-grid-wrapper">
-          {/* Row 1 */}
-          <div className="brands-row">
-            {BRANDS_ROW_1.map((brand, i) => (
-              <React.Fragment key={brand.name}>
-                <div className="brand-logo-cell">
-                  <img
-                    src={brand.logo}
-                    alt={brand.name}
-                    className="brand-logo-img"
-                    style={brand.scale ? { transform: `scale(${brand.scale})`, transformOrigin: 'center center' } : undefined}
-                  />
-                </div>
-                {i < BRANDS_ROW_1.length - 1 && <div className="brand-vertical-divider" />}
-              </React.Fragment>
-            ))}
-          </div>
-
-          <div className="brand-horizontal-divider" />
-
-          {/* Row 2 */}
-          <div className="brands-row">
-            {BRANDS_ROW_2.map((brand, i) => (
-              <React.Fragment key={brand.name}>
-                <div className="brand-logo-cell">
-                  <img
-                    src={brand.logo}
-                    alt={brand.name}
-                    className="brand-logo-img"
-                    style={brand.scale ? { transform: `scale(${brand.scale})`, transformOrigin: 'center center' } : undefined}
-                  />
-                </div>
-                {i < BRANDS_ROW_2.length - 1 && <div className="brand-vertical-divider" />}
-              </React.Fragment>
-            ))}
-          </div>
+          {BRANDS_ROWS.map((row, rowIndex) => (
+            <React.Fragment key={`brand-row-${rowIndex}`}>
+              {rowIndex > 0 && <div className="brand-horizontal-divider" />}
+              <div className="brands-row">
+                {row.map((brand, i) => (
+                  <React.Fragment key={brand.name}>
+                    <div className="brand-logo-cell">
+                      <img
+                        src={brand.logo}
+                        alt={brand.name}
+                        className="brand-logo-img"
+                        style={brand.scale ? { transform: `scale(${brand.scale})`, transformOrigin: 'center center' } : undefined}
+                      />
+                    </div>
+                    {i < row.length - 1 && <div className="brand-vertical-divider" />}
+                  </React.Fragment>
+                ))}
+              </div>
+            </React.Fragment>
+          ))}
         </div>
 
         {/* Brand Section Footer Note (moved below logos) */}
@@ -193,7 +178,8 @@ export const BrandsSection: React.FC<BrandsSectionProps> = ({ onViewAllBrands })
             display: grid;
             grid-template-columns: repeat(3, 1fr);
           }
-          .brand-vertical-divider {
+          .brand-vertical-divider,
+          .brand-horizontal-divider {
             display: none;
           }
           .brand-logo-cell {
