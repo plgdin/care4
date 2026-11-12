@@ -194,14 +194,14 @@ export const ClientMarquee: React.FC = () => {
           padding: 0 24px;
         }
         .client-marquee-title {
-          font-family: Georgia, 'Times New Roman', serif;
-          font-size: clamp(52px, 6vw, 82px);
-          font-weight: 500;
+          font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+          font-size: clamp(48px, 5.5vw, 76px);
+          font-weight: 700;
           font-style: italic;
           color: var(--color-primary);
           line-height: 1.12;
           margin: 0 auto 22px;
-          letter-spacing: -0.035em;
+          letter-spacing: -0.02em;
           display: table;
         }
         .client-marquee-title span:first-child { color: var(--color-accent-red); }
