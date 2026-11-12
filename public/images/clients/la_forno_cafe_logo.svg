@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="31 58 513 116" width="513" height="116" role="img" aria-label="La Forno Cafe">
+  <g transform="translate(30,35)">
+    <path d="M10 130 A80 80 0 0 1 170 130" fill="none" stroke="#f59e0b" stroke-width="6" stroke-linecap="round"/>
+    <path d="M10 130 L170 130" fill="none" stroke="#f59e0b" stroke-width="6" stroke-linecap="round"/>
+    <path d="M90 130 L80 52 L100 52 Z" fill="#fde047" stroke="#f59e0b" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M90 130 L60 62 L80 52 Z" fill="#fbbf24" stroke="#f59e0b" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M90 130 L100 52 L120 62 Z" fill="#fbbf24" stroke="#f59e0b" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M90 130 L36 82 L60 62 Z" fill="#fde047" stroke="#f59e0b" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M90 130 L120 62 L144 82 Z" fill="#fde047" stroke="#f59e0b" stroke-width="3" stroke-linejoin="round"/>
+  </g>
+  <text x="230" y="105" font-family="'Helvetica Neue', Arial, sans-serif" font-size="54" font-weight="900" fill="#292524" letter-spacing="2">LA FORNO</text>
+  <text x="234" y="145" font-family="'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="600" fill="#b45309" letter-spacing="6">PIZZA · PASTA · FORNO</text>
+  <rect x="234" y="120" width="240" height="2" fill="#e7e5e4"/>
+</svg>

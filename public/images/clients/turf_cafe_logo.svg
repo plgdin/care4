@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="28 36 383 128" width="383" height="128" role="img" aria-label="Turf Cafe">
+  <g>
+    <circle cx="92" cy="100" r="58" fill="#14532d"/>
+    <path d="M92 146 C82 118 86 86 92 62 C98 86 102 118 92 146 Z" fill="#86efac"/>
+    <path d="M72 146 C62 124 64 104 74 86 C76 108 78 128 72 146 Z" fill="#4ade80"/>
+    <path d="M112 146 C122 124 120 104 110 86 C108 108 106 128 112 146 Z" fill="#4ade80"/>
+  </g>
+  <text x="180" y="105" font-family="'Helvetica Neue', Arial, sans-serif" font-size="68" font-weight="900" fill="#14532d" letter-spacing="2">TURF</text>
+  <text x="185" y="150" font-family="'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" fill="#16a34a" letter-spacing="14">CAFE</text>
+  <rect x="185" y="120" width="220" height="2" fill="#d1d5db"/>
+</svg>
