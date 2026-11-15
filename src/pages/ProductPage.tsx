@@ -3,7 +3,6 @@ import {
   Search,
   X,
   Grid3X3,
-  LayoutList,
   FileText,
   RotateCcw,
   UtensilsCrossed,
@@ -27,8 +26,7 @@ import {
   CATALOG_PRODUCTS,
   CATEGORY_FILTERS,
   ProductCatalogCard,
-  brandColor,
-  findBrochure
+  brandColor
 } from '../data/siteData';
 import { ProductDetailModal } from '../components/ProductDetailModal';
 import '../styles/product-page.css';
@@ -370,19 +368,6 @@ interface ProductPageProps {
   onClearInitialFilter?: () => void;
 }
 
-// Open the matching brand brochure PDF; fall back to the full detail dialog
-const openBrochureOrDetails = (
-  product: ProductCatalogCard,
-  openDetails: () => void
-) => {
-  const brochure = findBrochure(product.brands);
-  if (brochure) {
-    window.open(brochure, '_blank', 'noopener,noreferrer');
-  } else {
-    openDetails();
-  }
-};
-
 export const ProductPage: React.FC<ProductPageProps> = ({
   onOpenQuote,
   initialFilter,
@@ -391,7 +376,6 @@ export const ProductPage: React.FC<ProductPageProps> = ({
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [selectedBrand, setSelectedBrand] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
-  const [viewMode, setViewMode] = useState<'grid' | 'table'>('grid');
   const [selectedDetailProduct, setSelectedDetailProduct] = useState<ProductCatalogCard | null>(null);
 
   // Paged pill carousel state (arrows + smooth slide)
@@ -626,28 +610,6 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                 activeCategory={activeCategory}
               />
             </div>
-
-            {/* View Switcher */}
-            <div className="lookbook-view-switcher">
-              <button
-                type="button"
-                className={`lb-view-btn ${viewMode === 'grid' ? 'active' : ''}`}
-                onClick={() => setViewMode('grid')}
-                title="Showcase Cards"
-              >
-                <Grid3X3 size={15} />
-                <span>Showcase</span>
-              </button>
-              <button
-                type="button"
-                className={`lb-view-btn ${viewMode === 'table' ? 'active' : ''}`}
-                onClick={() => setViewMode('table')}
-                title="Procurement Ledger"
-              >
-                <LayoutList size={15} />
-                <span>Ledger</span>
-              </button>
-            </div>
           </div>
         </div>
       </div>
@@ -718,10 +680,9 @@ export const ProductPage: React.FC<ProductPageProps> = ({
               </button>
             </div>
           </div>
-        ) : viewMode === 'grid' ? (
+        ) : (
           <div className="lookbook-cards-grid">
             {displayProducts.map(({ product, suppliedItems }) => {
-              const hasBrochure = Boolean(findBrochure(product.brands));
               return (
               <article key={product.id} className="lb-product-card">
                 <div
@@ -780,10 +741,10 @@ export const ProductPage: React.FC<ProductPageProps> = ({
                     <button
                       type="button"
                       className="btn-lb-catalog"
-                      onClick={() => openBrochureOrDetails(product, () => setSelectedDetailProduct(product))}
+                      onClick={() => setSelectedDetailProduct(product)}
                     >
                       <FileText size={15} />
-                      <span>{hasBrochure ? 'Product Catalogue' : 'View Details'}</span>
+                      <span>View Details</span>
                     </button>
 
                     <button
@@ -799,71 +760,6 @@ export const ProductPage: React.FC<ProductPageProps> = ({
               </article>
               );
             })}
-          </div>
-        ) : (
-          <div className="catalog-table-wrapper">
-            <table className="catalog-table">
-              <thead>
-                <tr>
-                  <th style={{ width: '100px' }}>Item</th>
-                  <th>Product</th>
-                  <th>Brands</th>
-                  <th style={{ textAlign: 'right' }}>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {filteredProducts.map(product => {
-                  const hasBrochure = Boolean(findBrochure(product.brands));
-                  return (
-                  <tr key={product.id}>
-                    <td>
-                      <div
-                        className="table-thumb-wrap"
-                        onClick={() => setSelectedDetailProduct(product)}
-                      >
-                        <img src={product.image} alt={product.title} loading="lazy" />
-                      </div>
-                    </td>
-                    <td>
-                      <div
-                        className="table-prod-name"
-                        onClick={() => setSelectedDetailProduct(product)}
-                      >
-                        {product.title}
-                      </div>
-                      <div className="table-prod-cat">{product.category}</div>
-                    </td>
-                    <td>
-                      {product.brands.map(brand => (
-                        <span
-                          key={brand}
-                          className={`table-brand-pill ${brandColor(brand) === 'blue' ? 'brand-pill-blue' : 'brand-pill-red'}`}
-                        >
-                          {brand}
-                        </span>
-                      ))}
-                    </td>
-                    <td style={{ textAlign: 'right' }} className="table-actions-cell">
-                      <button
-                        type="button"
-                        className="btn-table-specs"
-                        onClick={() => openBrochureOrDetails(product, () => setSelectedDetailProduct(product))}
-                      >
-                        {hasBrochure ? 'Catalogue' : 'Details'}
-                      </button>
-                      <button
-                        type="button"
-                        className="btn-table-quote"
-                        onClick={() => onOpenQuote(product.title)}
-                      >
-                        Request Quote
-                      </button>
-                    </td>
-                  </tr>
-                  );
-                })}
-              </tbody>
-            </table>
           </div>
         )}
       </main>

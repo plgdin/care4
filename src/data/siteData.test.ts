@@ -113,7 +113,7 @@ describe('siteData catalog integrity', () => {
     const stemwareBrands = CATALOG_PRODUCTS
       .filter(p => p.title === 'Commercial Bar & Restaurant Stemware')
       .map(p => p.brands[0]);
-    expect(stemwareBrands).toEqual(['Arcoroc', 'Borosil', 'Ocean']);
+    expect(stemwareBrands).toEqual(['Arcoroc', 'Borosil']);
   });
 
   it('reuses photos responsibly: max 2 categories and 4 uses per category', () => {

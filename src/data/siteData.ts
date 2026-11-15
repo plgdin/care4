@@ -178,24 +178,13 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     factors: []
   },
   {
-    id: 'crockery-stemware-ocean',
-    title: 'Commercial Bar & Restaurant Stemware',
-    subtitle: '',
-    details: 'Tableware for serving meals and drinks in hospitality settings. commercial bar and restaurant stemware suits everyday dining and food presentation.',
-    image: '/images/image__restaurant_setting__c005091f.webp',
-    category: 'Crockery',
-    brands: ['Ocean'],
-    industries: [],
-    factors: []
-  },
-  {
     id: 'crockery-bharat',
     title: 'Commercial Crockery',
-    subtitle: '',
-    details: 'Tableware for serving meals and drinks in hospitality settings. bharat commercial crockery suits everyday dining and food presentation.',
+    subtitle: 'Fine Ceramic Tableware',
+    details: 'Tableware for serving meals and drinks in hospitality settings. Bharath Potteries commercial crockery suits everyday dining and food presentation.',
     image: '/images/ceramic_latte_cups.jpg',
     category: 'Crockery',
-    brands: ['Bharat - Crockery'],
+    brands: ['Bharath Potteries'],
     industries: [],
     factors: []
   },
@@ -244,6 +233,17 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     factors: []
   },
   {
+    id: 'crockery-finware',
+    title: '100% Melamine Collection',
+    subtitle: 'Fine Forever',
+    details: 'Fine Forever 100% pure food-grade melamine collection for hotels, restaurants, banquets and catering. Durable, break-resistant and elegant food presentation.',
+    image: '/images/finware_melamine_collection.jpg',
+    category: 'Crockery',
+    brands: ['Finware'],
+    industries: [],
+    factors: []
+  },
+  {
     id: 'crockery-jcpl',
     title: 'Commercial Dinnerware',
     subtitle: '',
@@ -256,10 +256,10 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
   },
   {
     id: 'crockery-ocean',
-    title: 'Commercial Glassware',
-    subtitle: '',
-    details: 'Tableware for serving meals and drinks in hospitality settings. commercial glassware suits everyday dining and food presentation.',
-    image: '/images/image__tableware___crockery__c6601dfa.webp',
+    title: 'Commercial Glassware & Stemware',
+    subtitle: 'Lead-Free Crystal Glass',
+    details: 'Ocean lead-free crystal glassware & stemware collection: beer mugs, champagne flutes, coffee mugs, decanters, sundae cups, juice glasses, mixing bowls, pop jars, salad bowls, shot glasses, water & wine glasses.',
+    image: '/images/image__restaurant_setting__c005091f.webp',
     category: 'Crockery',
     brands: ['Ocean'],
     industries: [],
@@ -268,8 +268,8 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
   {
     id: 'crockery-servewell',
     title: 'Melamine Tableware',
-    subtitle: '',
-    details: 'Tableware for serving meals and drinks in hospitality settings. melamine tableware suits everyday dining and food presentation.',
+    subtitle: '100% Melamine Collection',
+    details: 'Tableware for serving meals and drinks in hospitality settings. 100% melamine collection suits everyday dining, buffet and food presentation.',
     image: '/images/image__tableware___crockery__a8a959b7.webp',
     category: 'Crockery',
     brands: ['Servewell'],
@@ -279,8 +279,8 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
   {
     id: 'crockery-superware',
     title: 'Heavy-Duty Buffetware',
-    subtitle: '',
-    details: 'Tableware for serving meals and drinks in hospitality settings. heavy-duty buffetware suits everyday dining and food presentation.',
+    subtitle: '100% Melamine Collection',
+    details: 'Tableware for serving meals and drinks in hospitality settings. 100% melamine collection suits everyday dining, buffet and food presentation.',
     image: '/images/dinewell_melamine_platters.jpg',
     category: 'Crockery',
     brands: ['Superware'],
@@ -301,8 +301,8 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
   {
     id: 'crockery-v4',
     title: 'Banquet & Catering Tableware',
-    subtitle: '',
-    details: 'Tableware for serving meals and drinks in hospitality settings. banquet and catering tableware suits everyday dining and food presentation.',
+    subtitle: '100% Melamine Collection',
+    details: 'Tableware for serving meals and drinks in hospitality settings. 100% melamine collection suits everyday dining, banquet and catering presentations.',
     image: '/images/FineDining.png',
     category: 'Crockery',
     brands: ['V 4'],
@@ -745,7 +745,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'professional knives supports food preparation, cooking, storage, or buffet service in professional kitchens.',
     image: '/images/image__stainless_steel_brassware__69672dfd.webp',
     category: 'Kitchen Utensils',
-    brands: ['Godrej - Cartini'],
+    brands: ['Godrej Cartini'],
     industries: [],
     factors: []
   },
@@ -767,7 +767,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'haccp color-coded commercial cutting boards supports food preparation, cooking, storage, or buffet service in professional kitchens.',
     image: '/images/commercial_cutting_boards.jpg',
     category: 'Kitchen Utensils',
-    brands: ['Cambro'],
+    brands: ['Cambro Nilkamal'],
     industries: [],
     factors: []
   },
@@ -844,7 +844,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'food containers supports food preparation, cooking, storage, or buffet service in professional kitchens.',
     image: '/images/commercial_cutting_boards.jpg',
     category: 'Kitchen Utensils',
-    brands: ['Polygaurd'],
+    brands: ['Polyguard'],
     industries: [],
     factors: []
   },
@@ -855,7 +855,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     details: 'ingredient bins supports food preparation, cooking, storage, or buffet service in professional kitchens.',
     image: '/images/image__stainless_steel_brassware__69672dfd.webp',
     category: 'Kitchen Utensils',
-    brands: ['Polygaurd'],
+    brands: ['Polyguard'],
     industries: [],
     factors: []
   },
@@ -1469,10 +1469,38 @@ export const PRODUCT_SPECS_MAP: Record<string, ProductDetailInfo> = Object.fromE
   CATALOG_PRODUCTS.map(product => {
     const title = product.title.toLowerCase();
     let specs: ProductHighlight[];
+    let isMelamine = false;
     if (product.category === 'Crockery') {
-      specs = /glass|stemware|drinkware/.test(title)
-        ? [{ label: 'Material', value: 'Clear soda-lime glass' }, { label: 'Capacity', value: '300 ml wine glass; 350 ml tumbler' }, { label: 'Dimensions', value: 'Approx. 7.5 cm rim × 21 cm height (wine glass)' }, { label: 'Packing', value: '6 pieces per inner box; 24 per outer carton' }]
-        : [{ label: 'Material', value: 'Vitrified ceramic, glazed finish' }, { label: 'Typical pieces', value: '27 cm dinner plate, 20 cm side plate, 15 cm bowl' }, { label: 'Temperature', value: 'Suitable for hot food service; avoid direct flame' }, { label: 'Packing', value: '6 pieces per inner box; 24 per outer carton' }];
+      isMelamine =
+        product.brands.some(b => ['Finware', 'Servewell', 'Superware', 'V 4', 'Dinewell'].includes(b)) ||
+        /melamine/i.test(product.title) ||
+        /melamine/i.test(product.subtitle);
+
+      if (isMelamine) {
+        specs = [
+          { label: 'Material', value: '100% Food Grade Melamine' },
+          { label: 'Safe for Dishwasher', value: 'Safe for Dish Washer Use' },
+          { label: 'Heat Resistance', value: 'Heat Resistance up to Temperature of 140°C' },
+          { label: 'Durability', value: 'Resistance to Breaking, Cracking, & Chipping' },
+          { label: 'Stain Resistance', value: 'Stain Proof, Long Lasting Designs' },
+          { label: 'Finish', value: 'Glazed Finish' },
+          { label: 'Colour Safety', value: 'Food Contact Grade Colour (Colour safe for food contact)' },
+          { label: 'Freezer Safe', value: 'Freezer safe' },
+          { label: 'Packing', value: '6 pieces per inner box; 24 / 48 per master carton' }
+        ];
+      } else if (product.brands.includes('Ocean')) {
+        specs = [
+          { label: 'Material', value: 'Lead-free crystal glass' },
+          { label: 'Items Available', value: 'Beer Mugs, Champagne Flutes, Coffee Mugs, Decanters, Ice cream Sundae cups, Juice Glass, Mixing Bowls, Pop Jar, Salad bowls, Shot Glass, Tea Cup, Water Glass, Wine Glass, Coffee & Tea Mug' },
+          { label: 'Temperature', value: 'Heat resistant up to 140°C, suitable for hot & cold food service; avoid direct flame' },
+          { label: 'Durability & Safety', value: 'Dishwasher safe, colour safe for food contact' },
+          { label: 'Packing', value: '6 pieces per inner box; 24 per outer carton' }
+        ];
+      } else if (/glass|stemware|drinkware/.test(title)) {
+        specs = [{ label: 'Material', value: 'Clear soda-lime glass' }, { label: 'Capacity', value: '300 ml wine glass; 350 ml tumbler' }, { label: 'Dimensions', value: 'Approx. 7.5 cm rim × 21 cm height (wine glass)' }, { label: 'Packing', value: '6 pieces per inner box; 24 per outer carton' }];
+      } else {
+        specs = [{ label: 'Material', value: 'Vitrified ceramic, glazed finish' }, { label: 'Typical pieces', value: '27 cm dinner plate, 20 cm side plate, 15 cm bowl' }, { label: 'Temperature', value: 'Suitable for hot food service; avoid direct flame' }, { label: 'Packing', value: '6 pieces per inner box; 24 per outer carton' }];
+      }
     } else if (product.category === 'Cutlery') {
       specs = [{ label: 'Material', value: '18/0 stainless steel (nominal chromium/nickel grade)' }, { label: 'Thickness', value: 'Approx. 2.0 mm spoon/fork; knife blade varies by pattern' }, { label: 'Finish', value: 'Polished mirror finish' }, { label: 'Packing', value: '12 pieces per item' }];
     } else if (product.category === 'Linen') {
@@ -1551,9 +1579,13 @@ export const PRODUCT_SPECS_MAP: Record<string, ProductDetailInfo> = Object.fromE
       };
       specs = engineeringSpecs[product.id] || [{ label: 'Capacity', value: 'Approx. 20 L working capacity' }, { label: 'Construction', value: '304 stainless-steel food-contact surfaces' }, { label: 'Dimensions', value: 'Approx. 600 × 600 × 850 mm' }, { label: 'Supply', value: '230 V AC, 50 Hz' }];
     }
+    const galleryImages = isMelamine
+      ? [product.image, '/images/melamine_features_guide.png']
+      : [product.image];
+
     return [product.id, {
-      tagline: product.title,
-      galleryImages: [product.image],
+      tagline: product.subtitle || product.title,
+      galleryImages,
       highlights: [
         { label: 'Product', value: product.title },
         { label: 'Classification', value: product.category },

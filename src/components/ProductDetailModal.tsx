@@ -183,17 +183,17 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 title="View brand catalogue (PDF)"
               >
                 <FileText size={16} />
-                <span>View PDF</span>
+                <span>Product Catalogue</span>
               </a>
             ) : (
               <button
                 type="button"
                 className="pdm-btn-viewpdf pdm-btn-viewpdf--pending"
                 disabled
-                title="PDF catalogue coming soon"
+                title="Product catalogue coming soon"
               >
                 <FileText size={16} />
-                <span>View PDF</span>
+                <span>Product Catalogue</span>
               </button>
             )}
             <button
