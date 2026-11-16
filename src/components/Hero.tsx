@@ -186,8 +186,8 @@ export const Hero: React.FC<HeroProps> = ({
         .hero-panel-1 {
           clip-path: polygon(
             0 0,
-            57% 0,
-            calc(57% - 85px) 100%,
+            74% 0,
+            calc(74% - 85px) 100%,
             0 100%
           );
           z-index: 1;
@@ -196,8 +196,8 @@ export const Hero: React.FC<HeroProps> = ({
           position: absolute;
           top: 0;
           bottom: 0;
-          left: 16%;
-          width: 44%;
+          left: 36%;
+          width: 50%;
           height: 100%;
         }
 
@@ -212,18 +212,18 @@ export const Hero: React.FC<HeroProps> = ({
           mask-image: linear-gradient(
             96.5deg,
             black 0%,
-            black 36%,
-            rgba(0, 0, 0, 0.7) 40%,
-            rgba(0, 0, 0, 0.2) 44%,
-            transparent 47%
+            black 49%,
+            rgba(0, 0, 0, 0.7) 54%,
+            rgba(0, 0, 0, 0.2) 58%,
+            transparent 62%
           );
           -webkit-mask-image: linear-gradient(
             96.5deg,
             black 0%,
-            black 36%,
-            rgba(0, 0, 0, 0.7) 40%,
-            rgba(0, 0, 0, 0.2) 44%,
-            transparent 47%
+            black 49%,
+            rgba(0, 0, 0, 0.7) 54%,
+            rgba(0, 0, 0, 0.2) 58%,
+            transparent 62%
           );
         }
 
@@ -236,21 +236,21 @@ export const Hero: React.FC<HeroProps> = ({
           background: linear-gradient(
             96.5deg,
             #ffffff 0%,
-            #ffffff 38%,
-            rgba(255, 255, 255, 0.95) 41%,
-            rgba(255, 255, 255, 0.6) 44%,
-            rgba(255, 255, 255, 0.15) 47%,
-            transparent 50%
+            #ffffff 51%,
+            rgba(255, 255, 255, 0.96) 55%,
+            rgba(255, 255, 255, 0.65) 58%,
+            rgba(255, 255, 255, 0.15) 61%,
+            transparent 63%
           );
         }
 
         /* Panel 2: Kitchen Equipment */
         .hero-panel-2 {
           clip-path: polygon(
-            calc(57% + 3px) 0,
-            79% 0,
-            calc(79% - 85px) 100%,
-            calc(57% - 85px + 3px) 100%
+            calc(74% + 3px) 0,
+            87% 0,
+            calc(87% - 85px) 100%,
+            calc(74% - 85px + 3px) 100%
           );
           z-index: 2;
         }
@@ -258,18 +258,18 @@ export const Hero: React.FC<HeroProps> = ({
           position: absolute;
           top: 0;
           bottom: 0;
-          left: calc(57% - 85px);
-          width: calc(22% + 85px);
+          left: calc(74% - 85px);
+          width: calc(13% + 85px);
           height: 100%;
         }
 
         /* Panel 3: Hotel & Guest Amenities */
         .hero-panel-3 {
           clip-path: polygon(
-            calc(79% + 3px) 0,
+            calc(87% + 3px) 0,
             100% 0,
             100% 100%,
-            calc(79% - 85px + 3px) 100%
+            calc(87% - 85px + 3px) 100%
           );
           z-index: 3;
         }
@@ -277,8 +277,8 @@ export const Hero: React.FC<HeroProps> = ({
           position: absolute;
           top: 0;
           bottom: 0;
-          left: calc(79% - 85px);
-          width: calc(21% + 85px);
+          left: calc(87% - 85px);
+          width: calc(13% + 85px);
           height: 100%;
         }
 
@@ -292,7 +292,7 @@ export const Hero: React.FC<HeroProps> = ({
           object-position: 50% center;
         }
         .panel-img-kitchen {
-          object-position: 48% center;
+          object-position: 49% center;
         }
         .panel-img-amenities {
           object-position: 45% center;
@@ -319,10 +319,10 @@ export const Hero: React.FC<HeroProps> = ({
           z-index: 5;
         }
         .hero-divider-1 {
-          clip-path: polygon(57% 0, calc(57% + 3px) 0, calc(57% - 85px + 3px) 100%, calc(57% - 85px) 100%);
+          clip-path: polygon(74% 0, calc(74% + 3px) 0, calc(74% - 85px + 3px) 100%, calc(74% - 85px) 100%);
         }
         .hero-divider-2 {
-          clip-path: polygon(79% 0, calc(79% + 3px) 0, calc(79% - 85px + 3px) 100%, calc(79% - 85px) 100%);
+          clip-path: polygon(87% 0, calc(87% + 3px) 0, calc(87% - 85px + 3px) 100%, calc(87% - 85px) 100%);
         }
 
         /* Bottom Captions Layer with Manrope */
@@ -342,38 +342,40 @@ export const Hero: React.FC<HeroProps> = ({
           color: #ffffff;
           text-shadow: none;
           font-family: var(--font-manrope), sans-serif;
+          width: max-content;
+          max-width: 140px;
         }
         .caption-1 {
-          left: 46%;
+          left: calc(67.5% - 68px);
           transform: translateX(-50%);
         }
         .caption-2 {
-          left: calc(68% - 65px);
+          left: calc(80.5% - 68px);
           transform: translateX(-50%);
         }
         .caption-3 {
-          left: 89.5%;
+          left: calc(93.5% - 42px);
           transform: translateX(-50%);
         }
         .caption-text-main {
-          font-size: 12.5px;
+          font-size: 11.5px;
           font-weight: 700;
-          letter-spacing: 0.16em;
+          letter-spacing: 0.14em;
           text-transform: uppercase;
-          line-height: 1.35;
+          line-height: 1.3;
         }
         .caption-text-sub {
-          font-size: 12.5px;
+          font-size: 11.5px;
           font-weight: 700;
-          letter-spacing: 0.16em;
+          letter-spacing: 0.14em;
           text-transform: uppercase;
-          line-height: 1.35;
+          line-height: 1.3;
         }
         .caption-line-track {
-          width: 88px;
+          width: 72px;
           height: 1.5px;
           background: rgba(255, 255, 255, 0.28);
-          margin-top: 8px;
+          margin-top: 7px;
           position: relative;
           border-radius: 2px;
         }
@@ -381,7 +383,7 @@ export const Hero: React.FC<HeroProps> = ({
           position: absolute;
           top: 0;
           height: 100%;
-          width: 32px;
+          width: 26px;
           background: #ffffff;
           border-radius: 2px;
           box-shadow: 0 0 5px rgba(255, 255, 255, 0.85);
@@ -395,36 +397,36 @@ export const Hero: React.FC<HeroProps> = ({
           position: relative;
           z-index: 10;
           width: 100%;
-          max-width: 1680px;
+          max-width: 1760px;
           margin: 0 auto;
-          padding: 40px clamp(24px, 3.5vw, 64px);
+          padding: 40px clamp(24px, 4vw, 72px);
           display: flex;
           pointer-events: none;
         }
         .hero-content {
           pointer-events: auto;
-          max-width: 580px;
+          max-width: 860px;
           display: flex;
           flex-direction: column;
-          transform: translateX(-24px);
+          transform: none;
         }
 
         .hero-eyebrow {
           font-family: var(--font-manrope), sans-serif;
-          font-size: 13px;
-          font-weight: 700;
-          letter-spacing: 0.14em;
+          font-size: 17px;
+          font-weight: 800;
+          letter-spacing: 0.16em;
           text-transform: uppercase;
           color: #7b889b;
-          margin-bottom: 20px;
+          margin-bottom: 22px;
         }
 
         .hero-headline {
           font-family: 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
-          font-size: clamp(56px, 5.2vw, 82px);
-          line-height: 1.04;
+          font-size: clamp(74px, 6.6vw, 108px);
+          line-height: 1.02;
           letter-spacing: -0.02em;
-          margin-bottom: 20px;
+          margin-bottom: 24px;
           font-weight: 700;
         }
         .headline-blue {
@@ -441,21 +443,21 @@ export const Hero: React.FC<HeroProps> = ({
 
         .hero-subhead {
           font-family: var(--font-manrope), sans-serif;
-          font-size: 24px;
+          font-size: clamp(27px, 2.2vw, 35px);
           font-weight: 800;
           color: #10263f;
-          margin-bottom: 16px;
+          margin-bottom: 20px;
           letter-spacing: -0.015em;
           line-height: 1.3;
         }
 
         .hero-body {
           font-family: var(--font-manrope), sans-serif;
-          font-size: 17px;
+          font-size: clamp(19px, 1.4vw, 22px);
           line-height: 1.62;
           color: #64748b;
-          max-width: 520px;
-          margin-bottom: 34px;
+          max-width: 740px;
+          margin-bottom: 38px;
           font-weight: 500;
         }
 
@@ -463,8 +465,8 @@ export const Hero: React.FC<HeroProps> = ({
         .hero-cta-buttons {
           display: flex;
           align-items: center;
-          gap: 16px;
-          margin-bottom: 36px;
+          gap: 22px;
+          margin-bottom: 40px;
           flex-wrap: wrap;
         }
         .btn-primary-explore {
@@ -472,12 +474,12 @@ export const Hero: React.FC<HeroProps> = ({
           color: #ffffff;
           font-family: var(--font-manrope), sans-serif;
           font-weight: 700;
-          font-size: 16.5px;
-          padding: 15px 34px;
+          font-size: 20px;
+          padding: 18px 42px;
           border-radius: var(--radius-full);
           display: inline-flex;
           align-items: center;
-          gap: 8px;
+          gap: 10px;
           box-shadow: 0 4px 14px rgba(214, 32, 42, 0.28);
           transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
           cursor: pointer;
@@ -488,7 +490,7 @@ export const Hero: React.FC<HeroProps> = ({
           box-shadow: 0 6px 18px rgba(214, 32, 42, 0.35);
         }
         .btn-arrow {
-          font-size: 18px;
+          font-size: 21px;
           transition: transform var(--transition-fast);
         }
         .btn-primary-explore:hover .btn-arrow {
@@ -501,8 +503,8 @@ export const Hero: React.FC<HeroProps> = ({
           border: 1.5px solid #10263f;
           font-family: var(--font-manrope), sans-serif;
           font-weight: 700;
-          font-size: 16.5px;
-          padding: 14px 32px;
+          font-size: 20px;
+          padding: 17px 40px;
           border-radius: var(--radius-full);
           transition: all var(--transition-fast);
           cursor: pointer;
@@ -518,26 +520,26 @@ export const Hero: React.FC<HeroProps> = ({
         .hero-industries-row {
           display: flex;
           align-items: center;
-          gap: 22px;
+          gap: 32px;
           margin-bottom: 0;
           flex-wrap: wrap;
         }
         .industry-item {
           display: flex;
           align-items: center;
-          gap: 9px;
+          gap: 13px;
           flex-shrink: 0;
           white-space: nowrap;
         }
         .industry-icon-img {
-          width: 36px;
-          height: 36px;
+          width: 48px;
+          height: 48px;
           object-fit: contain;
           flex-shrink: 0;
         }
         .industry-label {
           font-family: var(--font-manrope), sans-serif;
-          font-size: 15.5px;
+          font-size: 19px;
           font-weight: 700;
           color: var(--color-navy-dark);
           white-space: nowrap;
@@ -548,45 +550,48 @@ export const Hero: React.FC<HeroProps> = ({
           .hero-content-wrapper {
             padding: 24px clamp(24px, 3.5vw, 64px);
           }
+          .hero-content {
+            max-width: 780px;
+          }
           .hero-eyebrow {
-            font-size: 12px;
+            font-size: 15.5px;
             margin-bottom: 14px;
           }
           .hero-headline {
-            font-size: clamp(48px, 4.4vw, 68px);
-            margin-bottom: 14px;
+            font-size: clamp(64px, 5.8vw, 88px);
+            margin-bottom: 15px;
           }
           .hero-subhead {
-            font-size: 21px;
-            margin-bottom: 12px;
+            font-size: 25.5px;
+            margin-bottom: 13px;
           }
           .hero-body {
-            font-size: 15.5px;
+            font-size: 17.5px;
             line-height: 1.55;
-            max-width: 490px;
-            margin-bottom: 24px;
+            max-width: 680px;
+            margin-bottom: 25px;
           }
           .hero-cta-buttons {
-            gap: 14px;
-            margin-bottom: 26px;
+            gap: 18px;
+            margin-bottom: 27px;
           }
           .btn-primary-explore {
-            font-size: 15px;
-            padding: 12px 28px;
+            font-size: 18px;
+            padding: 15px 36px;
           }
           .btn-secondary-team {
-            font-size: 15px;
-            padding: 11px 26px;
+            font-size: 18px;
+            padding: 14px 34px;
           }
           .hero-industries-row {
-            gap: 18px;
+            gap: 26px;
           }
           .industry-icon-img {
-            width: 32px;
-            height: 32px;
+            width: 42px;
+            height: 42px;
           }
           .industry-label {
-            font-size: 14.5px;
+            font-size: 17px;
           }
           .panel-caption {
             bottom: 30px;
@@ -598,45 +603,48 @@ export const Hero: React.FC<HeroProps> = ({
           .hero-content-wrapper {
             padding: 14px clamp(24px, 3.5vw, 64px);
           }
+          .hero-content {
+            max-width: 700px;
+          }
           .hero-eyebrow {
-            font-size: 11px;
-            margin-bottom: 8px;
+            font-size: 13.5px;
+            margin-bottom: 10px;
           }
           .hero-headline {
-            font-size: clamp(38px, 3.8vw, 54px);
-            margin-bottom: 8px;
+            font-size: clamp(52px, 4.8vw, 72px);
+            margin-bottom: 10px;
           }
           .hero-subhead {
-            font-size: 17.5px;
-            margin-bottom: 8px;
+            font-size: 22.5px;
+            margin-bottom: 10px;
           }
           .hero-body {
-            font-size: 14px;
-            line-height: 1.48;
-            max-width: 440px;
-            margin-bottom: 16px;
+            font-size: 16px;
+            line-height: 1.5;
+            max-width: 610px;
+            margin-bottom: 18px;
           }
           .hero-cta-buttons {
-            gap: 12px;
+            gap: 15px;
             margin-bottom: 18px;
           }
           .btn-primary-explore {
-            font-size: 14px;
-            padding: 9px 22px;
+            font-size: 16.5px;
+            padding: 12px 28px;
           }
           .btn-secondary-team {
-            font-size: 14px;
-            padding: 8px 20px;
+            font-size: 16.5px;
+            padding: 11px 26px;
           }
           .hero-industries-row {
-            gap: 14px;
+            gap: 22px;
           }
           .industry-icon-img {
-            width: 28px;
-            height: 28px;
+            width: 36px;
+            height: 36px;
           }
           .industry-label {
-            font-size: 13.5px;
+            font-size: 15.5px;
           }
           .panel-caption {
             bottom: 18px;
@@ -648,16 +656,20 @@ export const Hero: React.FC<HeroProps> = ({
           .hero-content-wrapper {
             padding: 60px clamp(24px, 3.5vw, 64px);
           }
+          .hero-content {
+            max-width: 860px;
+          }
           .hero-headline {
-            font-size: clamp(70px, 5.5vw, 92px);
+            font-size: clamp(76px, 6vw, 104px);
             margin-bottom: 24px;
           }
           .hero-subhead {
-            font-size: 26px;
+            font-size: 30px;
             margin-bottom: 18px;
           }
           .hero-body {
-            font-size: 18px;
+            font-size: 21px;
+            max-width: 740px;
             margin-bottom: 38px;
           }
           .hero-cta-buttons {
@@ -674,7 +686,7 @@ export const Hero: React.FC<HeroProps> = ({
             gap: 20px;
           }
           .hero-content {
-            max-width: 500px;
+            max-width: 640px;
           }
         }
 
