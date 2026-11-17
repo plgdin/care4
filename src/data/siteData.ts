@@ -292,7 +292,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Hospitality Glassware',
     subtitle: '',
     details: 'Tableware for serving meals and drinks in hospitality settings. hospitality glassware suits everyday dining and food presentation.',
-    image: '/images/product_catalog_hero_bright.jpg',
+    image: '/images/commercial_union_glassware.jpg',
     category: 'Crockery',
     brands: ['Union'],
     industries: [],
@@ -365,11 +365,11 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     factors: []
   },
   {
-    id: 'linen-decorative-throws',
-    title: 'Decorative Throws',
-    subtitle: '',
-    details: 'decorative throws is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
-    image: '/images/cardimage_4fdce090.webp',
+    id: 'linen-bath-mats',
+    title: 'Bath Mats',
+    subtitle: 'Naturally dry. Effortlessly clean.',
+    details: 'Plush, quick-drying bath mats with a non-slip grip that keep bathroom floors dry, safe and comfortable.',
+    image: '/images/linen/linen-bath-mats.jpg',
     category: 'Linen',
     brands: [],
     industries: [],
@@ -378,42 +378,9 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
   {
     id: 'linen-bath-towels',
     title: 'Bath Towels',
-    subtitle: '',
-    details: 'bath towels is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
-    image: '/images/luxury_hotel_linen.jpg',
-    category: 'Linen',
-    brands: [],
-    industries: [],
-    factors: []
-  },
-  {
-    id: 'linen-hand-towels',
-    title: 'Hand Towels',
-    subtitle: '',
-    details: 'hand towels is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
-    image: '/images/linen_hand_towels.jpg',
-    category: 'Linen',
-    brands: [],
-    industries: [],
-    factors: []
-  },
-  {
-    id: 'linen-bath-mats',
-    title: 'Bath Mats',
-    subtitle: '',
-    details: 'bath mats is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
-    image: '/images/luxury_hotel_linen.jpg',
-    category: 'Linen',
-    brands: [],
-    industries: [],
-    factors: []
-  },
-  {
-    id: 'linen-bed-sheets',
-    title: 'Hotel Bed Sheets',
-    subtitle: '',
-    details: 'hotel bed sheets is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
-    image: '/images/luxury_hotel_bed_linen.jpg',
+    subtitle: 'Purely absorbent. Naturally soft.',
+    details: 'Fast-absorbing, quick-drying bath towels woven for everyday comfort and lasting freshness.',
+    image: '/images/linen/linen-bath-towels.jpg',
     category: 'Linen',
     brands: [],
     industries: [],
@@ -421,32 +388,21 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
   },
   {
     id: 'linen-bed-covers',
-    title: 'Hotel Bed Covers',
-    subtitle: '',
-    details: 'hotel bed covers is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
-    image: '/images/luxury_hotel_bed_linen.jpg',
+    title: 'Bed Covers',
+    subtitle: 'Smooth, breathable luxury designed for deep rest.',
+    details: 'Smooth, breathable bed covers with cool, airy weaves for comfortable sleep in every season.',
+    image: '/images/linen/linen-bed-covers.jpg',
     category: 'Linen',
     brands: [],
     industries: [],
     factors: []
   },
   {
-    id: 'linen-duvets',
-    title: 'Hotel Duvets',
-    subtitle: '',
-    details: 'hotel duvets is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
-    image: '/images/luxury_hotel_bed_linen.jpg',
-    category: 'Linen',
-    brands: [],
-    industries: [],
-    factors: []
-  },
-  {
-    id: 'linen-curtains',
-    title: 'Hotel Curtains',
-    subtitle: '',
-    details: 'hotel curtains is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
-    image: '/images/hotel_curtains_drapery.jpg',
+    id: 'linen-bed-sheets',
+    title: 'Bed Sheets',
+    subtitle: 'Pure comfort, for restful sleep.',
+    details: 'Cool, crisp bed sheets woven from long-staple fibres for breathable softness and enduring strength.',
+    image: '/images/linen/linen-bed-sheets.jpg',
     category: 'Linen',
     brands: [],
     industries: [],
@@ -454,21 +410,21 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
   },
   {
     id: 'linen-carpets',
-    title: 'Hotel Carpets',
-    subtitle: '',
-    details: 'hotel carpets is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
-    image: '/images/image__hotels__8af4967c.webp',
+    title: 'Carpets',
+    subtitle: 'Unmatched durability underfoot.',
+    details: 'Plush, commercial-grade carpets that balance underfoot softness with enduring resilience.',
+    image: '/images/linen/linen-carpets.jpg',
     category: 'Linen',
     brands: [],
     industries: [],
     factors: []
   },
   {
-    id: 'linen-rugs',
-    title: 'Hotel Rugs',
-    subtitle: '',
-    details: 'hotel rugs is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
-    image: '/images/image__hotels__8af4967c.webp',
+    id: 'linen-curtains',
+    title: 'Curtains',
+    subtitle: 'Draped in elegance. Designed for comfort.',
+    details: 'Gracefully draped curtains with blackout and sheer options for privacy, light control and quiet comfort.',
+    image: '/images/linen/linen-curtains.jpg',
     category: 'Linen',
     brands: [],
     industries: [],
@@ -477,53 +433,31 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
   {
     id: 'linen-cushions',
     title: 'Decorative Cushions',
-    subtitle: '',
-    details: 'decorative cushions is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
-    image: '/images/image__hotels__8af4967c.webp',
+    subtitle: 'Handpicked textures, crafted for everyday living.',
+    details: 'Textured decorative cushions that bring warmth, personality and soft support to every seating area.',
+    image: '/images/linen/linen-cushions.jpg',
     category: 'Linen',
     brands: [],
     industries: [],
     factors: []
   },
   {
-    id: 'linen-pillows',
-    title: 'Hotel Pillows',
-    subtitle: '',
-    details: 'hotel pillows is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
-    image: '/images/hotel_pillows_collection.jpg',
+    id: 'linen-decorative-throws',
+    title: 'Decorative Throws',
+    subtitle: 'Woven for warmth. Styled for living.',
+    details: 'Softly textured throws that add warmth, colour and an inviting layer to beds, sofas and reading corners.',
+    image: '/images/linen/linen-decorative-throws.jpg',
     category: 'Linen',
     brands: [],
     industries: [],
     factors: []
   },
   {
-    id: 'linen-pillow-covers',
-    title: 'Pillow Covers',
-    subtitle: '',
-    details: 'pillow covers is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
-    image: '/images/hotel_pillows_collection.jpg',
-    category: 'Linen',
-    brands: [],
-    industries: [],
-    factors: []
-  },
-  {
-    id: 'linen-mattress-protectors',
-    title: 'Mattress Protectors',
-    subtitle: '',
-    details: 'mattress protectors is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
-    image: '/images/hotel_pillows_collection.jpg',
-    category: 'Linen',
-    brands: [],
-    industries: [],
-    factors: []
-  },
-  {
-    id: 'linen-pool-towels',
-    title: 'Pool Towels',
-    subtitle: '',
-    details: 'pool towels is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
-    image: '/images/resort_pool_towels.jpg',
+    id: 'linen-duvets',
+    title: 'Duvets',
+    subtitle: 'Soft. Plush. Perfect.',
+    details: 'Lofty, plush duvets that give every bed a neat, inviting finish and a perfect night’s sleep.',
+    image: '/images/linen/linen-duvets.jpg',
     category: 'Linen',
     brands: [],
     industries: [],
@@ -532,9 +466,75 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
   {
     id: 'linen-face-towels',
     title: 'Face Towels',
-    subtitle: '',
-    details: 'face towels is used to furnish guest rooms and hospitality spaces, adding practical comfort and a finished look.',
-    image: '/images/resort_pool_towels.jpg',
+    subtitle: 'Softness your skin deserves.',
+    details: 'Ultra-soft face towels woven for gentle comfort and reliable absorbency against delicate skin.',
+    image: '/images/linen/linen-face-towels.jpg',
+    category: 'Linen',
+    brands: [],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'linen-hand-towels',
+    title: 'Hand Towels',
+    subtitle: 'Gentle care in every touch.',
+    details: 'Soft, highly absorbent hand towels that dry quickly and stay fresh between uses.',
+    image: '/images/linen/linen-hand-towels.jpg',
+    category: 'Linen',
+    brands: [],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'linen-mattress-protectors',
+    title: 'Mattress Protectors',
+    subtitle: 'Invisible protection, total comfort.',
+    details: 'Fitted, machine-washable mattress protectors that shield every mattress from spills, allergens and daily wear.',
+    image: '/images/linen/linen-mattress-protectors.jpg',
+    category: 'Linen',
+    brands: [],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'linen-pillow-covers',
+    title: 'Pillow Covers',
+    subtitle: 'Pure white, perfect sleep.',
+    details: 'Crisp white pillow covers with strong stitching that stay bright, wash after wash.',
+    image: '/images/linen/linen-pillow-covers.jpg',
+    category: 'Linen',
+    brands: [],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'linen-pillows',
+    title: 'Pillows',
+    subtitle: 'Sleep better. Wake happier.',
+    details: 'Supportive pillows in soft, medium and firm options, filled to stay plump night after night.',
+    image: '/images/linen/linen-pillows.jpg',
+    category: 'Linen',
+    brands: [],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'linen-pool-towels',
+    title: 'Pool Towels',
+    subtitle: 'Soft. Thick. Poolside perfect.',
+    details: 'Extra-large, super-absorbent pool towels in solid colours and stripes, made for poolside, beach and spa.',
+    image: '/images/linen/linen-pool-towels.jpg',
+    category: 'Linen',
+    brands: [],
+    industries: [],
+    factors: []
+  },
+  {
+    id: 'linen-rugs',
+    title: 'Rugs',
+    subtitle: 'Step into luxury.',
+    details: 'Warm, elegant rugs in classic and modern designs, built for daily use and heavy foot traffic.',
+    image: '/images/linen/linen-rugs.jpg',
     category: 'Linen',
     brands: [],
     industries: [],
@@ -578,7 +578,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Sewing & Medical Kits',
     subtitle: '',
     details: 'sewing and medical kits provides a useful in-room or bathroom item for hotel guests.',
-    image: '/images/hotel_guest_kits.jpg',
+    image: '/images/hotel_sewing_medical_kits.jpg',
     category: 'Guest Amenities',
     brands: [],
     industries: [],
@@ -633,7 +633,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Bath Slippers',
     subtitle: '',
     details: 'bath slippers provides a useful in-room or bathroom item for hotel guests.',
-    image: '/images/image__guest_amenities_equipment__f4f6ec37.webp',
+    image: '/images/hotel_bath_slippers.jpg',
     category: 'Guest Amenities',
     brands: [],
     industries: [],
@@ -675,9 +675,9 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
   {
     id: 'utensils-bakers',
     title: 'Culinary Prep & Pastry Tools',
-    subtitle: '',
-    details: 'culinary prep and pastry tools supports food preparation, cooking, storage, or buffet service in professional kitchens.',
-    image: '/images/image__stainless_steel_brassware__69672dfd.webp',
+    subtitle: 'Commercial Baking & Pastry Collection',
+    details: 'Professional culinary prep and pastry tools: stainless steel whisks, dough scrapers, silicone spatulas, baking sheets, pastry nozzles and cake rings.',
+    image: '/images/commercial_bakery_pastry_tools.jpg',
     category: 'Kitchen Utensils',
     brands: ['Bakers'],
     industries: [],
@@ -702,17 +702,6 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     image: '/images/cardimage_ac51211f.webp',
     category: 'Kitchen Utensils',
     brands: ['Cambro Nilkamal'],
-    industries: [],
-    factors: []
-  },
-  {
-    id: 'utensils-chafing-bakers',
-    title: 'Commercial Roll-Top Chafing Dishes & Buffet Stations',
-    subtitle: '',
-    details: 'commercial roll-top chafing dishes and buffet stations supports food preparation, cooking, storage, or buffet service in professional kitchens.',
-    image: '/images/cardimage_ac51211f.webp',
-    category: 'Kitchen Utensils',
-    brands: ['Bakers'],
     industries: [],
     factors: []
   },
@@ -743,7 +732,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Professional Knives',
     subtitle: '',
     details: 'professional knives supports food preparation, cooking, storage, or buffet service in professional kitchens.',
-    image: '/images/image__stainless_steel_brassware__69672dfd.webp',
+    image: '/images/commercial_professional_knives.jpg',
     category: 'Kitchen Utensils',
     brands: ['Godrej Cartini'],
     industries: [],
@@ -842,7 +831,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Food Containers',
     subtitle: '',
     details: 'food containers supports food preparation, cooking, storage, or buffet service in professional kitchens.',
-    image: '/images/commercial_cutting_boards.jpg',
+    image: '/images/commercial_food_storage_containers.jpg',
     category: 'Kitchen Utensils',
     brands: ['Polyguard'],
     industries: [],
@@ -908,7 +897,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Commercial Mixers & Blenders',
     subtitle: '',
     details: 'commercial mixers and blenders supports food preparation, cooking, storage, or buffet service in professional kitchens.',
-    image: '/images/commercial_kitchen_prep_tools.jpg',
+    image: '/images/commercial_mixers_blenders.jpg',
     category: 'Kitchen Utensils',
     brands: ['Sujatha'],
     industries: [],
@@ -1271,7 +1260,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Convection Oven',
     subtitle: '',
     details: 'convection oven is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
-    image: '/images/commercial_deck_ovens.jpg',
+    image: '/images/commercial_convection_oven.jpg',
     category: 'Kitchen Equipments',
     brands: [],
     industries: [],
@@ -1304,7 +1293,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Water Cooler',
     subtitle: '',
     details: 'water cooler is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
-    image: '/images/commercial_ice_cube_machine.jpg',
+    image: '/images/commercial_water_cooler.jpg',
     category: 'Kitchen Equipments',
     brands: [],
     industries: [],
@@ -1366,6 +1355,148 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     factors: []
   }
 ];
+
+
+/* ── Linen: one tagline + short write-up per item (no brands, no catalogues) ── */
+export interface LinenProductDetail {
+  tagline: string;
+  writeup: string[];
+}
+
+export const LINEN_PRODUCT_DETAILS: Record<string, LinenProductDetail> = {
+  'linen-bath-mats': {
+    tagline: 'Naturally dry. Effortlessly clean.',
+    writeup: [
+      'Quickly soaks up moisture to keep your bathroom floors dry and puddle-free.',
+      'Features a non-slip grip to prevent slips and falls on wet tiles.',
+      'Offers a soft, warm surface for your feet the moment you step out of the shower.',
+      'Crafted to blend seamlessly with any bathroom decor.',
+      'Designed for everyday durability and easy maintenance.'
+    ]
+  },
+  'linen-bath-towels': {
+    tagline: 'Purely absorbent. Naturally soft.',
+    writeup: [
+      'Quickly soaks up moisture to leave you dry and refreshed after every shower.',
+      'Dries fast between uses, staying fresh and free from musty odours.',
+      'Crafted from sustainable fibres that feel gentle on your skin.'
+    ]
+  },
+  'linen-bed-covers': {
+    tagline: 'Smooth, breathable luxury designed for deep rest.',
+    writeup: [
+      'Designed to elevate your everyday sleep.',
+      'Cool, airy weaves provide comfortable sleep across every season.',
+      'Classic whites and calming neutrals pair easily with any bedding.'
+    ]
+  },
+  'linen-bed-sheets': {
+    tagline: 'Pure comfort, for restful sleep.',
+    writeup: [
+      'Redefine your nightly rest with the cool, crisp elegance of a luxury suite.',
+      'Woven from long-staple fibres that balance breathable softness with enduring strength.'
+    ]
+  },
+  'linen-carpets': {
+    tagline: 'Unmatched durability underfoot.',
+    writeup: [
+      'Brings plush comfort and enduring sophistication to your interiors.',
+      'Crafted to balance underfoot softness with commercial-grade resilience, each piece anchors your room with quiet elegance.'
+    ]
+  },
+  'linen-curtains': {
+    tagline: 'Draped in elegance. Designed for comfort.',
+    writeup: [
+      'Transform any room into a calm, private retreat.',
+      'Tailored for a graceful drape and superior light control, adding effortless style and quiet comfort to your windows.',
+      'Available in room-darkening blackout weaves for restful sleep and airy sheers for soft, diffused daylight.',
+      'Offered in calming neutrals, subtle linens and lustrous weaves to complement your bedding and carpets.'
+    ]
+  },
+  'linen-cushions': {
+    tagline: 'Handpicked textures, crafted for everyday living.',
+    writeup: [
+      'Thoughtfully designed to blend everyday comfort with effortless style, each piece brings warmth, texture and personality to your home.',
+      'Crafted for both beauty and relaxation, these cushions offer soft back and neck support whether you are reading or unwinding.'
+    ]
+  },
+  'linen-decorative-throws': {
+    tagline: 'Woven for warmth. Styled for living.',
+    writeup: [
+      'Woven to balance visual appeal with cosy comfort, each piece invites you to relax in style.'
+    ]
+  },
+  'linen-duvets': {
+    tagline: 'Soft. Plush. Perfect.',
+    writeup: [
+      'Creates rooms that feel luxurious, look neat, and are made for comfort, durability and a perfect night’s sleep.',
+      'Gives beds a neat, plush, inviting look.',
+      'Available in Single, Double, Queen and King sizes, in a range of GSM and fill options.'
+    ]
+  },
+  'linen-face-towels': {
+    tagline: 'Softness your skin deserves.',
+    writeup: [
+      'Elevate your daily skincare and cleansing routine with a collection of ultra-soft face towels.',
+      'Skilfully woven for gentle comfort and reliable absorbency, each towel feels soothing against delicate skin.'
+    ]
+  },
+  'linen-hand-towels': {
+    tagline: 'Gentle care in every touch.',
+    writeup: [
+      'Woven for gentle comfort and quick absorbency.',
+      'Wicks away moisture effortlessly and dries fresh between uses.',
+      'Upgrade your everyday cleansing ritual with ultra-soft hand towels.'
+    ]
+  },
+  'linen-mattress-protectors': {
+    tagline: 'Invisible protection, total comfort.',
+    writeup: [
+      'Commercial-grade mattress protectors act as an invisible shield against spills, sweat, allergens and daily wear, keeping every room fresh, hygienic and guest-ready.',
+      'Fitted style, easy to put on and remove, and machine washable for daily use.'
+    ]
+  },
+  'linen-pillow-covers': {
+    tagline: 'Pure white, perfect sleep.',
+    writeup: [
+      'Gives a finishing touch to a perfectly made bed.',
+      'Fresh white covers stay bright, wash after wash.',
+      'Strong stitching, easy to wash and long-lasting.',
+      'Available in Standard and King sizes, in cotton and polycotton options to suit every room.'
+    ]
+  },
+  'linen-pillows': {
+    tagline: 'Sleep better. Wake happier.',
+    writeup: [
+      'Designed to give guests the perfect balance of softness and support.',
+      'High-quality fill that doesn’t go flat.',
+      'Available in soft, medium and firm options, in Standard and King sizes to suit every room and every guest.',
+      'Comfort they remember, and the sleep they deserve.'
+    ]
+  },
+  'linen-pool-towels': {
+    tagline: 'Soft. Thick. Poolside perfect.',
+    writeup: [
+      'Extra large and thick for full coverage.',
+      'Super absorbent, dries fast and easy to wash.',
+      'Available in solid colours and striped designs, in 100% cotton and cotton-rich options.',
+      'Perfect for poolside, beach and spa.'
+    ]
+  },
+  'linen-rugs': {
+    tagline: 'Step into luxury.',
+    writeup: [
+      'Adds warmth, elegance and a premium feel to every room.',
+      'Durable for daily use and heavy foot traffic.',
+      'Available in different sizes, colours and designs — from classic to modern — to match rooms, corridors and lobbies.'
+    ]
+  }
+};
+
+export function linenDetailFor(productId: string): LinenProductDetail | null {
+  return LINEN_PRODUCT_DETAILS[productId] ?? null;
+}
+
 
 export const CATEGORY_FILTERS = [
   'Crockery',

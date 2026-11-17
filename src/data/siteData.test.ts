@@ -10,7 +10,9 @@ import {
   brandColor,
   findBrochure,
   PRODUCT_SPECS_MAP,
-  buildCardDetail
+  buildCardDetail,
+  LINEN_PRODUCT_DETAILS,
+  linenDetailFor
 } from './siteData';
 
 /** Brand names that must never appear anywhere on the site. */
@@ -67,6 +69,27 @@ describe('siteData catalog integrity', () => {
         expect(product.brands, `${product.id} must not carry a brand`).toEqual([]);
       }
     }
+  });
+
+  it('keeps every linen listing generic, unbranded and free of hotel wording', () => {
+    const linen = CATALOG_PRODUCTS.filter(p => p.category === 'Linen');
+    expect(linen.length).toBeGreaterThan(0);
+
+    for (const product of linen) {
+      const copy = `${product.title} ${product.subtitle} ${product.details}`.toLowerCase();
+      expect(copy, `${product.id} copy`).not.toContain('hotel');
+      expect(product.brands, `${product.id} must not carry a brand`).toEqual([]);
+
+      const detail = linenDetailFor(product.id);
+      expect(detail, `${product.id} needs a tagline and write-up`).not.toBeNull();
+      expect(detail?.tagline.trim(), `${product.id} tagline`).toBeTruthy();
+      expect(detail?.writeup.length, `${product.id} write-up`).toBeGreaterThan(0);
+      expect(detail?.writeup.join(' ').toLowerCase(), `${product.id} write-up`).not.toContain('hotel');
+    }
+
+    // Every linen card gets its own photo — no recycling within the range.
+    expect(new Set(linen.map(p => p.image)).size).toBe(linen.length);
+    expect(Object.keys(LINEN_PRODUCT_DETAILS).sort()).toEqual(linen.map(p => p.id).sort());
   });
 
   it('gives every listing outside the unbranded classifications a brand', () => {

@@ -603,12 +603,14 @@ export const ProductPage: React.FC<ProductPageProps> = ({
               />
 
               {/* Brand Dropdown — pick the brand inside the selected classification */}
-              <BrandSelect
-                brands={availableBrands}
-                value={selectedBrand}
-                onChange={setSelectedBrand}
-                activeCategory={activeCategory}
-              />
+              {availableBrands.length > 0 && (
+                <BrandSelect
+                  brands={availableBrands}
+                  value={selectedBrand}
+                  onChange={setSelectedBrand}
+                  activeCategory={activeCategory}
+                />
+              )}
             </div>
           </div>
         </div>

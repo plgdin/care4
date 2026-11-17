@@ -10,7 +10,8 @@ import {
   ProductDetailInfo,
   buildCardDetail,
   brandColor,
-  findBrochure
+  findBrochure,
+  linenDetailFor
 } from '../data/siteData';
 
 interface ProductDetailModalProps {
@@ -44,17 +45,21 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
   if (!product) return null;
 
+  // Linen is a generic, brand-free range: no catalogue, no brand pills.
+  const isLinen = product.category === 'Linen';
+  const linenDetail = isLinen ? linenDetailFor(product.id) : null;
+
   // Retrieved detail strip, or an honest fallback built from the card itself
   const specSheet: ProductDetailInfo =
     PRODUCT_SPECS_MAP[product.id] || buildCardDetail(product);
 
   // Distinct gallery images (deduplicated) with the card image as guaranteed anchor
-  const gallery = Array.from(
-    new Set([product.image, ...(specSheet.galleryImages || [])])
-  );
+  const gallery = isLinen
+    ? [product.image]
+    : Array.from(new Set([product.image, ...(specSheet.galleryImages || [])]));
   const currentMainImage = gallery[activeImageIndex % gallery.length] || product.image;
 
-  const brochure = findBrochure(product.brands);
+  const brochure = isLinen ? null : findBrochure(product.brands);
 
   return (
     <div className="pdm-backdrop" onClick={onClose}>
@@ -86,30 +91,32 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             </div>
 
             {/* Thumbnails Row */}
-            <div className="pdm-thumbs-row">
-              {gallery.slice(0, 3).map((imgUrl, idx) => (
-                <button
-                  key={imgUrl}
-                  type="button"
-                  className={`pdm-thumb-btn ${activeImageIndex === idx ? 'active' : ''}`}
-                  onClick={() => setActiveImageIndex(idx)}
-                  aria-label={`View image ${idx + 1}`}
-                >
-                  <img src={imgUrl} alt={`${product.title} view ${idx + 1}`} />
-                </button>
-              ))}
-            </div>
+            {gallery.length > 1 && (
+              <div className="pdm-thumbs-row">
+                {gallery.slice(0, 3).map((imgUrl, idx) => (
+                  <button
+                    key={imgUrl}
+                    type="button"
+                    className={`pdm-thumb-btn ${activeImageIndex === idx ? 'active' : ''}`}
+                    onClick={() => setActiveImageIndex(idx)}
+                    aria-label={`View image ${idx + 1}`}
+                  >
+                    <img src={imgUrl} alt={`${product.title} view ${idx + 1}`} />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Right Column: Title, Brand Pills, Highlights */}
           <div className="pdm-right-col">
             <h2 className="pdm-title">{product.title}</h2>
-            {specSheet.tagline && specSheet.tagline !== product.title && (
-              <p className="pdm-tagline">{specSheet.tagline}</p>
+            {(linenDetail?.tagline || specSheet.tagline) && (
+              <p className="pdm-tagline">{linenDetail?.tagline || specSheet.tagline}</p>
             )}
 
-            {/* Brand Pills — bold, alternating blue / red */}
-            {product.brands.length > 0 && (
+            {/* Brand Pills — bold, alternating blue / red (never on Linen) */}
+            {!isLinen && product.brands.length > 0 && (
               <div className="pdm-brand-pills">
                 {product.brands.map(brand => (
                   <span
@@ -122,45 +129,66 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               </div>
             )}
 
-            {/* Product Highlights */}
-            <div className="pdm-highlights-section">
-              <div className="pdm-hl-head">
-                <FileText size={18} className="pdm-hl-ico" />
-                <span>Product Details &amp; Technical Specifications</span>
+            {isLinen && linenDetail ? (
+              /* Generic linen range: tagline + short write-up, no catalogue */
+              <div className="pdm-writeup-section">
+                <div className="pdm-hl-head">
+                  <FileText size={18} className="pdm-hl-ico" />
+                  <span>Product Details</span>
+                </div>
+                <ul className="pdm-writeup-list">
+                  {linenDetail.writeup.map((line, idx) => (
+                    <li key={idx}>{line}</li>
+                  ))}
+                </ul>
+                <div className="pdm-writeup-note">
+                  Supplied to order. Share your requirement and our team will help with
+                  sizes, quantities and pricing.
+                </div>
               </div>
-              <div className="pdm-hl-table">
-                {specSheet.highlights.map((row, idx) => (
-                  <div className="pdm-hl-row" key={`${row.label}-${idx}`}>
-                    <span className="hl-label">{row.label}</span>
-                    <span className="hl-val">{row.value}</span>
+            ) : (
+              <>
+                {/* Product Highlights */}
+                <div className="pdm-highlights-section">
+                  <div className="pdm-hl-head">
+                    <FileText size={18} className="pdm-hl-ico" />
+                    <span>Product Details &amp; Technical Specifications</span>
                   </div>
-                ))}
-              </div>
-            </div>
+                  <div className="pdm-hl-table">
+                    {specSheet.highlights.map((row, idx) => (
+                      <div className="pdm-hl-row" key={`${row.label}-${idx}`}>
+                        <span className="hl-label">{row.label}</span>
+                        <span className="hl-val">{row.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
 
-            {/* Brand Catalogue */}
-            <div className="pdm-catalogue-box">
-              <div className="pdm-catalogue-head">
-                <FileText size={18} className="pdm-hl-ico" />
-                <span>Product Catalogue</span>
-              </div>
-              {brochure ? (
-                <a
-                  className="pdm-catalogue-link"
-                  href={brochure}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Open brand catalogue (PDF)
-                  <ArrowRight size={16} />
-                </a>
-              ) : (
-                <p className="pdm-catalogue-note">
-                  Brand catalogue available on request. Send us an enquiry and our
-                  sales team will share it with you.
-                </p>
-              )}
-            </div>
+                {/* Brand Catalogue */}
+                <div className="pdm-catalogue-box">
+                  <div className="pdm-catalogue-head">
+                    <FileText size={18} className="pdm-hl-ico" />
+                    <span>Product Catalogue</span>
+                  </div>
+                  {brochure ? (
+                    <a
+                      className="pdm-catalogue-link"
+                      href={brochure}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Open brand catalogue (PDF)
+                      <ArrowRight size={16} />
+                    </a>
+                  ) : (
+                    <p className="pdm-catalogue-note">
+                      Brand catalogue available on request. Send us an enquiry and our
+                      sales team will share it with you.
+                    </p>
+                  )}
+                </div>
+              </>
+            )}
           </div>
         </div>
 
@@ -172,9 +200,9 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               className="pdm-btn-catalog"
               onClick={onClose}
             >
-              Back to Catalog
+              {isLinen ? 'Back to Catalogue' : 'Back to Catalog'}
             </button>
-            {brochure ? (
+            {!isLinen && (brochure ? (
               <a
                 className="pdm-btn-viewpdf"
                 href={brochure}
@@ -195,7 +223,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 <FileText size={16} />
                 <span>Product Catalogue</span>
               </button>
-            )}
+            ))}
             <button
               type="button"
               className="pdm-btn-quote"
@@ -552,6 +580,52 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           cursor: pointer;
           transition: all 0.15s ease;
           box-shadow: 0 4px 14px rgba(2, 52, 141, 0.3);
+        }
+
+        /* Linen write-up (generic range: no catalogue) */
+        .pdm-writeup-section {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+
+        .pdm-writeup-list {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .pdm-writeup-list li {
+          position: relative;
+          padding-left: 24px;
+          font-size: 15.5px;
+          line-height: 1.55;
+          color: #334155;
+        }
+
+        .pdm-writeup-list li::before {
+          content: '';
+          position: absolute;
+          left: 4px;
+          top: 8px;
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background: #dc2626;
+        }
+
+        .pdm-writeup-note {
+          margin-top: 4px;
+          padding: 12px 14px;
+          border-radius: 10px;
+          background: #f8fafc;
+          border: 1px solid #e2e8f0;
+          font-size: 14px;
+          line-height: 1.5;
+          color: #64748b;
         }
 
         /* Brand Catalogue */
