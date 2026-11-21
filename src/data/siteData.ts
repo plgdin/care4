@@ -1216,7 +1216,7 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
     title: 'Pulverizer',
     subtitle: '',
     details: 'pulverizer is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
-    image: '/images/commercial_food_prep_machines.jpg',
+    image: '/images/commercial_pulverizer.jpg',
     category: 'Kitchen Equipments',
     brands: [],
     industries: [],
