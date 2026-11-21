@@ -285,8 +285,8 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
         .pdm-dialog {
           background: #ffffff;
           border-radius: 16px;
-          width: 100%;
-          max-width: 1040px;
+          width: 95vw;
+          max-width: 1220px;
           max-height: 92vh;
           display: flex;
           flex-direction: column;
@@ -354,11 +354,11 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
         .pdm-body {
           flex: 1;
           overflow-y: auto;
-          padding: 24px;
+          padding: 26px 30px;
           display: grid;
-          grid-template-columns: 440px 1fr;
-          gap: 28px;
-          align-items: stretch;
+          grid-template-columns: minmax(460px, 540px) 1fr;
+          gap: 32px;
+          align-items: start;
         }
 
         /* Custom Scrollbar for Modal Body */
@@ -377,14 +377,16 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
         .pdm-left-col {
           display: flex;
           flex-direction: column;
-          height: 100%;
           gap: 14px;
+          position: sticky;
+          top: 0;
+          align-self: start;
         }
 
         .pdm-main-img-card {
           width: 100%;
-          flex: 1;
-          min-height: 440px;
+          height: 480px;
+          min-height: 420px;
           border-radius: 14px;
           overflow: hidden;
           background: #f8fafc;
@@ -396,6 +398,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           width: 100%;
           height: 100%;
           object-fit: cover;
+          object-position: center;
           display: block;
           transition: transform 0.3s ease;
         }
@@ -701,9 +704,22 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
         }
 
         /* Responsive */
+        @media (min-width: 861px) and (max-width: 1100px) {
+          .pdm-body {
+            grid-template-columns: 440px 1fr;
+            gap: 24px;
+            padding: 22px;
+          }
+
+          .pdm-main-img-card {
+            height: 400px;
+          }
+        }
+
         @media (max-width: 860px) {
           .pdm-dialog {
             max-height: 96vh;
+            width: 100%;
           }
 
           .pdm-body {
@@ -712,8 +728,12 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             padding: 18px;
           }
 
+          .pdm-left-col {
+            position: static;
+          }
+
           .pdm-main-img-card {
-            height: 260px;
+            height: 280px;
             min-height: unset;
             flex: initial;
           }
