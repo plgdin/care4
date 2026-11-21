@@ -11,7 +11,7 @@ import {
   buildCardDetail,
   brandColor,
   findBrochure,
-  linenDetailFor
+  productCopyFor
 } from '../data/siteData';
 
 interface ProductDetailModalProps {
@@ -45,21 +45,28 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
   if (!product) return null;
 
-  // Linen is a generic, brand-free range: no catalogue, no brand pills.
-  const isLinen = product.category === 'Linen';
-  const linenDetail = isLinen ? linenDetailFor(product.id) : null;
+  // Brand-free ranges: no brand pills, no product catalogues.
+  const isGenericRange = ['Linen', 'Guest Amenities', 'Kitchen Equipments'].includes(product.category);
+  const copyDetail = isGenericRange ? productCopyFor(product.id) : null;
 
   // Retrieved detail strip, or an honest fallback built from the card itself
   const specSheet: ProductDetailInfo =
     PRODUCT_SPECS_MAP[product.id] || buildCardDetail(product);
 
+  // Item-only specification rows, without the Product / Classification header rows
+  const featureRows =
+    specSheet.features ??
+    specSheet.highlights.filter(
+      row => !['Product', 'Classification', 'Brand'].includes(row.label)
+    );
+
   // Distinct gallery images (deduplicated) with the card image as guaranteed anchor
-  const gallery = isLinen
+  const gallery = isGenericRange
     ? [product.image]
     : Array.from(new Set([product.image, ...(specSheet.galleryImages || [])]));
   const currentMainImage = gallery[activeImageIndex % gallery.length] || product.image;
 
-  const brochure = isLinen ? null : findBrochure(product.brands);
+  const brochure = isGenericRange ? null : findBrochure(product.brands);
 
   return (
     <div className="pdm-backdrop" onClick={onClose}>
@@ -111,12 +118,12 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           {/* Right Column: Title, Brand Pills, Highlights */}
           <div className="pdm-right-col">
             <h2 className="pdm-title">{product.title}</h2>
-            {(linenDetail?.tagline || specSheet.tagline) && (
-              <p className="pdm-tagline">{linenDetail?.tagline || specSheet.tagline}</p>
+            {(copyDetail?.tagline || specSheet.tagline) && (
+              <p className="pdm-tagline">{copyDetail?.tagline || specSheet.tagline}</p>
             )}
 
-            {/* Brand Pills — bold, alternating blue / red (never on Linen) */}
-            {!isLinen && product.brands.length > 0 && (
+            {/* Brand Pills — bold, alternating blue / red (never on brand-free ranges) */}
+            {!isGenericRange && product.brands.length > 0 && (
               <div className="pdm-brand-pills">
                 {product.brands.map(brand => (
                   <span
@@ -129,23 +136,43 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               </div>
             )}
 
-            {isLinen && linenDetail ? (
-              /* Generic linen range: tagline + short write-up, no catalogue */
-              <div className="pdm-writeup-section">
-                <div className="pdm-hl-head">
-                  <FileText size={18} className="pdm-hl-ico" />
-                  <span>Product Details</span>
+            {isGenericRange ? (
+              /* Brand-free ranges: tagline, write-up and features/specs table — no catalogue */
+              <>
+                {copyDetail && (
+                  <div className="pdm-writeup-section">
+                    <div className="pdm-hl-head">
+                      <FileText size={18} className="pdm-hl-ico" />
+                      <span>Product Details</span>
+                    </div>
+                    <ul className="pdm-writeup-list">
+                      {copyDetail.writeup.map((line, idx) => (
+                        <li key={idx}>{line}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                <div className="pdm-highlights-section">
+                  <div className="pdm-hl-head">
+                    <FileText size={18} className="pdm-hl-ico" />
+                    <span>Features / Specifications</span>
+                  </div>
+                  <div className="pdm-hl-table">
+                    {featureRows.map((row, idx) => (
+                      <div className="pdm-hl-row" key={`${row.label}-${idx}`}>
+                        <span className="hl-label">{row.label}</span>
+                        <span className="hl-val">{row.value}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <ul className="pdm-writeup-list">
-                  {linenDetail.writeup.map((line, idx) => (
-                    <li key={idx}>{line}</li>
-                  ))}
-                </ul>
+
                 <div className="pdm-writeup-note">
                   Supplied to order. Share your requirement and our team will help with
                   sizes, quantities and pricing.
                 </div>
-              </div>
+              </>
             ) : (
               <>
                 {/* Product Highlights */}
@@ -200,9 +227,9 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               className="pdm-btn-catalog"
               onClick={onClose}
             >
-              {isLinen ? 'Back to Catalogue' : 'Back to Catalog'}
+              {isGenericRange ? 'Back to Catalogue' : 'Back to Catalog'}
             </button>
-            {!isLinen && (brochure ? (
+            {!isGenericRange && (brochure ? (
               <a
                 className="pdm-btn-viewpdf"
                 href={brochure}

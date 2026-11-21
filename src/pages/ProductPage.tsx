@@ -25,6 +25,7 @@ import {
 import {
   CATALOG_PRODUCTS,
   CATEGORY_FILTERS,
+  SECTION_INTROS,
   ProductCatalogCard,
   brandColor
 } from '../data/siteData';
@@ -618,6 +619,13 @@ export const ProductPage: React.FC<ProductPageProps> = ({
 
       {/* ==================== 3. MAIN CONTENT AREA ==================== */}
       <main className="lookbook-content-layout">
+        {SECTION_INTROS[activeCategory] && (
+          <div className="category-intro">
+            <p className="category-intro-tagline">{SECTION_INTROS[activeCategory].tagline}</p>
+            <p className="category-intro-copy">{SECTION_INTROS[activeCategory].writeup}</p>
+          </div>
+        )}
+
         <div className="lookbook-results-header">
           <div className="lookbook-results-count">
             Showing <strong>{filteredProducts.length}</strong> {filteredProducts.length === 1 ? 'commercial product' : 'commercial products'}

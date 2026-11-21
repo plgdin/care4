@@ -134,7 +134,7 @@ ${formData.message || 'General hospitality inquiry'}`
               <span className="contact-badge-pill">Quick Inquiry</span>
               <h2 className="contact-modal-title">Send Us a Message</h2>
               <p className="contact-modal-subtitle">
-                Fill out the form below and our hospitality supply consultants will get back to you promptly.
+                Fill out the form below and our hospitality consultants will get back to you shortly.
               </p>
             </div>
 

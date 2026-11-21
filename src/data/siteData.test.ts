@@ -12,7 +12,12 @@ import {
   PRODUCT_SPECS_MAP,
   buildCardDetail,
   LINEN_PRODUCT_DETAILS,
-  linenDetailFor
+  linenDetailFor,
+  KITCHEN_PRODUCT_DETAILS,
+  GUEST_PRODUCT_DETAILS,
+  SECTION_INTROS,
+  BRANDS_ROWS,
+  productCopyFor
 } from './siteData';
 
 /** Brand names that must never appear anywhere on the site. */
@@ -232,6 +237,84 @@ describe('siteData catalog integrity', () => {
     for (const cat of CATEGORY_FILTERS) {
       const matching = CATALOG_PRODUCTS.filter(p => p.category === cat);
       expect(matching.length).toBeGreaterThan(0);
+    }
+  });
+
+  it('supplies taglines and write-ups for Kitchen Equipments and Guest Amenities', () => {
+    const kitchen = CATALOG_PRODUCTS.filter(p => p.category === 'Kitchen Equipments');
+    const guest = CATALOG_PRODUCTS.filter(p => p.category === 'Guest Amenities');
+
+    for (const product of [...kitchen, ...guest]) {
+      const detail = productCopyFor(product.id);
+      // Every Guest Amenities item has a supplied write-up; the client documented
+      // the first 10 Kitchen Equipments items ("10/25 nos only now").
+      if (product.category === 'Guest Amenities') {
+        expect(detail, `${product.id} needs a tagline and write-up`).not.toBeNull();
+        expect(detail?.tagline.trim()).toBeTruthy();
+        expect(detail?.writeup.length).toBeGreaterThan(0);
+        expect(GUEST_PRODUCT_DETAILS[product.id]).toBeDefined();
+      }
+    }
+
+    expect(Object.keys(KITCHEN_PRODUCT_DETAILS).length).toBe(10);
+    expect(Object.keys(GUEST_PRODUCT_DETAILS).length).toBe(guest.length);
+    for (const detail of Object.values({ ...KITCHEN_PRODUCT_DETAILS, ...GUEST_PRODUCT_DETAILS })) {
+      expect(detail.tagline.trim()).toBeTruthy();
+      expect(detail.writeup.length).toBeGreaterThan(0);
+    }
+  });
+
+  it('renames Dosa Plates to Dosa Plate / Dosa Tawa', () => {
+    const dosa = CATALOG_PRODUCTS.find(p => p.id === 'engineering-dosa-plates');
+    expect(dosa?.title).toBe('Dosa Plate / Dosa Tawa');
+    expect(KITCHEN_PRODUCT_DETAILS['engineering-dosa-plates']).toBeDefined();
+  });
+
+  it('gives Kitchen Equipments and Guest Amenities distinct photos', () => {
+    const kitchen = CATALOG_PRODUCTS.filter(p => p.category === 'Kitchen Equipments');
+    const guest = CATALOG_PRODUCTS.filter(p => p.category === 'Guest Amenities');
+    expect(kitchen.find(p => p.id === 'engineering-dough-kneader')?.image)
+      .not.toBe(kitchen.find(p => p.id === 'engineering-pulverizer')?.image);
+    expect(new Set(guest.map(p => p.image)).size).toBe(guest.length);
+  });
+
+  it('ships section taglines and short write-ups for the two new sections', () => {
+    for (const category of ['Kitchen Equipments', 'Guest Amenities']) {
+      expect(SECTION_INTROS[category]?.tagline.trim()).toBeTruthy();
+      expect(SECTION_INTROS[category]?.writeup.trim()).toBeTruthy();
+    }
+  });
+
+  it('carries client feature/specification tables for the brand-free ranges', () => {
+    const ids = [
+      ...CATALOG_PRODUCTS.filter(p => p.category === 'Linen').map(p => p.id),
+      ...CATALOG_PRODUCTS.filter(p => p.category === 'Guest Amenities').map(p => p.id),
+      ...Object.keys(KITCHEN_PRODUCT_DETAILS)
+    ];
+    for (const id of ids) {
+      const info = PRODUCT_SPECS_MAP[id];
+      expect(info?.features, `${id} needs a features table`).toBeDefined();
+      expect(info?.features?.length, `${id} features table`).toBeGreaterThan(0);
+      for (const row of info?.features ?? []) {
+        expect(row.label.trim()).toBeTruthy();
+        expect(row.value.trim()).toBeTruthy();
+      }
+    }
+  });
+
+  it('removes discontinued brands and adds the requested preferred brands', () => {
+    const allLogos = BRANDS_ROWS.flat().map(b => b.name);
+    for (const removed of ['Rubbermaid', 'Tork', 'Betco']) {
+      expect(allLogos).not.toContain(removed);
+    }
+    for (const added of ['Finware', 'Supreme', 'Venus', 'Poly Guard', 'Rudra', 'Sujatha', 'Zanuff Corvus', 'KMW', 'Kenford']) {
+      expect(allLogos).toContain(added);
+    }
+    for (const row of BRANDS_ROWS) {
+      expect(row.length).toBe(6);
+      for (const brand of row) {
+        expect(existsSync(resolve(process.cwd(), 'public', brand.logo.replace(/^\//, '')))).toBe(true);
+      }
     }
   });
 

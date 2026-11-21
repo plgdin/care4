@@ -76,8 +76,8 @@ export const CATEGORIES_DATA: CategoryItem[] = [
   {
     id: 'guest-amenities',
     title: 'Guest Amenities',
-    subtitle: 'In-room botanical soaps, slippers, dental kits & comforts.',
-    image: '/images/cardimage_1dbd1171.webp'
+    subtitle: 'In-room soaps, slippers, dental kits & comforts.',
+    image: '/images/hotel_bath_slippers.jpg'
   },
   {
     id: 'kitchen-utensils',
@@ -126,9 +126,17 @@ export const BRANDS_ROWS: BrandItem[][] = [
     { name: 'CONTA', logo: '/images/conta_logo_clean.webp', scale: 0.92 },
     { name: 'Kimberly-Clark', logo: '/images/kimberly_clark_logo_clean.webp', scale: 0.92 },
     { name: '3M', logo: '/images/3m_logo_clean.webp', scale: 0.85 },
-    { name: 'Rubbermaid', logo: '/images/rubbermaid_logo_3d_clean.webp', scale: 0.88 },
-    { name: 'Tork', logo: '/images/tork_logo_clean.webp', scale: 0.9 },
-    { name: 'Betco', logo: '/images/betco_logo_clean.webp', scale: 0.9 }
+    { name: 'Finware', logo: '/images/finware_logo_clean.svg', scale: 1.0 },
+    { name: 'Supreme', logo: '/images/supreme_logo_clean.svg', scale: 1.0 },
+    { name: 'Venus', logo: '/images/venus_logo_clean.svg', scale: 1.0 }
+  ],
+  [
+    { name: 'Poly Guard', logo: '/images/poly_guard_logo_clean.svg', scale: 1.0 },
+    { name: 'Rudra', logo: '/images/rudra_logo_clean.svg', scale: 1.0 },
+    { name: 'Sujatha', logo: '/images/sujatha_logo_clean.svg', scale: 1.0 },
+    { name: 'Zanuff Corvus', logo: '/images/zanuff_corvus_logo_clean.svg', scale: 1.0 },
+    { name: 'KMW', logo: '/images/kmw_logo_clean.svg', scale: 1.0 },
+    { name: 'Kenford', logo: '/images/kenford_logo_clean.svg', scale: 1.0 }
   ]
 ];
 
@@ -1103,9 +1111,9 @@ export const CATALOG_PRODUCTS: ProductCatalogCard[] = [
   },
   {
     id: 'engineering-dosa-plates',
-    title: 'Dosa Plates',
+    title: 'Dosa Plate / Dosa Tawa',
     subtitle: '',
-    details: 'dosa plates is equipment used to support food preparation, storage, cooking, or ventilation in commercial kitchens.',
+    details: 'A heavy cast-iron dosa plate built for even heat and crisp, golden dosas in commercial kitchens.',
     image: '/images/commercial_dosa_plates.jpg',
     category: 'Kitchen Equipments',
     brands: [],
@@ -1497,6 +1505,190 @@ export function linenDetailFor(productId: string): LinenProductDetail | null {
   return LINEN_PRODUCT_DETAILS[productId] ?? null;
 }
 
+/* ── Kitchen Equipments: client tagline + short write-up per item ───────── */
+export const KITCHEN_PRODUCT_DETAILS: Record<string, LinenProductDetail> = {
+  'engineering-chicken-grill-machine': {
+    tagline: 'Grill it right. Every time.',
+    writeup: [
+      'Even heat, golden crisp and juicy perfection, crafted for professional kitchens.',
+      'A motorised rotisserie turns every bird evenly for consistent colour and succulence.',
+      'Food-grade stainless steel body, built for high-volume service and easy daily cleaning.'
+    ]
+  },
+  'engineering-commercial-gas-ranges': {
+    tagline: 'High flame. Fast cooking.',
+    writeup: [
+      'Engineered to outlast the busiest shift.',
+      'Cook more. Serve faster. Taste better.',
+      'High-pressure brass burners deliver a fast, even flame with gas safety built in.'
+    ]
+  },
+  'engineering-commercial-refrigerators': {
+    tagline: 'Freshness that never fades.',
+    writeup: [
+      'Powerful cooling, spacious storage and hygienic design, built to keep every ingredient fresh.',
+      'Fan-assisted cooling holds an even temperature across every shelf, with adjustable digital control.',
+      'A heavy-duty compressor and food-grade stainless steel body stand up to daily kitchen use.'
+    ]
+  },
+  'engineering-convection-oven': {
+    tagline: 'Built for culinary excellence.',
+    writeup: [
+      'Uniform hot airflow for flawless baking, perfect results every time.',
+      'A reversible fan circulates heat evenly across every tray for consistent colour and rise.',
+      'Toughened glass view windows and adjustable digital control keep every batch easy to manage.'
+    ]
+  },
+  'engineering-deck-oven': {
+    tagline: 'Bake like a master.',
+    writeup: [
+      'Stone deck base for crispy crust, even baking and authentic flavour in every bake.',
+      'Top and bottom heating gives breads, pizzas and pastries a professional finish.',
+      'Heavy-duty stainless steel construction with toughened glass doors and easy-clean decks.'
+    ]
+  },
+  'engineering-deep-freezers': {
+    tagline: 'Stock up with confidence.',
+    writeup: [
+      'Powerful, uniform cooling for long-lasting freshness, fast freezing and safe storage.',
+      'Thick insulation holds temperature through busy service and power fluctuations.',
+      'A lockable, easy-clean interior keeps bulk stock organised and hygienic.'
+    ]
+  },
+  'engineering-dishwasher': {
+    tagline: 'Spotless wash. Every time.',
+    writeup: [
+      'Powerful hot-water wash and hygienic rinse leave dishes sparkling clean.',
+      'Fast, easy cycles keep glassware, crockery and cutlery moving through busy service.',
+      'Stainless steel construction and simple controls make daily operation effortless.'
+    ]
+  },
+  'engineering-display-counters': {
+    tagline: 'Display that sells.',
+    writeup: [
+      'Crystal-clear glass display, perfect temperature and elegant design showcase your food beautifully.',
+      'Even, fan-assisted cooling keeps pastries, desserts and savouries fresh through the day.',
+      'Slim stainless steel body with easy-glide glass doors and bright, even presentation lighting.'
+    ]
+  },
+  'engineering-dosa-plates': {
+    tagline: 'Seasoned for perfection, made for generations.',
+    writeup: [
+      'Heavy cast iron with even heat distribution and a smooth finish, built for crispy, golden dosas.',
+      'The thick plate holds heat steadily, so every dosa cooks evenly from centre to edge.',
+      'A traditional, durable workhorse for breakfast service, canteens and live counters.'
+    ]
+  },
+  'engineering-dough-kneader': {
+    tagline: 'Perfect dough, in minutes.',
+    writeup: [
+      'Heavy-duty motor, stainless steel bowl and uniform kneading deliver a perfectly consistent texture, batch after batch.',
+      'A spiral hook mixes and kneads evenly, cutting preparation time in a busy bakery.',
+      'Sturdy construction and simple controls make daily dough production reliable and repeatable.'
+    ]
+  }
+};
+
+/* ── Guest Amenities: client tagline + short write-up per item ───────────── */
+export const GUEST_PRODUCT_DETAILS: Record<string, LinenProductDetail> = {
+  'amenities-toilet-rolls-wcbands': {
+    tagline: 'Fresh. Sealed. Perfect.',
+    writeup: [
+      'Soft rolls and sealed bands make every bathroom feel brand new, every time.',
+      'Soft, strong tissue with a clean, hygienic finish that guests notice.',
+      'WC bands show the room has been sanitised and is ready for the next guest.'
+    ]
+  },
+  'amenities-glass-covers-coasters': {
+    tagline: 'A cleaner table. A classier stay.',
+    writeup: [
+      'Keep every glass and cup dust-free, and every table spotless.',
+      'Glass covers protect in-room glassware between services, while absorbent coasters protect polished surfaces.',
+      'Washable, reusable and finished in calm, neutral tones.'
+    ]
+  },
+  'amenities-bathroom-kits': {
+    tagline: 'Complete care. One perfect kit.',
+    writeup: [
+      'From shampoo to shaving kit, everything your guest needs, freshly packed.',
+      'A single, neatly presented kit keeps the bathroom stocked and guest-ready.',
+      'Available with gentle, aloe vera or herbal formulations to suit your property.'
+    ]
+  },
+  'amenities-sewing-medical-kits': {
+    tagline: 'Ready for every little need.',
+    writeup: [
+      'A quick fix for every little emergency, and first-aid essentials that are safe and ready.',
+      'Compact, travel-friendly kits packed in tamper-proof pouches or boxes.',
+      'A thoughtful in-room detail that guests appreciate exactly when they need it.'
+    ]
+  },
+  'amenities-guest-stationery': {
+    tagline: 'Small paper. Big impression.',
+    writeup: [
+      'Letterhead, notepad and folder — everything your guest needs, neatly placed.',
+      'Premium paper and durable folders present your property with quiet professionalism.',
+      'Plain, printed or embossed with your hotel identity.'
+    ]
+  },
+  'amenities-table-sundries': {
+    tagline: 'Thoughtful details. Effortless comfort.',
+    writeup: [
+      'Curated table and guest sundries, crafted for refined stays and unmatched comfort.',
+      'Napkins, coasters, paper mats and condiments finish the table; grooming essentials finish the room.',
+      'Hygienic, disposable and neatly presented for daily service.'
+    ]
+  },
+  'amenities-liquids-soaps': {
+    tagline: 'Gentle care. Lasting freshness.',
+    writeup: [
+      'Soft on skin, rich in fragrance, fresh and relaxing.',
+      'pH-balanced, paraben-free formulations in guest bottles or dispensers.',
+      'Available in mild, herbal, lavender and jasmine fragrances to match your property.'
+    ]
+  },
+  'amenities-hygiene-laundry-essentials': {
+    tagline: 'Clean. Fresh. Cared for.',
+    writeup: [
+      'Discreet disposal and fresh clothes for a perfect stay.',
+      'Hygiene bags and laundry forms are individually packed for hygiene and easy handling.',
+      'Drawstring laundry bags and hanger tags keep the guest laundry process simple and neat.'
+    ]
+  },
+  'amenities-bath-slippers': {
+    tagline: 'Grip, every step.',
+    writeup: [
+      'A non-slip grip sole, fast-draining waterproof EVA and an ergonomic cushioned footbed.',
+      'Ultra-lightweight and comfortable for bathrooms, showers, pools and spas.',
+      'Open-toe or closed-toe styles, finished in clean hotel neutrals.'
+    ]
+  }
+};
+
+/* ── Section tagline + short write-up shown above the category grid ─────── */
+export const SECTION_INTROS: Record<string, { tagline: string; writeup: string }> = {
+  'Kitchen Equipments': {
+    tagline: 'Built for the busiest kitchens.',
+    writeup:
+      'From heavy-duty cooking ranges and ovens to refrigeration, dishwashing and ventilation, we supply a complete commercial kitchen package — specified, delivered and supported across Kerala.'
+  },
+  'Guest Amenities': {
+    tagline: 'Every detail your guests notice.',
+    writeup:
+      'A complete in-room collection — bathroom kits, glass covers, stationery, slippers and soaps — chosen for comfort, hygiene and quiet luxury.'
+  }
+};
+
+/** Copy for the brand-free ranges: Linen, Guest Amenities and Kitchen Equipments. */
+export function productCopyFor(productId: string): LinenProductDetail | null {
+  return (
+    LINEN_PRODUCT_DETAILS[productId] ??
+    GUEST_PRODUCT_DETAILS[productId] ??
+    KITCHEN_PRODUCT_DETAILS[productId] ??
+    null
+  );
+}
+
 
 export const CATEGORY_FILTERS = [
   'Crockery',
@@ -1590,7 +1782,367 @@ export interface ProductDetailInfo {
   tagline: string;
   galleryImages: string[];
   highlights: ProductHighlight[];
+  /** Item-only specification rows (no Product / Classification / Brand). */
+  features?: ProductHighlight[];
 }
+
+/**
+ * Client-supplied "Features / Specifications" for Linen, Guest Amenities and
+ * the Kitchen Equipments items documented so far. These replace the draft
+ * specs generated below, and are shown in their own table in the modal.
+ */
+const SPEC_OVERRIDES: Record<string, ProductHighlight[]> = {
+  /* ── Linen ─────────────────────────────────────────────────────────── */
+  'linen-bath-mats': [
+    { label: 'Size', value: 'Extra Large' },
+    { label: 'Colour', value: 'Clean White / Soft Colours — fresh & neat' },
+    { label: 'Fabric', value: '100% Cotton / Cotton Rich — soft on skin, gentle for all guests' },
+    { label: 'Feel', value: 'Thick & Plush — soft, cushioned feel underfoot' },
+    { label: 'Fit', value: 'Non-slip backing — stays in place, safe for guests' },
+    { label: 'Durability', value: 'Strong & long lasting — withstands daily hotel washing' },
+    { label: 'Maintenance', value: 'Easy to wash, dry & fold — no fading, no shrinking' },
+    { label: 'Look', value: 'Clean, fresh & luxury finish' }
+  ],
+  'linen-bath-towels': [
+    { label: 'Size', value: 'Extra Large' },
+    { label: 'Colour', value: 'Pure White / Soft Colours' },
+    { label: 'Fabric', value: '100% Cotton / Cotton Rich — soft, smooth & breathable' },
+    { label: 'Feel', value: 'Thick & Plush — soft and fluffy, gentle on skin' },
+    { label: 'Fit', value: 'Full body coverage — wraps fully after bath or shower' },
+    { label: 'Durability', value: 'Strong & long lasting — withstands daily hotel washing' },
+    { label: 'Maintenance', value: 'Easy to wash, dry & fold — no fading, no shrinking' },
+    { label: 'Look', value: 'Clean, fresh & neat' }
+  ],
+  'linen-bed-covers': [
+    { label: 'Size', value: 'Single, Double, Queen & King' },
+    { label: 'Colour', value: 'Pure White / Soft Colours / Prints' },
+    { label: 'Fabric', value: '100% Cotton / Cotton Percale — soft, smooth & breathable' },
+    { label: 'Feel', value: 'Cool & comfortable — soft on skin, gentle for all guests' },
+    { label: 'Fit', value: 'Perfect fit — covers the bed fully, no slipping, tucked neatly' },
+    { label: 'Durability', value: 'Strong & long lasting — withstands daily hotel washing' },
+    { label: 'Maintenance', value: 'Easy to wash & iron — quick dry, no fading, no shrinking' },
+    { label: 'Look', value: 'Clean, fresh & neat — gives the bed a luxury finish' }
+  ],
+  'linen-bed-sheets': [
+    { label: 'Size', value: 'Single, Double, Queen & King — flat & fitted' },
+    { label: 'Colour', value: 'Pure White / Crisp White — bright white that stays white' },
+    { label: 'Fabric', value: '100% Cotton / Cotton Percale' },
+    { label: 'Feel', value: 'Cool & comfortable — soft on skin, gentle for all guests' },
+    { label: 'Fit', value: 'Deep-pocket fitted or flat sheet that tucks neatly, no slipping' },
+    { label: 'Durability', value: 'Strong & long lasting — withstands daily hotel washing' },
+    { label: 'Maintenance', value: 'Easy to wash & iron — quick dry, no fading, no shrinking' },
+    { label: 'Look', value: 'Clean, fresh & neat — gives the bed a luxury finish' }
+  ],
+  'linen-carpets': [
+    { label: 'Size', value: 'Standard runner, room size & custom — 2×3, 4×6, 5×7 ft and wall-to-wall' },
+    { label: 'Colour', value: 'Rich colours / patterns — no fading, stays fresh' },
+    { label: 'Fabric', value: 'Wool / Nylon / Polyester Blend — soft, dense & breathable' },
+    { label: 'Feel', value: 'Soft & plush — cushioned underfoot, comfortable for guests' },
+    { label: 'Fit', value: 'Non-slip backing — lays flat, no curling or slipping' },
+    { label: 'Durability', value: 'Strong & long lasting — withstands heavy foot traffic' },
+    { label: 'Maintenance', value: 'Easy to clean — vacuum & shampoo, no fading, no shedding' },
+    { label: 'Look', value: 'Rich, elegant & neat — gives lobby and room a luxury look' }
+  ],
+  'linen-cushions': [
+    { label: 'Size', value: 'Standard — 16×16, 18×18, 20×20 inch' },
+    { label: 'Colour', value: 'Assorted colours / prints — bright, stays fresh' },
+    { label: 'Fabric', value: 'Cotton / Cotton Blend / Velvet' },
+    { label: 'Feel', value: 'Soft & plush — comfortable, gentle for all guests' },
+    { label: 'Fit', value: 'Zip / envelope closure for a neat look, no slipping' },
+    { label: 'Durability', value: 'Strong & long lasting — withstands daily hotel use & washing' },
+    { label: 'Maintenance', value: 'Easy to wash & dry — no fading, no shrinking' },
+    { label: 'Look', value: 'Stylish, fresh & neat — gives sofa and bed a luxury finish' }
+  ],
+  'linen-decorative-throws': [
+    { label: 'Size', value: 'Large — 50×70 inch' },
+    { label: 'Colour', value: 'Assorted colours' },
+    { label: 'Fabric', value: 'Cotton / Cotton Blend / Knitted — soft' },
+    { label: 'Feel', value: 'Soft & cosy — warm, comfortable, gentle on skin' },
+    { label: 'Fit', value: 'Sits neatly on sofa and bed, no slipping' },
+    { label: 'Durability', value: 'Strong & long lasting — withstands daily hotel use & washing' },
+    { label: 'Maintenance', value: 'Easy to wash, dry & fold — no fading, no shrinking' },
+    { label: 'Look', value: 'Stylish, fresh & neat — gives the room a luxury finish' }
+  ],
+  'linen-duvets': [
+    { label: 'Size', value: 'Single, Double, Queen & King' },
+    { label: 'Colour', value: 'Pure White / Crisp White — bright white' },
+    { label: 'Fabric', value: '100% Cotton / Microfiber — soft, smooth & breathable' },
+    { label: 'Feel', value: 'Soft & fluffy — lightweight, warm & comfortable for all guests' },
+    { label: 'Fit', value: 'Fits inside the duvet cover neatly — no bunching, no slipping' },
+    { label: 'Durability', value: 'Strong & long lasting — withstands daily hotel use & washing' },
+    { label: 'Maintenance', value: 'Easy to wash & dry — no fading, no shrinking, no lumping' },
+    { label: 'Look', value: 'Clean, fresh & neat — gives the bed a luxury finish' }
+  ],
+  'linen-face-towels': [
+    { label: 'Size', value: 'Small — 12×12 / 13×13 inch' },
+    { label: 'Colour', value: 'Pure White' },
+    { label: 'Fabric', value: '100% Cotton / Cotton Rich' },
+    { label: 'Feel', value: 'Soft & gentle — soft on the face, gentle for all guests' },
+    { label: 'Fit', value: 'Perfect size — easy to hold, fits hand and face' },
+    { label: 'Durability', value: 'Strong & long lasting — withstands daily hotel washing' },
+    { label: 'Maintenance', value: 'Easy to wash, dry & fold — no fading, no shrinking' },
+    { label: 'Look', value: 'Clean, fresh & neat — gives the bathroom a luxury finish' }
+  ],
+  'linen-hand-towels': [
+    { label: 'Size', value: 'Medium — 16×28 inch' },
+    { label: 'Colour', value: 'Pure White' },
+    { label: 'Fabric', value: '100% Cotton / Cotton Rich' },
+    { label: 'Feel', value: 'Soft & absorbent — soft on hands, gentle for all guests' },
+    { label: 'Fit', value: 'Perfect size — easy to hold, fits hand and bathroom hook' },
+    { label: 'Durability', value: 'Strong & long lasting — withstands daily hotel washing' },
+    { label: 'Maintenance', value: 'Easy to wash, dry & fold — no fading, no shrinking' },
+    { label: 'Look', value: 'Clean, fresh & neat — gives the bathroom a luxury finish' }
+  ],
+  'linen-mattress-protectors': [
+    { label: 'Size', value: 'Single, Double, Queen & King — deep pocket' },
+    { label: 'Colour', value: 'Pure White / Crisp White' },
+    { label: 'Fabric', value: '100% Cotton / Waterproof TPU — soft, smooth & breathable' },
+    { label: 'Feel', value: 'Soft & quiet — cool and comfortable with no crinkle sound' },
+    { label: 'Fit', value: 'Elastic fitted — no slipping, covers the mattress fully' },
+    { label: 'Durability', value: 'Strong & long lasting — waterproof' },
+    { label: 'Maintenance', value: 'Easy to wash & dry — no fading, no shrinking' },
+    { label: 'Look', value: 'Clean, fresh & neat — gives the bed a luxury look' }
+  ],
+  'linen-pillow-covers': [
+    { label: 'Size', value: 'Standard, Queen & King' },
+    { label: 'Colour', value: 'Pure White / Crisp White' },
+    { label: 'Fabric', value: '100% Cotton / Cotton Percale — soft, smooth & breathable' },
+    { label: 'Feel', value: 'Cool & comfortable — soft on skin, gentle for all guests' },
+    { label: 'Fit', value: 'Envelope / flap closure for a neat look, no slipping' },
+    { label: 'Durability', value: 'Strong & long lasting — withstands daily hotel washing' },
+    { label: 'Maintenance', value: 'Easy to wash & iron — quick dry, no fading, no shrinking' },
+    { label: 'Look', value: 'Clean, fresh & neat — gives beds a luxury look' }
+  ],
+  'linen-pillows': [
+    { label: 'Size', value: 'Standard, Queen & King — 20×30 inch' },
+    { label: 'Colour', value: 'Pure White / Crisp White — bright white that stays white' },
+    { label: 'Fabric', value: '100% Cotton / Microfiber — soft, smooth & breathable' },
+    { label: 'Feel', value: 'Soft & supportive — plump, comfortable, gentle for all guests' },
+    { label: 'Fit', value: 'Fits the pillow cover neatly — no lumping, no flattening' },
+    { label: 'Durability', value: 'Strong & long lasting — withstands daily hotel use & washing' },
+    { label: 'Maintenance', value: 'Easy to wash & dry — no fading, no shrinking, no lumping' },
+    { label: 'Look', value: 'Clean, fresh & neat — gives the bed a luxury finish' }
+  ],
+  'linen-pool-towels': [
+    { label: 'Size', value: 'Extra Large — full body coverage' },
+    { label: 'Colour', value: 'Bright colours & stripes — no fading, stays fresh' },
+    { label: 'Fabric', value: '100% Cotton / Cotton Rich — soft on skin, gentle for all guests' },
+    { label: 'Feel', value: 'Thick & plush — soft and fluffy' },
+    { label: 'Absorbency', value: 'Super absorbent — soaks water quickly' },
+    { label: 'Drying', value: 'Quick dry — dries fast after use' },
+    { label: 'Durability', value: 'Strong & long lasting — withstands daily hotel washing' },
+    { label: 'Maintenance', value: 'Easy to wash, dry & fold' }
+  ],
+  'linen-rugs': [
+    { label: 'Size', value: 'Standard — 2×3, 3×5, 4×6 ft; runner and custom sizes' },
+    { label: 'Colour', value: 'Rich colours / patterns' },
+    { label: 'Fabric', value: 'Cotton / Wool / Polyester Blend — soft, dense & breathable' },
+    { label: 'Feel', value: 'Soft & plush — cushioned underfoot, comfortable for guests' },
+    { label: 'Fit', value: 'Non-slip backing — lays flat, no curling or slipping' },
+    { label: 'Durability', value: 'Strong & long lasting — withstands heavy foot traffic and daily cleaning' },
+    { label: 'Maintenance', value: 'Easy to clean — vacuum & shampoo, no fading, no shedding' },
+    { label: 'Look', value: 'Rich, elegant & neat — gives lobby and room a luxury finish' }
+  ],
+
+  /* ── Guest Amenities ───────────────────────────────────────────────── */
+  'amenities-toilet-rolls-wcbands': [
+    { label: 'Toilet Rolls — Material', value: '100% virgin tissue paper, 2-ply / 3-ply — soft & absorbent' },
+    { label: 'Toilet Rolls — Size', value: '20 m / 30 m as per requirement; 10 cm width' },
+    { label: 'Toilet Rolls — Colour', value: 'White / ivory' },
+    { label: 'Toilet Rolls — Packing', value: 'Individually wrapped / bulk pack' },
+    { label: 'WC Bands — Material', value: 'Premium paper — strong & tear resistant' },
+    { label: 'WC Bands — Size', value: 'Standard WC seat size' },
+    { label: 'WC Bands — Design', value: 'Elegant, hotel logo printed' },
+    { label: 'Feature', value: 'Soft, strong, hygienic & eco-friendly; shows the room is sanitised and ready' }
+  ],
+  'amenities-glass-covers-coasters': [
+    { label: 'Glass Cover — Material', value: 'Soft cotton / felt / polyester — durable & washable' },
+    { label: 'Glass Cover — Size', value: 'Standard — fits all hotel glasses' },
+    { label: 'Glass Coaster — Material', value: 'Felt / cotton / cork / fabric — absorbent' },
+    { label: 'Glass Coaster — Size', value: '10 × 10 cm / 4 inch round or square' },
+    { label: 'Colour', value: 'White / ivory / beige / custom hotel colour' },
+    { label: 'Design', value: 'Elegant, plain / embroidered / printed logo' },
+    { label: 'Use', value: 'Cover keeps dust, insects & germs away; coaster protects the table from water marks' },
+    { label: 'Care', value: 'Washable, reusable, quick dry' }
+  ],
+  'amenities-bathroom-kits': [
+    { label: 'Items Included', value: 'Shampoo, conditioner, body wash, body lotion, bath soap, dental kit, shaving kit, vanity / sewing kit' },
+    { label: 'Shampoo / Conditioner', value: '30 ml / 50 ml — gentle, aloe vera or herbal' },
+    { label: 'Body Wash / Lotion', value: '30 ml / 50 ml — gentle, moisturising' },
+    { label: 'Bath Soap', value: '25 g / 40 g — gentle, aloe vera or herbal' },
+    { label: 'Dental Kit', value: 'Travel size — toothbrush + toothpaste, soft bristle' },
+    { label: 'Shaving Kit', value: 'Travel size — razor + cream, gentle on skin' },
+    { label: 'Vanity / Sewing Kit', value: 'Compact — cotton buds, nail file, sewing essentials' }
+  ],
+  'amenities-sewing-medical-kits': [
+    { label: 'Sewing Kit — Items', value: 'Needle, threads (black, white, blue), safety pin, button, scissors' },
+    { label: 'Sewing Kit — Size', value: 'Pocket size — 8 × 10 cm' },
+    { label: 'Sewing Kit — Packing', value: 'Individually sealed pouch / box' },
+    { label: 'Medical Kit — Items', value: 'Band-Aid, cotton, antiseptic wipe, pain balm, paracetamol, gauze' },
+    { label: 'Medical Kit — Size', value: 'Compact box — 10 × 12 cm' },
+    { label: 'Medical Kit — Packing', value: 'Sealed box / pouch — tamper proof' },
+    { label: 'Feature', value: 'Compact, easy to use, travel friendly; safe and essential for every room' }
+  ],
+  'amenities-guest-stationery': [
+    { label: 'Stationery — Items', value: 'Notepad, pen, envelope, letterhead, comment card' },
+    { label: 'Stationery — Material', value: 'Premium 80 GSM / eco-friendly paper' },
+    { label: 'Stationery — Size', value: 'A5 notepad / A4 letterhead / standard envelope' },
+    { label: 'Folders — Material', value: 'Hardboard / leatherette / rexine / cardboard — durable' },
+    { label: 'Folders — Size', value: 'A4 / A5 — fits letterhead & documents' },
+    { label: 'Folders — Inside Pockets', value: 'For menu, tariff card, stationery & brochures' },
+    { label: 'Colour', value: 'White / ivory / black / brown / maroon / custom hotel colour' },
+    { label: 'Design', value: 'Elegant, plain or hotel logo printed / embossed' }
+  ],
+  'amenities-table-sundries': [
+    { label: 'Table Sundries — Items', value: 'Table napkin, coaster, paper mat, toothpick, sugar sachet, salt & pepper' },
+    { label: 'Table Sundries — Material', value: 'Premium paper & food-grade material' },
+    { label: 'Table Sundries — Size', value: 'Standard hotel table size' },
+    { label: 'Guest Sundries — Items', value: 'Shower cap, dental kit, shaving kit, comb, shoe shine, vanity kit' },
+    { label: 'Guest Sundries — Size', value: 'Travel size — compact & lightweight' },
+    { label: 'Packing', value: 'Individually packed / bulk pack' },
+    { label: 'Feature', value: 'Hygienic, disposable, neat presentation; complete care for daily grooming' }
+  ],
+  'amenities-liquids-soaps': [
+    { label: 'Liquid Amenities — Items', value: 'Shampoo, conditioner, body wash, hand wash, body lotion' },
+    { label: 'Liquid Amenities — Size', value: '30 / 40 / 50 ml bottle; 500 ml dispenser' },
+    { label: 'Liquid Amenities — Fragrance', value: 'Mild / herbal / lavender / jasmine / custom fragrance' },
+    { label: 'Soaps — Items', value: 'Bathing soap, hand soap, facial soap' },
+    { label: 'Soaps — Size', value: '15 g / 20 g / 25 g / 50 g' },
+    { label: 'Packing', value: 'Sealed flip-top bottle / pump dispenser; soap flow-wrapped or boxed' },
+    { label: 'Feature', value: 'pH balanced, paraben free, skin friendly, rich lather' }
+  ],
+  'amenities-hygiene-laundry-essentials': [
+    { label: 'Hygiene Bags — Material', value: 'Soft paper / biodegradable / LDPE — hygienic' },
+    { label: 'Hygiene Bags — Size', value: 'Standard — 10 × 15 cm / 12 × 18 cm' },
+    { label: 'Hygiene Bags — Use', value: 'Sanitary napkins, diapers & personal waste' },
+    { label: 'Laundry Essentials — Items', value: 'Laundry bag, laundry list / form, cloth hanger tag' },
+    { label: 'Laundry Essentials — Material', value: 'Cotton cloth bag / non-woven / paper form' },
+    { label: 'Laundry Bag — Size', value: '45 × 60 cm' },
+    { label: 'Packing', value: 'Individually packed, easy to open; clear poly bag' },
+    { label: 'Feature', value: 'Discreet, odour-proof, easy disposal; drawstring closure, strong & reusable' }
+  ],
+  'amenities-bath-slippers': [
+    { label: 'Upper Material', value: '100% high-density EVA' },
+    { label: 'Sole Material', value: 'Textured anti-skid EVA — non-slip' },
+    { label: 'Water Resistance', value: '100% waterproof & quick-dry' },
+    { label: 'Sole Thickness', value: '3.0 cm cushioned base' },
+    { label: 'Toe Style', value: 'Open-toe / closed-toe' },
+    { label: 'Gender', value: 'Unisex' },
+    { label: 'Care Instructions', value: 'Rinse with water and air dry' },
+    { label: 'Ideal For', value: 'Bathroom, shower, pool, spa, post-shower and bedroom' }
+  ],
+
+  /* ── Kitchen Equipments (client specifications) ────────────────────── */
+  'engineering-chicken-grill-machine': [
+    { label: 'Material', value: 'Stainless steel body — food grade' },
+    { label: 'Type', value: 'Electric / gas / charcoal — as per requirement' },
+    { label: 'Capacity', value: '4 / 6 / 8 / 12 chickens per batch' },
+    { label: 'Power', value: '220 V / 380 V — as per model' },
+    { label: 'Heating', value: 'Even heating — rotisserie system' },
+    { label: 'Temperature', value: 'Adjustable temperature control' },
+    { label: 'Feature', value: 'Easy to clean, durable, hygienic & energy efficient' },
+    { label: 'Use', value: 'Hotels, restaurants, fast food & catering' },
+    { label: 'Design', value: 'Compact, modern & professional' }
+  ],
+  'engineering-commercial-gas-ranges': [
+    { label: 'Material', value: 'Stainless steel body — heavy duty' },
+    { label: 'Type', value: 'Single burner / 2 burner / 4 burner / 6 burner' },
+    { label: 'Burners', value: 'High-pressure brass burners — high flame' },
+    { label: 'Ignition', value: 'Auto / manual ignition — as per model' },
+    { label: 'Gas Type', value: 'LPG' },
+    { label: 'Safety', value: 'Gas safety valve & sturdy stand' },
+    { label: 'Feature', value: 'Fast heating, even flame, easy to clean & durable' },
+    { label: 'Use', value: 'Hotels, restaurants, canteens & commercial kitchens' },
+    { label: 'Design', value: 'Compact, heavy duty & professional' }
+  ],
+  'engineering-commercial-refrigerators': [
+    { label: 'Material', value: 'Stainless steel body — food grade' },
+    { label: 'Type', value: 'Single door / double door / 4 door' },
+    { label: 'Capacity', value: '400 L / 800 L / 1000 L / 1200 L' },
+    { label: 'Temperature', value: '-18°C to 10°C — adjustable digital control' },
+    { label: 'Cooling', value: 'Fan cooling — fast & even' },
+    { label: 'Power', value: '220 V — energy efficient & low noise' },
+    { label: 'Feature', value: 'Easy to clean, durable, hygienic & heavy-duty compressor' },
+    { label: 'Use', value: 'Hotels, restaurants, supermarkets & commercial kitchens' },
+    { label: 'Design', value: 'Spacious, sturdy & professional' }
+  ],
+  'engineering-convection-oven': [
+    { label: 'Material', value: 'Stainless steel body — food grade' },
+    { label: 'Type', value: '1 door / 2 doors — with toughened glass view window' },
+    { label: 'Capacity', value: '4 tray / 6 tray / 10 tray' },
+    { label: 'Temperature', value: '50°C to 300°C — adjustable digital control' },
+    { label: 'Heating', value: 'Fan-forced hot air — even baking' },
+    { label: 'Power', value: '220 V / 380 V — energy efficient' },
+    { label: 'Feature', value: 'Even baking, fast heating, easy to clean & durable' },
+    { label: 'Use', value: 'Bakeries, hotels, restaurants, cafes & commercial kitchens' },
+    { label: 'Design', value: 'Compact, sturdy & professional' }
+  ],
+  'engineering-deck-oven': [
+    { label: 'Material', value: 'Stainless steel body — food grade' },
+    { label: 'Type', value: '1 door / 2 doors / 3 doors — toughened glass view window & handle' },
+    { label: 'Capacity', value: '1 deck / 2 deck / 3 deck — as per model' },
+    { label: 'Temperature', value: '50°C to 350°C — adjustable digital control' },
+    { label: 'Heating', value: 'Top & bottom heating — stone deck base' },
+    { label: 'Power', value: '220 V / 380 V — energy efficient' },
+    { label: 'Feature', value: 'Crispy crust, even baking, fast heating & durable' },
+    { label: 'Use', value: 'Bakeries, pizza shops, hotels, restaurants & commercial kitchens' },
+    { label: 'Design', value: 'Heavy duty, sturdy & professional' }
+  ],
+  'engineering-deep-freezers': [
+    { label: 'Material', value: 'Stainless steel body — food grade' },
+    { label: 'Type', value: 'Chest / upright — as per model' },
+    { label: 'Capacity', value: '200 L / 300 L / 500 L / 700 L' },
+    { label: 'Temperature', value: '-18°C to -22°C — adjustable digital control' },
+    { label: 'Cooling', value: 'Fan-assisted fast freeze' },
+    { label: 'Power', value: '220 V — energy efficient & low noise' },
+    { label: 'Feature', value: 'Thick insulation, lockable lid, easy to clean & hygienic' },
+    { label: 'Use', value: 'Hotels, restaurants, supermarkets & commercial kitchens' },
+    { label: 'Design', value: 'Sturdy, spacious & professional' }
+  ],
+  'engineering-dishwasher': [
+    { label: 'Material', value: 'Stainless steel body — food grade' },
+    { label: 'Type', value: 'Undercounter / hood type / rack conveyor — as per model' },
+    { label: 'Output', value: 'Up to 40 racks per hour (nominal)' },
+    { label: 'Wash Cycle', value: '90 / 120 seconds' },
+    { label: 'Washing', value: 'Hot-water wash with hygienic rinse' },
+    { label: 'Power', value: '415 V three-phase, 9 kW (nominal)' },
+    { label: 'Feature', value: 'Automatic detergent & rinse dosing, easy to clean & durable' },
+    { label: 'Use', value: 'Hotels, restaurants, canteens & commercial kitchens' },
+    { label: 'Design', value: 'Compact, sturdy & professional' }
+  ],
+  'engineering-display-counters': [
+    { label: 'Material', value: 'Stainless steel body with toughened glass' },
+    { label: 'Type', value: 'Counter-top / island / wall-facing — as per model' },
+    { label: 'Length', value: '1,000 mm / 1,200 mm / 1,500 mm' },
+    { label: 'Temperature', value: '+2°C to +8°C — adjustable digital control' },
+    { label: 'Cooling', value: 'Fan-assisted even cooling' },
+    { label: 'Power', value: '220 V — energy efficient' },
+    { label: 'Feature', value: 'Crystal-clear display, sliding glass doors, easy to clean' },
+    { label: 'Use', value: 'Bakeries, cafes, hotels & restaurants' },
+    { label: 'Design', value: 'Elegant, slim & professional' }
+  ],
+  'engineering-dosa-plates': [
+    { label: 'Material', value: 'Heavy cast iron' },
+    { label: 'Plate Size', value: '600 mm / 750 mm / 900 mm diameter' },
+    { label: 'Heating', value: 'LPG burner assembly — as per model' },
+    { label: 'Surface', value: 'Smooth finish with even heat distribution' },
+    { label: 'Feature', value: 'Pre-seasoned, durable & easy to maintain' },
+    { label: 'Use', value: 'Hotels, restaurants, canteens & commercial kitchens' },
+    { label: 'Design', value: 'Heavy duty & professional' }
+  ],
+  'engineering-dough-kneader': [
+    { label: 'Material', value: 'Stainless steel bowl with food-grade body' },
+    { label: 'Capacity', value: '10 kg / 25 kg / 50 kg dough per batch' },
+    { label: 'Motor', value: 'Heavy-duty, 1.5 kW (nominal)' },
+    { label: 'Kneading', value: 'Spiral hook — uniform mixing' },
+    { label: 'Bowl Speed', value: '25 rpm (nominal)' },
+    { label: 'Power', value: '230 V AC, 50 Hz' },
+    { label: 'Feature', value: 'Heavy-duty motor, stainless steel bowl, easy to clean' },
+    { label: 'Use', value: 'Bakeries, hotels, restaurants & commercial kitchens' },
+    { label: 'Design', value: 'Sturdy, compact & professional' }
+  ]
+};
+
 
 /**
  * Plausible draft specifications for layout/content review. These are not
@@ -1710,6 +2262,7 @@ export const PRODUCT_SPECS_MAP: Record<string, ProductDetailInfo> = Object.fromE
       };
       specs = engineeringSpecs[product.id] || [{ label: 'Capacity', value: 'Approx. 20 L working capacity' }, { label: 'Construction', value: '304 stainless-steel food-contact surfaces' }, { label: 'Dimensions', value: 'Approx. 600 × 600 × 850 mm' }, { label: 'Supply', value: '230 V AC, 50 Hz' }];
     }
+    const finalSpecs = SPEC_OVERRIDES[product.id] ?? specs;
     const galleryImages = isMelamine
       ? [product.image, '/images/melamine_features_guide.png']
       : [product.image];
@@ -1721,8 +2274,9 @@ export const PRODUCT_SPECS_MAP: Record<string, ProductDetailInfo> = Object.fromE
         { label: 'Product', value: product.title },
         { label: 'Classification', value: product.category },
         ...product.brands.map(brand => ({ label: 'Brand', value: brand })),
-        ...specs
-      ]
+        ...finalSpecs
+      ],
+      features: finalSpecs
     }];
   })
 );
