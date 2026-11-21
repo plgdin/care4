@@ -2,7 +2,12 @@ import React, { useEffect, useState } from 'react';
 import {
   X,
   FileText,
-  ArrowRight
+  ArrowRight,
+  ShieldCheck,
+  Truck,
+  PhoneCall,
+  Maximize2,
+  Minimize2
 } from 'lucide-react';
 import {
   ProductCatalogCard,
@@ -11,7 +16,8 @@ import {
   buildCardDetail,
   brandColor,
   findBrochure,
-  productCopyFor
+  productCopyFor,
+  CONTACT_INFO
 } from '../data/siteData';
 
 interface ProductDetailModalProps {
@@ -26,10 +32,12 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
   onInquire
 }) => {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [imageFit, setImageFit] = useState<'contain' | 'cover'>('contain');
 
   // Close on ESC key & reset index on product change
   useEffect(() => {
     setActiveImageIndex(0);
+    setImageFit('contain');
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
     };
@@ -93,8 +101,18 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               <img
                 src={currentMainImage}
                 alt={product.title}
-                className="pdm-main-img"
+                className={`pdm-main-img pdm-main-img--${imageFit}`}
               />
+              <button
+                type="button"
+                className="pdm-img-fit-btn"
+                onClick={() => setImageFit(prev => prev === 'contain' ? 'cover' : 'contain')}
+                title={imageFit === 'contain' ? 'Fill frame' : 'Fit whole image without zoom'}
+                aria-label="Toggle image fit"
+              >
+                {imageFit === 'contain' ? <Maximize2 size={13} /> : <Minimize2 size={13} />}
+                <span>{imageFit === 'contain' ? 'Fill' : 'Fit'}</span>
+              </button>
             </div>
 
             {/* Thumbnails Row */}
@@ -113,6 +131,27 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 ))}
               </div>
             )}
+
+            {/* Procurement Trust & Assistance Strip */}
+            <div className="pdm-left-trust-strip">
+              <div className="pdm-trust-item">
+                <ShieldCheck size={16} className="pdm-trust-ico" />
+                <span>Commercial Hospitality Standard</span>
+              </div>
+              <div className="pdm-trust-item">
+                <Truck size={16} className="pdm-trust-ico" />
+                <span>Pan-Kerala Delivery &amp; Setup</span>
+              </div>
+              <div className="pdm-trust-item">
+                <PhoneCall size={15} className="pdm-trust-ico" />
+                <span>
+                  Direct Inquiries:{' '}
+                  <a href={`tel:${CONTACT_INFO.mobiles[0].replace(/\s+/g, '')}`}>
+                    {CONTACT_INFO.mobiles[0]}
+                  </a>
+                </span>
+              </div>
+            </div>
           </div>
 
           {/* Right Column: Title, Brand Pills, Highlights */}
@@ -221,6 +260,14 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
         {/* Modal Action Footer */}
         <div className="pdm-footer">
+          <div className="pdm-footer-left">
+            <span className="pdm-footer-support-text">
+              Institutional supply or custom sizes? Call{' '}
+              <a href={`tel:${CONTACT_INFO.mobiles[0].replace(/\s+/g, '')}`}>
+                {CONTACT_INFO.mobiles[0]}
+              </a>
+            </span>
+          </div>
           <div className="pdm-footer-right">
             <button
               type="button"
@@ -285,8 +332,8 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
         .pdm-dialog {
           background: #ffffff;
           border-radius: 16px;
-          width: 95vw;
-          max-width: 1220px;
+          width: 96vw;
+          max-width: 1360px;
           max-height: 92vh;
           display: flex;
           flex-direction: column;
@@ -354,10 +401,10 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
         .pdm-body {
           flex: 1;
           overflow-y: auto;
-          padding: 26px 30px;
+          padding: 28px 34px;
           display: grid;
-          grid-template-columns: minmax(460px, 540px) 1fr;
-          gap: 32px;
+          grid-template-columns: minmax(560px, 640px) 1fr;
+          gap: 36px;
           align-items: start;
         }
 
@@ -385,26 +432,101 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
         .pdm-main-img-card {
           width: 100%;
-          height: 480px;
-          min-height: 420px;
+          height: 520px;
+          min-height: 460px;
           border-radius: 14px;
           overflow: hidden;
           background: #f8fafc;
           border: 1px solid #e2e8f0;
           position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
         .pdm-main-img {
           width: 100%;
           height: 100%;
+          display: block;
+          transition: transform 0.25s ease;
+        }
+
+        .pdm-main-img--contain {
+          object-fit: contain;
+          object-position: center;
+          padding: 6px;
+        }
+
+        .pdm-main-img--cover {
           object-fit: cover;
           object-position: center;
-          display: block;
-          transition: transform 0.3s ease;
+          padding: 0;
         }
 
         .pdm-main-img-card:hover .pdm-main-img {
-          transform: scale(1.02);
+          transform: scale(1.015);
+        }
+
+        .pdm-img-fit-btn {
+          position: absolute;
+          top: 12px;
+          right: 12px;
+          z-index: 3;
+          display: inline-flex;
+          align-items: center;
+          gap: 5px;
+          background: rgba(255, 255, 255, 0.94);
+          backdrop-filter: blur(6px);
+          border: 1px solid #cbd5e1;
+          border-radius: 7px;
+          padding: 4px 9px;
+          font-size: 11.5px;
+          font-weight: 700;
+          color: #334155;
+          cursor: pointer;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+          transition: all 0.15s ease;
+        }
+
+        .pdm-img-fit-btn:hover {
+          background: #ffffff;
+          border-color: #02348d;
+          color: #02348d;
+        }
+
+        /* Procurement Trust & Assistance Strip */
+        .pdm-left-trust-strip {
+          display: flex;
+          flex-direction: column;
+          gap: 9px;
+          padding: 13px 15px;
+          background: #f8fafc;
+          border: 1px solid #e2e8f0;
+          border-radius: 12px;
+        }
+
+        .pdm-trust-item {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 13.5px;
+          color: #475569;
+          font-weight: 500;
+        }
+
+        .pdm-trust-ico {
+          color: #02348d;
+          flex-shrink: 0;
+        }
+
+        .pdm-trust-item a {
+          color: #02348d;
+          font-weight: 700;
+          text-decoration: none;
+        }
+
+        .pdm-trust-item a:hover {
+          text-decoration: underline;
         }
 
         .pdm-thumbs-row {
@@ -542,6 +664,22 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
         .pdm-footer-left:empty {
           display: none;
+        }
+
+        .pdm-footer-support-text {
+          font-size: 13.5px;
+          color: #64748b;
+          font-weight: 500;
+        }
+
+        .pdm-footer-support-text a {
+          color: #02348d;
+          font-weight: 700;
+          text-decoration: none;
+        }
+
+        .pdm-footer-support-text a:hover {
+          text-decoration: underline;
         }
 
         .pdm-btn-viewpdf {
@@ -704,15 +842,15 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
         }
 
         /* Responsive */
-        @media (min-width: 861px) and (max-width: 1100px) {
+        @media (min-width: 861px) and (max-width: 1160px) {
           .pdm-body {
-            grid-template-columns: 440px 1fr;
+            grid-template-columns: 460px 1fr;
             gap: 24px;
             padding: 22px;
           }
 
           .pdm-main-img-card {
-            height: 400px;
+            height: 420px;
           }
         }
 
